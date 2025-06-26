@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+.overlay {
+  background: url('bgimage1.jpg') no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.content {
+  background-color: #ffffffe6;
+  padding: 40px 30px;
+  border-radius: 15px;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+h1 {
+  font-size: 2.5rem;
+  color: #b71c1c;
+  margin-bottom: 15px;
+}
+p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+.contact p {
+  font-size: 0.95rem;
+  color: #555;
+}
+.social-icons {
+  margin-top: 25px;
+}
+.social-icons a {
+  color: #b71c1c;
+  margin: 0 12px;
+  font-size: 1.6rem;
+  transition: color 0.3s;
+}
+.social-icons a:hover {
+  color: #e53935;
+}
