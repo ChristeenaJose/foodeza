@@ -27,7 +27,7 @@ body, html {
 }
 .logo {
   width: 100px;
-  margin-bottom: 0px;
+  margin-bottom: -30px;
 }
 h1 {
   font-size: 2.5rem;
@@ -70,6 +70,14 @@ p {
   text-decoration: none;
   width: 250px;
   border-radius: 4px;
+  clip-path: polygon(
+    10% 50%,
+    5% 0%,
+    95% 0%,
+    90% 50%,
+    95% 100%,
+    5% 100%
+      );
 }
 
 .start-page .btn:hover {
@@ -83,4 +91,3 @@ p {
 .center-header img.logo {
   height: 100px;
 }
-
