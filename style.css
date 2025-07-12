@@ -91,3 +91,28 @@ p {
 .center-header img.logo {
   height: 100px;
 }
+.order-btn{
+  margin-top: 20px;
+  clip-path: polygon(
+    10% 50%,
+    5% 0%,
+    95% 0%,
+    90% 50%,
+    95% 100%,
+    5% 100%
+      );
+}
+.btn {
+  background: #d50000;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #a00000;
+}
