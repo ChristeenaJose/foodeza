@@ -212,7 +212,7 @@ footer {
 /* Packages Section */
 .packages {
   padding: 50px 35px;
-  background-image: url("./images/background-3.png");
+  background-image: url("../images/background-3.png");
     text-align: center;
     background-size: cover;
 }
