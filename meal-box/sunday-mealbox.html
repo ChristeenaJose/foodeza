@@ -2,173 +2,224 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foodeza – Chicken Biriyani Sunday Preorder</title>
-  <meta name="description" content="Authentic Kerala Chicken Biriyani delivered on Sundays in Stuttgart & Karlsruhe. Limited boxes – preorder now!" />
+  
+<title>Foodeza – Malabar Chicken Biriyani | Sunday Preorder in Stuttgart & Karlsruhe</title>
+<meta name="title" content="Foodeza – Authentic Kerala Chicken Biriyani | Sunday Preorder in Stuttgart & Karlsruhe">
+<meta name="description" content="Enjoy freshly cooked Kerala-style Chicken Biriyani every Sunday! Preorder online and pick up in Stuttgart or Karlsruhe. Limited boxes — reserve yours today!">
+<meta name="keywords" content="Foodeza, Kerala food Germany, Chicken Biriyani Stuttgart, Biriyani Karlsruhe, South Indian food Germany, Foodeza catering, Foodeza food truck, Indian restaurant Stuttgart, Sunday Kerala meal, Kerala catering Germany">
+<meta name="author" content="Foodeza">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --red:#E12222; /* Foodeza red */
-      --red-dark:#C01010;
-      --white:#ffffff;
-      --bg:#fff;
-      --text:#151515;
-      --muted:#6b7280;
-      --card:#eee;
-      --ring:rgba(225,34,34,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-    a{color:var(--red);text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-
-    /* ---------- BUTTONS (with shimmer) ---------- */
-    .btn{
-      position: relative;                 /* let ::before position inside */
-      display:inline-block;
-      background:var(--red);
-      color:#fff;
-      padding:14px 20px;
-      border-radius:14px;
-      font-weight:700;
-      border:2px solid var(--red);
-      transition:.2s;
-      cursor:pointer;
-      overflow:hidden;                    /* clip the shine to pill shape */
-      isolation:isolate;                  /* keep blend effects contained */
-      box-shadow:0 8px 20px rgba(225,34,34,.20);
-    }
-    .btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
-
-    .btn-outline{background:transparent;color:var(--red);border-color:var(--red)}
-
-    /* moving light highlight — only for solid buttons, not outline */
-    .btn:not(.btn-outline)::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      border-radius:inherit;
-      pointer-events:none;
-      background:linear-gradient(
-        120deg,
-        rgba(255,255,255,.35),
-        rgba(255,255,255,0) 35%,
-        rgba(255,255,255,.35) 70%,
-        rgba(255,255,255,0)
-      );
-      background-size:200% 100%;
-      opacity:.22;
-      mix-blend-mode:screen;
-      animation:shimmer 2.2s linear infinite;
-      will-change:background-position;
-    }
-    @keyframes shimmer{
-      0% { background-position:200% 0; }
-      100% { background-position:-200% 0; }
-    }
-    /* ---------- /BUTTONS ---------- */
-
-    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee;z-index:50; box-shadow: 0px 0px 15px 7px #0000005c;}
-    header .inner{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:14px 24px}
-    .logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.4px}
-    .logo-mark{width:36px;height:36px;border-radius:10px;background:var(--red);display:grid;place-items:center;color:#fff;font-weight:900}
-    nav a{margin:0 10px;color:#000;font-weight:600}
-    .hero{padding:56px 24px 30px;background: var(--red)}
-    .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
-    .hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.1;margin:0 0 25px; color: #fff;}
-    .hero p{margin:0 0 24px;color:#ffffff}
-    .badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:4px dotted var(--red);color:var(--red);padding:6px 10px;border-radius:999px;font-weight:700; margin-bottom: 20px;}
-    .card{background:var(--card);border:1px solid #eee;border-radius:10px;padding:18px} .mid-card-section .card{padding: 25px 20px;}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .center{text-align:center}
-    .muted{color:var(--muted)}
-    .price{font-weight:800;font-size:24px}
-    .schedule .item{background:#fff;border:1px solid #ccc;border-radius:16px;padding:20px 15px;display:flex;flex-direction:column;gap:6px; box-shadow: 0px 0px 15px 7px #00000026;}
-    .schedule .date{font-weight:800}
-    .schedule .city{font-weight:700;color:#111; padding-bottom:5px;}
-    .pill{display:inline-block;padding:4px 0px;color:var(--red);font-size:18px; font-weight:700}
-    .how{background:#fff;padding:24px;border:1px solid #eee;border-radius:18px}
-    form{background:#fff;border:1px solid #eee;border-radius:20px;padding:20px;display:grid;gap:14px}
-    label{font-weight:700;font-size:14px}
-    input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #e5e7eb;background:#fff}
-    input:focus,select:focus,textarea:focus{outline:none;box-shadow:0 0 0 4px var(--ring);border-color:var(--red)}
-    .inline{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    footer{padding:0px 24px;background:#111;color:#eee}
-    .notice{background:#f5f2bbab;border:1px solid #ffe100;padding:12px;border-radius:12px; margin-bottom: 0px;}
-    img.hero-img{width:100%;border-radius:22px;border:6px solid #fff;box-shadow:0 10px 30px rgba(0,0,0,.1)}
-    @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr}.grid-2{grid-template-columns:1fr}.inline{grid-template-columns:1fr}}
-    .logo img{width: 80px;} .btn-row .btn{
-      border: 2px solid var(--red);border-radius: 30px; width: fit-content; background-color: #fff; color: var(--red); transition: all 0.3s ease; 
-    } .btn-row{display: flex; align-items: center; column-gap: 10px; margin-top: 30px;} .btn-row .btn:hover{background-color: var(--red); border: 2px solid #fff; color: #fff;} .mid-card-section{background-color: var(--bg); padding-bottom: 30px;} .card h2{ color: var(--red); font-size: 26px;} .card p{color: #000;} .card ul{padding: 0px; padding-left: 20px;} .text-red{color: var(--red);} .location-time{background-image: url("./images/location-background.png"); background-repeat: repeat; background-size: contain; padding: 30px 0px;} .h2-title{ color: var(--red); font-size: 28px; font-weight: 600; margin-bottom: 10px;} .text-black{color: #000;} .location-time .text-black{ padding-bottom: 30px;} .item .muted{color: #666666;} .item .btn{width: fit-content; padding: 7px 15px;
-    border-radius: 5px; margin-top: 15px;} .delivery-details{min-height: 72px;} .notice-text{color: #000; margin-top: 25px;}.background-red{background-color: var(--bg);} .detail-section{padding: 40px 0px 0px;} .image-list{display: flex; align-items: center; justify-content: space-between; column-gap: 20px; } .detail-section .card{background-color: #fff; padding: 25px;} .image-list ul li{padding-bottom: 10px;} .image-list ul{margin-top: 0px;} .contact-section .card{ border: 3px dotted var(--red);} .footer-card-title{ font-size: 18px; font-weight: 600; margin: 10px 0px; display: flex; align-items: center; justify-content: center; column-gap: 10px;}
-     @media (max-width:992px){
-      .image-list{ flex-wrap: wrap; row-gap: 20px;} .image-list img{ width: 100%;}
-     }
-
-  </style>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
+  <script src="../js/script.js" ></script>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  
 </head>
 <body>
-  <header>
-    <div class="inner container">
-      <div class="logo"><img src="./images/logo-red.png" alt="" /></div>
-      <nav>
-        <a href="#menu">Menu</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#order">Order</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-  <section class="full-bleed">
-    <img src="1.png" alt="Foodeza Weekly Special Menu" />
-  </section>
-  <section class="hero">
-    <div class="container wrap">
-      <div>
-        <span class="badge">Sunday Delivery · Preorder & Pickup Only</span>
-        <h1>Miss Kerala food? <br> Here’s the solution — we deliver fresh Kerala food on Sundays near you.</h1>
-        <p>Limited meal boxes every Sunday in <strong>Stuttgart</strong> & <strong>Karlsruhe</strong>. Best for small get-togethers, parties, and friend meetups — enjoy a free Sunday without cooking stress.</p>
-        <p class="muted" style="margin:6px 0 0"><strong>October Menu:</strong> Malabar Chicken Biriyani – €14 · <strong>Add-ons:</strong> Angamaly Style Pany Fry (€30/kg), Chicken 65 (€25). We update the menu every month based on customer suggestions.</p>
-        <div class="btn-row">
-          <a class="btn" href="#order">Preorder for Sunday</a>
-          <a class="btn btn-outline" href="#schedule">See Schedule</a>
+  
+
+<div class="header-top">
+    <div class="container">
+      <div class="row">
+       <div class="col-6 header-top-left d-flex align-items-center clg-15 socialMedia-row">
+        <div class="socialMedia-icons"><a href="mailto:foodezacuisine@gmail.com" target="_blank" title="Mail"><img src="../images/mail.svg" alt="Email"/></a></div>
+        <div class="socialMedia-icons"><a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU" target="_blank" title="whatsapp"><img src="../images/whatsapp.svg" alt="whatsapp"/></a></div>
+          <div class="socialMedia-icons"><a href="https://www.instagram.com/foodeza.de/" target="_blank" title="Instagram"><img src="../images/instagram.svg" alt="Instagram"/></a></div>
+          <div class="socialMedia-icons"><a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" title="Facebook"><img src="../images/facebook.svg" alt="facebook"/></a></div>
+          <div class="socialMedia-icons"><a href="https://www.youtube.com/@Foodeza_de" target="_blank" title="Youtube"><img src="../images/youtube.svg" alt="Youtube"/></a></div>
+          <div class="socialMedia-icons google-rating"><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" title="Google"><img src="../images/google.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/></a></div>
+          
+        </div>
+        <div class="col-6 header-top-right d-flex align-items-center clg-15 socialMedia-row">
+          <div class="socialMedia-icons">
+            <a href="tel:+49 176 658 15015" target="_blank" title="+49 176 658 15015"><img src="../images/phone.svg" alt="+49 176 658 15015"/> +49 176 658 15015 ,</a>
+          </div>
+          <div class="socialMedia-icons"><a href="tel:+49 152 372 21698" target="_blank" title="+49 152 372 21698">+49 152 372 21698</a></div>
         </div>
       </div>
-      <div>
-        <img class="hero-img" src="./images/biriyani-sunday.png" alt="Kerala Chicken Biriyani" />
+    </div>
+  </div>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-menu">
+
+            <div class="menu-left">
+              <ul class="menu-list">
+                <li class="menu-subList">
+                  <a href="" title="Catering">Catering</a>
+                  <ul>
+                    <li><a href="#" title="Company Party">Company Party</a></li>
+                    <li><a href="#" title="Wedding">Wedding</a></li>
+                    <li><a href="#" title="Birthday Party">Birthday Party</a></li>
+                    <li><a href="#" title="Christmas Party">Christmas Party</a></li>
+                    <li><a href="../onamsadya/" title="Onam Sadhya">Onam Sadhya</a></li>
+                    <li><a href="#" title="Summer Festivals">Summer Festivals</a></li>
+                  </ul>
+                </li>
+                <li><a href="../foodtruck/" title="Food Truck">Food Truck</a></li>
+                <li><a href="https://forms.gle/WUXsHAtCvPYJKbg8A" target="_blank" title="Request catering">Request Catering</a></li>
+              </ul>
+            </div>
+            <div class="menu-center">
+              <a href="../index.html" title="Foodeza"><img class="main-logo" src="../images/foodeza_main_logo.png" alt="Foodeza"/></a>
+            </div>
+            <div class="menu-right">
+              <ul class="menu-list">
+                <li><a href="" title="Crew">Crew</a></li>
+                <li><a href="" title="Gallery">Gallery</a></li>
+                <li class="main-btn">
+                  <a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now" class="btn btn-2 hover-slide-down">
+                    <span>Enquire now</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
+
+   <div class="header-mob">
+    <div class="container">
+      <div class="row">
+       
+        <div class="col-12">
+          <div class="header-menu">
+
+            <div class="menu-left">
+              <ul class="menu-list">
+                <li class="main-btn">
+                  <a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now" class="btn btn-2 hover-slide-down">
+                    <span class="md-none">Enquire now</span>
+                    <span class="lg-none xs-block"><img src="../images/partner.svg" alt="Enquire now" /></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="menu-center">
+              <a href="../index.html" title="Foodeza"><img class="main-logo" src="../images/foodeza_main_logo.png" alt="Foodeza"></a>
+            </div>
+            <div class="menu-right">
+              <div class="mob-menu">
+                <!-- Hidden Checkbox to Control Menu -->
+                <input type="checkbox" id="burger-toggle">
+                <!-- Burger Icon -->
+                <label for="burger-toggle" class="burger-container">
+                  <div class="burger-line"></div>
+                  <div class="burger-line"></div>
+                  <div class="burger-line"></div>
+                </label>
+                <!-- Navigation Menu -->
+                <nav class="nav-menu">
+                  <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="sub-menu-dropdown">
+                      <!-- Normal link to section -->
+                      <div class="mob-dropdown-menu">
+                        <a href="#catering">Catering</a>
+                      
+                      <!-- Dropdown arrow (separate button) -->
+                      <button class="dropdown-toggle" aria-label="Open Catering submenu"></button>
+                      </div>
+                      
+                      <!-- Dropdown submenu -->
+                      <ul class="subdropdown-menu">
+                        <li><a href="#company-party">Company Party</a></li>
+                        <li><a href="#wedding">Wedding</a></li>
+                        <li><a href="#birthdayparty">Birthday Party</a></li>
+                        <li><a href="#christmas-party">Christmas Party</a></li>
+                        <li><a href="../onamsadya/">Onam Sadhya</a></li>
+                        <li><a href="#summer-festivals">Summer Festivals</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="../foodtruck/">Food Truck</a></li>
+                    <li><a href="https://forms.gle/WUXsHAtCvPYJKbg8A" target="_blank">Request Catering</a></li>
+                    <li><a href="#crew">Crew</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li class="mob-phone-row">
+                      <div class="socialMedia-icons">
+                        <a href="tel:+49 176 658 15015" target="_blank" title="+49 176 658 15015"  class="pr-0"><img src="../images/phone.svg" alt="+49 176 658 15015"> +49 176 658 15015 ,</a>
+                      </div>
+                      <div class="socialMedia-icons"><a href="tel:+49 152 372 21698" target="_blank" title="+49 152 372 21698" class="pl-0 xs-pt-0">+49 152 372 21698</a></div>
+                    </li>
+                    <li class="mob-socila-icons">
+                      <ul>
+                        <li><a href="mailto:foodezacuisine@gmail.com" target="_blank" title="Mail"><img src="../images/mail.svg" alt="Email"/></a></li>
+                        <li><a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU" target="_blank" title="whatsapp"><img src="../images/whatsapp.svg" alt="whatsapp"/></a></li>
+                        <li><a href="https://www.instagram.com/foodeza.de/" target="_blank" title="Instagram"><img src="../images/instagram.svg" alt="Instagram"/></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" title="Facebook"><img src="../images/facebook.svg" alt="facebook"/></a></li>
+                        <li><a href="https://www.youtube.com/@Foodeza_de" target="_blank" title="Youtube"><img src="../images/youtube.svg" alt="Youtube"/></a></li>
+                        <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="mob-rating"><div class=" google-rating"><img src="../images/google.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/></div></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--meal-box start-->
+  <div class="meal-banner">
+	<img class="desktop-mealbanner" src="./images/meal-banner.webp" alt="Foodeza"/>
+  <img class="mob-mealbanner" src="./images/mob-meal-banner.jpeg" alt="Foodeza"/>
+    <div class="container wrap ">
+		<div class="meal-content">
+			<div class="meal-banner-btn">Sunday Delivery . Preorder & Pickup Only</div>
+			<h1>Miss Kerala Food?</h1>
+			<div class="meal-wrap-sub-title">Here's the solution - we deliver fresh Kerala Food on Sundays near you.</div>
+		</div>
+		<div class="meal-banner-ftr">
+			<div class="banner-order-btn"><button onclick="document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' });">order now</button></div>
+			<div class="banner-footer-text">Limited meal boxes every Sunday in Stuttgart & Karlsruhe. <br/> Best for small get-togethers, parties, and friend meetups — enjoy a free Sunday without cooking stress.</div>
+		</div>
+    </div>
+</div>
 
   <section id="menu" class="mid-card-section">
     <div class="container">
       <div class="grid grid-2">
         <div class="card">
-          <h2 style="margin-top:0">October Menu</h2>
-          <p class="muted">Cooked fresh Kerala-style. Preorder & pickup options available.</p>
+          <h2 style="margin-top:0">November Menu</h2>
+          <p class="muted card-paragraph">Cooked fresh Kerala-style. Preorder & pickup options available.
+          </p>
           <ul>
-            <li><strong>Malabar Chicken Biriyani Box</strong> — raitha, lemon pickle, egg, sweet</li>
+            <li><div class="bullet-content"><strong>Malabar Chicken Biriyani Box</strong> — €14</div>
+              <div>— served with yogurt salad, lemon pickle.</div></li>
           </ul>
           <div>
-          <img class="hero-img" src="./images/biriyani-sunday.png" alt="Kerala Chicken Biriyani" />
+          <img class="hero-img" src="../images/biriyani-sunday.png" alt="Kerala Chicken Biriyani" />
+          <p class="notice">We update the menu every month based on customer suggestions. <br/>
+          * Allergens may include dairy &amp; nuts. Ask for details.</p>
         </div>
-          <p class="price">€14 <span class="muted text-red" style="font-weight:600">per box</span></p>
-          <p class="notice">Allergens may include dairy & egg. Ask for details.</p>
+          
         </div>
         <div class="card">
-          <h2 style="margin-top:0">💥 Touchings Specials (Add-ons)</h2>
+          <h2 style="margin-top:0">Specials (Add-ons)</h2>
+          <p class="muted card-paragraph">
+          Add some extra touches to make your meal even better.          
+          </p>
           <ul>
-            <li><strong>Angamaly Style Pig Fry</strong> — <strong>€30 / kg</strong></li>
-            <li><strong>Chicken 65</strong> — <strong>€25</strong></li>
+            <li><div class="bullet-content"><strong>Angamaly Style Pany Fry</strong> — €40 / kg</div></li>
+            <li><div class="bullet-content"><strong>Chicken 65</strong> — €35 / kg</div></li>
           </ul>
+          
           <div>
-          <img class="hero-img" src="./images/add_on.png" alt="Kerala Chicken Biriyani" />
+          <img class="hero-img" src="../images/add_on.png" alt="Kerala Chicken Biriyani" />
         </div>
-          <p class="muted" style="margin-top:8px">Add-ons are optional sides (“touchings”) to go with your biriyani.</p>
         </div>
       </div>
     </div>
@@ -176,36 +227,45 @@
 
   <section id="schedule" class="location-time" >
     <div class="container">
-      <h2 class="center h2-title">October 2025 Sunday Schedule</h2>
+      <h2 class="center h2-title">November 2025 Sunday Schedule</h2>
       <p class="center muted text-black">We rotate cities weekly. Delivery window and pickup point are listed per date.</p>
-      <div class="grid grid-3 schedule">
-        <div class="item" data-date="2025-10-12" data-city="Stuttgart" data-window="11:00–13:00" data-pickup="11:00 – Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart | 12:00 – E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar | 13:00 – Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart" data-cutoff="2025-10-09 23:00">
-          <span class="pill">Sun, 12 Oct</span>
+      <div class="grid grid-2 schedule">
+        <div class="item" data-date="2025-11-23" data-city="Stuttgart" data-window="11:00–13:00" data-pickup="11:00 – Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart | 12:00 – E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar | 13:00 – Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart" data-cutoff="2025-11-20 23:00">
+          <span class="pill">Sun, 23 Nov</span>
           <span class="city">Stuttgart</span>
           <span class="muted">Delivery window: <strong class="date">11:00–13:00</strong></span>
-          <span class="muted delivery-details">Pickup points: 11:00 – Bosch Parkhaus; 12:00 – E center Esslingen; 13:00 – Uni Vaihingen</span>
+          <span class="muted delivery-details">Pickup points: 
+            <br/>11:00 – Bosch Parkhaus.
+            <br/>12:00 – E center Esslingen.
+            <br/>13:00 – Uni Vaihingen.</span>
           <a class="btn" href="#order" >Preorder</a>
         </div>
-        <div class="item" data-date="2025-10-19" data-city="Karlsruhe" data-window="11:00–13:00" data-pickup="11:30 – Kaufland Pforzheim-Oststadt, Hohwiesenweg 2-2a, 75175 Pforzheim | 12:30 – XXXLutz Mann Mobilia Karlsruhe, Durlacher Allee 109, 76137 Karlsruhe" data-cutoff="2025-10-16 23:00">
-          <span class="pill">Sun, 19 Oct</span>
+        <div class="item" data-date="2025-11-30" data-city="Karlsruhe" data-window="11:00–13:00" data-pickup="11:30 – Kaufland Pforzheim-Oststadt, Hohwiesenweg 2-2a, 75175 Pforzheim | 12:30 – XXXLutz Mann Mobilia Karlsruhe, Durlacher Allee 109, 76137 Karlsruhe" data-cutoff="2025-11-27 23:00">
+          <span class="pill">Sun, 30 Nov</span>
           <span class="city">Karlsruhe</span>
           <span class="muted">Delivery window: <strong>11:00–13:00</strong></span>
-          <span class="muted delivery-details">Pickup points: 11:30 – Kaufland Pforzheim-Oststadt; 12:30 – XXXLutz Karlsruhe</span>
+          <span class="muted delivery-details">Pickup points: 
+            <br/>11:30 – Kaufland Pforzheim-Oststadt. 
+            <br/>12:30 – XXXLutz Karlsruhe.</span>
           <a class="btn" href="#order" >Preorder</a>
         </div>
-        <div class="item" data-date="2025-10-26" data-city="Stuttgart" data-window="11:00–13:00" data-pickup="11:00 – Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart | 12:00 – E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar | 13:00 – Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart" data-cutoff="2025-10-23 23:00">
-          <span class="pill">Sun, 26 Oct</span>
+        <!--<div class="item" data-date="2025-10-26" data-city="Stuttgart" data-window="11:00–13:00" data-pickup="11:00 – Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart | 12:00 – E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar | 13:00 – Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart" data-cutoff="2025-10-23 23:00">
+          <span class="pill">Sun, 7 Dec</span>
           <span class="city">Stuttgart</span>
           <span class="muted">Delivery window: <strong>11:00–13:00</strong></span>
-          <span class="muted delivery-details">Pickup points: 11:00 – Bosch Parkhaus; 12:00 – E center Esslingen; 13:00 – Uni Vaihingen</span>
+          <span class="muted delivery-details">Pickup points: 
+            <br/>11:00 – Bosch Parkhaus.
+            <br/>12:00 – E center Esslingen.
+            <br/>13:00 – Uni Vaihingen.</span>
           <a class="btn" href="#order">Preorder</a>
-        </div>
+        </div>-->
       </div>
-      <p class="muted notice-text" >Note: Exact delivery time is shared by SMS on Saturday evening based on your address cluster.</p>
+      <!--<p class="muted notice-text" >Note: Exact delivery time is shared by SMS on Saturday evening based on your address cluster.</p>-->
+    <p class="muted notice-text" ><strong>Order cut-off</strong>: Thursday 23:00 before each Sunday.</p>
     </div>
   </section>
 
-  <section id="order" class="detail-section background-red">
+  <section id="order" class="detail-section ">
     <div class="container">
     <div class="detail-box">
       <div class="card">
@@ -213,123 +273,113 @@
         <div class="image-list">
           <ul>
           <li><strong>Delivery window:</strong> 11:00–13:00 (we batch nearby addresses).</li>
-          <li><strong>Pickup – Karlsruhe day (Oct 19):</strong><br>11:30 – Kaufland Pforzheim-Oststadt, Hohwiesenweg 2-2a, 75175 Pforzheim<br>12:30 – XXXLutz Mann Mobilia Karlsruhe, Durlacher Allee 109, 76137 Karlsruhe</li>
-          <li><strong>Pickup – Stuttgart days (Oct 12 & 26):</strong><br>11:00 – Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart<br>12:00 – E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar<br>13:00 – Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart</li>
+          <li><strong>Pickup – Stuttgart days (Nov 23):</strong><br>11:00 – Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart<br>12:00 – E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar<br>13:00 – Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart</li>
+          <li><strong>Pickup – Karlsruhe day (Nov 30):</strong><br>11:30 – Kaufland Pforzheim-Oststadt, Hohwiesenweg 2-2a, 75175 Pforzheim<br>12:30 – XXXLutz Mann Mobilia Karlsruhe, Durlacher Allee 109, 76137 Karlsruhe</li>
           <li><strong>Order cut-off:</strong> Thursday 23:00 before each Sunday.</li>
-          <li><strong>Allergens:</strong> Dairy & egg. Ask for details if needed.</li>
+          <li><strong>Allergens:</strong> Dairy & nuts. Ask for details if needed.</li>
           </ul>
-          <img src="./images/truck-cartoon.jpeg" alt="Foodeza"/>
+          <img src="../images/truck-cartoon.jpeg" alt="Foodeza"/>
         </div>
         <p class="notice">After you submit, you will receive a confirmation with your expected delivery time on Saturday evening.</p>
       </div>
     </div>
   </div>
   </section>
+  <!--meal-box end-->
 
-  <section id="contact" class="contact-section background-red">
-    <div class="container">
-      <div class="grid grid-3">
-      <div class="card center">
-        <h4 class="footer-card-title">
-          <img src="./images/whatsapp-icon.svg" alt="WhatsApp"/>WhatsApp</h4>
-        <p class="muted" style="margin:0">+49 000 0000000</p>
+ <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12 footer-logo-row">
+        <div class="footer-logo">
+          <a href="../index.html" title="Foodeza"><img  src="../images/footer-logo.png" alt="Foodeza" /></a>
+        </div>
       </div>
-      <div class="card center">
-        <h4 class="footer-card-title">
-          <img src="./images/email-icon.svg" alt="Email"/>Email</h4>
-        <p class="muted" style="margin:0">order@foodeza.de</p>
+      <div class="col-lg-4 col-sm-12">
+        <div class="footer-list">
+          <div class="footer-menu-details">
+          <div class="footer-title"></div>
+          <div class="footer-contact pb-25">
+              <ul>
+                <li class="footer-submenu">
+                  <div class="submenu-title"><a href="" title="Catering">Catering </a>
+                  <img src="../images/arrow-down.svg" alt="Catering" class="toggle-arrow"/></div>
+                  <ul class="submenu">
+                    <li><a href="" title="Company Party">Company Party</a></li>
+                    <li><a href="" title="Wedding">Wedding</a></li>
+                    <li><a href="" title="Birthday Party">Birthday Party</a></li>
+                    <li><a href="" title="Christmas Party">Christmas Party</a></li>
+                    <li><a href="../onamsadya/" title="Onam Sadhya">Onam Sadhya</a></li>
+                    <li><a href="" title="Summer Festivals">Summer Festivals</a></li>
+                  </ul>
+                </li>
+                <li><a href="../foodtruck/" title="Food Truck">Food Truck</a></li>
+                <li><a href="https://forms.gle/WUXsHAtCvPYJKbg8A" target="_blank" title="Request Catering">Request Catering</a></li>
+                <li><a href="#" title="Crew">Crew</a></li>
+                <li><a href="#" title="Gallery">Gallery</a></li>
+                <li><a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now">Enquire now</a></li>
+                <li><a href="#" title="Cookies">Cookies</a></li>
+                <li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
+              </ul>
+          </div>
+        </div>
+        </div>
       </div>
-      <div class="card center">
-        <h4 class="footer-card-title"><img src="./images/instagram-icon.svg" alt="Instagram"/>Instagram</h4>
-        <p class="muted" style="margin:0">@foodeza_food</p>
-      </div>
+      <div class="col-lg-4 col-sm-12">
+        <div class="contact-details">
+          <div class="footer-title">Contact Details</div>
+          <div class="footer-contact pb-25">
+              <ul>
+                <li><div style="margin-bottom: 7px;">Always Feel Free to contact Us</div></li>
+                <li><a href="tel:+49 176 658 15015"><img src="../images/footer-phone.svg" alt="phone" /> +49 176 658 15015</a></li>
+                <li><a href="tel:+49 152 372 21698"><img src="../images/footer-phone.svg" alt="phone" /> +49 152 372 21698</a></li>
+                <li><a href="mailto:foodezacuisine@gmail.com"> <img src="../images/footer-mail.svg" alt="phone" /> foodezacuisine@gmail.com</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="footer-social-media">
+          <div class="footer-title">Follow Us On</div>
+          <div class="follow-icons">
+            <div><a href="https://www.instagram.com/foodeza.de/" target="_blank" title="instagram"><img src="../images/footer-instagram.svg" alt="Instagram" /></a></div>
+            <div><a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" title="facebook"><img src="../images/footer-facebook.svg" alt="Facebook" /></a></div>
+            <div><a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU" target="_blank" title="whatsapp"><img src="../images/footer-whatsapp.svg" alt="whatsapp" /></a></div>
+            <div><a href="https://www.youtube.com/@Foodeza_de" target="_blank" title="youtube"><img src="../images/footer-youtube.svg" alt="youtube" /></a></div>
+             <div class="google-rating"><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" title="Google" class="rating-tag"><img src="../images/google-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/></a></div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
-      <div>© 2025 Foodeza</div>
-      <div><a href="#" style="color:#fff">Impressum</a> · <a href="#" style="color:#fff">Datenschutz</a></div>
-    </div>
-  </footer>
+  </div>
+  <div class="copyright-content">© 2025 Foodeza. All rights reserved.</div>
+</footer>
 
   <script>
-    // Map schedule items for autofill
-    const schedule = {
-      "2025-10-12": { city:"Stuttgart", window:"11:00–13:00", pickups:[
-        {time:"11:00", label:"Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart"},
-        {time:"12:00", label:"E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar"},
-        {time:"13:00", label:"Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart"}
-      ]},
-      "2025-10-19": { city:"Karlsruhe", window:"11:00–13:00", pickups:[
-        {time:"11:30", label:"Kaufland Pforzheim-Oststadt, Hohwiesenweg 2-2a, 75175 Pforzheim"},
-        {time:"12:30", label:"XXXLutz Mann Mobilia Karlsruhe, Durlacher Allee 109, 76137 Karlsruhe"}
-      ]},
-      "2025-10-26": { city:"Stuttgart", window:"11:00–13:00", pickups:[
-        {time:"11:00", label:"Robert Bosch Parkhaus Mitarbeiter, Kruppstraße 2C, 70469 Stuttgart"},
-        {time:"12:00", label:"E center Esslingen-Weil, Weilstraße 227/E center, 73733 Esslingen am Neckar"},
-        {time:"13:00", label:"Universität Stuttgart Campus Vaihingen, Pfaffenwaldring, 70569 Stuttgart"}
-      ]}
-    };
+document.addEventListener("DOMContentLoaded", function() {
+  const items = document.querySelectorAll(".schedule .item");
 
-    const dateSel = document.getElementById('date');
-    const cityEl = document.getElementById('city');
-    const winEl = document.getElementById('window');
-    const pickEl = document.getElementById('pickup');
-    const pickWrap = document.getElementById('pickupWrap');
-    const pickTimeEl = document.getElementById('pickupTime');
-    const fulfillmentSel = document.getElementById('fulfillment');
+  items.forEach(item => {
+    const cutoffString = item.dataset.cutoff; // e.g. "2025-11-20 23:00"
+    const cutoffDate = new Date(cutoffString.replace(" ", "T")); // Convert to valid date
+    const now = new Date();
 
-    function populatePickups(info){
-      pickEl.innerHTML = '<option value="" disabled selected>Select a pickup…</option>';
-      if (!info || !info.pickups) return;
-      info.pickups.forEach((p, idx)=>{
-        const opt = document.createElement('option');
-        opt.value = p.label;
-        opt.textContent = `${p.time} – ${p.label}`;
-        opt.dataset.time = p.time;
-        pickEl.appendChild(opt);
-      });
+    const preorderBtn = item.querySelector(".btn");
+
+    if (now > cutoffDate) {
+      // Hide button and show "Closed" notice
+      preorderBtn.style.display = "none";
+
+      const closedMsg = document.createElement("div");
+      closedMsg.classList.add("closed-msg");
+      closedMsg.textContent = "Preorder closed";
+      closedMsg.style.color = "#b22222";
+      closedMsg.style.fontWeight = "600";
+      closedMsg.style.marginTop = "8px";
+      item.appendChild(closedMsg);
     }
+  });
+});
+</script>
 
-    if (dateSel) {
-      dateSel.addEventListener('change', e => {
-        const v = e.target.value; const info = schedule[v];
-        if (info){
-          if (cityEl) cityEl.value = info.city; 
-          if (winEl) winEl.value = info.window; 
-          populatePickups(info);
-          pickTimeEl.value=''; pickEl.selectedIndex=0;
-        }
-      });
-    }
 
-    fulfillmentSel.addEventListener('change', e => {
-      pickWrap.style.display = e.target.value === 'pickup' ? 'grid' : 'none';
-    });
-
-    pickEl.addEventListener('change', e => {
-      const t = e.target.options[e.target.selectedIndex].dataset.time || '';
-      pickTimeEl.value = t;
-    });
-
-    // Fake submit handler (replace with backend/email later)
-    document.getElementById('preorderForm').addEventListener('submit', function(ev){
-      ev.preventDefault();
-      const form = new FormData(ev.target);
-      const obj = Object.fromEntries(form.entries());
-      const humanDate = dateSel?.options[dateSel.selectedIndex]?.text || 'selected Sunday';
-      let summary = `${obj.qty || 1}x box on ${humanDate}`;
-      if (obj.fulfillment === 'pickup' && obj.pickup){ summary += ` • Pickup: ${obj.pickup} (${obj.pickupTime})`; }
-      if (obj.fulfillment === 'delivery' && obj.address){ summary += ` • Delivery to: ${obj.address}`; }
-      const msg = `Thanks, ${obj.name || 'friend'}! Your preorder for ${summary} is received. We'll confirm on WhatsApp soon.`;
-      document.getElementById('formMsg').textContent = msg;
-      ev.target.reset();
-      if (cityEl) cityEl.value = '';
-      if (winEl) winEl.value = '';
-      pickEl.value = '';
-    });
-  </script>
 </body>
 </html>
