@@ -4,319 +4,733 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Foodeza Christmas Lunch</title>
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
   <link rel="stylesheet" href="style-landingpage.css" />
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="icon" href="../images/favicon.png" type="image/png">
+   <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.5.3.7.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
 </head>
-<body>
-<header>
-  <div>
-
+<body class="xmas-page">
+    <!--header start-->
+  <div class="header-top">
+    <div class="container">
+      <div class="row">
+       <div class="col-6 header-top-left d-flex align-items-center clg-15 socialMedia-row">
+        <div class="socialMedia-icons"><a href="mailto:foodezacuisine@gmail.com" target="_blank" title="Mail"><img src="../images/mail.svg" alt="Email"/></a></div>
+        <div class="socialMedia-icons"><a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU" target="_blank" title="whatsapp"><img src="../images/whatsapp.svg" alt="whatsapp"/></a></div>
+          <div class="socialMedia-icons"><a href="https://www.instagram.com/foodeza.de/" target="_blank" title="Instagram"><img src="../images/instagram.svg" alt="Instagram"/></a></div>
+          <div class="socialMedia-icons"><a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" title="Facebook"><img src="../images/facebook.svg" alt="facebook"/></a></div>
+          <div class="socialMedia-icons"><a href="https://www.youtube.com/@Foodeza_de" target="_blank" title="Youtube"><img src="../images/youtube.svg" alt="Youtube"/></a></div>
+          <div class="socialMedia-icons google-rating"><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" title="Google"><img src="../images/google.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/></a></div>
+          
+        </div>
+        <div class="col-6 header-top-right d-flex align-items-center clg-15 socialMedia-row">
+          <div class="socialMedia-icons">
+            <a href="tel:+49 176 658 15015" target="_blank" title="+49 176 658 15015"><img src="../images/phone.svg" alt="+49 176 658 15015"/> +49 176 658 15015 ,</a>
+          </div>
+          <div class="socialMedia-icons"><a href="tel:+49 152 372 21698" target="_blank" title="+49 152 372 21698">+49 152 372 21698</a></div>
+        </div>
+      </div>
+    </div>
   </div>
-</header>
+  <header class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-menu">
 
-  <!--<div class="onam-notice">
-    Our Onam Sadya service is closed for this year. our Sadya slots are now fully booked! We look forward to celebrating with you next Onam!
-  </div>-->
+            <div class="menu-left">
+              <ul class="menu-list">
+                <li class="menu-subList">
+                  <a href="" title="Catering">Catering</a>
+                  <ul>
+                    <li><a href="#" title="Company Party">Company Party</a></li>
+                    <li><a href="#" title="Wedding">Wedding</a></li>
+                    <li><a href="#" title="Birthday Party">Birthday Party</a></li>
+                    <li><a href="#" title="Christmas Party">Christmas Party</a></li>
+                    <li><a href="onamsadya" title="Onam Sadhya">Onam Sadhya</a></li>
+                    <li><a href="#" title="Summer Festivals">Summer Festivals</a></li>
+                  </ul>
+                </li>
+                <li><a href="foodtruck" title="Food Truck">Food Truck</a></li>
+                <li><a href="meal-box" target="_blank" title="Sunday Meal Box">Sunday Meal Box</a></li>
+              </ul>
+            </div>
+            <div class="menu-center">
+              <a href="" title="Foodeza"><img class="main-logo" src="../images/foodeza_main_logo.png" alt="Foodeza"/></a>
+            </div>
+            <div class="menu-right">
+              <ul class="menu-list">
+                <li><a href="" title="Crew">Crew</a></li>
+                <li><a href="" title="Gallery">Gallery</a></li>
+                <li class="main-btn">
+                  <a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now" class="btn btn-2 hover-slide-down">
+                    <span>Enquire now</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<section class="banner">
+   <div class="header-mob">
+    <div class="container">
+      <div class="row">
+       
+        <div class="col-12">
+          <div class="header-menu">
+
+            <div class="menu-left">
+              <ul class="menu-list">
+                <li class="main-btn">
+                  <a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now" class="btn btn-2 hover-slide-down">
+                    <span class="md-none">Enquire now</span>
+                    <span class="lg-none xs-block"><img src="../images/partner.svg" alt="Enquire now" /></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="menu-center">
+              <a href="" title="Foodeza"><img class="main-logo" src="../images/foodeza_main_logo.png" alt="Foodeza"></a>
+            </div>
+            <div class="menu-right">
+              <div class="mob-menu">
+                <!-- Hidden Checkbox to Control Menu -->
+                <input type="checkbox" id="burger-toggle">
+                <!-- Burger Icon -->
+                <label for="burger-toggle" class="burger-container">
+                  <div class="burger-line"></div>
+                  <div class="burger-line"></div>
+                  <div class="burger-line"></div>
+                </label>
+                <!-- Navigation Menu -->
+                <nav class="nav-menu">
+                  <ul>
+                    <li><a href="#index.html">Home</a></li>
+                    <li class="sub-menu-dropdown">
+                      <!-- Normal link to section -->
+                      <div class="mob-dropdown-menu">
+                        <a href="#catering">Catering</a>
+                      
+                      <!-- Dropdown arrow (separate button) -->
+                      <button class="dropdown-toggle" aria-label="Open Catering submenu"></button>
+                      </div>
+                      
+                      <!-- Dropdown submenu -->
+                      <ul class="subdropdown-menu">
+                        <li><a href="#company-party">Company Party</a></li>
+                        <li><a href="#wedding">Wedding</a></li>
+                        <li><a href="#birthdayparty">Birthday Party</a></li>
+                        <li><a href="#christmas-party">Christmas Party</a></li>
+                        <li><a href="onamsadya">Onam Sadhya</a></li>
+                        <li><a href="#summer-festivals">Summer Festivals</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="foodtruck">Food Truck</a></li>
+                    <li><a href="meal-box" target="_blank">Sunday Meal Box</a></li>
+                    <li><a href="#crew">Crew</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li class="mob-phone-row">
+                      <div class="socialMedia-icons">
+                        <a href="tel:+49 176 658 15015" target="_blank" title="+49 176 658 15015"  class="pr-0"><img src="../images/phone.svg" alt="+49 176 658 15015"> +49 176 658 15015 ,</a>
+                      </div>
+                      <div class="socialMedia-icons"><a href="tel:+49 152 372 21698" target="_blank" title="+49 152 372 21698" class="pl-0 xs-pt-0">+49 152 372 21698</a></div>
+                    </li>
+                    <li class="mob-socila-icons">
+                      <ul>
+                        <li><a href="mailto:foodezacuisine@gmail.com" target="_blank" title="Mail"><img src="../images/mail.svg" alt="Email"/></a></li>
+                        <li><a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU" target="_blank" title="whatsapp"><img src="../images/whatsapp.svg" alt="whatsapp"/></a></li>
+                        <li><a href="https://www.instagram.com/foodeza.de/" target="_blank" title="Instagram"><img src="../images/instagram.svg" alt="Instagram"/></a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" title="Facebook"><img src="../images/facebook.svg" alt="facebook"/></a></li>
+                        <li><a href="https://www.youtube.com/@Foodeza_de" target="_blank" title="Youtube"><img src="../images/youtube.svg" alt="Youtube"/></a></li>
+                        <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="mob-rating"><div class=" google-rating"><img src="../images/google.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="./images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/><img src="../images/star.svg" alt="google"/></div></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--header end-->
+<div class="banner">
   <img src="./images/banner.png" alt="Foodeza" />
-</section>
- <!-- <section class="hero">
-  <div class="hero-text">
-    <div class="hero-logo">
-      <a href="index.html">
-        <img src="../images/logo.png" alt="Foodeza Logo">
-      </a>
+  <a class="banner-order-btn" href="https://forms.gle/zk9gig54ukWbL5TJ9" target="_blank" title="Order Now">Order Now</a>
+</div>
+<div class="message-section">
+
+  <div class="content-section xmas-content">
+    <div class="content-col ">
+      <div class="message-title   scroll-animate">Gather, Celebrate, and Enjoy the Taste of Christmas with Foodeza.</div>
+      <div class="message-content  scroll-animate ">This Christmas, may your home be filled with the aromas of good food, the laughter of family, and the warmth of togetherness. This festive season, may your heart be light, your home be warm, and your meals be truly unforgettable. Foodeza is grateful to serve you during this wonderful time of the year. Wishing you a delicious and joy-filled Christmas!</div>
+    
     </div>
-    <h1>Foodeza Onam Sadhya 2025</h1>
-    <p>The most awaited Onam Sadhya in town is here. Book your traditional feast now!</p>
+    <div class="image-col   scroll-animate"><img src="./images/1PAPA.png" alt="Foodeza" /></div>
+    <div class="animating-bells">
+      <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/9388269a-de79-40d7-a452-adf7c5012e7b/AEpJLdvZJu.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
+    </div>
+    
   </div>
-</section> -->
-
-
-  <section class="sadhya-offer">
-    <div class="content">
-
-      <div class="details">
-        <h2><span>F</span>oodeza <span>C</span>hristmas <span>L</span>unch</h2>
-        <p>
-        Celebrate Christmas with Foodeza’s Kerala-style festive lunch. Enjoy our best-loved combos, authentic sides, and homemade desserts. Perfect for families and get-togethers across Baden‑Württemberg.        </p>
-        <table>
-          <tr>
-            <th>Available Dates</th>
-            <td>December 25 & 26 . 2025
-            </td>
-          </tr>
-          <tr>
-            <th>Price</th>
-            <td><span class="old-price">€20</span> <span class="new-price">€18</span>
-              <span class="offer-label">Special Offer</span>
-            </td>
-          </tr>
-          <tr>
-            <th>Delivery Areas</th>
-            <td>Stuttgart, Pforzheim, Karlsruhe, Ludwigsburg</td>
-          </tr>
-          <tr>
-            <th>Order Cut-off</th>
-            <td>The Minimum order is 2</td>
-          </tr>
-
-            <tr>
-              <th>Yes, We Cater!</th>
-              <td>
-                Available any day for Kerala food group catering and delivery upon request across Baden-Württemberg, Germany.
-              </td>
-            </tr>
-
-        </table>
-        <a href="#menu" target="_blank" class="btn">View Sadhya Items</a>
-      </div>
-
-      <div class="image">
-        <img src="./images/papa.png" alt="Foodeza Onam Sadhya" />
-      </div>
-
-    </div>
-  </section>
-
-  
-  <section class="packages">
-  <h2><span>C</span>hristmas <span>L</span>unch <span>P</span>ackages</h2>
-  <div class="package-cards">
-
-    <div class="card">
-      <h3>Full Sadhya</h3>
-      <div class="people-number">(5 Guests)</div>
-      <p><em>Perfect for small families seeking to enjoy a mini Onam feast.</em></p>
-      <p class="fw-600">€90 including taxes & packaging</p>
-      <p class="serves-content">Serves 5 guests
-        <span>Approx. 7 kg food (1.4 kg per person)</span>
-      </p>
-      <ul>
-        <li>Full Onam Sadhya menu (18 traditional items)</li>
-        <li>Plastic-coated banana leaf service</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Family Get-Together</h3>
-      <div class="people-number">(15 Guests)<span class="offer-label">4% Discount</span></div>
-      <p><em>Perfect for intimate family gatherings and small parties.</em></p>
-      <p class="fw-600">€260 including taxes & packaging</p>
-      <p class="serves-content">Serves 15 guests
-        <span>Approx. 21 kg food (1.4 kg per person)</span>
-      </p>
-      <ul>
-        <li>Full Onam Sadhya menu (18 traditional items)</li>
-        <li>Plastic-coated banana leaf service</li>
-        <li>Complimentary<br/>
-            <p class="offer-label">
-            1 liter extra Palada Payasam
-            </p>
-        </li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Grand Onam Feast</h3>
-      <div class="people-number">(30+ Guests)</div>
-      <p><em>Ideal for community gatherings, large events or offices.</em></p>
-      <p class="fw-600">Food truck service available on location</p>
-      <ul>
-        <li>Full Onam Sadhya menu (18 traditional items)</li>
-        <li>Plastic-coated banana leaf service</li>
-        <li>Free delivery within 15 km</li>
-        <li>Complimentary Extra Palada or Semiya Payasam</li>
-      </ul>
-      <p class="highlight-banner">
-        We offer great discounts and Compliments! Contact us directly!<br/>
-          <a href="tel:+49 176 658 15015"><svg height="20" fill="#fff" viewBox="0 0 48 48" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path d="M13.25 21.59c2.88 5.66 7.51 10.29 13.18 13.17l4.4-4.41c.55-.55 1.34-.71 2.03-.49 2.24.74 4.65 1.14 7.14 1.14 1.11 0 2 .89 2 2v7c0 1.11-.89 2-2 2-18.78 0-34-15.22-34-34 0-1.11.9-2 2-2h7c1.11 0 2 .89 2 2 0 2.49.4 4.9 1.14 7.14.22.69.06 1.48-.49 2.03l-4.4 4.42z"/></svg> +49 176 658 15015</a>
-      </p>
-    </div>
-  </div>
-
-<div class="button-group">
-  <a href="#menu" target="_blank" class="btn">View Sadhya Items</a>
-  <!--<a href="https://forms.gle/SXv4oC7K8ETzXA2dA" target="_blank" class="btn">Book Your Sadhya Now</a>
-  -->
-  <a href="#" target="_blank" class="btn">Oder Closed. See you next Onam!</a>
-  <a href="#add-on" target="_blank" class="btn">View Additional Offers</a>
-
 </div>
 
-</section>
-
-
-<section class="menu-section" id="menu">
-  <h2><span>O</span>nam <span>S</span>adhya <span>M</span>enu</h2>
-  <p>Our authentic Onam Sadhya includes a variety of traditional Kerala dishes:</p>
+<div class="slider-section">
+  <div class="xmas-content">
+    <div class="section-col">
+      <div class="green-col">
+        <div class="col-title   scroll-animate">Foodeza Christmas Lunch</div>
+        <div class="col-content  scroll-animate ">
+          Celebrate Christmas with Foodeza’s Kerala-style festive lunch, crafted with love and tradition. Relish our signature combos, authentic Kerala sides, and homemade desserts that bring the real taste of home to your table. 
+        </div>
+        <div class="data-table   scroll-animate">
+          <table>
+            <tr>
+              <td class="left-data">Available Dates</td>
+              <td class="right-data">24th - 25th December 2025</td>
+            </tr>
+            <tr>
+              <td class="left-data">Price</td>
+              <td class="right-data"><span class="cut">€20</span> €18 - €16</td>
+            </tr>
+            <tr>
+              <td class="left-data">Delivery Areas</td>
+              <td class="right-data">
+                Stuttgart, Ludwigsburg, Esslingen, Leonberg, Vaihingen, Sindelfingen, Muhlacker, Pforzheim, Karlsruhe
+              </td>
+            </tr>
+            <tr>
+              <td class="left-data">Order Cut-off</td>
+              <td class="right-data">The Minimum order is 1 Combo</td>
+            </tr>
+          </table>
+          <div class="notice-tag">
+            <p class="highlight-banner  ">
+                      Private catering available on other days in December <br/> Minimum order: 10 people <br/> Home delivery available.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="red-col ">
+        
+        <!-- Wrapper -->
+          <div class="wrapper  scroll-animate ">
+            <!-- Images Area -->
+            <img src="./images/truck-santa1.png" alt="foodeza" >
+          </div>
+        <!-- End Wrapper -->
+         <div class="col-content  scroll-animate ">
+          From spicy curries to crispy delights, every dish is made with fresh ingredients and authentic Kerala flavors — perfect for families, friends, and community celebrations across Baden-Württemberg. 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<section class="menu-section " id="menu">
+  <h2 class=" scroll-animate ">Christmas Food Menu</h2>
   <div class="menu-image">
     <img src="./images/menu.jpg" alt="Foodeza Onam Sadhya" />
   </div>
 </section>
 
+  <section class="packages">
+  <h2 class=" scroll-animate ">Christmas Packages</h2>
+  <div class="package-cards">
+
+    <div class="card  scroll-animate">
+      <h3>Family Package</h3>
+      <div class="people-number">(5 Guests)<span class="offer-label">5.5% Discount</span></div>
+      <p><em>Perfect for small families seeking to enjoy a mini Christmas feast.</em></p>
+      <p class="fw-600">
+        Chicken Combo: €85 <br>
+        Veg Combo: €75 <br>
+        including taxes &amp; packaging
+      </p>
+
+      <p class="serves-content">
+        Serves 5 guests
+        <span>Approx. 6 kg food (1.2 kg per person)</span>
+      </p>
+
+      <ul>
+        <li>Biriyani (Chicken / Veg) – 5 portions</li>
+        <li>Cutlet – 10 pieces (Chicken / Veg) + Salad</li>
+        <li>Plum Cake Slice – 5 slices</li>
+        <li>Yogurt Salad &amp; Pickle</li>
+        <li>Add-on option available.</li>
+      </ul>
+
+      <div class="order-btn">
+        <a href="https://forms.gle/zk9gig54ukWbL5TJ9" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+
+    <div class="card  scroll-animate">
+      <h3>Friends Get-Together</h3>
+      <div class="people-number">
+        (15 Guests)
+        <span class="offer-label">7.4% Discount</span>
+      </div>
+
+      <p><em>Perfect for intimate family gatherings and small Christmas parties.</em></p>
+
+      <p class="fw-600">
+        Chicken Combo: €250 <br>
+        Veg Combo: €240 <br>
+         including taxes &amp; packaging</p>
+
+      <p class="serves-content">
+        Serves 15 guests
+        <span>Approx. 18 kg food (1.2 kg per person)</span>
+      </p>
+
+      <ul>
+        <li>Biriyani (Chicken / Veg) – 15 portions</li>
+        <li>Cutlet – 30 pieces (Chicken / Veg) + Salad</li>
+        <li>Plum Cake Slice – 15 slices</li>
+        <li>Yogurt Salad &amp; Pickle</li>
+        <li>Add-on options available</li>
+      </ul>
+
+      <div class="order-btn">
+        <a href="https://forms.gle/zk9gig54ukWbL5TJ9" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <div class="card  scroll-animate">
+      <h3>Grand Christmas Feast</h3>
+      <div class="people-number">(30+ Guests)</div>
+
+      <p><em>Ideal for community gatherings, large events or office Christmas celebrations.</em></p>
+      <ul>
+        <li>Available across Baden-Württemberg on all Christmas celebration days.</li>
+        <li>Customised menu available based on your request.</li>
+        <li>On-site chef support for live & hot food service.</li>
+        <li>All serving dishes and hot food equipment included.</li>
+        <li>Food truck service available on location.</li>
+      </ul>
+
+      <div class="notice-tag">
+        <p class="highlight-banner  ">
+          We offer great discounts and Compliments! Contact us directly!
+            <a href="tel:+49 176 658 15015"><svg height="20" fill="#fff" viewBox="0 0 48 48" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path d="M13.25 21.59c2.88 5.66 7.51 10.29 13.18 13.17l4.4-4.41c.55-.55 1.34-.71 2.03-.49 2.24.74 4.65 1.14 7.14 1.14 1.11 0 2 .89 2 2v7c0 1.11-.89 2-2 2-18.78 0-34-15.22-34-34 0-1.11.9-2 2-2h7c1.11 0 2 .89 2 2 0 2.49.4 4.9 1.14 7.14.22.69.06 1.48-.49 2.03l-4.4 4.42z"/></svg> +49 176 658 15015</a>
+        </p>
+
+        <div class="order-btn">
+          <a href="https://forms.gle/ttoiBUaPWvXrMBnB7" target="_blank">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+<div class="notice-tag">
+      <p class="highlight-banner  scroll-animate ">
+      You can also order a single combo separately on the order form if you don’t need a package.      
+      </p>
+    </div>
+
+
+</section>
 
 <section class="preorder">
-  <h2>Pre-Order your Onam Sadhya</h2>
-  <p>
-    Onam Sadhya is perfect for those who wish to indulge in a feast that honors tradition 
-    and taste. Whether you’re hosting a gathering of 5 or 15 guests, we’ve got you 
-    covered with packages that include everything from delivery to packaging, 
-    ensuring that your meal arrives fresh and ready to be enjoyed. 
-    Each package is designed to offer generous portions, with over 1.3 kg of food per 
-    person, so you can savor every bite.
+  <div class=" xmas-content">
+  <h2 class=" scroll-animate">Pre-Order Your Christmas Lunch</h2>
+    <p class=" scroll-animate">
+    Enjoy a stress-free Christmas with freshly prepared Kerala-style festive dishes from Foodeza.
+    Whether you're celebrating with family, friends, or hosting a small gathering, we make your
+    meal simple, convenient, and delicious.
     </p>
-    <p>
-    In addition to the full Sadhya, we’re also offering a special accompaniments 
-    featuring a selection of additional items that can be ordered together with your meal. 
-    <strong>You can enjoy all traditional Onam dishes from Foodeza, bringing everyone together to share the true spirit of the festival in one place.</strong>
-    So, whether you’re planning a grand celebration or an intimate gathering, 
-    let Foodeza make your Onam this year truly fabulous, 
-    with the best-loved Onam Sadhya in Stuttgart and surrounding areas.
-  </p>
+
+    <p class=" scroll-animate">
+    Not only packages — individual combos are available too! Based on customer requests,
+    we've added single-portion options so everyone can enjoy our authentic Kerala flavours,
+    even without choosing a full package. Pre-order now, collect on Christmas Day, and enjoy a warm, flavourful Kerala Christmas feast
+    with your loved ones.
+    </p>
+  <div class="animating-tree-left">
+      <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/90838907-d3a4-4b70-aa61-617e2a6904a2/9TUmH6Wzb5.lottie" style="width: 200px;height: 300px" autoplay loop></dotlottie-wc>
+    </div>
+    <div class="animating-tree-right">
+      <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/90838907-d3a4-4b70-aa61-617e2a6904a2/9TUmH6Wzb5.lottie" style="width: 200px;height: 300px" autoplay loop></dotlottie-wc>
+    </div>
+    </div>
 </section>
 
 <section class="accompaniments" id="add-on">
-  <h2>Accompaniments</h2>
+  <h2 class="scroll-animate">Choose your pickup point</h2>
   <div class="elementor-widget-container">
     <ul class="elementor-price-list">
-      <li>
+
+      <li class="scroll-animate">
         <a class="elementor-price-list-item" href="#">
           <div class="elementor-price-list-text">
             <div class="elementor-price-list-header">
-              <span class="elementor-price-list-title">Palada Predaman (1L)</span>
+              <span class="elementor-price-list-title">Mühlacker Bahnhof</span>
               <span class="elementor-price-list-separator"></span>
-              <span class="elementor-price-list-price">€15</span>
+              <span class="elementor-price-list-price">24.12.2025 (Saturday) @ 16:00 Hrs</span>
             </div>
-            <p class="elementor-price-list-description"></p>
           </div>
         </a>
       </li>
-      <li>
+
+      <li class="scroll-animate">
         <a class="elementor-price-list-item" href="#">
           <div class="elementor-price-list-text">
             <div class="elementor-price-list-header">
-              <span class="elementor-price-list-title">Semiya palpayasam (1L)</span>
+              <span class="elementor-price-list-title">Kaufland Pforzheim-Oststadt</span>
               <span class="elementor-price-list-separator"></span>
-              <span class="elementor-price-list-price">€12</span>
+              <span class="elementor-price-list-price">24.12.2025 (Saturday) @ 16:30 Hrs</span>
             </div>
-            <p class="elementor-price-list-description"></p>
           </div>
         </a>
       </li>
-      <li>
+
+      <li class="scroll-animate">
         <a class="elementor-price-list-item" href="#">
           <div class="elementor-price-list-text">
             <div class="elementor-price-list-header">
-              <span class="elementor-price-list-title">Sharkara Upperi (250g)</span>
+              <span class="elementor-price-list-title">XXXLutz Mann Mobilia Karlsruhe</span>
               <span class="elementor-price-list-separator"></span>
-              <span class="elementor-price-list-price">€4</span>
+              <span class="elementor-price-list-price">24.12.2025 (Saturday) @ 18:00 Hrs</span>
             </div>
-            <p class="elementor-price-list-description"></p>
           </div>
         </a>
       </li>
-      <li>
+
+      <li class="scroll-animate">
         <a class="elementor-price-list-item" href="#">
           <div class="elementor-price-list-text">
             <div class="elementor-price-list-header">
-              <span class="elementor-price-list-title">Nendrakai (Kerala Banana) Chips (250g)</span>
+              <span class="elementor-price-list-title">Mühlacker Bahnhof</span>
               <span class="elementor-price-list-separator"></span>
-              <span class="elementor-price-list-price">€4</span>
+              <span class="elementor-price-list-price">25.12.2025 (Sunday) @ 10:00 Hrs</span>
             </div>
-            <p class="elementor-price-list-description"></p>
           </div>
         </a>
       </li>
-      <li>
+
+      <li class="scroll-animate">
         <a class="elementor-price-list-item" href="#">
           <div class="elementor-price-list-text">
             <div class="elementor-price-list-header">
-              <span class="elementor-price-list-title">Kerala Naranga (Lemon) Pickle (250g)</span>
+              <span class="elementor-price-list-title">Heinkelstraße 1, 71634 Ludwigsburg</span>
               <span class="elementor-price-list-separator"></span>
-              <span class="elementor-price-list-price">€3.50</span>
+              <span class="elementor-price-list-price">25.12.2025 (Sunday) @ 10:30 Hrs</span>
             </div>
-            <p class="elementor-price-list-description"></p>
           </div>
         </a>
       </li>
-      <li>
+
+      <li class="scroll-animate">
         <a class="elementor-price-list-item" href="#">
           <div class="elementor-price-list-text">
             <div class="elementor-price-list-header">
-              <span class="elementor-price-list-title">Inji Puli (250g)</span>
+              <span class="elementor-price-list-title">Bosch Parking (Kruppstraße 2C), Stuttgart</span>
               <span class="elementor-price-list-separator"></span>
-              <span class="elementor-price-list-price">€5</span>
+              <span class="elementor-price-list-price">25.12.2025 (Sunday) @ 11:30 Hrs</span>
             </div>
-            <p class="elementor-price-list-description"></p>
           </div>
         </a>
       </li>
+
+      <li class="scroll-animate">
+        <a class="elementor-price-list-item" href="#">
+          <div class="elementor-price-list-text">
+            <div class="elementor-price-list-header">
+              <span class="elementor-price-list-title">E center Esslingen-Weil, Weilstraße 227, 73733 Esslingen am Neckar</span>
+              <span class="elementor-price-list-separator"></span>
+              <span class="elementor-price-list-price">25.12.2025 (Sunday) @ 13:00 Hrs</span>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li class="scroll-animate">
+        <a class="elementor-price-list-item" href="#">
+          <div class="elementor-price-list-text">
+            <div class="elementor-price-list-header">
+              <span class="elementor-price-list-title">P+R Leonberg, Berliner Str., 71229 Leonberg</span>
+              <span class="elementor-price-list-separator"></span>
+              <span class="elementor-price-list-price">25.12.2025 (Sunday) @ 10:30 Hrs</span>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li class="scroll-animate">
+        <a class="elementor-price-list-item" href="#">
+          <div class="elementor-price-list-text">
+            <div class="elementor-price-list-header">
+              <span class="elementor-price-list-title">Universität Stuttgart, Campus Vaihingen, 70569 Stuttgart</span>
+              <span class="elementor-price-list-separator"></span>
+              <span class="elementor-price-list-price">25.12.2025 (Sunday) @ 11:30 Hrs</span>
+            </div>
+          </div>
+        </a>
+      </li>
+
+      <li class="scroll-animate">
+        <a class="elementor-price-list-item" href="#">
+          <div class="elementor-price-list-text">
+            <div class="elementor-price-list-header">
+              <span class="elementor-price-list-title">Batschkaer Str. 4, 71067 Sindelfingen</span>
+              <span class="elementor-price-list-separator"></span>
+              <span class="elementor-price-list-price">25.12.2025 (Sunday) @ 13:00 Hrs</span>
+            </div>
+          </div>
+        </a>
+      </li>
+
     </ul>
   </div>
 </section>
 
-  <!-- <section id="book" class="booking">
-    <h2><span>R</span>eserve <span>Y</span>our <span>S</span>adhya</h2>
-    <p>Fill out the form and we’ll confirm your booking.</p>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="Phone Number" required />
-      <input type="number" placeholder="Number of Sadhyas" min="1" required />
-      <button type="submit" class="btn">Submit</button>
-    </form>
-  </section> -->
 
-  <section id="book" class="booking">
-     <h2><span>R</span>eserve <span>Y</span>our <span>S</span>adhya</h2>
-     <div>This Onam, let Foodeza bring tradition to your table!</div>
-     <div>Foodeza’s traditional Sadhya includes all your festive favorites — served fresh, with love.</div>
-     <!--<div class="order-btn"><a href="https://forms.gle/SXv4oC7K8ETzXA2dA" target="_blank" class="btn">Place Your Order</a></div>-->
-    <div class="order-btn"><a href="#" target="_blank" class="btn">Oder Closed. See you next Onam!</a></div>
-    </section>
 
-  <footer>
-    <div class="footer-content">
-      <div class="list1 footer-list">
-        <div>
-          <a href="../">
-            <img src="../images/footer-logo.png" alt="logo"/>
-          </a>
+
+ <div class="gift-banner"><img src="./images/6.jpeg" alt="Foodeza" /></div> 
+ 
+ <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12 footer-logo-row">
+        <div class="footer-logo   scroll-animate">
+          <img  src="../images/footer-logo.png" alt="Foodeza" />
         </div>
-        
       </div>
-      <div class="list2 footer-list">
-        <div class="footer-title">Contact Details</div>
-        <div class="rts-footer-menu">
+      <div class="col-lg-4 col-sm-12">
+        <div class="footer-list">
+          <div class="footer-menu-details">
+          <div class="footer-title"></div>
+          <div class="footer-contact pb-25   scroll-animate">
               <ul>
-                <li><div style="margin-bottom: 7px;">Always Fell Free to contact Us</div></li>
-                <li><a href="tel:+49 176 658 15015"><svg height="20" fill="#fff" viewBox="0 0 48 48" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path d="M13.25 21.59c2.88 5.66 7.51 10.29 13.18 13.17l4.4-4.41c.55-.55 1.34-.71 2.03-.49 2.24.74 4.65 1.14 7.14 1.14 1.11 0 2 .89 2 2v7c0 1.11-.89 2-2 2-18.78 0-34-15.22-34-34 0-1.11.9-2 2-2h7c1.11 0 2 .89 2 2 0 2.49.4 4.9 1.14 7.14.22.69.06 1.48-.49 2.03l-4.4 4.42z"/></svg> +49 176 658 15015</a></li>
-                <li><a href="tel:+49 152 372 21698"><svg height="20" fill="#fff" viewBox="0 0 48 48" width="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path d="M13.25 21.59c2.88 5.66 7.51 10.29 13.18 13.17l4.4-4.41c.55-.55 1.34-.71 2.03-.49 2.24.74 4.65 1.14 7.14 1.14 1.11 0 2 .89 2 2v7c0 1.11-.89 2-2 2-18.78 0-34-15.22-34-34 0-1.11.9-2 2-2h7c1.11 0 2 .89 2 2 0 2.49.4 4.9 1.14 7.14.22.69.06 1.48-.49 2.03l-4.4 4.42z"/></svg> +49 152 372 21698</a></li>
-                <li><a href="mailto:foodezacuisine@gmail.com"><svg width="20px" fill="#fff" height="20px" style="enable-background:new 0 0 24 24;" version="1.1" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="info"/><g id="icons"><path d="M20,3H4C1.8,3,0,4.8,0,7v10c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V7C24,4.8,22.2,3,20,3z M21.6,8.8l-7.9,5.3   c-0.5,0.3-1.1,0.5-1.7,0.5s-1.2-0.2-1.7-0.5L2.4,8.8C2,8.5,1.9,7.9,2.2,7.4C2.5,7,3.1,6.9,3.6,7.2l7.9,5.3c0.3,0.2,0.8,0.2,1.1,0   l7.9-5.3c0.5-0.3,1.1-0.2,1.4,0.3C22.1,7.9,22,8.5,21.6,8.8z" id="email"/></g></svg>foodezacuisine@gmail.com</a></li>
+                <li class="footer-submenu ">
+                  <div class="submenu-title"><a href="" title="Catering">Catering </a>
+                  <img src="../images/arrow-down.svg" alt="Catering" class="toggle-arrow"/></div>
+                  <ul class="submenu">
+                    <li><a href="" title="Company Party">Company Party</a></li>
+                    <li><a href="" title="Wedding">Wedding</a></li>
+                    <li><a href="" title="Birthday Party">Birthday Party</a></li>
+                    <li><a href="" title="Christmas Party">Christmas Party</a></li>
+                    <li><a href="onamsadya" title="Onam Sadhya">Onam Sadhya</a></li>
+                    <li><a href="" title="Summer Festivals">Summer Festivals</a></li>
+                  </ul>
+                </li>
+                <li><a href="foodtruck" title="Food Truck">Food Truck</a></li>
+                <li><a href="meal-box/" title="Food Truck">Sunday Meal Box</a></li>
+                <li><a href="https://forms.gle/WUXsHAtCvPYJKbg8A" target="_blank" title="Request Catering">Request Catering</a></li>
+                <li><a href="#" title="Crew">Crew</a></li>
+                <li><a href="#" title="Gallery">Gallery</a></li>
+                <li><a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now">Enquire now</a></li>
+                <li><a href="#" title="Cookies">Cookies</a></li>
+                <li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
               </ul>
           </div>
+        </div>
+        </div>
       </div>
-      <div class="list3 footer-list">
-
-         <div class="footer-title">Follow Us On</div>
-        <div class="rts-footer-menu social-icons">
-          <ul>
-
-            <li><a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU"><img src="../images/whatsapp.svg" alt="WhatsApp" target="_blank"/></a></li>
-            <li><a href="https://www.instagram.com/foodeza.de/"><img src="../images/instagram.svg" alt="instagram" target="_blank"/></a></li>
-            <li><a href="https://www.facebook.com/profile.php?id=61576927270257"><img src="../images/facebook.svg" alt="facebook" target="_blank"/></a></li>
-            <li><a href="https://foodeza.de/"><img src="../images/website.svg" alt="Foodeza" target="_blank"/></a></li>
-
-          </ul>
+      <div class="col-lg-4 col-sm-12">
+        <div class="contact-details  ">
+          <div class="footer-title  scroll-animate">Contact Details</div>
+          <div class="footer-contact pb-25">
+              <ul class=" scroll-animate">
+                <li><div style="margin-bottom: 7px;">Always Feel Free to contact Us</div></li>
+                <li><a href="tel:+49 176 658 15015"><img src="../images/footer-phone.svg" alt="phone" /> +49 176 658 15015</a></li>
+                <li><a href="tel:+49 152 372 21698"><img src="../images/footer-phone.svg" alt="phone" /> +49 152 372 21698</a></li>
+                <li><a href="mailto:foodezacuisine@gmail.com"> <img src="../images/footer-mail.svg" alt="phone" /> foodezacuisine@gmail.com</a></li>
+                <li> Im langen Rain 30, 75417, Mühlacker.</li>
+              </ul>
+          </div>
         </div>
+        <div class="footer-social-media">
+          <div class="footer-title  ">Follow Us On</div>
+          <div class="follow-icons  ">
+            <div><a href="https://www.instagram.com/foodeza.de/" target="_blank" title="instagram"><img src="../images/footer-instagram.svg" alt="Instagram" /></a></div>
+            <div><a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" title="facebook"><img src="../images/footer-facebook.svg" alt="Facebook" /></a></div>
+            <div><a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU" target="_blank" title="whatsapp"><img src="../images/footer-whatsapp.svg" alt="whatsapp" /></a></div>
+            <div><a href="https://www.youtube.com/@Foodeza_de" target="_blank" title="youtube"><img src="../images/footer-youtube.svg" alt="youtube" /></a></div>
+             <div class="google-rating"><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" title="Google" class="rating-tag"><img src="../images/google-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/><img src="../images/star-red.svg" alt="google"/></a></div>
+          </div>
         </div>
-
       </div>
     </div>
+  </div>
+  <div class="copyright-content">© 2025 Foodeza. All rights reserved.</div>
+</footer>
+ <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          let lastScrollY = window.scrollY;
+          let scrollDirection = "down";
+
+          // Detect scroll direction
+          window.addEventListener("scroll", () => {
+            scrollDirection = window.scrollY > lastScrollY ? "down" : "up";
+            lastScrollY = window.scrollY;
+          });
+
+          // Elements to animate
+          const scrollItems = document.querySelectorAll(".scroll-animate");
+
+          const scrollObserver = new IntersectionObserver((entries) => {
+            
+             entries.forEach(entry => {
+                     
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show-anim");
+                    }
+                    // Remove only when scrolling further down past section
+                    else if (!entry.isIntersecting && scrollDirection === "down" && entry.boundingClientRect.top > 0) {
+                        entry.target.classList.remove("show-anim");
+                    }
+                    // No removal when scrolling up
+                });
+          }, { threshold: 0.3 });
+
+          scrollItems.forEach(el => scrollObserver.observe(el));
+        });
+    </script>
+
    
-  </footer>
-  <div class="copyright-content">&copy; 2025 Foodeza. All rights reserved.</div>
+         
+    <script>
+      // Images Area Images
+let imagesAreaImages = document.querySelectorAll('.images-area img');
+// Images Area First Image
+let imagesAreaFirstImage = document.querySelector('.images-area .firstImage');
+
+// Previous And Next Buttons
+let previousBtn = document.querySelector('.previous-btn');
+let nextBtn = document.querySelector('.next-btn');
+
+// Pagination Area 
+let paginationArea = document.querySelector('.pagination-area');
+
+// Current Image Count
+let currentImageCount = 1;
+
+// Slider Controler Function
+let sliderController;
+// Create Pagination Spans Function
+let createPaginationSpans;
+
+// Every Click On Buttons
+previousBtn.addEventListener('click', previousImage);
+nextBtn.addEventListener('click', nextImage);
+
+
+// Previous Image Function
+function previousImage() {
+  // If The currentImageCount Is 1
+  if(currentImageCount === 1){
+    return false;
+  }else{ // Else
+    // Minus One From currentImageCount
+    currentImageCount--;
+    // Call Function sliderController();
+    sliderController();
+
+  };
+};
+
+// Next Image Function
+function nextImage() {
+  // If The currentImageCount Is imagesAreaImages.length
+  if(currentImageCount === imagesAreaImages.length){
+    return false;
+  }else{ // Else
+    // Plus One To currentImageCount
+    currentImageCount++;
+    // Call Function sliderController();
+    sliderController();
+  };
+};
+
+// Create Pagination Spans [Circls] Function
+(function createPaginationSpans(){
+  // Loop On All The Images Slider
+  for(var i = 0; i < imagesAreaImages.length; i++){
+    // Create Span 
+    let paginationSpan = document.createElement('span');
+    // Append The Span
+    paginationArea.appendChild(paginationSpan)
+  };
+})();
+
+// Slider Controler Function
+(sliderController = function (){
+  // Get All The pagination Spans
+  let paginationCircls = document.querySelectorAll('.pagination-area span');
+
+  // Call Remore All Active Class Function
+  removeAllActive(paginationCircls);
+  
+  // Call Remore Active Button Function
+  activeButton();
+
+  // The currentImageCount Minus One
+  let currentImageMinusOne = currentImageCount - 1;
+
+  // Set Active Class On Current Pagination
+  paginationCircls[currentImageMinusOne].classList.add('active');
+
+  // Move The images Area First Image
+  imagesAreaFirstImage.style.marginLeft = `-${600 * currentImageMinusOne}px`;
+  console.log(600 * currentImageMinusOne);
+})();
+
+// Remove All Active Class Function
+function removeAllActive(targetElement){
+  for(var i = 0; i < targetElement.length; i++){
+    targetElement[i].classList.remove('active');
+  };
+};
+
+// Check Active Button Function
+function activeButton() {
+  // If The Current Image Count Equle 1
+  currentImageCount === 1 ? 
+  // Hide The Previous Button
+  previousBtn.classList.add('disabled') : 
+  // Else: Show The Previous Button
+  previousBtn.classList.remove('disabled');
+
+  // If The Current Image Count Equle imagesAreaImages.length
+  currentImageCount === imagesAreaImages.length ? 
+  // Hide The Next Button
+  nextBtn.classList.add('disabled') : 
+  // Else: Show The Next Button
+  nextBtn.classList.remove('disabled');
+};
+
+// Move Slider Image Every 3 Second 
+setInterval(() => {
+  // If The Current Image Count Not Equle imagesAreaImages.length
+  if(currentImageCount != imagesAreaImages.length){
+    // Plus One
+    currentImageCount++;
+    // Call Function sliderController();
+    sliderController();
+  }else{ // else
+    // Make currentImageCount Equle 1
+    currentImageCount = 1;
+    // Call Function sliderController();
+    sliderController();
+  };
+}, 3000);
+
+// :)
+    </script>
 </body>
 </html>

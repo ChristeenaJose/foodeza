@@ -1,12 +1,23 @@
 @font-face {
   font-family: brume;
-  src: url(./fonts/Brume-Regular.woff) format("woff"),
-		url(./fonts/Brume-Regular.woff2) format("woff2");
+  src: url(../fonts/Brume-Regular.woff) format("woff"),
+		url(../fonts/Brume-Regular.woff2) format("woff2");
 }
 @font-face {
   font-family: poppins;
-  src: url(./fonts/Poppins.woff) format("woff"),
-		url(./fonts/Poppins.woff2) format("woff2");
+  src: url(../fonts/Poppins.woff) format("woff"),
+		url(../fonts/Poppins.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: Lato-Regular;
+  src: url(../fonts/Lato-Regular.woff) format("woff"),
+		url(../fonts/Lato-Regular.woff2) format("woff2");
+}
+@font-face{
+	font-family: chela;
+	src:url(../fonts/ChelaOne-Regular.woff) format("woff"),
+		url(../fonts/ChelaOne-Regular.woff2) format("woff2");
 }
 /* RESET */
 * {
@@ -19,6 +30,8 @@ body {
   font-family: poppins;
   background: #fff;
   color: #333;
+  padding: 0px !important;
+  overflow-x: hidden;
 }
 
 html {
@@ -28,7 +41,9 @@ html {
 a {
   text-decoration: none;
 }
-
+.text-center{
+  text-align: center;
+}
 .hero {
   background-color: #c81e08;
   color: #fff;
@@ -45,7 +60,7 @@ a {
   font-size: 1.2em;
 }
 
-.sadhya-offer {
+.xmas-offer {
   padding: 50px 20px;
 }
 
@@ -212,9 +227,7 @@ footer {
 /* Packages Section */
 .packages {
   padding: 50px 35px;
-  background-image: url("./images/bg.png");
-    text-align: center;
-    background-size: cover;
+    background-image: url("./images/let-it-snow.gif"), url("./images/bg.png");
 }
 
 .packages h2 {
@@ -271,7 +284,7 @@ footer {
 
 /* Menu Section */
 .menu-section {
-  padding: 50px 20px;
+  padding: 0px 20px 50px;
   text-align: center;
 }
 
@@ -306,8 +319,8 @@ footer {
 }
 
 .menu-image {
-  max-width: 1000px;
-  margin: 30px auto;
+  max-width: 90%;
+  margin: 50px auto 30px;
   text-align: center;
 }
 
@@ -375,7 +388,7 @@ font-size: 16px;
 }
 .offer-label {
   display: inline-block;
-  background: #0a8207;
+  background: #143722;
   color: #fff;
   font-weight: bold;
   font-size: 0.85em;
@@ -395,8 +408,25 @@ font-size: 16px;
   width: 100%;
 }
 .details h2, .menu-section h2, .menu-section h2, .booking h2{
-  font-family:poppins ;
-  letter-spacing: 1px;
+      font-family: chela;
+    color: #c81e08;
+    font-size: 32px;
+    line-height: 35px;
+    font-weight: 400;
+}
+.menu-section h2, .packages h2, .preorder h2, .accompaniments h2{
+    font-size: 52px;
+    font-family: chela;
+    line-height: 50px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}
+.preorder h2{
+  color: #c81e08;
+}
+.packages h2{
+margin-top: 0px;
+margin-bottom: 40px;
 }
 .details h2 span, .menu-section h2 span, .menu-section h2 span, .booking h2 span{
   font-size: 45px;
@@ -418,22 +448,18 @@ font-size: 16px;
 }
 }
 @media screen and (max-width: 992px) {
-.details h2, .packages h2, .menu-section h2, .booking h2 {
-    font-size: 26px;
-}
-.details h2 span, .packages h2 span, .menu-section h2 span, .booking h2 span{
-  font-size: 35px;
-}
+
+
     .footer-list {
         flex: 1 1 100px;
     }
 }
 @media screen and (max-width: 768px) {
-.sadhya-offer .content {
+.xmas-offer .content {
    
     flex-direction: column-reverse;
 }
-.sadhya-offer {
+.xmas-offer {
     padding: 30px 20px;
 }
 }
@@ -460,7 +486,7 @@ footer {
   padding: 30px 20px;
 
 }
-.booking, .menu-section, .packages, .sadhya-offer {
+.booking, .menu-section, .packages, .xmas-offer {
     padding: 30px 20px;
 }
 .footer-content {
@@ -495,11 +521,7 @@ footer {
   text-align: center;
 }
 
-.preorder h2 {
-  color: #c81e08;
-  margin-bottom: 20px;
-  font-size: 2em;
-}
+
 
 .preorder p {
   font-size: 1.1em;
@@ -517,7 +539,6 @@ footer {
 .accompaniments h2 {
   color: #c81e08;
   margin-bottom: 30px;
-  font-size: 2em;
 }
 
 .elementor-price-list {
@@ -601,6 +622,446 @@ footer {
   font-family: poppins;
 }
 
-body {
-  padding-top: 60px; /* Adjust depending on banner height */
+/* body {
+  padding-top: 60px; 
+} */
+
+
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.scroll-animate.show-anim {
+  opacity: 1;
+  transform: translateY(0);
+}
+.xmas-content{
+  width: 80%;
+  margin: auto;
+}
+.banner{
+  position: relative;
+}
+.banner-order-btn{
+  position: absolute;
+  bottom: 50px;
+  right: 80px;
+display: block;
+border-radius: 4px;
+background-color: #fff;
+padding: 10px 10px;
+color: #c81e08;
+font-size: 16px;
+font-weight: 600;
+}
+
+.section-col {
+  display: flex;
+}
+
+.green-col,
+.red-col {
+  flex: 1;              
+}
+
+.green-col {
+  background: #143722;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 40px 30px 40px 40px;
+  width: 50%;
+}
+
+.red-col {
+  background: #d62828;
+   border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 40px 40px 40px 30px;
+  width: 50%;
+  background-image: url(./images/let-it-snow.gif);
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.red-col .col-content{
+  padding: 30px 0px 0px;
+}
+.slider-section{
+  padding: 50px 0px;
+}
+
+.slider-section .xmas-content{
+  width: 95%;
+  margin: auto;
+}
+.col-title{
+  font-family: brume;
+  font-size: 46px;
+  line-height: 50px;
+  font-weight: 600px;
+  /* text-align: center; */
+  color: #fff;
+}
+.col-content{
+  color: #fff;
+  padding: 30px 0px;
+  /* text-align: center; */
+}
+.date{
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  /* text-align: center; */
+}
+.date span{
+  color: #e2c020;
+}
+.data-table{
+  color: #fff;
+}
+.data-table table{
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+.left-data{
+  white-space: nowrap;
+  padding-left: 0px;
+}
+.cut{
+    text-decoration: line-through;
+    color: #999999;
+}
+.data-table table tr:last-child td{
+  border-bottom: 0px;
+}
+
+
+/* Main Rules */
+:root{
+  --white-c: #fff;
+  --black-c: #000;
+  --body-background-c: #FD7AC0;
+  --wrapper-background-c: #D4F1F4;
+  --wrapper-shadow-c: rgba(0, 0, 0, 0.219);
+  --buttons-background-c: rgba(255, 255, 255, 0.219);
+  --buttons-active-background-c: rgba(135, 207, 235, 0.493);
+}
+
+
+/* End Main Rules */
+
+/* Wrapper */
+.wrapper{
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background-color: var(--wrapper-background-c);
+  box-shadow: 0 0 80px var(--wrapper-shadow-c);
+  border: 10px solid #fff;
+  border-radius: 10px;
+}
+
+/* Images Area */
+.images-area{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+.images-area img{
+  /* width: 100%; */
+  transition: 0.3s cubic-bezier(.79,.03,0,.99);
+  border-radius: 10px;
+}
+
+/* Buttons Area  */
+.buttons-area{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.buttons-area > div{
+  color: var(--white-c);
+  background-color: var(--buttons-background-c);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+/* Buttons | Previous And Next */
+.buttons-area > div:first-child{
+  border-radius: 0 5px 5px 0;
+  margin-left: -100px;
+}
+.buttons-area > div:last-child{
+  border-radius: 5px 0 0 5px;
+  margin-right: -100px;
+}
+/* Show The Buttons */
+.wrapper:hover .buttons-area > div:first-child{
+  margin-left: 0;
+}
+.wrapper:hover .buttons-area > div:last-child{
+  margin-right: 0;
+}
+.buttons-area div:hover:not(div.disabled){
+  background-color: var(--buttons-active-background-c);
+}
+.buttons-area div:not(div.disabled):active{
+  opacity: 0.7;
+}
+/* Disabled Button */
+.buttons-area > div.disabled{
+  cursor: no-drop;
+  opacity: 0.3;
+}
+.buttons-area div i{
+  font-size: 70px;
+}
+
+/* Pagination Area */
+.pagination-area{
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+/* Pagination Spans */
+.pagination-area span{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--white-c);
+  margin-right: 5px;
+  transform: scale(0.5);
+  transition: 0.3s ease-in-out;
+  opacity: 0.4;
+}
+/* Current Active Span */
+.pagination-area span.active{
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* End Wrapper */
+.content-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+.image-col{
+  width: 40%;
+}
+.image-col img{
+  width: 100%;
+}
+.content-col{
+  width: 70%;
+}
+.content-col img{
+  width: 100%;
+  
+}
+.message-section{
+  background-image: url(./images/message-background.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top;
+  padding: 40px 0px 0px;
+  position: relative;
+  overflow: hidden;
+}
+.animating-bells{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 300px;
+  height: 300px;
+}
+.gift-banner img{
+  width: 100%;
+}
+.message-title{
+  font-family: chela;
+  color: #c81e08;
+  font-size: 38px;
+  line-height: 38px;
+  font-weight: 400;
+  padding-bottom: 20px;
+}
+.message-content{
+  color: #000;
+  font-weight: 600;
+}
+.order-btn a{
+  display: block;
+  background-color: #a00000;
+  color: #fff !important;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 7px 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.order-btn a:hover{
+  background-color: #143722;
+  color: #fff !important;
+}
+.notice-tag .highlight-banner{
+  width: fit-content;
+  margin: 40px auto 0px ;
+  background: #eeca20;
+  padding: 10px 20px;
+  display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.notice-tag .highlight-banner a{
+  margin-left: 5px;
+  text-decoration: none;
+  font-size: 16px;
+}
+.notice-tag .highlight-banner a:hover{
+  text-decoration: underline;
+}
+.preorder{
+  padding: 40px 0px 0px;
+  position: relative;
+}
+.preorder h2{
+  margin-bottom: 30px;
+}
+.animating-tree-left{
+  position: absolute;
+  bottom: 0px;
+  left: -25px;
+}
+.preorder p{
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.animating-tree-right{
+  position: absolute;
+  bottom: 0px;
+  right: -25px;
+}
+.xmas-page .footer-title{
+  text-align: left;
+  margin-bottom: 0px;
+}
+.xmas-page .footer-contact li{
+  text-align: left;
+}
+.wrapper img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 1200px){
+  .animating-bells{
+  width: 230px;
+  height: 230px;
+}
+}
+@media screen and (max-width: 992px){
+  .section-col {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+.green-col, .red-col {
+  width: 100%;
+  border-radius: 10px;
+}
+.banner-order-btn {
+    bottom: 20px;
+}
+}
+@media screen and (max-width: 767px){
+  .content-section{
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+  .content-col{
+    width: 100%;
+    z-index: 99;
+  }
+.image-col {
+   margin: auto;
+   z-index: 99;
+}
+.animating-bells{
+  z-index: 1;
+}
+.slider-section {
+    padding: 30px 0px;
+}
+.menu-section h2, .packages h2, .preorder h2, .accompaniments h2 {
+ 
+    margin-top: 0px;
+}
+.menu-section{
+  padding-top: 0px;
+}
+.banner-order-btn {
+    
+    display: none;
+}
+.notice-tag .highlight-banner{
+  font-size: 15px;
+}
+}
+@media screen and (max-width: 575px){
+  .message-title, .message-content, .green-col, .red-col {
+    text-align: center;
+  }
+      .animating-bells {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .message-title, .col-title, .menu-section h2, .packages h2, .preorder h2, .accompaniments h2 {
+      font-size: 32px;
+      line-height: 40px;
+    }
+     .packages h2{
+      text-align: center;
+     }
+    .left-data {
+    white-space: normal;
+}
+.menu-image {
+  max-width: 100%;
+  margin: 30px auto 10px;
+}
+.wrapper {
+    height: auto;
+}
+.animating-tree-left {
+   
+    left: -55px;
+}
+.animating-tree-right {
+   
+    right: -55px;
+}
+.elementor-price-list-title{
+  text-align: left;
+  font-size: 16px;
+}
+.green-col, .red-col {
+  
+    padding: 30px 15px 30px 15px;
+}
 }
