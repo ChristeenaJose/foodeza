@@ -28,5 +28,28 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("xmasPopup");
+  const closeBtn = document.getElementById("closeXmasPopup");
+
+  if (!popup || !closeBtn) return;
+
+  // Show popup when page loads
+  popup.style.display = "flex";
+
+  // Close when clicking the X button
+  closeBtn.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+
+  // Optional: close when clicking outside the box
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+});
+
+
 
 
