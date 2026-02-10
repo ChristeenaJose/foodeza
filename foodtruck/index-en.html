@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foodeza Foodtruck | Authentic Kerala Street Food in Germany</title>
+  <meta name="description"
+    content="Catch the Foodeza foodtruck in Baden-Württemberg! Authentic Kerala street food, rotating weekly menus, and premium catering for your events." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Navigation (Common from root) -->
+  <header class="header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="header-logo">
+        <a href="../index.html"><img src="../images/foodeza_main_logo.png" alt="Foodeza" style="max-width: 100px;"></a>
+      </div>
+      <nav class="d-none d-lg-block">
+        <ul class="d-flex align-items-center mb-0" style="list-style: none; gap: 30px;">
+          <li><a href="../index.html" class="text-decoration-none fw-bold" style="color: var(--primary-red);">Home</a>
+          </li>
+          <li><a href="index-en.html" class="text-decoration-none fw-bold"
+              style="color: var(--primary-red);">Foodtruck</a>
+          </li>
+          <li><a href="../index.html#catering" class="text-decoration-none fw-bold"
+              style="color: var(--primary-red);">Catering</a></li>
+          <li><a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank"
+              class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Pre-Order</a></li>
+          <li class="lang-switcher">
+            <a href="#" class="lang-btn">
+              <span>EN</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+            <div class="lang-dropdown">
+              <a href="index.html">Deutsch (DE)</a>
+              <a href="index-en.html" class="active">English (EN)</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text reveal-right">
+        <h1>Foodeza Foodtruck – South Indian taste on wheels.</h1>
+        <p>Authentic Kerala street food, available around Baden-Württemberg. Fresh weekly menus and premium
+          catering for your next event.</p>
+        <div class="btn-group">
+          <a href="#next-event" class="btn-ft btn-ft-primary">View weekly schedule</a>
+          <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-secondary">Request
+            Catering</a>
+        </div>
+      </div>
+      <div class="hero-image reveal">
+        <img src="../images/truck1.webp" alt="Foodeza Food Truck">
+      </div>
+    </div>
+  </section>
+
+  <!-- Streamlined Event & Schedule -->
+  <section id="next-event" class="pt-0">
+    <div id="schedule" style="position: absolute; top: -100px;"></div>
+    <div class="container">
+      <div class="next-schedule-highlight reveal-scale">
+        <span class="badge-live">Next Stop</span>
+        <span class="next-schedule-date">13 Feb 2026</span>
+        <span class="next-schedule-location">SchwabenGalerie, Stuttgart-Vaihingen</span>
+        <span class="time d-block opacity-75 mb-4">Friday | 10:00 – 20:00</span>
+        <div class="mt-4 btn-group justify-content-center">
+          <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft shimmer-btn"
+            style="border: none;">Pre-Order Now</a>
+          <a href="https://maps.app.goo.gl/uX7GfP6z6E4R6fXF7" target="_blank" class="btn-ft btn-ft-secondary"
+            style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3);">Get
+            Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>This Week’s Menu</h2>
+        <p>We rotate our menu every week. From our 5 signature menus, we bring 2–3 menus to the truck each week to keep
+          things fresh.</p>
+      </div>
+      <div class="menu-grid">
+        <!-- Kerala Thali -->
+        <div class="menu-card" data-aos="fade-up">
+          <div class="menu-card-img-wrapper">
+            <img src="images/thali.png" alt="Kerala Thali" class="menu-card-img">
+          </div>
+          <div class="menu-card-content">
+            <div class="dietary-badge veg"><i></i>Kerala Thali</div>
+            <span class="menu-card-tag">Option: Veg / Non-Veg</span>
+            <h3>Healthy South Indian Plate</h3>
+            <p class="course-desc mb-2">Plate with sweet & mild curries</p>
+            <p class="course-desc mb-2">Contains:</p>
+            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
+              <li>• Basmati rice & Papadam</li>
+              <li>• Chicken curry or vegetable curry</li>
+              <li>• Lentil curry (Dal) & Coconut cabbage stir fry</li>
+              <li>• Beetroot coconut yogurt dish</li>
+              <li>• Sweet mango yogurt curry</li>
+              <li>• Raita (Indian yogurt salad)</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Biriyani -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="menu-card-img-wrapper">
+            <img src="images/biriyani.png" alt="Chicken Biryani" class="menu-card-img">
+          </div>
+          <div class="menu-card-content">
+            <div class="dietary-badge non-veg"><i></i>Kerala Biryani</div>
+            <span class="menu-card-tag">Option: Veg / Non-Veg</span>
+            <h3>Famous South Indian Biryani</h3>
+            <p class="course-desc mb-2">Rich in flavor and spices</p>
+            <p class="course-desc mb-2">Contains:</p>
+            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
+              <li>• Aromatic basmati biryani rice</li>
+              <li>• Papadam & Indian pickle</li>
+              <li>• Chicken curry or vegetable curry</li>
+              <li>• Raita (Indian yogurt salad)</li>
+              <li>• Optional: Lentil curry</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Porotta Wrap -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="menu-card-img-wrapper">
+            <img src="images/wrap.png" alt="Kerala Porotta Wrap" class="menu-card-img">
+          </div>
+          <div class="menu-card-content">
+            <div class="dietary-badge non-veg"><i></i>Porotta Wrap</div>
+            <span class="menu-card-tag">Option: Veg / Non-Veg</span>
+            <h3>Delicious Kerala Curry Wrap with South Indian Bread</h3>
+            <p class="course-desc mb-2">Juicy and mildly spiced</p>
+            <p class="course-desc mb-2">Contains:</p>
+            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
+              <li>• Kerala porotta (layered flatbread)</li>
+              <li>• Mild chicken curry</li>
+              <li>• Onion tomato masala</li>
+              <li>• Fresh salad (cucumber, tomato)</li>
+              <li>• Special sauce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5 text-center reveal">
+        <a href="../files/menu-foodtruck.pdf" target="_blank" class="btn-ft btn-ft-primary">See Full Menu (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Week Sneak Peek -->
+  <section class="bg-light">
+    <div class="container text-center">
+      <div class="cta-banner">
+        <h2 style="font-size: 1.5rem; margin-bottom: 10px;">Next Week Sneak Peek</h2>
+        <p>Follow our Instagram page for next week's schedule and rotating specials!</p>
+        <a href="https://instagram.com/foodeza.de/" target="_blank" class="btn-ft btn-ft-primary"
+          style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">@foodeza.de</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pre-Order & Catering Section -->
+  <section id="booking" class="reveal">
+    <div class="container d-flex flex-column align-items-center">
+      <div class="section-title">
+        <h2>Ready for a taste of Kerala?</h2>
+        <p>Skip the line by pre-ordering for pickup or book our truck for your private event.</p>
+      </div>
+      <div class="btn-group mb-5">
+        <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-primary">Pre-Order Pickup</a>
+        <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-secondary">Request Catering
+          Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="bg-white">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Foodtruck Moments</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item large" data-aos="zoom-in" data-aos-delay="0"><img src="images/instagram/1.png"
+            alt="Foodtruck Moment 1"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100"><img src="images/instagram/2.png"
+            alt="Foodtruck Moment 2"></div>
+        <div class="gallery-item tall" data-aos="zoom-in" data-aos-delay="200"><img src="images/instagram/3.png"
+            alt="Foodtruck Moment 3"></div>
+        <div class="gallery-item wide" data-aos="zoom-in" data-aos-delay="300"><img src="images/instagram/4.png"
+            alt="Foodtruck Moment 4"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400"><img src="images/instagram/5.png"
+            alt="Foodtruck Moment 5"></div>
+        <div class="gallery-item large" data-aos="zoom-in" data-aos-delay="500"><img src="images/instagram/6.png"
+            alt="Foodtruck Moment 6"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600"><img src="images/instagram/7.png"
+            alt="Foodtruck Moment 7"></div>
+        <div class="gallery-item wide" data-aos="zoom-in" data-aos-delay="700"><img src="images/instagram/8.png"
+            alt="Foodtruck Moment 8"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="800"><img src="images/instagram/9.png"
+            alt="Foodtruck Moment 9"></div>
+        <div class="gallery-item tall" data-aos="zoom-in" data-aos-delay="900"><img src="images/instagram/10.png"
+            alt="Foodtruck Moment 10"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1000"><img src="images/instagram/11.png"
+            alt="Foodtruck Moment 11"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1100"><img src="images/instagram/12.png"
+            alt="Foodtruck Moment 12"></div>
+        <div class="gallery-item large" data-aos="zoom-in" data-aos-delay="1200"><img src="images/instagram/13.png"
+            alt="Foodtruck Moment 13"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1300"><img src="images/instagram/14.png"
+            alt="Foodtruck Moment 14"></div>
+        <div class="gallery-item wide" data-aos="zoom-in" data-aos-delay="1400"><img src="images/instagram/15.png"
+            alt="Foodtruck Moment 15"></div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1500"><img src="images/instagram/16.png"
+            alt="Foodtruck Moment 16"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="bg-light">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>What Our Customers Say</h2>
+      </div>
+      <div class="testimonial-grid reveal">
+        <div class="testimonial-card">
+          <p>"Best Kerala food in Germany! The Biriyani is exactly like home."</p>
+          <span>— Rahul G.</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Super Thali, must try!"</p>
+          <span>— Sarah M.</span>
+        </div>
+        <div class="testimonial-card">
+          <p>"Love the weekly rotating menu. The Porotta wraps are a must-try."</p>
+          <span>— Thomas K.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <footer class="py-5 reveal" style="background: var(--text-dark); color: white;">
+    <div class="container text-center">
+      <div class="section-title mb-4">
+        <h2 style="color: white;">Follow the Truck. Taste the Week.</h2>
+      </div>
+      <div class="btn-group justify-content-center mb-5">
+        <a href="#next-event" class="btn-ft btn-ft-primary">View weekly schedule</a>
+        <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-secondary"
+          style="background: transparent; color: white;">Pre-book now</a>
+      </div>
+      <div class="social-icons d-flex justify-content-center gap-4 mb-4">
+        <a href="https://instagram.com/foodeza.de/" target="_blank" class="social-btn instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" class="social-btn facebook"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@Foodeza_de" target="_blank" class="social-btn youtube"><i
+            class="fab fa-youtube"></i></a>
+      </div>
+      <p class="mb-0 opacity-50">&copy; 2025 Foodeza. Authentic Kerala Street Food on Wheels.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script>
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          entry.target.classList.add('aos-animate');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-right, .reveal-scale, [data-aos]').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Premium 3D Tilt Effect for Menu Cards
+    const cards = document.querySelectorAll('.menu-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      });
+    });
+  </script>
+</body>
+
+</html>
