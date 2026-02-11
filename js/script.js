@@ -50,6 +50,26 @@ function openCity(evt, cityName) {
  // });
 // });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("holyCommunionPopup");
+  const closeBtn = document.getElementById("closeHolyPopup");
 
+  if (!popup || !closeBtn) return;
 
+  // Show popup with a slight delay for better UX
+  setTimeout(() => {
+    popup.style.display = "flex";
+  }, 1000);
 
+  // Close when clicking the X button
+  closeBtn.addEventListener("click", function () {
+    popup.style.display = "none";
+  });
+
+  // Close when clicking outside the box
+  popup.addEventListener("click", function (e) {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+});
