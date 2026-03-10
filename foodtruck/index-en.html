@@ -32,14 +32,22 @@
         <a href="../index.html"><img src="../images/foodeza_main_logo.png" alt="Foodeza" style="max-width: 100px;"></a>
       </div>
       <nav class="d-none d-lg-block">
-        <ul class="d-flex align-items-center mb-0" style="list-style: none; gap: 30px;">
-          <li><a href="../index.html" class="text-decoration-none fw-bold" style="color: var(--primary-red);">Home</a>
+        <ul class="ft-nav-list">
+          <li><a href="../index-en.html" class="nav-link-ft">Home</a></li>
+          <li><a href="index-en.html" class="nav-link-ft active">Foodtruck</a></li>
+          <li><a href="#menu" class="nav-link-ft">Weekly Menu</a></li>
+          <li><a href="../index-en.html#catering" class="nav-link-ft">Catering</a></li>
+          <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="google-rating-header">
+              <img src="../images/google-red.svg" alt="Google" class="google-icon">
+              <div class="google-stars">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+              </div>
+            </a>
           </li>
-          <li><a href="index-en.html" class="text-decoration-none fw-bold"
-              style="color: var(--primary-red);">Foodtruck</a>
-          </li>
-          <li><a href="../index.html#catering" class="text-decoration-none fw-bold"
-              style="color: var(--primary-red);">Catering</a></li>
           <li><a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank"
               class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Pre-Order</a></li>
           <li class="lang-switcher">
@@ -84,10 +92,10 @@
     <div id="schedule" style="position: absolute; top: -100px;"></div>
     <div class="container">
       <div class="next-schedule-highlight reveal-scale">
-        <span class="badge-live">Next Stop</span>
-        <span class="next-schedule-date">5 March 2026</span>
+        <span class="badge-live">Weekly Schedule</span>
+        <span class="next-schedule-date">12 March 2026</span>
         <span class="next-schedule-location">Presselstr. 17, 70191 Stuttgart</span>
-        <span class="time d-block opacity-75 mb-4">Thursday | 10:00 – 20:00</span>
+        <span class="time d-block opacity-75 mb-4">Thursday | 11:30 – 13:30</span>
         <div class="mt-4 btn-group justify-content-center">
           <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft shimmer-btn"
             style="border: none;">Pre-Order Now</a>
@@ -105,11 +113,51 @@
     <div class="container">
       <div class="section-title reveal">
         <h2>This Week’s Menu</h2>
-        <p>We rotate our menu every week. From our 5 signature menus, we bring 2–3 menus to the truck each week to keep
-          things fresh.</p>
+        <p class="mb-2">We rotate our menu every week. From our 5 signature menus, we bring 2–3 menus to the truck each
+          week to keep things fresh.</p>
+        <div class="d-inline-block mt-3 text-start"
+          style="background: #f4b41a; padding: 25px 35px; border-radius: 30px; box-shadow: 0 10px 30px rgba(244, 180, 26, 0.4); border: 2px solid #cc0605; max-width: 850px;">
+          <div class="text-center mb-4">
+            <span
+              style="background: #cc0605; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Weekly
+              Special</span>
+            <h3 class="m-0 mt-2" style="color: #222; font-weight: 900; font-size: 1.6rem; text-transform: uppercase;">
+              Kerala Style Chilli Chicken & Chilli Gobi</h3>
+          </div>
+          <div class="row g-4 align-items-center">
+            <div class="col-md-7 border-md-end border-dark border-opacity-10">
+              <ul class="list-unstyled m-0" style="color: #333; font-size: 0.95rem; line-height: 1.6;">
+                <li class="mb-3">
+                  <span class="badge bg-danger text-white rounded-pill px-2 py-1 me-2"
+                    style="font-size: 0.65rem;">NON-VEG</span>
+                  <strong>Chilli Chicken:</strong> Fried chicken with bell pepper, onion & chili sauce
+                </li>
+                <li>
+                  <span class="badge bg-success text-white rounded-pill px-2 py-1 me-2" style="font-size: 0.65rem;">VEG
+                    / VEGAN</span>
+                  <strong>Chilli Gobi:</strong> Fried cauliflower with bell pepper, onion & chili sauce
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-5 ps-md-4 text-center">
+              <p class="mb-2"
+                style="font-weight: 800; color: #cc0605; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
+                Served with:</p>
+              <div class="d-flex justify-content-center align-items-center gap-2">
+                <span class="px-3 py-1 bg-white border border-dark border-opacity-25 rounded-pill shadow-sm"
+                  style="font-weight: 700; font-size: 0.9rem;">Fried Rice <small
+                    class="text-muted">(Bowl)</small></span>
+                <span style="font-weight: 900; color: #cc0605; font-size: 0.8rem;">OR</span>
+                <span class="px-3 py-1 bg-white border border-dark border-opacity-25 rounded-pill shadow-sm"
+                  style="font-weight: 700; font-size: 0.9rem;">Porotta <small class="text-muted">(Wrap)</small></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="menu-grid">
         <!-- Kerala Thali -->
+        <!-- Hidden: Previous Offer (Kerala Thali) - Uncomment to restore 
         <div class="menu-card" data-aos="fade-up">
           <div class="menu-card-img-wrapper">
             <img src="images/thali.png" alt="Kerala Thali" class="menu-card-img">
@@ -130,7 +178,58 @@
             </ul>
           </div>
         </div>
-        <!-- Porotta Wrap -->
+        -->
+
+        <!-- Kerala Fried Rice -->
+        <div class="menu-card" data-aos="fade-up">
+          <div class="menu-card-img-wrapper">
+            <img src="images/friedrice.png" alt="Kerala Thali" class="menu-card-img">
+          </div>
+          <div class="menu-card-content">
+            <span class="menu-card-tag">Option: Chilli Chicken / Chilli Gobi</span>
+            <h3>Kerala Fried Rice & Mildly Spicy Side <span
+                class="ms-2 badge bg-danger text-white rounded-pill pulse-slow" style="font-size: 0.9rem;">€8.50</span>
+            </h3>
+            <p class="course-desc mb-2">Golden Basmati rice with fresh vegetables</p>
+            <p class="course-desc mb-2">Served with:</p>
+            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
+              <li>• Chilli Chicken or Chilli Gobi</li>
+              <li>• Papadam</li>
+              <li>• Freshly prepared with aromatic spices</li>
+              <li>• Refreshing yogurt salad (Raita)</li>
+            </ul>
+            <div class="variant-selectors mt-auto">
+              <!-- Non-Veg -->
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('fried_rice_nv', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-fried_rice_nv">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('fried_rice_nv', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <!-- Veg -->
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('fried_rice_v', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-fried_rice_v">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('fried_rice_v', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <!-- Vegan -->
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegan</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('fried_rice_vn', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-fried_rice_vn">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('fried_rice_vn', 1, 8.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hidden: Previous Offer (Classic Porotta Wrap) - Uncomment to restore 
         <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
           <div class="menu-card-img-wrapper">
             <img src="images/wrap.png" alt="Kerala Porotta Wrap" class="menu-card-img">
@@ -150,7 +249,84 @@
             </ul>
           </div>
         </div>
-        <!-- Drinks -->
+        -->
+
+        <!-- Porotta Wrap -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="menu-card-img-wrapper">
+            <img src="images/wrap.png" alt="Kerala Porotta Wrap" class="menu-card-img">
+          </div>
+          <div class="menu-card-content">
+            <span class="menu-card-tag">Option: Chilli Chicken / Chilli Gobi</span>
+            <h3>South Indian Bread with Mildly Spicy Filling <span
+                class="ms-2 badge bg-danger text-white rounded-pill pulse-slow" style="font-size: 0.9rem;">8,50 €</span>
+            </h3>
+            <p class="course-desc mb-2">Our popular Kerala Porotta Wrap (Normal or Small)</p>
+            <p class="course-desc mb-2">Includes:</p>
+            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
+              <li class="mb-2">• <strong>Choose Your Size:</strong> Normal Wrap or Small Wrap</li>
+              <li>• South Indian handmade bread & Spicy filling</li>
+              <li>• Fresh salad garnish (Cucumber, Tomato)</li>
+              <li>• Signature special sauce</li>
+            </ul>
+            <div class="variant-selectors mt-auto">
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('wrap_nv', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-wrap_nv">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('wrap_nv', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('wrap_v', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-wrap_v">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('wrap_v', 1, 8.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Combo Option -->
+        <div class="menu-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="menu-card-img-wrapper">
+            <img src="images/combo.png" alt="Kerala Combo" class="menu-card-img">
+          </div>
+          <div class="menu-card-content">
+            <span class="menu-card-tag">Best Value Combo</span>
+            <h3>Small Wrap + Drinks <span class="ms-2 badge bg-danger text-white rounded-pill pulse-slow"
+                style="font-size: 0.9rem;">8,50 €</span></h3>
+            <p class="course-desc mb-2">The ultimate snack-sized Kerala experience</p>
+            <p class="course-desc mb-2">Includes:</p>
+            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
+              <li>• <strong>Main:</strong> Small Porotta Wrap (Chilli Chicken or Gobi)</li>
+              <li>• <strong>Drink:</strong> Chilled Homemade Mango Lassi</li>
+              <li>• <strong>Special:</strong> High-value bundle deal</li>
+            </ul>
+            <div class="variant-selectors mt-auto">
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('combo_nv', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-combo_nv">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('combo_nv', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('combo_v', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-combo_v">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('combo_v', 1, 8.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hidden: Previous Offer (Classic Drinks) - Uncomment to restore 
         <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
           <div class="menu-card-img-wrapper">
             <img src="images/drink.jpg" alt="Drinks" class="menu-card-img">
@@ -167,36 +343,88 @@
             </ul>
           </div>
         </div>
+        -->
+
       </div>
-      <div class="mt-5 text-center reveal">
-        <a href="../files/menu-foodtruck.pdf" target="_blank" class="btn-ft btn-ft-primary">See Full Menu (PDF)</a>
+
+      <!-- Full Width Drinks Section -->
+      <div class="menu-card-horizontal reveal mt-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="menu-card-img-wrapper">
+          <img src="images/mango.jpg" alt="Drinks" class="menu-card-img">
+        </div>
+        <div class="menu-card-content">
+          <div class="d-flex flex-wrap gap-2 mb-2">
+            <div class="dietary-badge veg"><i></i>Refreshments</div>
+            <span class="menu-card-tag">Authentic & Refresing</span>
+          </div>
+          <h3>Drinks – The perfect complement</h3>
+          <div class="row w-100">
+            <div class="col-md-6">
+              <div class="drink-item d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="drink-name">Mango Lassi</span>
+                  <span class="drink-price">3,00 €</span>
+                  <span class="drink-desc">Indian Alphonsa Mango with yogurt and milk (Ice-cold)</span>
+                </div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('lassi', -1, 3.0)">−</button>
+                  <span class="qty-number" id="qty-lassi">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('lassi', 1, 3.0)">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="drink-item d-flex align-items-center justify-content-between">
+                <div>
+                  <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="drink-name mb-0">Mango Juice</span>
+                    <div class="dietary-badge vegan mb-0" style="padding: 2px 6px; font-size: 10px;"><i></i>Vegan</div>
+                  </div>
+                  <span class="drink-price">2,50 €</span>
+                  <span class="drink-desc">Indian Alphonsa Mango, ginger & lemon (Refreshing cool drink)</span>
+                </div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('juice', -1, 2.5)">−</button>
+                  <span class="qty-number" id="qty-juice">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('juice', 1, 2.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="mt-5 text-center reveal">
+      <a href="../files/menu-foodtruck.pdf" target="_blank" class="btn-ft btn-ft-primary">See Full Menu (PDF)</a>
+    </div>
     </div>
   </section>
 
-  <!-- Next Week Sneak Peek -->
-  <section class="bg-light">
-    <div class="container text-center">
-      <div class="cta-banner">
-        <h2 style="font-size: 1.5rem; margin-bottom: 10px;">Next Week Sneak Peek</h2>
-        <p>Follow our Instagram page for next week's schedule and rotating specials!</p>
-        <a href="https://instagram.com/foodeza.de/" target="_blank" class="btn-ft btn-ft-primary"
-          style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);">@foodeza.de</a>
-      </div>
-    </div>
-  </section>
+  <!-- Combined Preview & Booking Section -->
+  <section class="bg-light py-5">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+        <!-- Next Week Preview -->
+        <div class="col-md-6 col-lg-5">
+          <div class="cta-banner h-100 p-4 rounded-4 shadow-sm bg-white reveal text-center">
+            <h2 style="font-size: 1.5rem; margin-bottom: 15px;">Next Week Sneak Peek</h2>
+            <p class="mb-4">Follow our Instagram page for next week's schedule and rotating specials!</p>
+            <a href="https://instagram.com/foodeza.de/" target="_blank" class="btn-ft btn-ft-primary w-100 mt-auto"
+              style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border: none;">@foodeza.de</a>
+          </div>
+        </div>
 
-  <!-- Pre-Order & Catering Section -->
-  <section id="booking" class="reveal">
-    <div class="container d-flex flex-column align-items-center">
-      <div class="section-title">
-        <h2>Ready for a taste of Kerala?</h2>
-        <p>Skip the line by pre-ordering for pickup or book our truck for your private event.</p>
-      </div>
-      <div class="btn-group mb-5">
-        <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-primary">Pre-Order Pickup</a>
-        <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-secondary">Request Catering
-          Quote</a>
+        <!-- Booking & Pre-Order -->
+        <div class="col-md-6 col-lg-5">
+          <div id="booking" class="cta-banner h-100 p-4 rounded-4 shadow-sm bg-white reveal text-center">
+            <h2 style="font-size: 1.5rem; margin-bottom: 15px;">Fancy a taste of Kerala?</h2>
+            <p class="mb-4">Skip the line by pre-ordering for pickup or book our truck for your event.</p>
+            <div class="btn-group w-100 mt-auto">
+              <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-primary">Pre-Order</a>
+              <a href="https://forms.gle/yKW2ikriMtu1KQPw7" target="_blank" class="btn-ft btn-ft-secondary">Catering</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -264,6 +492,20 @@
           <span>— Thomas K.</span>
         </div>
       </div>
+      <div class="mt-5 text-center reveal">
+        <a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="btn-ft btn-ft-primary"
+          style="background: #ffffff; color: var(--primary-red); border: 2px solid var(--primary-red); box-shadow: 0 4px 15px rgba(214, 40, 40, 0.15); font-weight: 700;">
+          <img src="../images/google-red.svg" alt="Google" style="width: 20px; margin-right: 10px;">
+          Review us on Google
+          <span class="ms-2">
+            <img src="../images/star-red.svg" alt="star" style="width: 14px;">
+            <img src="../images/star-red.svg" alt="star" style="width: 14px;">
+            <img src="../images/star-red.svg" alt="star" style="width: 14px;">
+            <img src="../images/star-red.svg" alt="star" style="width: 14px;">
+            <img src="../images/star-red.svg" alt="star" style="width: 14px;">
+          </span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -290,10 +532,112 @@
     </div>
   </footer>
 
+  <!-- Sticky Order Bar -->
+  <div id="sticky-order-bar" class="sticky-order-bar">
+    <div class="order-info">
+      <span class="order-count" id="order-count">0 Items</span>
+      <span class="order-total" id="order-total">Total: €0.00</span>
+    </div>
+    <button onclick="submitOrder()" class="order-submit-btn">Complete Order</button>
+  </div>
+
   <!-- Scripts -->
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.5.3.7.js"></script>
   <script>
+    // Shopping Cart Logic
+    const cart = {
+      fried_rice_nv: 0,
+      fried_rice_v: 0,
+      fried_rice_vn: 0,
+      wrap_nv: 0,
+      wrap_v: 0,
+      combo_nv: 0,
+      combo_v: 0,
+      lassi: 0,
+      juice: 0,
+      totalItems: 0,
+      totalPrice: 0
+    };
+
+    function updateQty(item, change, price) {
+      if (cart[item] + change < 0) return;
+
+      cart[item] += change;
+      cart.totalItems += change;
+      cart.totalPrice += (change * price);
+
+      // Update Display
+      if (document.getElementById(`qty-${item}`)) {
+        document.getElementById(`qty-${item}`).innerText = cart[item];
+      }
+      document.getElementById('order-count').innerText = `${cart.totalItems} Items`;
+      document.getElementById('order-total').innerText = `Total: €${cart.totalPrice.toFixed(2)}`;
+
+      // Toggle Sticky Bar
+      const bar = document.getElementById('sticky-order-bar');
+      if (cart.totalItems > 0) {
+        bar.classList.add('active');
+      } else {
+        bar.classList.remove('active');
+      }
+    }
+
+    function submitOrder() {
+      const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdo0a3SJCsOkdfr4kT1__Td2K9irO9sCEcwdCRB0B7jA-Pkzg/viewform";
+
+      let params = [];
+
+      // 1. Bowl - entry.1946155460
+      let bowlParts = [];
+      if (cart.fried_rice_nv > 0) bowlParts.push(`Non-Veg: ${cart.fried_rice_nv}`);
+      if (cart.fried_rice_v > 0) bowlParts.push(`Veg: ${cart.fried_rice_v}`);
+      if (cart.fried_rice_vn > 0) bowlParts.push(`Vegan: ${cart.fried_rice_vn}`);
+      if (bowlParts.length > 0) {
+        params.push(`entry.1946155460=${encodeURIComponent(bowlParts.join(', '))}`);
+      }
+
+      // 2. Wrap - entry.608672339
+      let wrapParts = [];
+      if (cart.wrap_nv > 0) wrapParts.push(`Non-Veg: ${cart.wrap_nv}`);
+      if (cart.wrap_v > 0) wrapParts.push(`Veg: ${cart.wrap_v}`);
+      if (wrapParts.length > 0) {
+        params.push(`entry.608672339=${encodeURIComponent(wrapParts.join(', '))}`);
+      }
+
+      // 3. Combo - entry.442486380
+      let comboParts = [];
+      if (cart.combo_nv > 0) comboParts.push(`Non-Veg: ${cart.combo_nv}`);
+      if (cart.combo_v > 0) comboParts.push(`Veg: ${cart.combo_v}`);
+      if (comboParts.length > 0) {
+        params.push(`entry.442486380=${encodeURIComponent(comboParts.join(', '))}`);
+      }
+
+      // 4. Drinks - entry.133219745
+      let drinkParts = [];
+      if (cart.lassi > 0) drinkParts.push(`Mango Lassi: ${cart.lassi}`);
+      if (cart.juice > 0) drinkParts.push(`Mango Juice: ${cart.juice}`);
+      if (drinkParts.length > 0) {
+        params.push(`entry.133219745=${encodeURIComponent(drinkParts.join(', '))}`);
+      }
+
+      // 5. Total Price - entry.2057144369
+      if (cart.totalPrice > 0) {
+        params.push(`entry.2057144369=${encodeURIComponent(cart.totalPrice.toFixed(2))} €`);
+      }
+
+      // Open pre-filled form in the same window
+      const finalUrl = baseUrl + "?" + params.join("&");
+      window.location.href = finalUrl;
+    }
+
+    // Reload page when navigating back to ensure state is fresh
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+
     // Scroll Reveal Animation
     const observerOptions = {
       threshold: 0.15
