@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oster-Schlemmerbox – Erstklassiges Kerala Christian Oster-Mittagessen | Foodeza</title>
+    <meta name="description"
+        content="Feiern Sie Ostern mit einem authentischen Kerala Christian Festessen. Traditionelles Meen Curry, Kappa, Pork Fry, Chicken 65 und mehr. Bestellen Sie Ihre Oster-Schlemmerbox bei Foodeza vor – Abholung in Mühlacker oder Lieferung nach Stuttgart, Feuerbach, Vaihingen und Karlsruhe.">
+    <meta name="keywords"
+        content="Osteressen, Kerala Essen, Christliches Oster-Mittagessen, Kerala Catering Deutschland, Foodeza, Kerala Meen Curry, Pork Fry, Kozhikotta, indischer Lieferservice Stuttgart, Kerala Schlemmerbox">
+    <meta name="author" content="Foodeza">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://foodeza.de/easter-feast/">
+    <meta property="og:title" content="Oster-Schlemmerbox – Erstklassiges Kerala Christian Oster-Mittagessen | Foodeza">
+    <meta property="og:description"
+        content="Feiern Sie Ostern mit einem traditionellen Kerala-Festessen, zubereitet mit authentischen hausgemachten Aromen. Begrenzte Anzahl an Boxen verfügbar!">
+    <meta property="og:image" content="https://foodeza.de/easter-feast/images/hero.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://foodeza.de/easter-feast/">
+    <meta property="twitter:title"
+        content="Oster-Schlemmerbox – Erstklassiges Kerala Christian Oster-Mittagessen | Foodeza">
+    <meta property="twitter:description"
+        content="Feiern Sie Ostern mit einem traditionellen Kerala-Festessen. Bestellen Sie Ihre Oster-Schlemmerbox noch heute vor!">
+    <meta property="twitter:image" content="https://foodeza.de/easter-feast/images/hero.png">
+
+    <link rel="canonical" href="https://foodeza.de/easter-feast/index-de.html">
+    <link rel="alternate" hreflang="en" href="https://foodeza.de/easter-feast/">
+    <link rel="alternate" hreflang="de" href="https://foodeza.de/easter-feast/index-de.html">
+    <link rel="alternate" hreflang="x-default" href="https://foodeza.de/easter-feast/">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Oster-Schlemmerbox - Kerala Christian Festessen",
+      "image": "https://foodeza.de/easter-feast/images/hero.png",
+      "description": "Ein traditionelles Kerala Christian Festessen mit Meen Curry, Kappa, Pork & Kaya Fry, Chicken 65 und mehr. Authentische hausgemachte Aromen für Ihre Osterfeier.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Foodeza"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "url": "https://foodeza.de/easter-feast/",
+        "priceCurrency": "EUR",
+        "lowPrice": "40",
+        "highPrice": "85",
+        "offerCount": "2"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-red': '#cc0605',
+                        'brand-red-dark': '#a00504',
+                        'brand-gold': '#f4b41a',
+                        'brand-green': '#2d5a27',
+                        'festive-warm': '#fffaf0',
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        .menu-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .option-selected {
+            border-color: #cc0605;
+            background-color: #fff1f1;
+            box-shadow: 0 10px 15px -3px rgba(204, 6, 5, 0.1);
+        }
+
+        /* Language Switcher Styles */
+        .lang-switcher {
+            position: relative;
+        }
+
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            z-index: 100;
+        }
+
+        .lang-switcher:hover .lang-dropdown {
+            display: block;
+        }
+
+        .lang-dropdown a {
+            display: block;
+            padding: 8px 16px;
+            color: #cc0605;
+            text-decoration: none;
+        }
+
+        .lang-dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+
+        @keyframes box-float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+        }
+
+        .box-floating {
+            animation: box-float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-festive-warm text-slate-800 font-sans scroll-smooth">
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 glass-effect border-b border-slate-100 py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="../index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <img src="../images/foodeza_main_logo.png" alt="Foodeza Logo" class="h-10">
+        </a>
+        <div class="hidden md:flex gap-8 font-semibold text-brand-red items-center">
+            <a href="#menu" class="hover:text-brand-red-dark transition">Menü</a>
+            <a href="#options" class="hover:text-brand-red-dark transition">Boxen</a>
+            <a href="#delivery" class="hover:text-brand-red-dark transition">Zeitplan</a>
+
+            <!-- Language Switcher -->
+            <div class="lang-switcher cursor-pointer group flex items-center gap-1">
+                <span>DE</span>
+                <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                <div class="lang-dropdown">
+                    <a href="index-de.html" class="font-bold border-b border-slate-100">Deutsch (DE)</a>
+                    <a href="index.html">English (EN)</a>
+                </div>
+            </div>
+        </div>
+        <a href="#preorder"
+            class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-brand-red-dark transition-all transform hover:scale-105 shadow-lg">
+            Vorbestellen
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="images/hero.png" alt="Foodeza Oster-Schlemmerbox - Kerala Christian Festessen Collage"
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 text-center text-white px-6 max-w-4xl animate-fade-in-up">
+            <span
+                class="inline-block bg-brand-gold text-brand-red px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest mb-6">Traditionelles
+                Festessen</span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl mb-4 leading-tight">Oster-Schlemmerbox</h1>
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-light mb-4 opacity-90">Erstklassiges Kerala Christian
+                Oster-Mittagessen</h2>
+            <p class="text-brand-gold font-bold text-lg mb-8 uppercase tracking-widest">Bestellung bis 3.04 - Freitag
+            </p>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-80 leading-relaxed font-light">
+                Feiern Sie Ostern mit einem traditionellen Kerala-Festessen, zubereitet mit authentischen hausgemachten
+                Aromen. Eine Box voller Freude und Tradition.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#preorder"
+                    class="bg-brand-red hover:bg-brand-red-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-all shadow-xl hover:shadow-2xl">
+                    Jetzt vorbestellen
+                </a>
+                <a href="#menu"
+                    class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/50 px-10 py-4 rounded-xl text-lg font-bold transition-all">
+                    Menü ansehen
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float">
+            <i data-lucide="chevron-down" class="text-white w-8 h-8"></i>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-brand-red font-serif text-4xl md:text-5xl mb-4">Ein Hauch von Tradition</h2>
+            <div class="w-24 h-1 bg-brand-gold mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Starter -->
+            <div
+                class="group menu-card bg-white rounded-3xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-2xl">
+                <div class="h-64 overflow-hidden">
+                    <img src="images/starter.png"
+                        alt="Kerala Oster-Vorspeise: Traditionelles Meen Curry und Kappa (Tapioka)"
+                        class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="p-2 bg-brand-red/10 rounded-lg"><i data-lucide="utensils"
+                                class="text-brand-red w-5 h-5"></i></span>
+                        <h3 class="text-2xl font-bold">Vorspeise</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4"></i>
+                            Kappa (Tapioka)</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="text-brand-green w-4 h-4"></i>
+                            Traditionelles Meen Curry (Fisch)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Feast -->
+            <div
+                class="group menu-card bg-white rounded-3xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-2xl md:scale-105 z-10 border-2 border-brand-gold/30">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="images/main.png"
+                        alt="Kerala Oster-Hauptgericht: Pork & Kaya Fry, Chicken 65 und Angamaly Manga Curry"
+                        class="w-full h-full object-cover transition-transform duration-700">
+                    <div
+                        class="absolute top-4 right-4 bg-brand-gold text-brand-red font-bold px-3 py-1 rounded-full text-xs uppercase">
+                        Spezialität des Hauses</div>
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="p-2 bg-brand-red/10 rounded-lg"><i data-lucide="flame"
+                                class="text-brand-red w-5 h-5"></i></span>
+                        <h3 class="text-2xl font-bold">Hauptgericht</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-4 gap-y-3 text-slate-600 text-sm">
+                        <li class="flex items-center gap-2">Gedämpfter Reis</li>
+                        <li class="flex items-center gap-2">Angamaly Manga Curry</li>
+                        <li class="flex items-center gap-2">Thoran</li>
+                        <li class="flex items-center gap-2">Sarlas (Salat)</li>
+                        <li class="flex items-center gap-2 font-semibold text-brand-red">Pork & Kaya Fry</li>
+                        <li class="flex items-center gap-2 font-semibold text-brand-red">Chicken 65</li>
+                        <li class="flex items-center gap-2">Achar (Pickle)</li>
+                        <li class="flex items-center gap-2">Papadam</li>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dessert -->
+            <div
+                class="group menu-card bg-white rounded-3xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-2xl">
+                <div class="h-64 overflow-hidden">
+                    <img src="images/dessert.png" alt="Kerala Oster-Nachtisch: Kozhikotta (Süße Kokos-Reis-Knödel)"
+                        class="w-full h-full object-cover transition-transform duration-700">
+                </div>
+                <div class="p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="p-2 bg-brand-red/10 rounded-lg"><i data-lucide="ice-cream"
+                                class="text-brand-red w-5 h-5"></i></span>
+                        <h3 class="text-2xl font-bold">Nachtisch</h3>
+                    </div>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-center gap-2">
+                            Kozhikotta
+                            <span class="text-xs text-slate-400 italic">(Süße Kokos-Reis-Knödel)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Box Options -->
+    <section id="options" class="bg-brand-red py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-gold rounded-full blur-3xl"></div>
+        </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-white font-serif text-4xl md:text-5xl mb-4">Wähle deine Box</h2>
+                <p class="text-white/80 text-lg">Perfekt portioniert für deine Feier</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Box for 2 -->
+                <div onclick="selectBox('couple')" id="box-couple"
+                    class="cursor-pointer group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
+                    <img src="images/box.png" alt="Box"
+                        class="absolute -top-12 -left-12 w-32 opacity-100 transition-all box-floating z-20">
+                    <div class="flex justify-between items-start mb-6 relative z-10">
+                        <div
+                            class="p-4 bg-brand-red/5 rounded-2xl group-hover:bg-brand-red group-hover:text-white transition-colors">
+                            <i data-lucide="users-2" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-brand-red">40 €</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 relative z-10">Box für 2 Personen</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed relative z-10">Ein festliches Mittagessen für zwei,
+                        vollgepackt mit
+                        authentischen Aromen.</p>
+                    <div class="flex items-center gap-2 text-brand-red font-bold relative z-10">
+                        <span class="text-sm">Option auswählen</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
+                <!-- Box for 5 -->
+                <div onclick="selectBox('family')" id="box-family"
+                    class="cursor-pointer group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
+                    <img src="images/box.png" alt="Box"
+                        class="absolute -top-16 -left-16 w-44 opacity-100 transition-all box-floating z-20">
+                    <div class="flex justify-between items-start mb-6 relative z-10">
+                        <div
+                            class="p-4 bg-brand-red/5 rounded-2xl group-hover:bg-brand-red group-hover:text-white transition-colors">
+                            <i data-lucide="users" class="w-8 h-8"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-brand-red">85 €</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 relative z-10">Familienbox für 5 Personen</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed relative z-10">Ideal für ein Familientreffen. Mehr
+                        Freude, mehr
+                        Essen und ein tolles Preis-Leistungs-Verhältnis.</p>
+                    <div class="flex items-center gap-2 text-brand-red font-bold relative z-10">
+                        <span class="text-sm">Option auswählen</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delivery & Pickup -->
+    <section id="delivery" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-4xl font-serif text-brand-red mb-4">Lieferung & Abholung</h2>
+                    <p class="text-lg text-slate-600">Frisch zubereitet und bereit für deine Osterfeier am Sonntag.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-xl uppercase tracking-wider text-brand-red">Details zur Abholung
+                            </h4>
+                            <p class="text-slate-500">5. April, Sonntag | Mühlacker (10:00 - 18:00)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <h4 class="font-bold text-xl uppercase tracking-wider text-brand-red mb-6 flex items-center gap-3">
+                        <i data-lucide="truck" class="text-brand-gold"></i> Lieferplan
+                    </h4>
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-center border-b border-slate-50 pb-4 text-lg">
+                            <span class="font-semibold">Feuerbach</span>
+                            <span class="bg-slate-100 px-4 py-1 rounded-full text-slate-700 font-mono">11:00</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-slate-50 pb-4 text-lg">
+                            <span class="font-semibold">Vaihingen</span>
+                            <span class="bg-slate-100 px-4 py-1 rounded-full text-slate-700 font-mono">12:30</span>
+                        </div>
+                        <div class="flex justify-between items-center text-lg">
+                            <span class="font-semibold">Karlsruhe</span>
+                            <span class="bg-slate-100 px-4 py-1 rounded-full text-slate-700 font-mono">12:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative rounded-[3rem] overflow-hidden shadow-2xl h-[500px]">
+                <img src="images/hero.png" alt="Traditionelle Kerala-Hausmannskost für Ostern"
+                    class="w-full h-full object-cover">
+                <div class="absolute inset-x-0 bottom-0 p-10 bg-gradient-to-t from-black/80 to-transparent text-white">
+                    <p class="text-2xl font-serif italic">"Herzen verbinden durch den authentischen Geschmack von
+                        Kerala."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="preorder" class="py-24 px-6 bg-slate-50 relative overflow-hidden">
+        <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-4 block">Sichern Sie sich Ihr
+                    Festessen</span>
+                <h2 class="text-4xl md:text-5xl font-serif mb-6 text-slate-900">Geben Sie Ihre Bestellung auf</h2>
+                <p class="text-brand-red font-bold text-xl mb-6 uppercase tracking-widest">Frist: 3. April - Freitag</p>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mb-6"></div>
+                <p class="text-slate-600 max-w-xl mx-auto leading-relaxed">
+                    Bestellungen werden über unser sicheres Google-Formular verarbeitet. Eine Kopie Ihrer Antworten wird
+                    an die von Ihnen angegebene Adresse gesendet.
+                </p>
+            </div>
+
+            <div class="bg-white p-2 md:p-4 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100"
+                data-aos="zoom-in" data-aos-delay="200">
+                <div class="relative w-full rounded-[2.5rem] overflow-hidden bg-slate-50" style="height: 1200px;">
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform?embedded=true"
+                        class="absolute inset-0 w-full h-full" frameborder="0" marginheight="0" marginwidth="0">
+                        Wird geladen…
+                    </iframe>
+                </div>
+
+                <div class="py-10 text-center bg-white border-t border-slate-50 rounded-b-[3rem]">
+                    <div class="flex flex-col items-center gap-4">
+                        <p class="text-slate-400 text-sm italic">Probleme mit dem eingebetteten Formular?</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
+                            target="_blank"
+                            class="bg-brand-red/5 hover:bg-brand-red/10 text-brand-red px-8 py-3 rounded-xl font-bold transition-all flex items-center gap-2 border border-brand-red/20">
+                            Im Original Google Formular öffnen <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 py-16 px-6 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <a href="../index.html" class="hover:opacity-80 transition-opacity">
+                <img src="../images/foodeza_main_logo.png" alt="Foodeza"
+                    class="h-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+            </a>
+            <div class="flex gap-8 text-slate-400">
+                <a href="https://www.instagram.com/foodeza.de/" target="_blank"
+                    class="hover:text-brand-red">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank"
+                    class="hover:text-brand-red">Facebook</a>
+                <a href="https://chat.whatsapp.com/LOEbT2eWc7IKKnhf1jZHRU" target="_blank"
+                    class="hover:text-brand-red">WhatsApp</a>
+            </div>
+            <p class="text-slate-400 text-sm">© 2025 Foodeza. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/491744504441?text=Hallo, ich möchte mich nach der Oster-Schlemmerbox erkundigen!"
+        class="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center gap-2 group">
+        <span
+            class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 font-bold whitespace-nowrap">Auf
+            WhatsApp chatten</span>
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-quart'
+        });
+
+        // Google Form Integration
+        const googleFormBaseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform?embedded=true";
+        const boxSizeEntryId = "entry.368583156";
+
+        // Box selection sync
+        function selectBox(type) {
+            // Update Visuals
+            document.querySelectorAll('.box-option').forEach(el => el.classList.remove('option-selected', 'border-brand-red'));
+            const selectedCard = document.getElementById('box-' + type);
+            selectedCard.classList.add('option-selected', 'border-brand-red');
+
+            // Map type to exact Google Form option strings
+            let formValue = "";
+            if (type === 'couple') formValue = "Box for 2 People – €40";
+            if (type === 'family') formValue = "Family Box for 5 People – €85";
+
+            // Update Google Form Iframe with pre-filled value
+            const iframe = document.querySelector('section#preorder iframe');
+            const prefillUrl = `${googleFormBaseUrl}&${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
+
+            // To avoid flickering or reloading if the user is already filling, 
+            // we only update if the selection actually changed
+            if (iframe.src !== prefillUrl) {
+                iframe.src = prefillUrl;
+            }
+
+            // Scroll to form automatically
+            document.getElementById('preorder').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>
