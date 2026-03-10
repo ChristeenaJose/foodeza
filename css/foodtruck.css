@@ -245,6 +245,111 @@ body {
     transform: translateY(-2px);
 }
 
+.btn-card-order {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(214, 40, 40, 0.15);
+}
+
+.btn-card-order:hover {
+    background: var(--primary-red-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(214, 40, 40, 0.25);
+}
+
+.btn-card-order i {
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+/* Google Rating in Header */
+.google-rating-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--white);
+    border-radius: 50px;
+    border: 1px solid rgba(214, 40, 40, 0.1);
+    text-decoration: none;
+    transition: var(--transition);
+    margin-right: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.google-rating-header:hover {
+    background: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(214, 40, 40, 0.15);
+    border-color: var(--primary-red);
+}
+
+.google-rating-header img.google-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.google-stars {
+    display: flex;
+    gap: 2px;
+}
+
+.google-stars img {
+    width: 14px;
+    height: 14px;
+}
+
+/* Navigation Overrides */
+.ft-nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.nav-link-ft {
+    color: var(--text-dark) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none !important;
+    transition: var(--transition);
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link-ft:hover {
+    color: var(--primary-red) !important;
+}
+
+.nav-link-ft.active {
+    color: var(--primary-red) !important;
+}
+
+.nav-link-ft.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background: var(--primary-red);
+    border-radius: 20px;
+}
+
 /* Language Switcher */
 .lang-switcher {
     position: relative;
@@ -491,6 +596,92 @@ section {
     font-weight: 700;
 }
 
+/* Horizontal Menu Card (for Drinks) */
+.menu-card-horizontal {
+    background: var(--white);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.menu-card-horizontal:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    border-color: rgba(214, 40, 40, 0.15);
+}
+
+.menu-card-horizontal .menu-card-img-wrapper {
+    width: 30%;
+    height: auto;
+    min-height: 200px;
+}
+
+.menu-card-horizontal .menu-card-content {
+    width: 70%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .menu-card-horizontal {
+        flex-direction: column;
+    }
+
+    .menu-card-horizontal .menu-card-img-wrapper {
+        width: 100%;
+        height: 200px;
+    }
+
+    .menu-card-horizontal .menu-card-content {
+        width: 100%;
+        padding: 2rem;
+    }
+}
+
+/* Drink Items Styling - Vertical Stack */
+.drink-list {
+    margin: 0;
+    padding: 0;
+}
+
+.drink-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.drink-name {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    display: block;
+}
+
+.drink-price {
+    font-weight: 800;
+    color: var(--primary-red);
+    font-size: 1.1rem;
+    display: block;
+}
+
+.drink-desc {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
 /* Dietary Badges */
 .dietary-badge {
     display: inline-flex;
@@ -548,6 +739,30 @@ section {
 }
 
 .non-veg i::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+}
+
+.vegan {
+    background: rgba(46, 125, 50, 0.1);
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.2);
+}
+
+.vegan i {
+    background: #2e7d32;
+    border: 1px solid #1b5e20;
+    position: relative;
+}
+
+.vegan i::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -773,4 +988,177 @@ section {
 
 .social-btn.youtube:hover {
     background: #ff0000;
+}
+
+/* Quantity Selector Styles */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    background: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 50px;
+}
+
+.qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: var(--white);
+    color: var(--primary-red);
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.qty-btn:hover {
+    background: var(--primary-red);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+.qty-btn:active {
+    transform: scale(0.9);
+}
+
+.qty-number {
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-width: 25px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+/* Sticky Order Bar */
+.sticky-order-bar {
+    position: fixed;
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 15px 25px;
+    border-radius: 100px;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(214, 40, 40, 0.4);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sticky-order-bar.active {
+    bottom: 30px;
+}
+
+.order-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-count {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.order-total {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.order-submit-btn {
+    background: var(--white);
+    color: var(--primary-red);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none !important;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+}
+
+.order-submit-btn:hover {
+    background: #fff;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    color: var(--primary-red) !important;
+}
+
+/* Hide original Pre-order buttons if using quantity */
+.btn-card-order {
+    display: none !important;
+}
+
+.menu-card {
+    height: 100%;
+}
+
+.menu-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.course-desc {
+    flex-grow: 1;
+}
+
+/* Variant Selector Styling */
+.variant-selectors {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.variant-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.variant-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.variant-label i {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+/* Mini Quantity Selector for variants */
+.variant-item .quantity-selector {
+    margin-top: 0;
+    padding: 4px 8px;
+    gap: 10px;
+    background: #f1f5f9;
+}
+
+.variant-item .qty-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+}
+
+.variant-item .qty-number {
+    font-size: 0.9rem;
+    min-width: 20px;
 }
