@@ -484,6 +484,11 @@ section {
     margin: 0 auto;
 }
 
+/* Precise scrolling for IDs */
+#weekly-menu {
+    scroll-margin-top: 100px;
+}
+
 /* Weekly Schedule */
 .schedule-grid {
     display: grid;
