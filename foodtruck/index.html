@@ -35,8 +35,8 @@
         <ul class="ft-nav-list">
           <li><a href="../index.html" class="nav-link-ft">Startseite</a></li>
           <li><a href="index.html" class="nav-link-ft active">Foodtruck</a></li>
-          <li><a href="#weekly-menu" class="nav-link-ft">Wochenkarte</a></li>
-          <li><a href="../index.html#catering" class="nav-link-ft">Catering</a></li>
+          <li><a href="mittagessen.html" class="nav-link-ft">Mittagessen</a></li>
+          <li><a href="#next-event" class="nav-link-ft">Events</a></li>
           <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="google-rating-header">
               <img src="../images/google-red.svg" alt="Google" class="google-icon">
               <div class="google-stars">
@@ -48,7 +48,7 @@
               </div>
             </a>
           </li>
-          <li><a href="#weekly-menu"
+          <li><a href="mittagessen.html"
               class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Vorbestellen</a></li>
           <li class="lang-switcher">
             <a href="#" class="lang-btn">
@@ -88,314 +88,174 @@
   </section>
 
   <!-- Streamlined Event & Schedule -->
-  <section id="next-event" class="pt-0">
+  <section id="next-event" class="pt-5 pb-5 bg-light">
     <div id="schedule" style="position: absolute; top: -100px;"></div>
     <div class="container">
-      <div class="next-schedule-highlight reveal-scale">
-        <span class="badge-live">Wochenplan</span>
-        <span class="next-schedule-date">12. März 2026</span>
-        <span class="next-schedule-location">Presselstr. 17, 70191 Stuttgart</span>
-        <span class="time d-block opacity-75 mb-4">Donnerstag | 11:30 – 13:30</span>
-        <div class="mt-4 btn-group justify-content-center">
-          <a href="#weekly-menu" class="btn-ft shimmer-btn"
-            style="border: none;">Jetzt vorbestellen</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=Presselstr.+17,+70191+Stuttgart" target="_blank"
-            class="btn-ft btn-ft-secondary"
-            style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.3);">Wegbeschreibung</a>
+      <div class="text-center mb-5 reveal">
+        <h2 class="section-title mb-1">Unser Wochenplan</h2>
+        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Wochentour: 18.–22. März 2026</p>
+      </div>
+
+      <div class="schedule-list mb-5" style="max-width: 900px; margin: 0 auto;">
+        
+        <!-- Event 1: Weekly Mittagessen -->
+        <div class="d-flex flex-column flex-md-row bg-white rounded-4 shadow-sm p-4 mb-4 align-items-center justify-content-between reveal" style="border: 1px solid rgba(0,0,0,0.06); transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+          
+          <!-- Date Calendar Tab -->
+          <div class="d-flex flex-column align-items-center text-center pe-md-4 mb-4 mb-md-0" style="min-width: 100px;">
+            <span class="text-danger fw-bold" style="font-size: 1.2rem;">Do</span>
+            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">19.</span>
+            <span class="text-muted fw-bold text-uppercase mt-1" style="font-size: 0.85rem; letter-spacing: 1px;">März</span>
+          </div>
+          
+          <!-- Event Details -->
+          <div class="flex-grow-1 px-md-4 py-md-2 mb-4 mb-md-0 text-center text-md-start" style="border-left: 2px solid #f8f9fa; border-right: 2px solid #f8f9fa;">
+            <span class="badge bg-warning text-dark mb-2 px-3 py-1 rounded-pill fw-bold" style="font-size: 0.75rem;">Jeden Donnerstag</span>
+            <h3 class="fw-bold mb-2 fs-5" style="color: #1a1a1a;">Stuttgart-Nord</h3>
+            <div class="d-flex align-items-center mb-2 justify-content-center justify-content-md-start text-muted">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-3" style="width: 32px; height: 32px; background-color: rgba(220, 53, 69, 0.1); flex-shrink: 0;">
+                <i class="fas fa-map-marker-alt text-danger"></i>
+              </div>
+              <span class="fw-medium" style="font-size: 0.95rem;">Presselstr. 17, 70191 Stuttgart</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start text-muted">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-3" style="width: 32px; height: 32px; background-color: rgba(220, 53, 69, 0.1); flex-shrink: 0;">
+                <i class="fas fa-clock text-danger"></i>
+              </div>
+              <span class="fw-medium" style="font-size: 0.95rem;">11:30 – 13:30 Uhr</span>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="d-flex flex-column gap-2 ps-md-4" style="min-width: 240px;">
+            <a href="mittagessen.html" class="btn-ft btn-ft-primary shadow-none w-100 justify-content-center"><div class="d-flex justify-content-center align-items-center rounded-circle me-2 bg-white text-danger" style="width: 28px; height: 28px; flex-shrink: 0;"><i class="fas fa-utensils"></i></div>Menü & Vorbestellen</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Presselstr.+17,+70191+Stuttgart" target="_blank" class="btn-ft btn-ft-secondary w-100 justify-content-center"><div class="d-flex justify-content-center align-items-center rounded-circle me-2" style="width: 28px; height: 28px; background-color: rgba(13, 110, 253, 0.1); flex-shrink: 0;"><i class="fas fa-location-arrow text-primary"></i></div>Wegbeschreibung</a>
+          </div>
+        </div>
+
+        <!-- Event 2: Public Event -->
+        <div class="d-flex flex-column flex-md-row bg-white rounded-4 shadow-sm p-4 align-items-center justify-content-between reveal" data-aos-delay="100" style="border: 1px solid rgba(0,0,0,0.06); transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+          
+          <!-- Date Calendar Tab -->
+          <div class="d-flex flex-column align-items-center text-center pe-md-4 mb-4 mb-md-0" style="min-width: 100px;">
+            <span class="text-danger fw-bold" style="font-size: 1.2rem;">So</span>
+            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">22.</span>
+            <span class="text-muted fw-bold text-uppercase mt-1" style="font-size: 0.85rem; letter-spacing: 1px;">März</span>
+          </div>
+          
+          <!-- Event Details -->
+          <div class="flex-grow-1 px-md-4 py-md-2 mb-4 mb-md-0 text-center text-md-start" style="border-left: 2px solid #f8f9fa; border-right: 2px solid #f8f9fa;">
+            <span class="badge text-white mb-2 px-3 py-1 rounded-pill fw-bold" style="font-size: 0.75rem; background: linear-gradient(135deg, #FF416C, #FF4B2B);">🌟 Public Event</span>
+            <h3 class="fw-bold mb-2 fs-5" style="color: #1a1a1a;">Fußballturnier Weinstadt</h3>
+            <div class="d-flex align-items-center mb-2 justify-content-center justify-content-md-start text-muted">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-3" style="width: 32px; height: 32px; background-color: rgba(220, 53, 69, 0.1); flex-shrink: 0;">
+                <i class="fas fa-map-marker-alt text-danger"></i>
+              </div>
+              <span class="fw-medium" style="font-size: 0.95rem;">Im Obenhinaus 4, Weinstadt</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start text-muted">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-3" style="width: 32px; height: 32px; background-color: rgba(220, 53, 69, 0.1); flex-shrink: 0;">
+                <i class="fas fa-clock text-danger"></i>
+              </div>
+              <span class="fw-medium" style="font-size: 0.95rem;">10:00 – 17:00 Uhr</span>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="d-flex flex-column gap-2 ps-md-4" style="min-width: 240px;">
+            <a href="https://www.instagram.com/p/DWBjvAtjF9K/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="btn-ft btn-ft-primary shadow-none w-100 justify-content-center"><div class="d-flex justify-content-center align-items-center rounded-circle me-2 bg-white text-danger" style="width: 28px; height: 28px; flex-shrink: 0;"><i class="fab fa-instagram"></i></div>Event Menü ansehen</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Im+Obenhinaus+4,+Weinstadt" target="_blank" class="btn-ft btn-ft-secondary w-100 justify-content-center"><div class="d-flex justify-content-center align-items-center rounded-circle me-2" style="width: 28px; height: 28px; background-color: rgba(13, 110, 253, 0.1); flex-shrink: 0;"><i class="fas fa-location-arrow text-primary"></i></div>Wegbeschreibung</a>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Upcoming Events Banner -->
+      <div class="row justify-content-center mt-4 mb-2 reveal">
+        <div class="col-lg-10">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 rounded-4 shadow-sm" style="border: 2px dashed rgba(220, 53, 69, 0.3); background-color: #fffdfd;">
+            <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-3 mb-3 mb-md-0 text-center text-md-start">
+              <span class="badge bg-danger text-white rounded-pill px-3 py-1" style="font-weight: 600; font-size: 0.8rem; letter-spacing: 0.5px;">KOMMENDES EVENT</span>
+              <div>
+                <strong class="text-danger d-block d-md-inline" style="font-size: 1rem;">16. & 17. Mai 2026</strong>
+                <span class="d-none d-md-inline text-muted mx-2">|</span>
+                <span style="font-weight: 600; font-size: 1rem; color: #333;">Springfestival Mühlacker</span>
+              </div>
+            </div>
+            <a href="https://instagram.com/foodeza.de/" target="_blank" class="btn-ft px-4 py-2 text-danger" style="background: transparent; border: 1px solid rgba(220, 53, 69, 0.3); border-radius: 50px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">
+              <i class="fab fa-instagram me-1"></i> Infos auf Instagram
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Menu Section -->
-  <section id="menu">
+  <!-- Our Food Gallery Section -->
+  <section id="our-food" class="py-5 bg-light">
     <div class="container">
-      <div class="section-title reveal">
-        <h2 id="weekly-menu">Menü dieser Woche</h2>
-        <p class="mb-2">Wir wechseln unsere Menükarte jede Woche. Aus unseren 5 Signature-Menüs bringen wir jede Woche
-          2–3 in den Truck, um Abwechslung zu bieten.</p>
-        <div class="d-inline-block mt-3 text-start"
-          style="background: #f4b41a; padding: 25px 35px; border-radius: 30px; box-shadow: 0 10px 30px rgba(244, 180, 26, 0.4); border: 2px solid #cc0605; max-width: 850px;">
-          <div class="text-center mb-4">
-            <span
-              style="background: #cc0605; color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Wochenspecial</span>
-            <h3 class="m-0 mt-2" style="color: #222; font-weight: 900; font-size: 1.6rem; text-transform: uppercase;">
-              Südindisches Chili Chicken & Chili Gobi</h3>
-          </div>
-          <div class="row g-4 align-items-center">
-            <div class="col-md-7 border-md-end border-dark border-opacity-10">
-              <ul class="list-unstyled m-0" style="color: #333; font-size: 0.95rem; line-height: 1.6;">
-                <li class="mb-3">
-                  <span class="badge bg-danger text-white rounded-pill px-2 py-1 me-2"
-                    style="font-size: 0.65rem;">NON-VEG</span>
-                  <strong>Chili Chicken:</strong> Gebackenes Hähnchen mit Paprika, Zwiebeln & Chili-Sauce
-                </li>
-                <li>
-                  <span class="badge bg-success text-white rounded-pill px-2 py-1 me-2" style="font-size: 0.65rem;">VEG
-                    / VEGAN</span>
-                  <strong>Chili Gobi:</strong> Gebackener Blumenkohl mit Paprika, Zwiebeln & Chili-Sauce
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-5 ps-md-4 text-center">
-              <p class="mb-2"
-                style="font-weight: 800; color: #cc0605; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
-                Serviert mit:</p>
-              <div class="d-flex justify-content-center align-items-center gap-2">
-                <span class="px-3 py-1 bg-white border border-dark border-opacity-25 rounded-pill shadow-sm"
-                  style="font-weight: 700; font-size: 0.9rem;">Gebratener Reis <small
-                    class="text-muted">(Bowl)</small></span>
-                <span style="font-weight: 900; color: #cc0605; font-size: 0.8rem;">oder</span>
-                <span class="px-3 py-1 bg-white border border-dark border-opacity-25 rounded-pill shadow-sm"
-                  style="font-weight: 700; font-size: 0.9rem;">Porotta <small class="text-muted">(Wrap)</small></span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="section-title text-center mb-5 reveal">
+        <h2>Unsere Speisen</h2>
+        <p class="text-muted" style="font-size: 1.1rem;">Ein kleiner Vorgeschmack auf unser leckeres authentisches Streetfood</p>
       </div>
-      <div class="menu-grid">
-        <!-- Kerala Thali -->
-        <!-- Hidden: Previous Offer (Kerala Thali) - Uncomment to restore 
-        <div class="menu-card" data-aos="fade-up">
-          <div class="menu-card-img-wrapper">
-            <img src="images/thali.png" alt="Kerala Thali" class="menu-card-img">
-          </div>
-          <div class="menu-card-content">
-            <div class="dietary-badge veg"><i></i>Kerala Thali</div>
-            <span class="menu-card-tag">Option: Vegetarisch / Mit Hähnchen</span>
-            <h3>Gesunder südindischer Teller</h3>
-            <p class="course-desc mb-2">Teller mit süßen & milden Currys</p>
-            <p class="course-desc mb-2">Enthält:</p>
-            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
-              <li>• Basmatireis & Papadam</li>
-              <li>• Hähnchen- oder Gemüse-Curry</li>
-              <li>• Linsencurry (Dal) & Kokos-Kohl-Wok</li>
-              <li>• Rote-Bete-Joghurt (Pachadi)</li>
-              <li>• Süßes Mango-Joghurt-Curry</li>
-              <li>• Raita (Indischer Joghurt-Salat)</li>
-            </ul>
-          </div>
-        </div>
-        -->
-
-        <!-- Gebratener Reis -->
-        <div class="menu-card" data-aos="fade-up">
-          <div class="menu-card-img-wrapper">
-            <img src="images/friedrice.webp" alt="Gebratener Reis" class="menu-card-img" decoding="async">
-          </div>
-          <div class="menu-card-content">
-            <span class="menu-card-tag">Option: Chili Chicken / Chili Gobi</span>
-            <h3>Gebratener Reis & Mild Scharfe Beilage <span
-                class="ms-2 badge bg-danger text-white rounded-pill pulse-slow" style="font-size: 0.9rem;">8,50 €</span>
-            </h3>
-            <p class="course-desc mb-2">Goldener Basmatireis mit frischem Gemüse</p>
-            <p class="course-desc mb-2">Serviert mit:</p>
-            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
-              <li>• Chili Chicken oder Chili Gobi</li>
-              <li>• Papadam</li>
-              <li>• Frisch zubereitet mit aromatischen Gewürzen</li>
-              <li>• Raita (Erfrischender Joghurt-Salat)</li>
-            </ul>
-            <div class="variant-selectors mt-auto">
-              <!-- Non-Veg -->
-              <div class="variant-item">
-                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('fried_rice_nv', -1, 8.5)">−</button>
-                  <span class="qty-number" id="qty-fried_rice_nv">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('fried_rice_nv', 1, 8.5)">+</button>
-                </div>
-              </div>
-              <!-- Vegetarisch -->
-              <div class="variant-item">
-                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch</div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('fried_rice_v', -1, 8.5)">−</button>
-                  <span class="qty-number" id="qty-fried_rice_v">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('fried_rice_v', 1, 8.5)">+</button>
-                </div>
-              </div>
-              <!-- Vegan -->
-              <div class="variant-item">
-                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegan</div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('fried_rice_vn', -1, 8.5)">−</button>
-                  <span class="qty-number" id="qty-fried_rice_vn">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('fried_rice_vn', 1, 8.5)">+</button>
-                </div>
-              </div>
+      
+      <!-- Horizontal Scroll Gallery -->
+      <style>
+        .food-gallery-container::-webkit-scrollbar { display: none; }
+        .food-gallery-container { -ms-overflow-style: none; scrollbar-width: none; }
+      </style>
+      <div class="food-gallery-container reveal px-3 py-4" style="overflow-x: auto; scroll-snap-type: x mandatory; display: flex; gap: 1.5rem; scroll-behavior: smooth;">
+          
+          <!-- Image Card 1 -->
+          <div class="food-gallery-card shadow-sm transition-hover" style="scroll-snap-align: center; flex: 0 0 auto; width: 280px; border-radius: 20px; overflow: hidden; background: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/thali.webp" alt="Kerala Thali" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 text-center">
+              <h4 class="fw-bold mb-0 fs-5" style="color: #1a1a1a;">Curry mit Porotta (Brot)</h4>
             </div>
           </div>
-        </div>
-        <!-- Porotta Wrap -->
-        <!-- Hidden: Previous Offer (Classic Porotta Wrap) - Uncomment to restore 
-        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="menu-card-img-wrapper">
-            <img src="images/wrap.png" alt="Kerala Porotta Wrap" class="menu-card-img">
-          </div>
-          <div class="menu-card-content">
-            <div class="dietary-badge non-veg"><i></i>Porotta Wrap</div>
-            <span class="menu-card-tag">Option: Vegetarisch / Mit Hähnchen</span>
-            <h3>Leckerer Curry Wrap mit südindischem Brot</h3>
-            <p class="course-desc mb-2">Saftig und mild gewürzt</p>
-            <p class="course-desc mb-2">Enthält:</p>
-            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
-              <li>• Kerala porotta (flockiges Fladenbrot)</li>
-              <li>• Mildes Hähnchen-Curry</li>
-              <li>• Zwiebel-Tomaten-Masala</li>
-              <li>• Frischer Salat (Gurke, Tomate)</li>
-              <li>• Spezial-Sauce</li>
-            </ul>
-          </div>
-        </div>
-        -->
-
-        <!-- Current: Kerala Porotta Wrap -->
-        <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="menu-card-img-wrapper">
-            <img src="images/wrap.webp" alt="Kerala Porotta Wrap" class="menu-card-img" decoding="async">
-          </div>
-          <div class="menu-card-content">
-            <span class="menu-card-tag">Option: Chili Chicken / Chili Gobi</span>
-            <h3>Südindisches Brot mit mild scharfer Füllung <span
-                class="ms-2 badge bg-danger text-white rounded-pill pulse-slow" style="font-size: 0.9rem;">8,50 €</span>
-            </h3>
-            <p class="course-desc mb-2">Unser beliebter Kerala Porotta Wrap (Normaler Wrap)</p>
-            <p class="course-desc mb-2">Enthält:</p>
-            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
-              <li>• Südindisches Brot & Herzhafte Füllung</li>
-              <li>• Frischer Salat (Gurke, Tomate)</li>
-              <li>• Hausgemachte Spezial-Sauce</li>
-            </ul>
-            <div class="variant-selectors mt-auto">
-              <div class="variant-item">
-                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('wrap_nv', -1, 8.5)">−</button>
-                  <span class="qty-number" id="qty-wrap_nv">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('wrap_nv', 1, 8.5)">+</button>
-                </div>
-              </div>
-              <div class="variant-item">
-                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch</div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('wrap_v', -1, 8.5)">−</button>
-                  <span class="qty-number" id="qty-wrap_v">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('wrap_v', 1, 8.5)">+</button>
-                </div>
-              </div>
+          
+          <!-- Image Card 2 -->
+          <div class="food-gallery-card shadow-sm transition-hover" style="scroll-snap-align: center; flex: 0 0 auto; width: 280px; border-radius: 20px; overflow: hidden; background: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/friedrice.webp" alt="Gebratener Reis" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 text-center">
+              <h4 class="fw-bold mb-0 fs-5" style="color: #1a1a1a;">Curry mit Rice</h4>
             </div>
           </div>
-        </div>
 
-        <!-- Combo Option -->
-        <div class="menu-card" data-aos="fade-up" data-aos-delay="150">
-          <div class="menu-card-img-wrapper">
-            <img src="images/combo.webp" alt="Kerala Combo" class="menu-card-img" decoding="async">
-          </div>
-          <div class="menu-card-content">
-            <span class="menu-card-tag">Best Value Combo</span>
-            <h3>Kleiner Wrap + Getränke <span class="ms-2 badge bg-danger text-white rounded-pill pulse-slow"
-                style="font-size: 0.9rem;">8,50 €</span></h3>
-            <p class="course-desc mb-2">Die perfekte Kombination für den kleinen Hunger</p>
-            <p class="course-desc mb-2">Enthält:</p>
-            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
-              <li>• <strong>Speise:</strong> Kleiner Porotta Wrap (Chili Chicken oder Gobi)</li>
-              <li>• <strong>Getränk:</strong> Hausgemachter Mango Lassi</li>
-              <li>• <strong>Special:</strong> Unwiderstehlicher Deal</li>
-            </ul>
-            <div class="variant-selectors mt-auto">
-              <div class="variant-item">
-                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('combo_nv', -1, 8.5)">−</button>
-                  <span class="qty-number" id="qty-combo_nv">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('combo_nv', 1, 8.5)">+</button>
-                </div>
-              </div>
-              <div class="variant-item">
-                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch</div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('combo_v', -1, 8.5)">−</button>
-                  <span class="qty-number" id="qty-combo_v">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('combo_v', 1, 8.5)">+</button>
-                </div>
-              </div>
+          <!-- Image Card 3 -->
+          <div class="food-gallery-card shadow-sm transition-hover" style="scroll-snap-align: center; flex: 0 0 auto; width: 280px; border-radius: 20px; overflow: hidden; background: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/wrap.webp" alt="Porotta Wrap" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 text-center">
+              <h4 class="fw-bold mb-0 fs-5" style="color: #1a1a1a;">Curry Wrap</h4>
             </div>
           </div>
-        </div>
-        <!-- Hidden: Previous Offer (Classic Drinks) - Uncomment to restore 
-        <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="menu-card-img-wrapper">
-            <img src="images/drink.jpg" alt="Getränke" class="menu-card-img">
-          </div>
-          <div class="menu-card-content">
-            <div class="dietary-badge veg"><i></i>Erfrischungen</div>
-            <span class="menu-card-tag">Authentisch indisch</span>
-            <h3>Getränke</h3>
-            <p class="course-desc mb-2">Die perfekte Ergänzung zu unseren Gerichten</p>
-            <p class="course-desc mb-2">Auswahl:</p>
-            <ul class="course-desc list-unstyled" style="font-size: 0.85rem;">
-              <li>• <strong>Mango Lassi</strong> <br><small>(Eisgekühlt)</small></li>
-              <li>• <strong>Indischer Masala Tee</strong> <br><small>(Heiß & Würzig)</small></li>
-            </ul>
-          </div>
-        </div>
-        -->
 
+          <!-- Image Card 4 -->
+          <div class="food-gallery-card shadow-sm transition-hover" style="scroll-snap-align: center; flex: 0 0 auto; width: 280px; border-radius: 20px; overflow: hidden; background: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/combo.webp" alt="Combo" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 text-center">
+              <h4 class="fw-bold mb-0 fs-5" style="color: #1a1a1a;">Combo</h4>
+            </div>
+          </div>
+
+          <!-- Image Card 5 -->
+          <div class="food-gallery-card shadow-sm transition-hover" style="scroll-snap-align: center; flex: 0 0 auto; width: 280px; border-radius: 20px; overflow: hidden; background: white; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/mango.jpg" alt="Getränke" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 text-center">
+              <h4 class="fw-bold mb-0 fs-5" style="color: #1a1a1a;">Getränke</h4>
+            </div>
+          </div>
+          
       </div>
-
-      <!-- Full Width Drinks Section -->
-      <div class="menu-card-horizontal reveal mt-5" data-aos="fade-up" data-aos-delay="200">
-        <div class="menu-card-img-wrapper">
-          <img src="images/mango.jpg" alt="Getränke" class="menu-card-img" decoding="async">
-        </div>
-        <div class="menu-card-content">
-          <div class="d-flex flex-wrap gap-2 mb-2">
-            <div class="dietary-badge veg"><i></i>Erfrischungen</div>
-            <span class="menu-card-tag">Authentisch & Erfrischend</span>
-          </div>
-          <h3>Getränke – Die perfekte Ergänzung</h3>
-          <div class="row w-100">
-            <div class="col-md-6">
-              <div class="drink-item d-flex align-items-center justify-content-between">
-                <div>
-                  <span class="drink-name">Mango Lassi</span>
-                  <span class="drink-price">3,00 €</span>
-                  <span class="drink-desc">Indische Alphonsa-Mango mit Joghurt und Milch (Eisgekühlt)</span>
-                </div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('lassi', -1, 3.0)">−</button>
-                  <span class="qty-number" id="qty-lassi">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('lassi', 1, 3.0)">+</button>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="drink-item d-flex align-items-center justify-content-between">
-                <div>
-                  <div class="d-flex align-items-center gap-2 mb-1">
-                    <span class="drink-name mb-0">Mango Saft</span>
-                    <div class="dietary-badge vegan mb-0" style="padding: 2px 6px; font-size: 10px;"><i></i>Vegan</div>
-                  </div>
-                  <span class="drink-price">2,50 €</span>
-                  <span class="drink-desc">Indische Alphonsa-Mango, Ingwer & Zitrone (Kühles Erfrischungsgetränk)</span>
-                </div>
-                <div class="quantity-selector">
-                  <button class="qty-btn minus" onclick="updateQty('juice', -1, 2.5)">−</button>
-                  <span class="qty-number" id="qty-juice">0</span>
-                  <button class="qty-btn plus" onclick="updateQty('juice', 1, 2.5)">+</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      
+      <!-- Scroll indicators hint -->
+      <div class="text-center mt-3 text-muted small w-100 d-md-none">
+        <i class="fas fa-arrows-alt-h me-1 text-danger"></i> <span style="font-weight: 500;">Seitlich wischen für mehr</span>
       </div>
-    </div>
-    <div class="mt-5 text-center reveal">
-      <a href="../files/menu-foodtruck.pdf" target="_blank" class="btn-ft btn-ft-primary">Gesamtes Menü ansehen
-        (PDF)</a>
-    </div>
+      
+      <div class="mt-5 text-center reveal">
+        <a href="mittagessen.html" class="btn-ft btn-ft-primary shadow-sm"><div class="d-flex justify-content-center align-items-center rounded-circle me-2 bg-white text-danger" style="width: 28px; height: 28px; flex-shrink: 0;"><i class="fas fa-utensils"></i></div>Wochenkarte & Vorbestellen</a>
+      </div>
     </div>
   </section>
 
@@ -420,7 +280,7 @@
             <p class="mb-4">Vermeiden Sie Warteschlangen durch Vorbestellung oder buchen Sie unseren Truck für Ihr
               Event.</p>
             <div class="btn-group w-100 mt-auto">
-              <a href="#weekly-menu"
+              <a href="mittagessen.html"
                 class="btn-ft btn-ft-primary">Vorbestellung</a>
               <a href="https://forms.gle/8ueUUB2KLP9kPpDHA" target="_blank" class="btn-ft btn-ft-secondary">Catering</a>
             </div>
@@ -518,7 +378,7 @@
       </div>
       <div class="btn-group justify-content-center mb-5">
         <a href="#next-event" class="btn-ft btn-ft-primary">Wochenplan ansehen</a>
-        <a href="#weekly-menu" class="btn-ft btn-ft-secondary"
+        <a href="mittagessen.html" class="btn-ft btn-ft-secondary"
           style="background: transparent; color: white;">Jetzt vorbestellen</a>
       </div>
       <div class="social-icons d-flex justify-content-center gap-4 mb-4">

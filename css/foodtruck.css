@@ -1144,9 +1144,11 @@ section {
 }
 
 .variant-label i {
-    width: 10px;
-    height: 10px;
-    border-radius: 2px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 /* Mini Quantity Selector for variants */

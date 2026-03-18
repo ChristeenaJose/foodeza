@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foodeza Mittagessen | Dein Südindisches Lunch Update</title>
+  <meta name="description"
+    content="Catch the Foodeza foodtruck in Baden-Württemberg! Authentic Kerala street food, rotating weekly menus, and premium catering for your events." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Premium Redesign Styles -->
+  <style id="premium-redesign">
+    :root {
+      --premium-gradient: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+      --premium-shadow: 0 10px 30px rgba(255, 65, 108, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation (Common from root) -->
+  <header class="header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="header-logo">
+        <a href="../index.html"><img src="../images/foodeza_main_logo.png" alt="Foodeza" style="max-width: 100px;"></a>
+      </div>
+      <nav class="d-none d-lg-block">
+        <ul class="ft-nav-list">
+          <li><a href="../index.html" class="nav-link-ft">Startseite</a></li>
+          <li><a href="index.html" class="nav-link-ft">Foodtruck</a></li>
+          <li><a href="mittagessen.html" class="nav-link-ft active">Mittagessen</a></li>
+          <li><a href="#next-event" class="nav-link-ft">Events</a></li>
+          <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="google-rating-header">
+              <img src="../images/google-red.svg" alt="Google" class="google-icon">
+              <div class="google-stars">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+              </div>
+            </a>
+          </li>
+          <li><a href="#weekly-menu" class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Vorbestellen</a></li>
+          <li class="lang-switcher">
+            <a href="#" class="lang-btn">
+              <span>DE</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+            <div class="lang-dropdown">
+              <a href="mittagessen.html" class="active">Deutsch (DE)</a>
+              <a href="mittagessen-en.html">English (EN)</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text reveal-right">
+        <h1>Foodeza Mittagessen – Schnelles Streetfood.</h1>
+        <p>Frisches, authentisches Kerala-Essen, schnell serviert für eine belebende Mittagspause in Baden-Württemberg
+          und Umgebung.</p>
+        <div class="btn-group">
+          <a href="#next-event" class="btn-ft btn-ft-primary">Aktueller Wochenplan</a>
+          <a href="https://forms.gle/8ueUUB2KLP9kPpDHA" target="_blank" class="btn-ft btn-ft-secondary">Catering
+            anfragen</a>
+        </div>
+      </div>
+      <div class="hero-image reveal">
+        <img src="../images/truck1.webp" alt="Foodeza Food Truck">
+      </div>
+    </div>
+  </section>
+
+  <!-- Streamlined Event & Schedule -->
+  <section id="next-event" class="pt-5 pb-3 bg-light">
+    <div id="schedule" style="position: absolute; top: -100px;"></div>
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <h2 class="section-title mb-1">Unser Wochenplan</h2>
+        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Wochentour: 18.–22. März 2026</p>
+      </div>
+
+      <div class="schedule-list mb-1" style="max-width: 900px; margin: 0 auto;">
+
+        <!-- Event 1: Weekly Mittagessen -->
+        <div
+          class="d-flex flex-column flex-md-row bg-white rounded-4 shadow-sm p-4 mb-4 align-items-center justify-content-between reveal"
+          style="border: 1px solid rgba(0,0,0,0.06); transition: transform 0.3s; cursor: pointer;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+
+          <!-- Date Calendar Tab -->
+          <div class="d-flex flex-column align-items-center text-center pe-md-4 mb-4 mb-md-0" style="min-width: 100px;">
+            <span class="text-danger fw-bold" style="font-size: 1.2rem;">Do</span>
+            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">19.</span>
+            <span class="text-muted fw-bold text-uppercase mt-1"
+              style="font-size: 0.85rem; letter-spacing: 1px;">März</span>
+          </div>
+
+          <!-- Event Details -->
+          <div class="flex-grow-1 px-md-4 py-md-2 mb-4 mb-md-0 text-center text-md-start"
+            style="border-left: 2px solid #f8f9fa; border-right: 2px solid #f8f9fa;">
+            <span class="badge bg-warning text-dark mb-2 px-3 py-1 rounded-pill fw-bold"
+              style="font-size: 0.75rem;">Jeden Donnerstag</span>
+            <h3 class="fw-bold mb-2 fs-5" style="color: #1a1a1a;">Stuttgart-Nord</h3>
+            <div class="d-flex align-items-center mb-2 justify-content-center justify-content-md-start text-muted">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-3"
+                style="width: 32px; height: 32px; background-color: rgba(220, 53, 69, 0.1); flex-shrink: 0;">
+                <i class="fas fa-map-marker-alt text-danger"></i>
+              </div>
+              <span class="fw-medium" style="font-size: 0.95rem;">Presselstr. 17, 70191 Stuttgart</span>
+            </div>
+            <div class="d-flex align-items-center justify-content-center justify-content-md-start text-muted">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-3"
+                style="width: 32px; height: 32px; background-color: rgba(220, 53, 69, 0.1); flex-shrink: 0;">
+                <i class="fas fa-clock text-danger"></i>
+              </div>
+              <span class="fw-medium" style="font-size: 0.95rem;">11:30 – 13:30 Uhr</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="d-flex flex-column gap-2 ps-md-4" style="min-width: 240px;">
+            <a href="#weekly-menu" class="btn-ft btn-ft-primary shadow-none w-100 justify-content-center">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-2 bg-white text-danger"
+                style="width: 28px; height: 28px; flex-shrink: 0;"><i class="fas fa-utensils"></i></div>Menü &
+              Vorbestellen
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Presselstr.+17,+70191+Stuttgart" target="_blank"
+              class="btn-ft btn-ft-secondary w-100 justify-content-center">
+              <div class="d-flex justify-content-center align-items-center rounded-circle me-2"
+                style="width: 28px; height: 28px; background-color: rgba(13, 110, 253, 0.1); flex-shrink: 0;"><i
+                  class="fas fa-location-arrow text-primary"></i></div>Wegbeschreibung
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Complete Menu Section serving as This Week Menu -->
+  <section id="weekly-menu" class="py-5" style="background: white;">
+    <div class="container">
+      <div class="section-title text-center mb-5 reveal">
+        <h2>Menü dieser Woche</h2>
+        <p class="text-muted" style="font-size: 1.1rem;">Wir wechseln unsere Menükarte jede Woche. Aus unseren 5
+          Signature-Menüs bringen wir jede Woche diese Optionen in den Truck!</p>
+      </div>
+
+      <!-- Horizontal Scroll Gallery with ordering -->
+      <style>
+        .food-gallery-container::-webkit-scrollbar {
+          display: none;
+        }
+
+        .food-gallery-container {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      </style>
+      <div class="food-gallery-container reveal px-3 pb-4 position-relative"
+        style="overflow-x: auto; scroll-snap-type: x mandatory; display: flex; gap: 1.5rem; scroll-behavior: smooth;">
+
+        <!-- Image Card 1: Curry mit Rice -->
+        <div class="food-gallery-card shadow-sm transition-hover d-flex flex-column"
+          style="scroll-snap-align: center; flex: 0 0 auto; width: 340px; border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+          <img src="images/ricebowl.png" alt="Curry mit Rice" style="width: 100%; height: 220px; object-fit: cover;">
+          <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+            <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry mit Rice <span
+                class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8,50 €</span></h4>
+            <p class="text-muted small mb-3">Basmatireis serviert als Bowl mit leckerem Curry</p>
+            <div class="mb-3 flex-grow-1">
+              <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Enthält:</p>
+              <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                <li>• Curry nach Wahl</li>
+                <li>• Raita & Papadam</li>
+                <li>• Aromatischer Reis</li>
+              </ul>
+            </div>
+            <div class="variant-selectors mt-auto">
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('rice_nv', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-rice_nv">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('rice_nv', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('rice_v', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-rice_v">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('rice_v', 1, 8.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Card 2: Curry mit Porotta -->
+        <div class="food-gallery-card shadow-sm transition-hover d-flex flex-column"
+          style="scroll-snap-align: center; flex: 0 0 auto; width: 340px; border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+          <img src="images/currybrot.png" alt="Curry mit Porotta (Brot)"
+            style="width: 100%; height: 220px; object-fit: cover;">
+          <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+            <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry mit Porotta (Brot) <span
+                class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8,50 €</span></h4>
+            <p class="text-muted small mb-3">Südindisches Fladenbrot serviert mit Ihrem Lieblingscurry</p>
+            <div class="mb-3 flex-grow-1">
+              <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Enthält:</p>
+              <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                <li>• Curry nach Wahl</li>
+                <li>• Porotta Fladenbrot</li>
+                <li>• Indische Gewürze</li>
+              </ul>
+            </div>
+            <div class="variant-selectors mt-auto">
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('porotta_brot_nv', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-porotta_brot_nv">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('porotta_brot_nv', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('porotta_brot_v', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-porotta_brot_v">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('porotta_brot_v', 1, 8.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Card 3: Wrap -->
+        <div class="food-gallery-card shadow-sm transition-hover d-flex flex-column"
+          style="scroll-snap-align: center; flex: 0 0 auto; width: 340px; border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+          <img src="images/wrap.webp" alt="Curry Wrap" style="width: 100%; height: 220px; object-fit: cover;">
+          <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+            <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry Wrap <span
+                class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8,50 €</span></h4>
+            <p class="text-muted small mb-3">Unser beliebter Kerala Porotta Wrap (Normaler Wrap)</p>
+            <div class="mb-3 flex-grow-1">
+              <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Enthält:</p>
+              <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                <li>• Südindisches Brot & Herzhafte Füllung</li>
+                <li>• Frischer Salat (Gurke, Tomate)</li>
+                <li>• Hausgemachte Spezial-Sauce</li>
+              </ul>
+            </div>
+            <div class="variant-selectors mt-auto">
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('wrap_nv', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-wrap_nv">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('wrap_nv', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('wrap_v', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-wrap_v">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('wrap_v', 1, 8.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Card 4: Combo -->
+        <div class="food-gallery-card shadow-sm transition-hover d-flex flex-column"
+          style="scroll-snap-align: center; flex: 0 0 auto; width: 340px; border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+          <img src="images/combo.webp" alt="Combo" style="width: 100%; height: 220px; object-fit: cover;">
+          <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+            <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Combo <span
+                class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8,50 €</span></h4>
+            <p class="text-muted small mb-3">Die perfekte Kombination für den kleinen Hunger</p>
+            <div class="mb-3 flex-grow-1">
+              <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Enthält:</p>
+              <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                <li>• Kleiner Wrap</li>
+                <li>• Mango Lassi</li>
+                <li>• Special Kombination</li>
+              </ul>
+            </div>
+            <div class="variant-selectors mt-auto">
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('combo_nv', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-combo_nv">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('combo_nv', 1, 8.5)">+</button>
+                </div>
+              </div>
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('combo_v', -1, 8.5)">−</button>
+                  <span class="qty-number" id="qty-combo_v">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('combo_v', 1, 8.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Card 5: Drinks -->
+        <div class="food-gallery-card shadow-sm transition-hover d-flex flex-column"
+          style="scroll-snap-align: center; flex: 0 0 auto; width: 340px; border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+          onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+          <img src="images/mango.jpg" alt="Getränke" style="width: 100%; height: 220px; object-fit: cover;">
+          <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+            <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Getränke</h4>
+            <p class="text-muted small mb-3">Die perfekte Ergänzung zu unseren Gerichten</p>
+            <div class="mb-3 flex-grow-1">
+              <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Auswahl:</p>
+              <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                <li>• Mango Lassi <small class="text-muted">(Joghurt)</small></li>
+                <li>• Mango Saft <small class="text-muted">(Vegan)</small></li>
+              </ul>
+            </div>
+            <div class="variant-selectors mt-auto">
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #fbbf24;"></i> Mango Lassi 3,00 €</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('lassi', -1, 3.0)">−</button>
+                  <span class="qty-number" id="qty-lassi">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('lassi', 1, 3.0)">+</button>
+                </div>
+              </div>
+              <div class="variant-item">
+                <div class="variant-label"><i style="background: #2e7d32;"></i> Mango Saft Vegan 2,50 €</div>
+                <div class="quantity-selector">
+                  <button class="qty-btn minus" onclick="updateQty('juice', -1, 2.5)">−</button>
+                  <span class="qty-number" id="qty-juice">0</span>
+                  <button class="qty-btn plus" onclick="updateQty('juice', 1, 2.5)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Scroll indicators hint -->
+      <div class="text-center text-muted small w-100 mt-3 d-md-none">
+        <i class="fas fa-arrows-alt-h me-1 text-danger"></i> <span style="font-weight: 500;">Seitlich wischen für
+          mehr</span>
+      </div>
+
+      <div class="mt-5 text-center reveal">
+        <a href="../files/menu-foodtruck.pdf" target="_blank" class="btn-ft btn-ft-primary shadow-sm"><i
+            class="fas fa-file-pdf me-2"></i>Gesamtes Menü ansehen (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <footer class="py-5 reveal" style="background: var(--text-dark); color: white;">
+    <div class="container text-center">
+      <div class="section-title mb-4">
+        <h2 style="color: white;">Folgen Sie dem Truck. Genießen Sie die Woche.</h2>
+      </div>
+      <div class="btn-group justify-content-center mb-5">
+        <a href="#next-event" class="btn-ft btn-ft-primary">Wochenplan ansehen</a>
+        <a href="#weekly-menu" class="btn-ft btn-ft-secondary" style="background: transparent; color: white;">Jetzt
+          vorbestellen</a>
+      </div>
+      <div class="social-icons d-flex justify-content-center gap-4 mb-4">
+        <a href="https://instagram.com/foodeza.de/" target="_blank" class="social-btn instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" class="social-btn facebook"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@Foodeza_de" target="_blank" class="social-btn youtube"><i
+            class="fab fa-youtube"></i></a>
+      </div>
+      <p class="mb-0 opacity-50">&copy; 2025 Foodeza. Authentisches Kerala Streetfood auf Rädern.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky Order Bar -->
+  <div id="sticky-order-bar" class="sticky-order-bar">
+    <div class="order-info">
+      <span class="order-count" id="order-count">0 Artikel</span>
+      <span class="order-total" id="order-total">Summe: 0,00 €</span>
+    </div>
+    <button onclick="submitOrder()" class="order-submit-btn">Bestellung abschließen</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script>
+    // Shopping Cart Logic
+    const cart = {
+      fried_rice_nv: 0,
+      fried_rice_v: 0,
+      fried_rice_vn: 0,
+      rice_nv: 0,
+      rice_v: 0,
+      rice_vn: 0,
+      porotta_brot_nv: 0,
+      porotta_brot_v: 0,
+      porotta_brot_vn: 0,
+      wrap_nv: 0,
+      wrap_v: 0,
+      combo_nv: 0,
+      combo_v: 0,
+      lassi: 0,
+      juice: 0,
+      totalItems: 0,
+      totalPrice: 0
+    };
+
+    function updateQty(item, change, price) {
+      if (cart[item] + change < 0) return;
+
+      cart[item] += change;
+      cart.totalItems += change;
+      cart.totalPrice += (change * price);
+
+      // Update Display
+      if (document.getElementById(`qty-${item}`)) {
+        document.getElementById(`qty-${item}`).innerText = cart[item];
+      }
+      document.getElementById('order-count').innerText = `${cart.totalItems} Artikel`;
+      document.getElementById('order-total').innerText = `Summe: ${cart.totalPrice.toFixed(2).replace('.', ',')} €`;
+
+      // Toggle Sticky Bar
+      const bar = document.getElementById('sticky-order-bar');
+      if (cart.totalItems > 0) {
+        bar.classList.add('active');
+      } else {
+        bar.classList.remove('active');
+      }
+    }
+
+    function submitOrder() {
+      const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdo0a3SJCsOkdfr4kT1__Td2K9irO9sCEcwdCRB0B7jA-Pkzg/viewform";
+
+      let params = [];
+
+      // 1. Bowl/Teller - entry.1946155460
+      let bowlParts = [];
+      if (cart.fried_rice_nv > 0) bowlParts.push(`Non-Veg (Gebratener Reis): ${cart.fried_rice_nv}`);
+      if (cart.fried_rice_v > 0) bowlParts.push(`Vegetarisch (Gebratener Reis): ${cart.fried_rice_v}`);
+      if (cart.fried_rice_vn > 0) bowlParts.push(`Vegan (Gebratener Reis): ${cart.fried_rice_vn}`);
+      if (cart.rice_nv > 0) bowlParts.push(`Curry mit Rice (nicht-veg): ${cart.rice_nv}`);
+      if (cart.rice_v > 0) bowlParts.push(`Curry mit Rice (veg): ${cart.rice_v}`);
+      if (cart.rice_vn > 0) bowlParts.push(`Curry mit Rice (vegan): ${cart.rice_vn}`);
+      if (cart.porotta_brot_nv > 0) bowlParts.push(`Curry mit Brot (nicht-veg): ${cart.porotta_brot_nv}`);
+      if (cart.porotta_brot_v > 0) bowlParts.push(`Curry mit Brot (veg): ${cart.porotta_brot_v}`);
+      if (cart.porotta_brot_vn > 0) bowlParts.push(`Curry mit Brot (vegan): ${cart.porotta_brot_vn}`);
+      if (bowlParts.length > 0) {
+        params.push(`entry.1946155460=${encodeURIComponent(bowlParts.join(', '))}`);
+      }
+
+      // 2. Wrap - entry.608672339
+      let wrapParts = [];
+      if (cart.wrap_nv > 0) wrapParts.push(`Non-Veg: ${cart.wrap_nv}`);
+      if (cart.wrap_v > 0) wrapParts.push(`Vegetarisch: ${cart.wrap_v}`);
+      if (wrapParts.length > 0) {
+        params.push(`entry.608672339=${encodeURIComponent(wrapParts.join(', '))}`);
+      }
+
+      // 3. Combo - entry.442486380
+      let comboParts = [];
+      if (cart.combo_nv > 0) comboParts.push(`Non-Veg: ${cart.combo_nv}`);
+      if (cart.combo_v > 0) comboParts.push(`Vegetarisch: ${cart.combo_v}`);
+      if (comboParts.length > 0) {
+        params.push(`entry.442486380=${encodeURIComponent(comboParts.join(', '))}`);
+      }
+
+      // 4. Drinks - entry.133219745
+      let drinkParts = [];
+      if (cart.lassi > 0) drinkParts.push(`Mango Lassi: ${cart.lassi}`);
+      if (cart.juice > 0) drinkParts.push(`Mango Saft: ${cart.juice}`);
+      if (drinkParts.length > 0) {
+        params.push(`entry.133219745=${encodeURIComponent(drinkParts.join(', '))}`);
+      }
+
+      // 5. Total Price - entry.2057144369
+      if (cart.totalPrice > 0) {
+        params.push(`entry.2057144369=${encodeURIComponent(cart.totalPrice.toFixed(2).replace('.', ','))} €`);
+      }
+
+      // Open pre-filled form in the same window
+      const finalUrl = baseUrl + "?" + params.join("&");
+      window.location.href = finalUrl;
+    }
+
+    // Reload page when navigating back to ensure state is fresh
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+
+    // Scroll Reveal Animation
+    const observerOptions = {
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          entry.target.classList.add('aos-animate');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-right, .reveal-scale, [data-aos]').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Premium 3D Tilt Effect for Menu Cards
+    const cards = document.querySelectorAll('.menu-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      });
+    });
+  </script>
+</body>
+
+</html>
