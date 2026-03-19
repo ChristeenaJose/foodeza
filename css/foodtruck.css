@@ -190,11 +190,17 @@ body {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
+    background: #f8f9fa; /* Prevents white flash */
+}
+
+.hero-image .carousel-inner {
+    border-radius: var(--radius-lg);
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
+    height: 450px; /* Consistent height for hero items */
+    object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
 }
@@ -202,6 +208,64 @@ body {
 .hero-image:hover img {
     transform: scale(1.05);
 }
+
+/* Custom Carousel Controls */
+.hero-image .carousel-control-prev,
+.hero-image .carousel-control-next {
+    width: 45px;
+    height: 45px;
+    background: rgba(214, 40, 40, 0.8);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: var(--transition);
+    margin: 0 15px;
+}
+
+.hero-image:hover .carousel-control-prev,
+.hero-image:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.hero-image .carousel-control-prev-icon,
+.hero-image .carousel-control-next-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.hero-image .carousel-indicators {
+    bottom: 20px;
+}
+
+.hero-image .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 6px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+.hero-image .carousel-indicators .active {
+    background-color: var(--primary-red);
+    width: 25px;
+    border-radius: 10px;
+}
+
+@media (max-width: 991px) {
+    .hero-image img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-image img {
+        height: 280px;
+    }
+}
+
 
 /* Buttons */
 .btn-group {
