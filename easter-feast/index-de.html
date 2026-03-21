@@ -22,8 +22,7 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://foodeza.de/easter-feast/">
-    <meta property="twitter:title"
-        content="Foodeza Easter Feast | Erstklassiges Kerala Christian Oster-Mittagessen">
+    <meta property="twitter:title" content="Foodeza Easter Feast | Erstklassiges Kerala Christian Oster-Mittagessen">
     <meta property="twitter:description"
         content="Feiern Sie Ostern mit einem traditionellen Kerala-Festessen. Bestellen Sie Ihre Oster-Schlemmerbox noch heute vor!">
     <meta property="twitter:image" content="https://foodeza.de/easter-feast/images/hero.png">
@@ -50,8 +49,8 @@
         "@type": "AggregateOffer",
         "url": "https://foodeza.de/easter-feast/",
         "priceCurrency": "EUR",
-        "lowPrice": "40",
-        "highPrice": "85",
+        "lowPrice": "39.99",
+        "highPrice": "89.99",
         "offerCount": "2"
       }
     }
@@ -131,6 +130,24 @@
             box-shadow: 0 10px 15px -3px rgba(204, 6, 5, 0.1);
         }
 
+        @keyframes float-egg {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(15px, -20px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .egg-floating {
+            animation: float-egg 8s ease-in-out infinite;
+        }
+
+        .egg-drifting {
+            animation: float-egg 12s ease-in-out infinite alternate;
+        }
+
+        .golden-egg {
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+        }
+
         /* Language Switcher Styles */
         .lang-switcher {
             position: relative;
@@ -204,7 +221,8 @@
                 </div>
             </div>
         </div>
-        <a href="#preorder"
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
+            target="_blank"
             class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-brand-red-dark transition-all transform hover:scale-105 shadow-lg">
             Vorbestellen
         </a>
@@ -219,10 +237,11 @@
         </div>
 
         <div class="relative z-10 text-center text-white px-6 max-w-4xl animate-fade-in-up">
-            <span
+            <span <span
                 class="inline-block bg-brand-gold text-brand-red px-4 py-1 rounded-full text-sm font-bold uppercase tracking-widest mb-6">Traditionelles
                 Festessen</span>
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl mb-4 leading-tight tracking-tight">Foodeza Easter Feast</h1>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl mb-4 leading-tight tracking-tight">Foodeza Easter
+                Feast</h1>
             <h2 class="text-xl md:text-2xl lg:text-3xl font-light mb-4 opacity-90">Erstklassiges Kerala Christian
                 Oster-Mittagessen</h2>
             <p class="text-brand-gold font-bold text-lg mb-8 uppercase tracking-widest">Bestellung bis 3.04 - Freitag
@@ -232,7 +251,8 @@
                 Kerala-Festessen, frisch zubereitet mit authentischen Kerala-Aromen.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#preorder"
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
+                    target="_blank"
                     class="bg-brand-red hover:bg-brand-red-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-all shadow-xl hover:shadow-2xl">
                     Jetzt vorbestellen
                 </a>
@@ -250,16 +270,19 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 <!-- Datum -->
-                <div class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
+                <div
+                    class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                         <i data-lucide="calendar" class="text-brand-red w-6 h-6"></i>
                     </div>
-                    <span class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Abholdatum</span>
+                    <span
+                        class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Abholdatum</span>
                     <span class="block text-slate-800 font-bold text-sm">5. April 2026</span>
                 </div>
 
                 <!-- Ort -->
-                <div class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
+                <div
+                    class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                         <i data-lucide="map-pin" class="text-brand-red w-6 h-6"></i>
                     </div>
@@ -268,25 +291,33 @@
                 </div>
 
                 <!-- Frist -->
-                <div class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm relative">
+                <div
+                    class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
+                    <div
+                        class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm relative">
                         <i data-lucide="clock" class="text-brand-red w-6 h-6"></i>
                         <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-red"></span>
                         </span>
                     </div>
-                    <span class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Bestellfrist</span>
-                    <span class="block text-slate-800 font-bold text-sm underline decoration-brand-gold">Freitag, 3. April</span>
-                    <span class="block text-[10px] font-bold text-brand-red uppercase mt-2">Begrenzte Plätze verfügbar!</span>
+                    <span
+                        class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Bestellfrist</span>
+                    <span class="block text-slate-800 font-bold text-sm underline decoration-brand-gold">Freitag, 3.
+                        April</span>
+                    <span class="block text-[10px] font-bold text-brand-red uppercase mt-2">Begrenzte Plätze
+                        verfügbar!</span>
                 </div>
 
                 <!-- Mindestbestellmenge -->
-                <div class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
+                <div
+                    class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                         <i data-lucide="shopping-basket" class="text-brand-red w-6 h-6"></i>
                     </div>
-                    <span class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Mindestbestellmenge</span>
+                    <span
+                        class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Mindestbestellmenge</span>
                     <span class="block text-slate-800 font-bold text-sm">2 Personen</span>
                 </div>
             </div>
@@ -297,9 +328,13 @@
     <section id="menu" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div class="text-center mb-16 flex flex-col items-center">
             <div class="inline-flex flex-col md:flex-row items-center gap-4 mb-4">
-                <h2 class="text-brand-red font-serif text-4xl md:text-5xl uppercase tracking-tight">Oster Special Combo</h2>
-                <span class="bg-brand-red text-white text-lg font-bold px-6 py-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform cursor-default">
-                    Nur 20 € <span class="text-sm opacity-80 font-normal">/ Person</span>
+                <h2 class="text-brand-red font-serif text-4xl md:text-5xl uppercase tracking-tight">Oster Special Combo
+                </h2>
+                <span
+                    class="bg-brand-red text-white text-lg font-bold px-6 py-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform cursor-default flex flex-col items-center leading-tight">
+                    <div>€22 <span class="text-sm opacity-80 font-normal">/ Person</span></div>
+                    <div class="text-[10px] opacity-90 font-semibold uppercase tracking-wider mt-1">Mind. 2 Personen
+                    </div>
                 </span>
             </div>
             <p class="text-brand-red font-bold uppercase tracking-widest text-sm mb-4">Wählen Sie Ihr Paket unten</p>
@@ -338,15 +373,19 @@
                     <div class="flex h-full transition-transform duration-700 ease-in-out" id="main-feast-slider">
                         <img src="images/2.png" alt="Hauptgericht 2" class="w-full h-full object-cover flex-shrink-0">
                         <img src="images/3.png" alt="Hauptgericht 3" class="w-full h-full object-cover flex-shrink-0">
-                        <img src="images/main.png" alt="Hauptgericht 1" class="w-full h-full object-cover flex-shrink-0">
-                        <img src="images/sadya.png" alt="Traditionelle Sadya" class="w-full h-full object-cover flex-shrink-0">
+                        <img src="images/main.png" alt="Hauptgericht 1"
+                            class="w-full h-full object-cover flex-shrink-0">
+                        <img src="images/sadya.png" alt="Traditionelle Sadya"
+                            class="w-full h-full object-cover flex-shrink-0">
                     </div>
-                    
+
                     <!-- Navigation Arrows -->
-                    <button onclick="moveSlider(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity z-20">
+                    <button onclick="moveSlider(-1)"
+                        class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity z-20">
                         <i data-lucide="chevron-left" class="w-4 h-4"></i>
                     </button>
-                    <button onclick="moveSlider(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity z-20">
+                    <button onclick="moveSlider(1)"
+                        class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full opacity-0 group-hover/slider:opacity-100 transition-opacity z-20">
                         <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
 
@@ -358,7 +397,8 @@
                         <div class="w-2 h-2 rounded-full slider-dot bg-white/40" data-index="3"></div>
                     </div>
 
-                    <div class="absolute top-4 right-4 bg-brand-gold text-brand-red font-bold px-3 py-1 rounded-full text-xs uppercase z-20">
+                    <div
+                        class="absolute top-4 right-4 bg-brand-gold text-brand-red font-bold px-3 py-1 rounded-full text-xs uppercase z-20">
                         Spezialität des Hauses</div>
                 </div>
                 <div class="p-8">
@@ -404,9 +444,21 @@
         </div>
     </section>
 
-    <!-- Box Options -->
+    <!-- Paket-Optionen -->
     <section id="options" class="bg-brand-red py-24 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute inset-0 opacity-15 pointer-events-none overflow-hidden">
+            <div class="absolute top-20 left-10 text-brand-gold egg-floating golden-egg opacity-40">
+                <i data-lucide="egg" class="w-16 h-16"></i>
+            </div>
+            <div class="absolute top-60 right-20 text-brand-gold egg-drifting golden-egg opacity-30">
+                <i data-lucide="egg" class="w-20 h-20"></i>
+            </div>
+            <div class="absolute bottom-20 left-1/4 text-brand-gold egg-floating golden-egg opacity-25">
+                <i data-lucide="egg" class="w-12 h-12"></i>
+            </div>
+            <div class="absolute top-1/2 right-1/3 text-brand-gold egg-drifting golden-egg opacity-20">
+                <i data-lucide="egg" class="w-24 h-24"></i>
+            </div>
             <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-gold rounded-full blur-3xl"></div>
         </div>
@@ -414,15 +466,21 @@
 
         <div class="max-w-5xl mx-auto relative z-10">
             <div class="text-center mb-16">
-                <span class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-4 block">Wähle dein Paket</span>
+                <span class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-4 block">Wähle dein
+                    Paket</span>
                 <h2 class="text-white font-serif text-4xl md:text-5xl mb-4">Osterfest-Pakete</h2>
                 <p class="text-white/80 text-lg">Frisch zubereitet, optimal verpackt und bereit zum Servieren.</p>
+                <a href="#delivery"
+                    class="inline-flex items-center gap-2 text-brand-gold font-bold text-sm mt-4 hover:underline transition-all">
+                    <i data-lucide="truck" class="w-4 h-4"></i> Keine Lieferkosten – Abholung am nächstgelegenen
+                    Abholort
+                </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Box for 2 -->
-                <div onclick="selectBox('couple')" id="box-couple"
-                    class="cursor-pointer group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
+                <!-- Paket für 2 -->
+                <div id="box-couple"
+                    class="group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
                     <img src="images/box.png" alt="Box"
                         class="absolute -top-12 -right-12 w-32 opacity-100 transition-all box-floating z-20">
                     <div class="flex justify-between items-start mb-6 relative z-10">
@@ -431,36 +489,44 @@
                             <i data-lucide="users-2" class="w-8 h-8"></i>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-1 relative z-10">Oster-Schlemmerbox</h3>
+                    <h3 class="text-2xl font-bold mb-1 relative z-10">Oster-Schlemmerpaket</h3>
                     <div class="flex items-center gap-3 mb-3 relative z-10">
                         <p class="text-brand-red font-semibold">(2 Gäste)</p>
                     </div>
-                    <p class="text-slate-500 mb-6 leading-relaxed relative z-10 text-sm">Ideal für Paare, die ein authentisches Osterfest genießen möchten.</p>
-                    
+                    <p class="text-slate-500 mb-6 leading-relaxed relative z-10 text-sm">Ideal für Paare, die ein
+                        authentisches Osterfest genießen möchten.</p>
+
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
-                            <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 40 € inkl. Steuern & Verpackung
+                            <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i>
+                            <span class="text-slate-400 line-through font-normal mr-1">44 €</span> 39,99 € inkl. Steuern
+                            & Verpackung
+                            <span
+                                class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">Sonderangebot</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <i data-lucide="users" class="w-4 h-4 text-brand-gold"></i> Für 2 Gäste
                         </li>
                         <li class="flex items-center gap-2">
-                            <i data-lucide="scale" class="w-4 h-4 text-brand-gold"></i> Ca. 2,8 kg Essen (1,4 kg pro Person)
+                            <i data-lucide="scale" class="w-4 h-4 text-brand-gold"></i> Ca. 2,8 kg Essen (1,4 kg pro
+                            Person)
                         </li>
                         <li class="flex items-center gap-2">
-                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Vorspeise, Hauptgericht & Dessert - Komplettes Ostermenü
+                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Vorspeise,
+                            Hauptgericht & Dessert - Komplettes Ostermenü
                         </li>
                     </ul>
 
-                    <div class="flex items-center gap-2 text-brand-red font-bold relative z-10">
+                    <div onclick="selectBox('couple')"
+                        class="flex items-center gap-2 text-brand-red font-bold relative z-10 cursor-pointer group-hover:gap-3 transition-all">
                         <span class="text-sm">Option auswählen</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
-                <!-- Box for 5 -->
-                <div onclick="selectBox('family')" id="box-family"
-                    class="cursor-pointer group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
+                <!-- Paket für 5 -->
+                <div id="box-family"
+                    class="group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
                     <img src="images/box.png" alt="Box"
                         class="absolute -top-16 -right-16 w-44 opacity-100 transition-all box-floating z-20">
                     <div class="flex justify-between items-start mb-6 relative z-10">
@@ -469,30 +535,36 @@
                             <i data-lucide="users" class="w-8 h-8"></i>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-1 relative z-10 uppercase tracking-tight">Familien-Oster-Box</h3>
+                    <h3 class="text-2xl font-bold mb-1 relative z-10 uppercase tracking-tight">Familien-Osterpaket</h3>
                     <div class="flex items-center gap-3 mb-3 relative z-10">
                         <p class="text-brand-red font-semibold">(5 Gäste)</p>
                     </div>
-                    <p class="text-slate-500 mb-6 leading-relaxed relative z-10 text-sm">Bestes Angebot für Familien. Gemeinsames Kerala-Osteressen genießen.</p>
-                    
+                    <p class="text-slate-500 mb-6 leading-relaxed relative z-10 text-sm">Bestes Angebot für Familien.
+                        Gemeinsames Kerala-Osteressen genießen.</p>
+
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
-                            <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 
-                            <span class="text-slate-400 line-through font-normal mr-1">100 €</span> 90 € inkl. Steuern & Verpackung
-                            <span class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">Sonderangebot</span>
+                            <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i>
+                            <span class="text-slate-400 line-through font-normal mr-1">110 €</span> 89,99 € inkl.
+                            Steuern & Verpackung
+                            <span
+                                class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">Sonderangebot</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <i data-lucide="users" class="w-4 h-4 text-brand-gold"></i> Für 5 Gäste
                         </li>
                         <li class="flex items-center gap-2">
-                            <i data-lucide="scale" class="w-4 h-4 text-brand-gold"></i> Ca. 7 kg Essen (1.4 kg pro Person)
+                            <i data-lucide="scale" class="w-4 h-4 text-brand-gold"></i> Ca. 7 kg Essen (1,4 kg pro
+                            Person)
                         </li>
                         <li class="flex items-center gap-2">
-                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Vorspeise, Hauptgericht & Dessert - Komplettes Ostermenü
+                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Vorspeise,
+                            Hauptgericht & Dessert - Komplettes Ostermenü
                         </li>
                     </ul>
 
-                    <div class="flex items-center gap-2 text-brand-red font-bold relative z-10">
+                    <div onclick="selectBox('family')"
+                        class="flex items-center gap-2 text-brand-red font-bold relative z-10 cursor-pointer group-hover:gap-3 transition-all">
                         <span class="text-sm">Option auswählen</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
@@ -507,36 +579,25 @@
             <div class="space-y-8">
                 <div>
                     <h2 class="text-4xl font-serif text-brand-red mb-4">Lieferung & Abholung</h2>
-                    <div class="inline-block bg-brand-gold text-brand-red px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
+                    <div
+                        class="inline-block bg-brand-gold text-brand-red px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
                         05. APRIL 2026
                     </div>
-                    <p class="text-lg text-slate-600">Frisch zubereitet und bereit für deine Osterfeier am Sonntag.
+                    <p class="text-lg text-slate-600">Frisch zubereitet und bereit für deine Osterfeier am Sonntag.</p>
+                    <p class="text-sm font-bold text-brand-red mt-3 flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4"></i> Keine Lieferkosten – Einfach am nächstgelegenen
+                        Abholort abholen!
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Mühlacker (Home/Abholung) -->
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
-                                    <i data-lucide="home" class="w-4 h-4"></i>
-                                </div>
-                                <h4 class="font-bold text-lg text-slate-800">Mühlacker</h4>
-                            </div>
-                            <p class="text-xs text-slate-500 mb-4">Im langen rain 30, 75417, Mühlacker</p>
-                        </div>
-                        <div class="flex items-center justify-between">
-                             <span class="text-xs font-bold text-brand-red uppercase">Abholung</span>
-                             <span class="bg-brand-gold/10 text-brand-red px-3 py-1 rounded-full text-xs font-bold">10:00 - 18:00</span>
-                        </div>
-                    </div>
-
                     <!-- Feuerbach -->
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
                         <div>
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
+                                <div
+                                    class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
                                     <i data-lucide="truck" class="w-4 h-4"></i>
                                 </div>
                                 <h4 class="font-bold text-lg text-slate-800">Feuerbach, Stuttgart</h4>
@@ -544,16 +605,19 @@
                             <p class="text-xs text-slate-500 mb-4">Bosch Parking (Kruppstraße 2C), 70469</p>
                         </div>
                         <div class="flex items-center justify-between">
-                             <span class="text-xs font-bold text-brand-red uppercase">Lieferstopp</span>
-                             <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">11:00 Uhr</span>
+                            <span class="text-xs font-bold text-brand-red uppercase">Lieferstopp</span>
+                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">11:00
+                                Uhr</span>
                         </div>
                     </div>
 
                     <!-- Vaihingen -->
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
                         <div>
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
+                                <div
+                                    class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
                                     <i data-lucide="truck" class="w-4 h-4"></i>
                                 </div>
                                 <h4 class="font-bold text-lg text-slate-800">Stuttgart-Vaihingen</h4>
@@ -561,16 +625,19 @@
                             <p class="text-xs text-slate-500 mb-4">Am Bahnhof 1, 70563 Stuttgart-Vaihingen</p>
                         </div>
                         <div class="flex items-center justify-between">
-                             <span class="text-xs font-bold text-brand-red uppercase">Lieferstopp</span>
-                             <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">12:30 Uhr</span>
+                            <span class="text-xs font-bold text-brand-red uppercase">Lieferstopp</span>
+                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">12:30
+                                Uhr</span>
                         </div>
                     </div>
 
                     <!-- Karlsruhe -->
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
                         <div>
                             <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
+                                <div
+                                    class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
                                     <i data-lucide="truck" class="w-4 h-4"></i>
                                 </div>
                                 <h4 class="font-bold text-lg text-slate-800">Karlsruhe</h4>
@@ -578,8 +645,29 @@
                             <p class="text-xs text-slate-500 mb-4">XXXLutz Mann Mobilia Karlsruhe</p>
                         </div>
                         <div class="flex items-center justify-between">
-                             <span class="text-xs font-bold text-brand-red uppercase">Lieferstopp</span>
-                             <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">12:30 Uhr</span>
+                            <span class="text-xs font-bold text-brand-red uppercase">Lieferstopp</span>
+                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">12:30
+                                Uhr</span>
+                        </div>
+                    </div>
+
+                    <!-- Mühlacker (Home/Abholung) -->
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div
+                                    class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
+                                    <i data-lucide="home" class="w-4 h-4"></i>
+                                </div>
+                                <h4 class="font-bold text-lg text-slate-800">Mühlacker</h4>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-4">Im langen rain 30, 75417, Mühlacker</p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold text-brand-red uppercase">Abholung</span>
+                            <span class="bg-brand-gold/10 text-brand-red px-3 py-1 rounded-full text-xs font-bold">10:00
+                                - 18:00</span>
                         </div>
                     </div>
                 </div>
@@ -680,7 +768,7 @@
         });
 
         // Google Form Integration
-        const googleFormBaseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform?embedded=true";
+        const googleFormBaseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform";
         const boxSizeEntryId = "entry.368583156";
 
         // Box selection sync
@@ -692,21 +780,14 @@
 
             // Map type to exact Google Form option strings
             let formValue = "";
-            if (type === 'couple') formValue = "Box for 2 People – €40";
-            if (type === 'family') formValue = "Family Box for 5 People – €85";
+            if (type === 'couple') formValue = "Easter Feast for 2 People – €39.99";
+            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €89.99";
 
-            // Update Google Form Iframe with pre-filled value
-            const iframe = document.querySelector('section#preorder iframe');
-            const prefillUrl = `${googleFormBaseUrl}&${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
+            // Update Google Form pre-filled URL and Open in New Tab
+            const prefillUrl = `${googleFormBaseUrl}?${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
 
-            // To avoid flickering or reloading if the user is already filling, 
-            // we only update if the selection actually changed
-            if (iframe.src !== prefillUrl) {
-                iframe.src = prefillUrl;
-            }
-
-            // Scroll to form automatically
-            document.getElementById('preorder').scrollIntoView({ behavior: 'smooth' });
+            // Open form in new tab
+            window.open(prefillUrl, '_blank');
         }
 
         // Main Feast Slider
@@ -721,7 +802,7 @@
         }
 
         function updateSlider() {
-            if(!slider) return;
+            if (!slider) return;
             slider.style.transform = `translateX(-${currentSlide * 100}%)`;
             dots.forEach((dot, idx) => {
                 dot.style.backgroundColor = idx === currentSlide ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.4)';

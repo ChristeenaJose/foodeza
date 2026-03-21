@@ -49,8 +49,8 @@
         "@type": "AggregateOffer",
         "url": "https://foodeza.de/easter-feast/",
         "priceCurrency": "EUR",
-        "lowPrice": "40",
-        "highPrice": "85",
+        "lowPrice": "39.99",
+        "highPrice": "89.99",
         "offerCount": "2"
       }
     }
@@ -130,6 +130,24 @@
             box-shadow: 0 10px 15px -3px rgba(204, 6, 5, 0.1);
         }
 
+        @keyframes float-egg {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(15px, -20px) rotate(5deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+
+        .egg-floating {
+            animation: float-egg 8s ease-in-out infinite;
+        }
+
+        .egg-drifting {
+            animation: float-egg 12s ease-in-out infinite alternate;
+        }
+
+        .golden-egg {
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+        }
+
         /* Language Switcher Styles */
         .lang-switcher {
             position: relative;
@@ -203,7 +221,8 @@
                 </div>
             </div>
         </div>
-        <a href="#preorder"
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
+            target="_blank"
             class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-brand-red-dark transition-all transform hover:scale-105 shadow-lg">
             Pre-Order
         </a>
@@ -212,8 +231,8 @@
     <!-- Hero Section -->
     <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
-            <img src="images/hero.png" alt="Foodeza Easter Feast Box - Kerala Christian Festive Lunch Collage"
-                class="w-full h-full object-cover">
+            <img src="images/banner_easter.png" alt="Foodeza Premium Kerala Easter Feast - Traditional Festive Lunch"
+                class="w-full h-full object-cover animate-slow-zoom">
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
 
@@ -228,10 +247,11 @@
                 Friday</p>
             <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 opacity-80 leading-relaxed font-light">
                 Celebrate Easter with family and friends – without stress. Enjoy a traditional Kerala festive feast,
-                freshly prepared with authentic Kerala flavors.
+                freshly prepared with authentic flavors from our heart to yours.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#preorder"
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
+                    target="_blank"
                     class="bg-brand-red hover:bg-brand-red-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-all shadow-xl hover:shadow-2xl">
                     Pre-Order Now
                 </a>
@@ -297,8 +317,9 @@
         <div class="text-center mb-16 flex flex-col items-center">
             <div class="inline-flex flex-col md:flex-row items-center gap-4 mb-4">
                 <h2 class="text-brand-red font-serif text-4xl md:text-5xl uppercase tracking-tight">Easter Special Combo</h2>
-                <span class="bg-brand-red text-white text-lg font-bold px-6 py-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform cursor-default">
-                    Just €20 <span class="text-sm opacity-80 font-normal">/ person</span>
+                <span class="bg-brand-red text-white text-lg font-bold px-6 py-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform cursor-default flex flex-col items-center leading-tight">
+                    <div>€22 <span class="text-sm opacity-80 font-normal">/ person</span></div>
+                    <div class="text-[10px] opacity-90 font-semibold uppercase tracking-wider mt-1">Min. Order 2</div>
                 </span>
             </div>
             <p class="text-brand-red font-bold uppercase tracking-widest text-sm mb-4">Select your package below</p>
@@ -405,9 +426,21 @@
 
     </section>
 
-    <!-- Box Options -->
+    <!-- Package Options -->
     <section id="options" class="bg-brand-red py-24 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 pointer-events-none">
+        <div class="absolute inset-0 opacity-15 pointer-events-none overflow-hidden">
+            <div class="absolute top-20 left-10 text-brand-gold egg-floating golden-egg opacity-40">
+                <i data-lucide="egg" class="w-16 h-16"></i>
+            </div>
+            <div class="absolute top-60 right-20 text-brand-gold egg-drifting golden-egg opacity-30">
+                <i data-lucide="egg" class="w-20 h-20"></i>
+            </div>
+            <div class="absolute bottom-20 left-1/4 text-brand-gold egg-floating golden-egg opacity-25">
+                <i data-lucide="egg" class="w-12 h-12"></i>
+            </div>
+            <div class="absolute top-1/2 right-1/3 text-brand-gold egg-drifting golden-egg opacity-20">
+                <i data-lucide="egg" class="w-24 h-24"></i>
+            </div>
             <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-gold rounded-full blur-3xl"></div>
         </div>
@@ -418,12 +451,15 @@
                 <span class="text-brand-gold font-bold uppercase tracking-widest text-sm mb-4 block">Choose Your Package</span>
                 <h2 class="text-white font-serif text-4xl md:text-5xl mb-4">Easter Feast Packages</h2>
                 <p class="text-white/80 text-lg">Freshly prepared, packed for freshness, and ready to serve.</p>
+                <a href="#delivery" class="inline-flex items-center gap-2 text-brand-gold font-bold text-sm mt-4 hover:underline transition-all">
+                    <i data-lucide="truck" class="w-4 h-4"></i> No Delivery Cost - Pickup from Nearest Location
+                </a>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Box for 2 -->
-                <div onclick="selectBox('couple')" id="box-couple"
-                    class="cursor-pointer group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
+                <!-- Package for 2 -->
+                <div id="box-couple"
+                    class="group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
                     <img src="images/box.png" alt="Box"
                         class="absolute -top-12 -right-12 w-32 opacity-100 transition-all box-floating z-20">
                     <div class="flex justify-between items-start mb-6 relative z-10">
@@ -432,7 +468,7 @@
                             <i data-lucide="users-2" class="w-8 h-8"></i>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-1 relative z-10">Easter Feast Box</h3>
+                    <h3 class="text-2xl font-bold mb-1 relative z-10">Easter Feast Package</h3>
                     <div class="flex items-center gap-3 mb-3 relative z-10">
                         <p class="text-brand-red font-semibold">(2 Guests)</p>
                     </div>
@@ -440,7 +476,9 @@
                     
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
-                            <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> €40 including taxes & packaging
+                            <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 
+                            <span class="text-slate-400 line-through font-normal mr-1">€44</span> €39.99 including taxes & packaging
+                            <span class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">Special Offer</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <i data-lucide="users" class="w-4 h-4 text-brand-gold"></i> Serves 2 guests
@@ -449,19 +487,19 @@
                             <i data-lucide="scale" class="w-4 h-4 text-brand-gold"></i> Approx. 2.8 kg food (1.4 kg per person)
                         </li>
                         <li class="flex items-center gap-2">
-                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Starter, Main dish & Dessert - Full Easter menu
+                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Starter, Main Dish & Dessert - Full Easter Menu
                         </li>
                     </ul>
 
-                    <div class="flex items-center gap-2 text-brand-red font-bold relative z-10">
+                    <div onclick="selectBox('couple')" class="flex items-center gap-2 text-brand-red font-bold relative z-10 cursor-pointer group-hover:gap-3 transition-all">
                         <span class="text-sm">Select Option</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
                 </div>
 
-                <!-- Box for 5 -->
-                <div onclick="selectBox('family')" id="box-family"
-                    class="cursor-pointer group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
+                <!-- Package for 5 -->
+                <div id="box-family"
+                    class="group bg-white border-4 border-transparent p-10 rounded-[2.5rem] transition-all duration-300 hover:-translate-y-2 box-option relative">
                     <img src="images/box.png" alt="Box"
                         class="absolute -top-16 -right-16 w-44 opacity-100 transition-all box-floating z-20">
                     <div class="flex justify-between items-start mb-6 relative z-10">
@@ -470,7 +508,7 @@
                             <i data-lucide="users" class="w-8 h-8"></i>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-1 relative z-10 uppercase tracking-tight">Family Easter Feast Box</h3>
+                    <h3 class="text-2xl font-bold mb-1 relative z-10">Family Easter Feast Package</h3>
                     <div class="flex items-center gap-3 mb-3 relative z-10">
                         <p class="text-brand-red font-semibold">(5 Guests)</p>
                     </div>
@@ -479,7 +517,7 @@
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
                             <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 
-                            <span class="text-slate-400 line-through font-normal mr-1">€100</span> €90 including taxes & packaging
+                            <span class="text-slate-400 line-through font-normal mr-1">€110</span> €89.99 including taxes & packaging
                             <span class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">Special Offer</span>
                         </li>
                         <li class="flex items-center gap-2">
@@ -489,11 +527,11 @@
                             <i data-lucide="scale" class="w-4 h-4 text-brand-gold"></i> Approx. 7 kg food (1.4 kg per person)
                         </li>
                         <li class="flex items-center gap-2">
-                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Starter, Main dish & Dessert - Full Easter menu
+                            <i data-lucide="utensils-crosshair" class="w-4 h-4 text-brand-gold"></i> Starter, Main Dish & Dessert - Full Easter Menu
                         </li>
                     </ul>
 
-                    <div class="flex items-center gap-2 text-brand-red font-bold relative z-10">
+                    <div onclick="selectBox('family')" class="flex items-center gap-2 text-brand-red font-bold relative z-10 cursor-pointer group-hover:gap-3 transition-all">
                         <span class="text-sm">Select Option</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </div>
@@ -511,28 +549,13 @@
                     <div class="inline-block bg-brand-gold text-brand-red px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 shadow-sm">
                         05 APRIL 2026
                     </div>
-                    <p class="text-lg text-slate-600">Freshly prepared and ready for your Easter celebration on Sunday.
+                    <p class="text-lg text-slate-600">Freshly prepared and ready for your Easter celebration on Sunday.</p>
+                    <p class="text-sm font-bold text-brand-red mt-3 flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4"></i> No Delivery Cost – Simply Pickup from your Nearest Location!
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Mühlacker (Home/Pickup) -->
-                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="flex items-center gap-3 mb-3">
-                                <div class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
-                                    <i data-lucide="home" class="w-4 h-4"></i>
-                                </div>
-                                <h4 class="font-bold text-lg text-slate-800">Mühlacker</h4>
-                            </div>
-                            <p class="text-xs text-slate-500 mb-4">Im langen rain 30, 75417, Mühlacker</p>
-                        </div>
-                        <div class="flex items-center justify-between">
-                             <span class="text-xs font-bold text-brand-red uppercase">Pickup</span>
-                             <span class="bg-brand-gold/10 text-brand-red px-3 py-1 rounded-full text-xs font-bold">10:00 - 18:00</span>
-                        </div>
-                    </div>
-
                     <!-- Feuerbach -->
                     <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
                         <div>
@@ -581,6 +604,23 @@
                         <div class="flex items-center justify-between">
                              <span class="text-xs font-bold text-brand-red uppercase">Delivery Stop</span>
                              <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-bold">12:30 PM</span>
+                        </div>
+                    </div>
+
+                    <!-- Mühlacker (Home/Pickup) -->
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:border-brand-gold/30 transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-8 h-8 bg-brand-red/5 rounded-lg flex items-center justify-center text-brand-red">
+                                    <i data-lucide="home" class="w-4 h-4"></i>
+                                </div>
+                                <h4 class="font-bold text-lg text-slate-800">Mühlacker</h4>
+                            </div>
+                            <p class="text-xs text-slate-500 mb-4">Im langen rain 30, 75417, Mühlacker</p>
+                        </div>
+                        <div class="flex items-center justify-between">
+                             <span class="text-xs font-bold text-brand-red uppercase">Pickup</span>
+                             <span class="bg-brand-gold/10 text-brand-red px-3 py-1 rounded-full text-xs font-bold">10:00 - 18:00</span>
                         </div>
                     </div>
                 </div>
@@ -684,7 +724,7 @@
         });
 
         // Google Form Integration
-        const googleFormBaseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform?embedded=true";
+        const googleFormBaseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform";
         const boxSizeEntryId = "entry.368583156";
 
         // Box selection sync
@@ -696,21 +736,14 @@
 
             // Map type to exact Google Form option strings
             let formValue = "";
-            if (type === 'couple') formValue = "Box for 2 People – €40";
-            if (type === 'family') formValue = "Family Box for 5 People – €85";
+            if (type === 'couple') formValue = "Easter Feast for 2 People – €39.99";
+            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €89.99";
 
-            // Update Google Form Iframe with pre-filled value
-            const iframe = document.querySelector('section#preorder iframe');
-            const prefillUrl = `${googleFormBaseUrl}&${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
-
-            // To avoid flickering or reloading if the user is already filling, 
-            // we only update if the selection actually changed
-            if (iframe.src !== prefillUrl) {
-                iframe.src = prefillUrl;
-            }
-
-            // Scroll to form automatically
-            document.getElementById('preorder').scrollIntoView({ behavior: 'smooth' });
+            // Update Google Form pre-filled URL and Open in New Tab
+            const prefillUrl = `${googleFormBaseUrl}?${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
+            
+            // Open form in new tab
+            window.open(prefillUrl, '_blank');
         }
 
         // Main Feast Slider
