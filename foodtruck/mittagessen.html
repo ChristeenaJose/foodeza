@@ -125,7 +125,7 @@
     <div class="container">
       <div class="text-center mb-5 reveal">
         <h2 class="section-title mb-1">Unser Wochenplan</h2>
-        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Wochentour: 18.–22. März 2026</p>
+        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Wochentour: 23.–29. März 2026</p>
       </div>
 
       <div class="schedule-list mb-1" style="max-width: 900px; margin: 0 auto;">
@@ -139,7 +139,7 @@
           <!-- Date Calendar Tab -->
           <div class="d-flex flex-column align-items-center text-center pe-md-4 mb-4 mb-md-0" style="min-width: 100px;">
             <span class="text-danger fw-bold" style="font-size: 1.2rem;">Do</span>
-            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">19.</span>
+            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">26.</span>
             <span class="text-muted fw-bold text-uppercase mt-1"
               style="font-size: 0.85rem; letter-spacing: 1px;">März</span>
           </div>
@@ -372,7 +372,6 @@
                 <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Auswahl:</p>
                 <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
                   <li>• Mango Lassi <small class="text-muted">(Joghurt)</small></li>
-                  <li>• Mango Saft <small class="text-muted">(Vegan)</small></li>
                 </ul>
               </div>
               <div class="variant-selectors mt-auto">
@@ -384,14 +383,7 @@
                     <button class="qty-btn plus" onclick="updateQty('lassi', 1, 3.0)">+</button>
                   </div>
                 </div>
-                <div class="variant-item">
-                  <div class="variant-label"><i style="background: #2e7d32;"></i> Mango Saft Vegan 2,50 €</div>
-                  <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('juice', -1, 2.5)">−</button>
-                    <span class="qty-number" id="qty-juice">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('juice', 1, 2.5)">+</button>
-                  </div>
-                </div>
+
               </div>
             </div>
           </div>
@@ -531,7 +523,6 @@
       // 5. Getränke - entry.133219745
       let drinkParts = [];
       if (cart.lassi > 0) drinkParts.push(`Mango Lassi: ${cart.lassi}`);
-      if (cart.juice > 0) drinkParts.push(`Mango Saft: ${cart.juice}`);
       if (drinkParts.length > 0) {
         params.push(`entry.133219745=${encodeURIComponent(drinkParts.join(', '))}`);
       }
