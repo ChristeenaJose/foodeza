@@ -318,7 +318,7 @@
             <div class="inline-flex flex-col md:flex-row items-center gap-4 mb-4">
                 <h2 class="text-brand-red font-serif text-4xl md:text-5xl uppercase tracking-tight">Easter Special Combo</h2>
                 <span class="bg-brand-red text-white text-lg font-bold px-6 py-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform cursor-default flex flex-col items-center leading-tight">
-                    <div>€25 <span class="text-sm opacity-80 font-normal">/ person</span></div>
+                    <div>€22 <span class="text-sm opacity-80 font-normal">/ person</span></div>
                     <div class="text-[10px] opacity-90 font-semibold uppercase tracking-wider mt-1">Min. Order 2</div>
                 </span>
             </div>
@@ -491,7 +491,7 @@
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
                             <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 
-                            <span class="text-slate-400 line-through font-normal mr-1">€50</span> €48.99 including taxes & packaging
+                            <span class="text-slate-400 line-through font-normal mr-1">€44</span> €39.80 including taxes & packaging
                         </li>
                         <li class="flex items-center gap-2">
                              ✅ Perfect for 2 people (full meal + dessert)
@@ -535,7 +535,7 @@
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
                             <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 
-                            <span class="text-slate-400 line-through font-normal mr-1">€125</span> €114.99 including taxes & packaging
+                            <span class="text-slate-400 line-through font-normal mr-1">€110</span> €98.80 including taxes & packaging
                             <span class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">⭐ Best Value</span>
                         </li>
                         <li class="flex items-center gap-2">
@@ -754,14 +754,19 @@
 
             // Map type to exact Google Form option strings
             let formValue = "";
-            if (type === 'couple') formValue = "Easter Feast for 2 People – €39.99";
-            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €89.99";
+            if (type === 'couple') formValue = "Easter Feast for 2 People – €39.80";
+            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €98.80";
 
-            // Update Google Form pre-filled URL and Open in New Tab
+            // Update Google Form pre-filled URL and load it in iframe
             const prefillUrl = `${googleFormBaseUrl}?${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
             
-            // Open form in new tab
-            window.open(prefillUrl, '_blank');
+            const iframe = document.getElementById('google-form');
+            if (iframe) {
+                iframe.src = prefillUrl + '&embedded=true';
+                document.getElementById('preorder').scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.open(prefillUrl, '_blank');
+            }
         }
 
         // Main Feast Slider
