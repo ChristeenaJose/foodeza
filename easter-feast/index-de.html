@@ -332,7 +332,7 @@
                 </h2>
                 <span
                     class="bg-brand-red text-white text-lg font-bold px-6 py-2 rounded-2xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform cursor-default flex flex-col items-center leading-tight">
-                    <div>€22 <span class="text-sm opacity-80 font-normal">/ Person</span></div>
+                    <div>22 € <span class="text-sm opacity-80 font-normal">/ Person</span></div>
                     <div class="text-[10px] opacity-90 font-semibold uppercase tracking-wider mt-1">Mind. 2 Personen
                     </div>
                 </span>
@@ -510,7 +510,7 @@
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
                             <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i>
-                            <span class="text-slate-400 line-through font-normal mr-1">44 €</span> 39,80 € inkl. Steuern & Verpackung
+                            22 € / Person inkl. Steuern & Verpackung
                         </li>
                         <li class="flex items-center gap-2">
                              ✅ Ideal für 2 Personen (Hauptgericht + Nachtisch)
@@ -547,8 +547,14 @@
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-1 relative z-10 uppercase tracking-tight">Familien-Osterpaket</h3>
-                    <div class="flex items-center gap-3 mb-3 relative z-10">
+                    <div class="flex items-center flex-wrap gap-2 md:gap-3 mb-3 relative z-10">
                         <p class="text-brand-red font-semibold">(5 Gäste)</p>
+                        <span class="bg-brand-green text-white text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-wider shadow-sm flex items-center gap-1">
+                            <i data-lucide="tag" class="w-3 h-3"></i> 5% Rabatt
+                        </span>
+                        <span class="bg-gradient-to-r from-brand-gold to-yellow-400 text-brand-red text-[10px] px-3 py-0.5 rounded-full uppercase font-extrabold tracking-wider shadow-md flex items-center gap-1 transform transition hover:scale-105">
+                            ⭐ Bestes Angebot
+                        </span>
                     </div>
                     <p class="text-slate-500 mb-6 leading-relaxed relative z-10 text-sm">Bestes Angebot für Familien.
                         Gemeinsames Kerala-Osteressen genießen.</p>
@@ -556,8 +562,7 @@
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
                             <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i>
-                            <span class="text-slate-400 line-through font-normal mr-1">110 €</span> 98,80 € inkl. Steuern & Verpackung
-                            <span class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">⭐ Bestes Angebot</span>
+                            <span class="text-slate-400 line-through font-normal mr-1">22 €</span> 20,90 € / Person inkl. Steuern & Verpackung
                         </li>
                         <li class="flex items-center gap-2">
                              ✅ Ideal für Familien (5 Personen - volles Festessen)
@@ -786,19 +791,14 @@
 
             // Map type to exact Google Form option strings
             let formValue = "";
-            if (type === 'couple') formValue = "Easter Feast for 2 People – €39.80";
-            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €98.80";
+            if (type === 'couple') formValue = "Easter Feast for 2 People – €22 / person";
+            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €20.90 / person";
 
-            // Update Google Form pre-filled URL and load it in iframe
+            // Update Google Form pre-filled URL and Open in New Tab
             const prefillUrl = `${googleFormBaseUrl}?${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
             
-            const iframe = document.getElementById('google-form');
-            if (iframe) {
-                iframe.src = prefillUrl + '&embedded=true';
-                document.getElementById('preorder').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                window.open(prefillUrl, '_blank');
-            }
+            // Open form in new tab
+            window.open(prefillUrl, '_blank');
         }
 
         // Main Feast Slider

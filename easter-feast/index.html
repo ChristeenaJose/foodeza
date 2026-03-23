@@ -491,7 +491,7 @@
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
                             <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 
-                            <span class="text-slate-400 line-through font-normal mr-1">€44</span> €39.80 including taxes & packaging
+                            €22 / person including taxes & packaging
                         </li>
                         <li class="flex items-center gap-2">
                              ✅ Perfect for 2 people (full meal + dessert)
@@ -527,16 +527,21 @@
                         </div>
                     </div>
                     <h3 class="text-2xl font-bold mb-1 relative z-10">Family Easter Feast Package</h3>
-                    <div class="flex items-center gap-3 mb-3 relative z-10">
+                    <div class="flex items-center flex-wrap gap-2 md:gap-3 mb-3 relative z-10">
                         <p class="text-brand-red font-semibold">(5 Guests)</p>
+                        <span class="bg-brand-green text-white text-[10px] px-2 py-0.5 rounded-full uppercase font-bold tracking-wider shadow-sm flex items-center gap-1">
+                            <i data-lucide="tag" class="w-3 h-3"></i> 5% Reduction
+                        </span>
+                        <span class="bg-gradient-to-r from-brand-gold to-yellow-400 text-brand-red text-[10px] px-3 py-0.5 rounded-full uppercase font-extrabold tracking-wider shadow-md flex items-center gap-1 transform transition hover:scale-105">
+                            ⭐ Best Value
+                        </span>
                     </div>
                     <p class="text-slate-500 mb-6 leading-relaxed relative z-10 text-sm">Best value for families. Enjoy a traditional Kerala Easter meal together.</p>
                     
                     <ul class="space-y-2 mb-8 relative z-10 text-sm text-slate-600">
                         <li class="flex items-center gap-2 font-semibold text-slate-800 tracking-tight">
                             <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i> 
-                            <span class="text-slate-400 line-through font-normal mr-1">€110</span> €98.80 including taxes & packaging
-                            <span class="ml-2 bg-brand-gold text-brand-red text-[8px] px-2 py-0.5 rounded-full uppercase">⭐ Best Value</span>
+                            <span class="text-slate-400 line-through font-normal mr-1">€22</span> €20.90 / person including taxes & packaging
                         </li>
                         <li class="flex items-center gap-2">
                              ✅ Ideal for a Family (5 people - full feast)
@@ -754,19 +759,14 @@
 
             // Map type to exact Google Form option strings
             let formValue = "";
-            if (type === 'couple') formValue = "Easter Feast for 2 People – €39.80";
-            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €98.80";
+            if (type === 'couple') formValue = "Easter Feast for 2 People – €22 / person";
+            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €20.90 / person";
 
-            // Update Google Form pre-filled URL and load it in iframe
+            // Update Google Form pre-filled URL and Open in New Tab
             const prefillUrl = `${googleFormBaseUrl}?${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
             
-            const iframe = document.getElementById('google-form');
-            if (iframe) {
-                iframe.src = prefillUrl + '&embedded=true';
-                document.getElementById('preorder').scrollIntoView({ behavior: 'smooth' });
-            } else {
-                window.open(prefillUrl, '_blank');
-            }
+            // Open form in new tab
+            window.open(prefillUrl, '_blank');
         }
 
         // Main Feast Slider
