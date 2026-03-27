@@ -648,11 +648,19 @@ section.map-section{
   bottom: 28%;
   left: 0;
   width: 220px;
-  offset-path: path("M 0 500 A 900 500 0 0 1 900 0"); 
+  -webkit-offset-path: path("M 0 500 A 900 500 0 0 1 1800 500"); 
+  offset-path: path("M 0 500 A 900 500 0 0 1 1800 500"); 
+  -webkit-offset-rotate: auto;
   offset-rotate: auto;
 }
 .truck.animate {
-  animation: drive 4s linear forwards;
+  -webkit-animation: drive 8s linear infinite;
+  animation: drive 8s linear infinite;
+}
+
+@-webkit-keyframes drive {
+  0% { -webkit-offset-distance: 0%; offset-distance: 0%; }
+  100% { -webkit-offset-distance: 100%; offset-distance: 100%; }
 }
 
 @keyframes drive {
@@ -1304,7 +1312,8 @@ section{
     max-width: 80% !important;
   }
   .truck {
-    offset-path: path("M 0 500 A 900 500 19 0 1 590 0");
+    -webkit-offset-path: path("M 0 500 A 900 500 19 0 1 1180 500");
+    offset-path: path("M 0 500 A 900 500 19 0 1 1180 500");
     bottom: 22%;
   }
   .bg-video {
@@ -1419,7 +1428,8 @@ section{
   top: -42%;
 }
 .truck {
-    offset-path: path("M 0 500 A 900 500 19 0 1 590 0");
+    -webkit-offset-path: path("M 0 500 A 900 500 19 0 1 1180 500");
+    offset-path: path("M 0 500 A 900 500 19 0 1 1180 500");
     bottom: 22%;
 }
 .video-section{
@@ -1471,8 +1481,9 @@ footer .row{
       top: -52%;
     }
      .truck {
-        offset-path: path("M 0 500 A 1115 500 27 0 1 350 0");
-        width: 180px;
+        -webkit-offset-path: path("M 0 500 A 1180 500 37 0 1 660 500");
+        offset-path: path("M 0 500 A 1180 500 37 0 1 660 500");
+        width: 130px;
     }
      .video-section{
       padding-bottom: 40px;
@@ -1484,10 +1495,11 @@ footer .row{
 }
 @media screen and (max-width: 680px){
     .truck {
-        offset-path: path("M 0 500 A 980 500 50 0 1 260 0");
+        -webkit-offset-path: path("M 0 500 A 980 500 50 0 1 520 500");
+        offset-path: path("M 0 500 A 980 500 50 0 1 520 500");
         bottom: 18%;
     }
-  }
+}
 @media screen and (max-width: 650px){
   footer .col-sm-12.footer-logo-row{
   width: 100%;
@@ -1535,7 +1547,8 @@ section.testimonial-section{
   top: -72%;
 }
 .truck {
-    offset-path: path("M 0 500 A 1070 500 50 0 1 261 0");
+    -webkit-offset-path: path("M 0 500 A 1070 500 50 0 1 522 500");
+    offset-path: path("M 0 500 A 1070 500 50 0 1 522 500");
     width: 120px;
 }
   .video-section{
@@ -1580,7 +1593,8 @@ section.testimonial-section{
 }
 @media screen and (max-width: 480px){
     .truck {
-        offset-path:path("M 0 500 A 1270 500 50 0 1 220 0");
+        -webkit-offset-path: path("M 0 500 A 1270 500 50 0 1 440 500");
+        offset-path: path("M 0 500 A 1270 500 50 0 1 440 500");
         width: 120px;
     }
 }
@@ -1589,12 +1603,14 @@ section.testimonial-section{
   top: -92%;
 }
     .truck {
-        offset-path: path("M 0 500 A 1450 500 34 0 1 170 0");
+        -webkit-offset-path: path("M 0 500 A 1450 500 34 0 1 340 500");
+        offset-path: path("M 0 500 A 1450 500 34 0 1 340 500");
         width: 80px;
         
     }
     .truck.animate {
-      animation: drive 3s linear forwards;
+      -webkit-animation: drive 6s linear infinite;
+      animation: drive 6s linear infinite;
   }
       .footer-logo img {
         max-width: 100px;

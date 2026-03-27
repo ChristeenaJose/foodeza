@@ -556,8 +556,10 @@
                   <li><a href="#" title="Gallery">Gallery</a></li>
                   <li><a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now">Enquire now</a>
                   </li>
+                  <li><a href="imprint.html" title="Imprint">Imprint</a></li>
                   <li><a href="#" title="Cookies">Cookies</a></li>
-                  <li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
+                  <li><a href="privacy.html" title="Privacy Policy">Privacy Policy</a></li>
+                  <li><a href="terms.html" title="Terms & Conditions">Terms & Conditions</a></li>
                 </ul>
               </div>
             </div>
@@ -629,9 +631,8 @@
     </a>
   </div>
 
-</body>
 
-</html>
+  <script src="./js/cookie.js"></script>
 <script>
 
   var testiomnialData = [
@@ -703,6 +704,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     const truck = document.querySelector(".truck");
     const section = document.querySelector(".map-section");
+    if (!truck || !section) return;
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -711,7 +713,8 @@
         }
       });
     }, {
-      threshold: 0.7 // triggers when 50% of section is in view
+      rootMargin: "0px 0px -50px 0px",
+      threshold: 0
     });
 
     observer.observe(section);
@@ -840,3 +843,5 @@
     });
   });
 </script>
+</body>
+</html>
