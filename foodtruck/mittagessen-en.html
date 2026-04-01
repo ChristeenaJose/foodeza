@@ -123,7 +123,7 @@
     <div class="container">
       <div class="text-center mb-5 reveal">
         <h2 class="section-title mb-1">Our Weekly Schedule</h2>
-        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Weekly Tour: April 6–12, 2026 <br><span class="text-danger" style="font-size: 0.9rem;">(Taking a short Easter break on April 2nd)</span></p>
+        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Weekly Tour: March 30 – April 5, 2026</p>
       </div>
 
       <div class="schedule-list mb-1" style="max-width: 900px; margin: 0 auto;">
@@ -137,7 +137,7 @@
           <!-- Date Calendar Tab -->
           <div class="d-flex flex-column align-items-center text-center pe-md-4 mb-4 mb-md-0" style="min-width: 100px;">
             <span class="text-danger fw-bold" style="font-size: 1.2rem;">Thu</span>
-            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">09.</span>
+            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">02.</span>
             <span class="text-muted fw-bold text-uppercase mt-1"
               style="font-size: 0.85rem; letter-spacing: 1px;">April</span>
           </div>
@@ -160,7 +160,7 @@
                 style="width: 32px; height: 32px; background-color: rgba(220, 53, 69, 0.1); flex-shrink: 0;">
                 <i class="fas fa-clock text-danger"></i>
               </div>
-              <span class="fw-medium" style="font-size: 0.95rem;">11:30 AM – 1:30 PM</span>
+              <span class="fw-medium" style="font-size: 0.95rem;">09:00 AM – 03:00 PM</span>
             </div>
           </div>
 
@@ -194,86 +194,65 @@
       <!-- Horizontal Scroll Gallery with ordering -->
       <div class="row row-cols-1 row-cols-md-3 g-4 reveal">
 
-        <!-- Image Card 1: Curry with Rice -->
+        <!-- Image Card 1: Thali -->
         <div class="col">
           <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
             style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-            <img src="images/ricebowl.png" alt="Curry with Rice" style="width: 100%; height: 220px; object-fit: cover;">
+            <img src="images/thali.webp" alt="Authentic South Indian Thali" style="width: 100%; height: 220px; object-fit: cover;">
             <div class="p-4 d-flex flex-column flex-grow-1 text-start">
-              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry with Rice <span
-                  class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8.50 €</span></h4>
-              <p class="text-muted small mb-3">Basmati rice served as a bowl with delicious curry</p>
+              <span class="badge bg-danger text-white rounded-pill mb-2 align-self-start" style="font-size: 0.75rem; letter-spacing: 0.5px;">THIS WEEK</span>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Kerala Thali</h4>
+              <p class="text-muted small mb-3">Today's Special: A complete flavor journey on one plate</p>
               <div class="mb-3 flex-grow-1">
                 <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
                 <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
-                  <li>• Chicken or Chickpea Curry</li>
-                  <li>• Raita & Papadam</li>
-                  <li>• Aromatic Rice</li>
+                  <li>• Basmati Rice</li>
+                  <li>• Chicken or Veg Curry</li>
+                  <li>• Traditional side dishes (Lentil Dal, Raita & Coconut Vegetables)</li>
                 </ul>
               </div>
               <div class="variant-selectors mt-auto">
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">9.50 €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('rice_nv', -1, 8.5)">−</button>
-                    <span class="qty-number" id="qty-rice_nv">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('rice_nv', 1, 8.5)">+</button>
+                    <button class="qty-btn minus" onclick="updateQty('thali_nv', -1, 9.5)">−</button>
+                    <span class="qty-number" id="qty-thali_nv">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('thali_nv', 1, 9.5)">+</button>
                   </div>
                 </div>
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian</div>
+                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">8.50 €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('rice_v', -1, 8.5)">−</button>
-                    <span class="qty-number" id="qty-rice_v">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('rice_v', 1, 8.5)">+</button>
+                    <button class="qty-btn minus" onclick="updateQty('thali_v', -1, 8.5)">−</button>
+                    <span class="qty-number" id="qty-thali_v">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('thali_v', 1, 8.5)">+</button>
+                  </div>
+                </div>
+                <div class="variant-item">
+                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegan <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">7.50 €</span></div>
+                  <div class="quantity-selector">
+                    <button class="qty-btn minus" onclick="updateQty('thali_vn', -1, 7.5)">−</button>
+                    <span class="qty-number" id="qty-thali_vn">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('thali_vn', 1, 7.5)">+</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <!-- Image Card 2: Curry with Porotta -->
+        
+        <!-- Hidden Image Card: Curry with Rice 
         <div class="col">
-          <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
-            style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
-            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-            <img src="images/currybrot.png" alt="Curry with Porotta (Bread)"
-              style="width: 100%; height: 220px; object-fit: cover;">
-            <div class="p-4 d-flex flex-column flex-grow-1 text-start">
-              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry with Porotta <span
-                  class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8.50 €</span></h4>
-              <p class="text-muted small mb-3">South Indian flatbread served with your favorite curry</p>
-              <div class="mb-3 flex-grow-1">
-                <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
-                <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
-                  <li>• Chicken or Chickpea Curry</li>
-                  <li>• Porotta Bread</li>
-                  <li>• Indian Spices</li>
-                </ul>
-              </div>
-              <div class="variant-selectors mt-auto">
-                <div class="variant-item">
-                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
-                  <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('porotta_brot_nv', -1, 8.5)">−</button>
-                    <span class="qty-number" id="qty-porotta_brot_nv">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('porotta_brot_nv', 1, 8.5)">+</button>
-                  </div>
-                </div>
-                <div class="variant-item">
-                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian</div>
-                  <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('porotta_brot_v', -1, 8.5)">−</button>
-                    <span class="qty-number" id="qty-porotta_brot_v">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('porotta_brot_v', 1, 8.5)">+</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ...
         </div>
+        -->
+        
+        <!-- Hidden Image Card: Curry with Porotta 
+        <div class="col">
+          ...
+        </div>
+        -->
 
         <!-- Image Card 3: Wrap -->
         <div class="col">
@@ -282,8 +261,7 @@
             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
             <img src="images/wrap.webp" alt="Curry Wrap" style="width: 100%; height: 220px; object-fit: cover;">
             <div class="p-4 d-flex flex-column flex-grow-1 text-start">
-              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry Wrap <span
-                  class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8.50 €</span></h4>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry Wrap</h4>
               <p class="text-muted small mb-3">Our popular Kerala Porotta Wrap (Normal Wrap)</p>
               <div class="mb-3 flex-grow-1">
                 <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
@@ -295,7 +273,7 @@
               </div>
               <div class="variant-selectors mt-auto">
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">8.50 €</span></div>
                   <div class="quantity-selector">
                     <button class="qty-btn minus" onclick="updateQty('wrap_nv', -1, 8.5)">−</button>
                     <span class="qty-number" id="qty-wrap_nv">0</span>
@@ -303,11 +281,11 @@
                   </div>
                 </div>
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian</div>
+                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">7.50 €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('wrap_v', -1, 8.5)">−</button>
+                    <button class="qty-btn minus" onclick="updateQty('wrap_v', -1, 7.5)">−</button>
                     <span class="qty-number" id="qty-wrap_v">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('wrap_v', 1, 8.5)">+</button>
+                    <button class="qty-btn plus" onclick="updateQty('wrap_v', 1, 7.5)">+</button>
                   </div>
                 </div>
               </div>
@@ -322,8 +300,7 @@
             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
             <img src="images/combo.webp" alt="Combo" style="width: 100%; height: 220px; object-fit: cover;">
             <div class="p-4 d-flex flex-column flex-grow-1 text-start">
-              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Combo <span
-                  class="badge bg-danger text-white rounded-pill ms-1" style="font-size: 0.8rem;">8.50 €</span></h4>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Combo</h4>
               <p class="text-muted small mb-3">The perfect combination for those slightly hungry</p>
               <div class="mb-3 flex-grow-1">
                 <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
@@ -335,7 +312,7 @@
               </div>
               <div class="variant-selectors mt-auto">
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg</div>
+                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">8.50 €</span></div>
                   <div class="quantity-selector">
                     <button class="qty-btn minus" onclick="updateQty('combo_nv', -1, 8.5)">−</button>
                     <span class="qty-number" id="qty-combo_nv">0</span>
@@ -343,11 +320,11 @@
                   </div>
                 </div>
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian</div>
+                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">7.50 €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('combo_v', -1, 8.5)">−</button>
+                    <button class="qty-btn minus" onclick="updateQty('combo_v', -1, 7.5)">−</button>
                     <span class="qty-number" id="qty-combo_v">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('combo_v', 1, 8.5)">+</button>
+                    <button class="qty-btn plus" onclick="updateQty('combo_v', 1, 7.5)">+</button>
                   </div>
                 </div>
               </div>
@@ -440,6 +417,9 @@
       porotta_brot_nv: 0,
       porotta_brot_v: 0,
       porotta_brot_vn: 0,
+      thali_nv: 0,
+      thali_v: 0,
+      thali_vn: 0,
       wrap_nv: 0,
       wrap_v: 0,
       combo_nv: 0,
@@ -478,48 +458,42 @@
 
       let params = [];
 
-      // 1. Curry with Rice - entry.1946155460
-      let riceParts = [];
-      if (cart.fried_rice_nv > 0) riceParts.push(`Non-Veg (Fried Rice): ${cart.fried_rice_nv}`);
-      if (cart.fried_rice_v > 0) riceParts.push(`Vegetarian (Fried Rice): ${cart.fried_rice_v}`);
-      if (cart.fried_rice_vn > 0) riceParts.push(`Vegan (Fried Rice): ${cart.fried_rice_vn}`);
-      if (cart.rice_nv > 0) riceParts.push(`Curry with Rice (non-veg): ${cart.rice_nv}`);
-      if (cart.rice_v > 0) riceParts.push(`Curry with Rice (veg): ${cart.rice_v}`);
-      if (cart.rice_vn > 0) riceParts.push(`Curry with Rice (vegan): ${cart.rice_vn}`);
-      if (riceParts.length > 0) {
-        params.push(`entry.1946155460=${encodeURIComponent(riceParts.join(', '))}`);
-      }
+      // 1. Bestellung Details - entry.1946155460
+      let allItems = [];
 
-      // 2. Curry with Bread - entry.1718476429
-      let breadParts = [];
-      if (cart.porotta_brot_nv > 0) breadParts.push(`Curry with Bread (non-veg): ${cart.porotta_brot_nv}`);
-      if (cart.porotta_brot_v > 0) breadParts.push(`Curry with Bread (veg): ${cart.porotta_brot_v}`);
-      if (cart.porotta_brot_vn > 0) breadParts.push(`Curry with Bread (vegan): ${cart.porotta_brot_vn}`);
-      if (breadParts.length > 0) {
-        params.push(`entry.1718476429=${encodeURIComponent(breadParts.join(', '))}`);
-      }
+      // Fried Rice
+      if (cart.fried_rice_nv > 0) allItems.push(`Non-Veg (Fried Rice): ${cart.fried_rice_nv}`);
+      if (cart.fried_rice_v > 0) allItems.push(`Vegetarian (Fried Rice): ${cart.fried_rice_v}`);
+      if (cart.fried_rice_vn > 0) allItems.push(`Vegan (Fried Rice): ${cart.fried_rice_vn}`);
+      
+      // Rice & Curry
+      if (cart.rice_nv > 0) allItems.push(`Curry with Rice (non-veg): ${cart.rice_nv}`);
+      if (cart.rice_v > 0) allItems.push(`Curry with Rice (veg): ${cart.rice_v}`);
+      if (cart.rice_vn > 0) allItems.push(`Curry with Rice (vegan): ${cart.rice_vn}`);
+      
+      // Thali
+      if (cart.thali_nv > 0) allItems.push(`Special Thali (non-veg): ${cart.thali_nv}`);
+      if (cart.thali_v > 0) allItems.push(`Special Thali (veg): ${cart.thali_v}`);
+      if (cart.thali_vn > 0) allItems.push(`Special Thali (vegan): ${cart.thali_vn}`);
+      
+      // Bread & Curry
+      if (cart.porotta_brot_nv > 0) allItems.push(`Curry with Bread (non-veg): ${cart.porotta_brot_nv}`);
+      if (cart.porotta_brot_v > 0) allItems.push(`Curry with Bread (veg): ${cart.porotta_brot_v}`);
+      if (cart.porotta_brot_vn > 0) allItems.push(`Curry with Bread (vegan): ${cart.porotta_brot_vn}`);
+      
+      // Wrap
+      if (cart.wrap_nv > 0) allItems.push(`Wrap (non-veg): ${cart.wrap_nv}`);
+      if (cart.wrap_v > 0) allItems.push(`Wrap (veg): ${cart.wrap_v}`);
+      
+      // Combo
+      if (cart.combo_nv > 0) allItems.push(`Combo (non-veg): ${cart.combo_nv}`);
+      if (cart.combo_v > 0) allItems.push(`Combo (veg): ${cart.combo_v}`);
+      
+      // Drinks
+      if (cart.lassi > 0) allItems.push(`Mango Lassi: ${cart.lassi}`);
 
-      // 3. Curry Wrap - entry.608672339
-      let wrapParts = [];
-      if (cart.wrap_nv > 0) wrapParts.push(`Non-Veg: ${cart.wrap_nv}`);
-      if (cart.wrap_v > 0) wrapParts.push(`Vegetarian: ${cart.wrap_v}`);
-      if (wrapParts.length > 0) {
-        params.push(`entry.608672339=${encodeURIComponent(wrapParts.join(', '))}`);
-      }
-
-      // 4. Combo - entry.442486380
-      let comboParts = [];
-      if (cart.combo_nv > 0) comboParts.push(`Non-Veg: ${cart.combo_nv}`);
-      if (cart.combo_v > 0) comboParts.push(`Vegetarian: ${cart.combo_v}`);
-      if (comboParts.length > 0) {
-        params.push(`entry.442486380=${encodeURIComponent(comboParts.join(', '))}`);
-      }
-
-      // 5. Drinks - entry.133219745
-      let drinkParts = [];
-      if (cart.lassi > 0) drinkParts.push(`Mango Lassi: ${cart.lassi}`);
-      if (drinkParts.length > 0) {
-        params.push(`entry.133219745=${encodeURIComponent(drinkParts.join(', '))}`);
+      if (allItems.length > 0) {
+        params.push(`entry.1946155460=${encodeURIComponent(allItems.join(', \n'))}`);
       }
 
       // 6. Total Price - entry.2057144369
