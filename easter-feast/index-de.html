@@ -221,10 +221,9 @@
                 </div>
             </div>
         </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
-            target="_blank"
-            class="bg-brand-red text-white px-6 py-2 rounded-full font-bold hover:bg-brand-red-dark transition-all transform hover:scale-105 shadow-lg">
-            Vorbestellen
+        <a href="#"
+            class="bg-gray-500 text-white px-6 py-2 rounded-full font-bold cursor-default opacity-80 shadow-lg">
+            Ausgebucht
         </a>
     </nav>
 
@@ -251,11 +250,9 @@
                 Kerala-Festessen, frisch zubereitet mit authentischen Kerala-Aromen.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
-                    target="_blank"
-                    class="bg-brand-red hover:bg-brand-red-dark text-white px-10 py-4 rounded-xl text-lg font-bold transition-all shadow-xl hover:shadow-2xl">
-                    Jetzt vorbestellen
-                </a>
+                <div class="bg-gray-700/50 backdrop-blur-md text-white px-10 py-4 rounded-xl text-lg font-bold border border-white/20 shadow-xl">
+                    Geschlossen – Alle Plätze reserviert
+                </div>
                 <a href="#menu"
                     class="bg-white/20 hover:bg-white/30 backdrop-blur-md text-white border border-white/50 px-10 py-4 rounded-xl text-lg font-bold transition-all">
                     Menü ansehen
@@ -291,23 +288,13 @@
                 </div>
 
                 <!-- Frist -->
-                <div
-                    class="bg-festive-warm p-6 rounded-3xl border border-brand-gold/10 text-center hover:shadow-md transition-shadow">
-                    <div
-                        class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm relative">
-                        <i data-lucide="clock" class="text-brand-red w-6 h-6"></i>
-                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-red"></span>
-                        </span>
+                <div class="bg-brand-red/5 p-6 rounded-3xl border border-brand-red/20 text-center hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm relative">
+                        <i data-lucide="lock" class="text-brand-red w-6 h-6"></i>
                     </div>
-                    <span
-                        class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-1">Bestellfrist</span>
-                    <span class="block text-slate-800 font-bold text-sm underline decoration-brand-gold">Freitag, 3.
-                        April</span>
-                    <span class="block text-[10px] font-bold text-brand-red uppercase mt-2">Begrenzte Plätze
-                        verfügbar!</span>
+                    <span class="block text-xs uppercase tracking-widest text-brand-red font-bold mb-1">Status</span>
+                    <span class="block text-slate-800 font-bold text-sm underline decoration-brand-gold">Ausgebucht</span>
+                    <span class="block text-[10px] font-bold text-brand-red uppercase mt-2">Wir sehen uns nächstes Jahr!</span>
                 </div>
 
                 <!-- Mindestbestellmenge -->
@@ -695,45 +682,25 @@
         </div>
     </section>
 
-    <!-- Order Form Section -->
-    <section id="preorder" class="py-24 px-6 bg-slate-50 relative overflow-hidden">
+    <!-- Order Form Section - CLOSED -->
+    <section id="preorder" class="py-24 px-6 bg-slate-50 relative overflow-hidden text-center">
         <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
 
         <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-4 block">Sichern Sie sich Ihr
-                    Festessen</span>
-                <h2 class="text-4xl md:text-5xl font-serif mb-6 text-slate-900">Geben Sie Ihre Bestellung auf</h2>
-                <p class="text-brand-red font-bold text-xl mb-6 uppercase tracking-widest">Frist: 3. April - Freitag</p>
+            <div class="text-center mb-8" data-aos="fade-up">
+                <span class="text-brand-red font-bold uppercase tracking-widest text-sm mb-4 block">Buchung geschlossen</span>
+                <h2 class="text-4xl md:text-5xl font-serif mb-6 text-slate-900">Vielen Dank für Ihre Unterstützung!</h2>
                 <div class="w-20 h-1 bg-brand-gold mx-auto mb-6"></div>
-                <p class="text-slate-600 max-w-xl mx-auto leading-relaxed">
-                    Bestellungen werden über unser sicheres Google-Formular verarbeitet. Eine Kopie Ihrer Antworten wird
-                    an die von Ihnen angegebene Adresse gesendet.
+                <p class="text-2xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-semibold mb-8">
+                    Alle Plätze für dieses Jahr sind bereits ausgebucht.
                 </p>
-            </div>
-
-            <div class="bg-white p-2 md:p-4 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100"
-                data-aos="zoom-in" data-aos-delay="200">
-                <div id="form-container"
-                    class="relative w-full rounded-[2.5rem] overflow-hidden bg-slate-50 transition-all duration-700"
-                    style="height: 1200px;">
-                    <iframe id="google-form" onload="handleFormLoad()"
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform?embedded=true"
-                        class="absolute inset-0 w-full h-full" frameborder="0" marginheight="0" marginwidth="0">
-                        Wird geladen…
-                    </iframe>
-                </div>
-
-                <div class="py-10 text-center bg-white border-t border-slate-50 rounded-b-[3rem]">
-                    <div class="flex flex-col items-center gap-4">
-                        <p class="text-slate-400 text-sm italic">Probleme mit dem eingebetteten Formular?</p>
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8o3i0BSr9Fl2QjGB4tdKS5YiQgZSPF-S8lDMQ4eMSzQCqRw/viewform"
-                            target="_blank"
-                            class="bg-brand-red/5 hover:bg-brand-red/10 text-brand-red px-8 py-3 rounded-xl font-bold transition-all flex items-center gap-2 border border-brand-red/20">
-                            Im Original Google Formular öffnen <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
+                <p class="text-lg text-slate-500 mb-12">
+                    Wir sind überwältigt von der Resonanz. Bis zum nächsten Jahr!
+                </p>
+                
+                <a href="../index.html" class="inline-flex items-center gap-2 bg-brand-gold text-brand-red px-10 py-4 rounded-xl font-bold shadow-xl hover:scale-105 transition-all">
+                    Zurück zur Startseite <i data-lucide="home" class="w-5 h-5"></i>
+                </a>
             </div>
         </div>
     </section>
