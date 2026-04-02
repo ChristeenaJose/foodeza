@@ -791,13 +791,11 @@
 
             // Map type to exact Google Form option strings
             let formValue = "";
-            if (type === 'couple') formValue = "Easter Feast for 2 People – €22 / person";
-            if (type === 'family') formValue = "Family Box : Easter Feast for 5 People – €20.90 / person";
+            if (type === 'couple') formValue = "Easter Feast for 2 Person– €22 per person (Total €44)";
+            if (type === 'family') formValue = "Family Box : Easter Feast for 5 Person – €20.90 / person (Total €104.50)";
 
-            // Update Google Form pre-filled URL and Open in New Tab
-            const prefillUrl = `${googleFormBaseUrl}?${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
-            
-            // Open form in new tab
+            // Open Google Form in a new tab with pre-filled option
+            const prefillUrl = `${googleFormBaseUrl}?usp=pp_url&${boxSizeEntryId}=${encodeURIComponent(formValue)}`;
             window.open(prefillUrl, '_blank');
         }
 
