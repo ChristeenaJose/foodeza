@@ -148,7 +148,7 @@ section {
 .package-price {
     font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-weight: 600;
 }
 
@@ -204,14 +204,22 @@ section {
 .package-card h3 {
     font-family: var(--font-display);
     font-size: 2.2rem;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
     color: var(--primary-red);
+}
+
+.package-desc {
+    font-size: 1rem;
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 20px;
 }
 
 .package-features {
     list-style: none;
     padding: 0;
-    margin: 30px 0;
+    margin: 10px 0 30px;
     text-align: left;
     flex-grow: 1;
 }
