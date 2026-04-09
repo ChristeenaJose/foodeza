@@ -33,16 +33,15 @@ body {
 
 /* Hero Section */
 .catering-hero {
-    position: relative;
     height: 60vh;
-    min-height: 450px;
-    max-height: 700px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
     color: var(--white);
     text-align: center;
-    overflow: hidden;
 }
 
 .menu-hero {
@@ -95,7 +94,7 @@ section {
 
 .section-title {
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
 .section-title h2 {
@@ -130,7 +129,7 @@ section {
 .package-card {
     background: var(--white);
     border-radius: var(--radius-lg);
-    padding: 60px 45px;
+    padding: 40px 30px;
     text-align: center;
     box-shadow: var(--shadow-md);
     transition: var(--transition);
@@ -603,53 +602,48 @@ section {
         min-width: 180px;
     }
 
-/* Process Icons */
+/* Minimalist Icon System */
 .process-icon {
-    width: 90px;
-    height: 90px;
-    background: rgba(var(--primary-red-rgb), 0.05); /* Using previously defined RGB var */
-    background: rgba(230, 0, 0, 0.05); /* Fallback */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 25px;
+    font-size: 2.8rem;
     color: var(--primary-red);
+    margin: 0 auto 20px;
+    display: block;
     transition: var(--transition);
 }
 
 .process-icon:hover {
-    background: var(--primary-red);
-    color: var(--white);
-    transform: rotate(10deg);
+    transform: scale(1.1);
+    color: var(--gold);
 }
 
-/* Table Checkmarks & Symbols */
+/* Category Icons (Menu Details) */
+.category-icon {
+    font-size: 2rem;
+    color: var(--primary-red);
+    margin: 0 auto 15px;
+    display: block;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 10px;
+    width: 50px;
+}
+
+/* Table Icons (Comparison Matrix) */
 .table-check {
-    width: 24px;
-    height: 24px;
-    background: #e8f5e9;
     color: #2e7d32;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
+    font-size: 1.1rem;
     margin-right: 8px;
     vertical-align: middle;
 }
 
-/* Category Icons */
-.category-icon {
-    width: 65px;
-    height: 65px;
-    background: rgba(230, 0, 0, 0.05); /* Same as process icon */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.table-cross {
     color: var(--primary-red);
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    border: 1px solid rgba(230, 0, 0, 0.1);
+    font-size: 0.9rem;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Specific button icons */
+.btn-premium i {
+    font-size: 0.9em;
+    opacity: 0.8;
 }
