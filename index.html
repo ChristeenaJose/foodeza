@@ -33,15 +33,7 @@
 
 <body>
 
-  <!-- 🐣 Easter Feast Box Popup -->
-  <div id="easterFeastPopup" class="popup-overlay">
-    <div class="popup-box">
-      <button id="closeEasterPopup" class="popup-close">&times;</button>
-      <h2 style="color: #cc0605;">🐣 Easter Feast - Closed</h2>
-      <p class="ChristmasPara" style="color: #555;">Thank you for your warm support! All slots are already booked and closing for this year. See you next year!</p>
-      <a href="easter-feast/index.html" class="popup-btn" style="background: #666; cursor: default; pointer-events: none;">Sold Out</a>
-    </div>
-  </div>
+
 
   <!--header start-->
   <div class="header-top">
@@ -90,10 +82,7 @@
                     <li><a href="catering" title="Company Party">Company Party</a></li>
                     <li><a href="catering" title="Wedding">Wedding</a></li>
                     <li><a href="catering" title="Birthday Party">Birthday Party</a></li>
-                    <li><a href="Christmas" title="Christmas Party">Christmas Party</a></li>
-                    <li><a href="onamsadya" title="Onam Sadhya">Onam Sadhya</a></li>
-                    <li><a href="easter-feast" title="Easter Feast Box" style="color: #f4b41a; font-weight:700;">Easter
-                        Feast Box (Sold Out)</a></li>
+                    <li><a href="holycommunion" title="Holy Communion">Holy Communion</a></li>
                     <li><a href="catering" title="Summer Festivals">Summer Festivals</a></li>
                   </ul>
                 </li>
@@ -109,7 +98,14 @@
             </div>
             <div class="menu-right">
               <ul class="menu-list">
-                <li><a href="" title="Crew">Crew</a></li>
+                <li class="menu-subList">
+                  <a href="#" title="Festival Box">Festival Box</a>
+                  <ul>
+                    <li><a href="onamsadya" title="Onam Sadhya">Onam Sadhya</a></li>
+                    <li><a href="Christmas" title="Christmas Party">Christmas</a></li>
+                    <li><a href="easter-feast" title="Easter Feast Box">Easter</a></li>
+                  </ul>
+                </li>
                 <li><a href="" title="Gallery">Gallery</a></li>
                 <li class="main-btn">
                   <a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now"
@@ -175,15 +171,23 @@
                         <li><a href="catering">Company Party</a></li>
                         <li><a href="catering">Wedding</a></li>
                         <li><a href="catering">Birthday Party</a></li>
-                        <li><a href="Christmas">Christmas Party</a></li>
-                        <li><a href="onamsadya">Onam Sadhya</a></li>
-                        <li><a href="easter-feast" style="color: #cc0605; font-weight: 700;">Easter Feast Box (Sold Out)</a></li>
+                        <li><a href="holycommunion">Holy Communion</a></li>
                         <li><a href="catering">Summer Festivals</a></li>
                       </ul>
                     </li>
                     <li><a href="foodtruck">Food Truck</a></li>
                     <!--<li><a href="meal-box" target="_blank">Sunday Meal Box</a></li>-->
-                    <li><a href="#crew">Crew</a></li>
+                    <li class="sub-menu-dropdown">
+                      <div class="mob-dropdown-menu">
+                        <a href="#">Festival Box</a>
+                        <button class="dropdown-toggle" aria-label="Open Festival Box submenu"></button>
+                      </div>
+                      <ul class="subdropdown-menu">
+                        <li><a href="onamsadya">Onam Sadhya</a></li>
+                        <li><a href="Christmas">Christmas</a></li>
+                        <li><a href="easter-feast">Easter</a></li>
+                      </ul>
+                    </li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li class="mob-phone-row">
                       <div class="socialMedia-icons">
@@ -552,9 +556,7 @@
                       <li><a href="catering" title="Company Party">Company Party</a></li>
                       <li><a href="catering" title="Wedding">Wedding</a></li>
                       <li><a href="catering" title="Birthday Party">Birthday Party</a></li>
-                      <li><a href="Christmas" title="Christmas Party">Christmas Party</a></li>
-                      <li><a href="onamsadya" title="Onam Sadhya">Onam Sadhya</a></li>
-                      <li><a href="easter-feast" title="Easter Feast Box">Easter Feast Box (Sold Out)</a></li>
+                      <li><a href="holycommunion" title="Holy Communion">Holy Communion</a></li>
                       <li><a href="catering" title="Summer Festivals">Summer Festivals</a></li>
                     </ul>
                   </li>
@@ -562,7 +564,16 @@
                   <!--<li><a href="meal-box/" title="Food Truck">Sunday Meal Box</a></li>-->
                   <li><a href="catering" title="Request Catering">Request
                       Catering</a></li>
-                  <li><a href="#" title="Crew">Crew</a></li>
+                  <li class="footer-submenu">
+                    <div class="submenu-title"><a href="#" title="Festival Box">Festival Box</a>
+                      <img src="./images/arrow-down.svg" alt="Festival Box" class="toggle-arrow" />
+                    </div>
+                    <ul class="submenu">
+                      <li><a href="onamsadya" title="Onam Sadhya">Onam Sadhya</a></li>
+                      <li><a href="Christmas" title="Christmas Party">Christmas</a></li>
+                      <li><a href="easter-feast" title="Easter Feast Box">Easter</a></li>
+                    </ul>
+                  </li>
                   <li><a href="#" title="Gallery">Gallery</a></li>
                   <li><a href="https://forms.gle/setzC2eHUoBrr3Ub6" target="_blank" title="Enquire now">Enquire now</a>
                   </li>
