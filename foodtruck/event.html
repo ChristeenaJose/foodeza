@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fußballturnier Weinstadt | Foodeza Event Menü</title>
+  <meta name="description"
+    content="Bestellen Sie Ihr Kerala-Streetfood für das Fußballturnier in Weinstadt vor! Foodeza Foodtruck serviert authentische Aromen." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --event-gold: #FFD700;
+      --premium-red: #d62828;
+    }
+
+    /* Professional Alignment Fixes */
+    .menu-category-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      color: var(--text-dark);
+      margin: 60px 0 30px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu-category-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--primary-red);
+      border-radius: 10px;
+    }
+
+    .event-hero-banner {
+      background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('../images/truck1.webp');
+      background-size: cover;
+      background-position: center;
+      padding: 120px 0 100px;
+      color: white;
+      border-radius: 0 0 50px 50px;
+      margin-bottom: 50px;
+    }
+
+    .event-badge-gold {
+      background: var(--event-gold);
+      color: #000;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .sticky-order-bar {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%) translateY(150px);
+      width: 90%;
+      max-width: 600px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(214, 40, 40, 0.1);
+    }
+
+    .sticky-order-bar.active {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .order-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order-count {
+        font-weight: 700;
+        color: var(--primary-red);
+        font-size: 1.1rem;
+    }
+
+    .order-total {
+        font-weight: 500;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+    .order-submit-btn {
+        background: var(--primary-red);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: var(--transition);
+        box-shadow: 0 8px 15px rgba(214, 40, 40, 0.2);
+    }
+
+    .order-submit-btn:hover {
+        background: var(--primary-red-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 25px rgba(214, 40, 40, 0.3);
+    }
+
+    .item-card-price {
+        font-weight: 800;
+        font-size: 1.25rem;
+        color: var(--primary-red);
+    }
+
+    .menu-card-content h3 {
+        font-size: 1.30rem !important;
+        margin-bottom: 5px !important;
+        line-height: 1.3 !important;
+    }
+
+    .instructions-card {
+        background: white;
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .combo-badge {
+        background: #fdf2f2;
+        color: var(--primary-red);
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        border-radius: 50px;
+        font-weight: 700;
+        display: inline-block;
+        margin-bottom: 10px;
+        border: 1px solid rgba(214, 40, 40, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .event-hero-banner {
+            padding: 80px 0 60px;
+            border-radius: 0 0 30px 30px;
+        }
+        .event-title-xl {
+            font-size: 2.5rem !important;
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="header-logo">
+        <a href="../index.html"><img src="../images/foodeza_main_logo.png" alt="Foodeza" style="max-width: 100px;"></a>
+      </div>
+      <nav class="d-none d-lg-block">
+        <ul class="ft-nav-list">
+          <li><a href="../index.html" class="nav-link-ft">Startseite</a></li>
+          <li><a href="index.html" class="nav-link-ft">Foodtruck</a></li>
+          <li><a href="mittagessen.html" class="nav-link-ft">Mittagessen</a></li>
+          <li><a href="index.html#next-event" class="nav-link-ft active">Events</a></li>
+          <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="google-rating-header">
+              <img src="../images/google-red.svg" alt="Google" class="google-icon">
+              <div class="google-stars">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+              </div>
+            </a>
+          </li>
+          <li class="lang-switcher">
+            <a href="#" class="lang-btn">
+              <span>DE</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+            <div class="lang-dropdown">
+              <a href="event.html" class="active">Deutsch (DE)</a>
+              <a href="event-en.html">English (EN)</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="event-hero-banner text-center">
+    <div class="container">
+      <div class="reveal">
+        <span class="event-badge-gold">Turnier Vorbestellung</span>
+        <h1 class="event-title-xl font-display" style="font-size: 4rem; color: white;">Fußballturnier <br> Weinstadt</h1>
+        <p class="lead mb-4" style="opacity: 0.9; font-weight: 500;">Veranstaltet von der Stuttgart Indians FC Football League</p>
+        
+        <div class="d-flex flex-wrap justify-content-center gap-4 mb-5" style="font-size: 1.1rem;">
+          <div class="d-flex align-items-center gap-2"><i class="fas fa-calendar-alt text-warning"></i><span>Sonntag, 22. März 2026</span></div>
+          <div class="d-flex align-items-center gap-2"><i class="fas fa-clock text-warning"></i><span>10:00 – 17:00 Uhr</span></div>
+          <div class="d-flex align-items-center gap-2"><i class="fas fa-map-marker-alt text-warning"></i><span>Im Obenhinaus 4, Weinstadt</span></div>
+        </div>
+        
+        <a href="#menu-area" class="btn-ft btn-ft-primary shimmer-btn px-5 py-3">Event-Menü ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Area -->
+  <section id="menu-area" class="py-5">
+    <div class="container">
+      
+      <!-- Instructions -->
+      <div class="row justify-content-center mb-5 reveal">
+        <div class="col-lg-10">
+          <div class="text-center">
+            <h2 class="font-display mb-3">Vorab buchen und Favoriten sichern!</h2>
+            <p class="text-muted" style="max-width: 800px; margin: 0 auto;">Vermeiden Sie lange Warteschlangen während des Turniers. Wählen Sie aus unserem authentischen Kerala-Menü unten. Nach Abschluss werden Sie zur endgültigen Bestätigung weitergeleitet.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakfast -->
+      <h3 class="menu-category-title reveal">Frühstück</h3>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5 reveal">
+        <div class="col">
+          <div class="menu-card h-100">
+            <div class="menu-card-img-wrapper">
+              <img src="images/mittagessen.PNG" class="menu-card-img" alt="Palappam + Veg Stew">
+            </div>
+            <div class="menu-card-content d-flex flex-column">
+              <span class="dietary-badge veg"><i></i> Vegetarisch</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <h3>Palappam + Veg Stew</h3>
+                <span class="item-card-price">5,00 €</span>
+              </div>
+              <p class="text-muted small mb-4">Weiche Reis-Pfannkuchen serviert mit aromatischem Gemüseeintopf in cremiger Kokosmilch.</p>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item border-0 p-0">
+                  <div class="quantity-selector w-100 justify-content-between">
+                    <span class="fw-600">Anzahl</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="qty-btn" onclick="updateItem('breakfast', -1, 5.00)">-</button>
+                        <span class="qty-number" id="qty-breakfast">0</span>
+                        <button class="qty-btn" onclick="updateItem('breakfast', 1, 5.00)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="menu-card h-100 border-primary" style="border: 2px solid rgba(214, 40, 40, 0.2) !important;">
+            <div class="menu-card-content d-flex flex-column h-100">
+              <span class="combo-badge">BEST VALUE COMBO</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <h3>Frühstück Combo</h3>
+                <span class="item-card-price">7,50 €</span>
+              </div>
+              <p class="text-muted small mb-4">Palappam + Veg Stew + Cutlet + Tee. Das komplette Frühstückserlebnis!</p>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item border-0 p-0">
+                  <div class="quantity-selector w-100 justify-content-between">
+                    <span class="fw-600">Anzahl</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="qty-btn" onclick="updateItem('breakfast_combo', -1, 7.50)">-</button>
+                        <span class="qty-number" id="qty-breakfast_combo">0</span>
+                        <button class="qty-btn" onclick="updateItem('breakfast_combo', 1, 7.50)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Dishes -->
+      <h3 class="menu-category-title reveal">Hauptgerichte</h3>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5 reveal">
+        <div class="col">
+          <div class="menu-card h-100">
+            <div class="menu-card-img-wrapper">
+              <img src="images/biriyani.webp" class="menu-card-img" alt="Kerala Chicken Biryani">
+            </div>
+            <div class="menu-card-content d-flex flex-column">
+              <span class="dietary-badge non-veg"><i></i> Fleischgericht</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <h3>Kerala Chicken Biryani</h3>
+                <span class="item-card-price">8,50 €</span>
+              </div>
+              <p class="text-muted small mb-4">Authentisches Thalassery-Biryani mit duftendem Kaima-Reis und speziellen Gewürzen.</p>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item border-0 p-0 mb-2">
+                    <div class="quantity-selector w-100 justify-content-between">
+                      <span class="fw-600">Anzahl</span>
+                      <div class="d-flex align-items-center gap-3">
+                          <button class="qty-btn" onclick="updateItem('chicken_biryani', -1, 8.50)">-</button>
+                          <span class="qty-number" id="qty-chicken_biryani">0</span>
+                          <button class="qty-btn" onclick="updateItem('chicken_biryani', 1, 8.50)">+</button>
+                      </div>
+                    </div>
+                </div>
+                <!-- Add-on Option -->
+                <div class="p-2 bg-light rounded-2 d-flex justify-content-between align-items-center">
+                    <span class="small fw-600 text-muted">+ Getränk dazu</span>
+                    <div class="quantity-selector gap-2" style="transform: scale(0.9);">
+                        <button class="qty-btn" onclick="updateItem('addon_drink', -1, 1.00)">-</button>
+                        <span class="qty-number" id="qty-addon_drink">0</span>
+                        <button class="qty-btn" onclick="updateItem('addon_drink', 1, 1.00)">+</button>
+                    </div>
+                    <span class="small fw-800 text-danger">€1</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="menu-card h-100">
+            <div class="menu-card-img-wrapper">
+              <img src="images/ricebowl.png" class="menu-card-img" alt="Veg Biryani">
+            </div>
+            <div class="menu-card-content d-flex flex-column">
+              <span class="dietary-badge veg"><i></i> Vegetarisch</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <h3>Kerala Veg Biryani</h3>
+                <span class="item-card-price">7,50 €</span>
+              </div>
+              <p class="text-muted small mb-4">Aromatischer Reis gekocht mit gartenfrischem Gemüse und Kerala-Gewürzen.</p>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item border-0 p-0">
+                  <div class="quantity-selector w-100 justify-content-between">
+                    <span class="fw-600">Anzahl</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="qty-btn" onclick="updateItem('veg_biryani', -1, 7.50)">-</button>
+                        <span class="qty-number" id="qty-veg_biryani">0</span>
+                        <button class="qty-btn" onclick="updateItem('veg_biryani', 1, 7.50)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="menu-card h-100">
+                <div class="menu-card-content d-flex flex-column h-100">
+                  <span class="combo-badge">COMBO BEILAGE</span>
+                  <div class="d-flex justify-content-between align-items-start">
+                    <h3>Pork Fry (Beilage)</h3>
+                    <span class="item-card-price">4,00 €</span>
+                  </div>
+                  <p class="text-muted small mb-4">Eine kleinere Portion unseres berühmten Pork Fry, perfekt als Beilage zu Ihrem Biryani.</p>
+                  <div class="variant-selectors mt-auto">
+                    <div class="variant-item border-0 p-0">
+                      <div class="quantity-selector w-100 justify-content-between">
+                        <span class="fw-600">Anzahl</span>
+                        <div class="d-flex align-items-center gap-3">
+                            <button class="qty-btn" onclick="updateItem('pork_addon', -1, 4.00)">-</button>
+                            <span class="qty-number" id="qty-pork_addon">0</span>
+                            <button class="qty-btn" onclick="updateItem('pork_addon', 1, 4.00)">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- Specials -->
+      <h3 class="menu-category-title reveal">Spezialitäten</h3>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5 reveal">
+        <div class="col">
+          <div class="menu-card h-100">
+            <div class="menu-card-img-wrapper">
+              <img src="images/thali.webp" class="menu-card-img" alt="Kappa & Meen Curry">
+            </div>
+            <div class="menu-card-content d-flex flex-column">
+              <span class="dietary-badge non-veg"><i></i> Fischgericht</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <h3>Kappa & Meen Curry</h3>
+                <span class="item-card-price">7,50 €</span>
+              </div>
+              <p class="text-muted small mb-3">Maniok (Kappa) + Fischcurry. Gekochter Maniok serviert mit traditionellem scharfem Fischcurry.</p>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item border-0 p-0">
+                  <div class="quantity-selector w-100 justify-content-between">
+                    <span class="fw-600">Anzahl</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="qty-btn" onclick="updateItem('kappa_meen', -1, 7.50)">-</button>
+                        <span class="qty-number" id="qty-kappa_meen">0</span>
+                        <button class="qty-btn" onclick="updateItem('kappa_meen', 1, 7.50)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="menu-card h-100">
+              <div class="menu-card-img-wrapper">
+                <img src="images/extra/parotta.webp" onerror="this.src='images/mittagessen.PNG'" class="menu-card-img" alt="Parotta + Pork Fry">
+              </div>
+              <div class="menu-card-content d-flex flex-column">
+                <span class="dietary-badge non-veg"><i></i> Beliebt</span>
+                <div class="d-flex justify-content-between align-items-start">
+                  <h3>Parotta + Pork Fry</h3>
+                  <span class="item-card-price">8,50 €</span>
+                </div>
+                <p class="text-muted small mb-3">2 blättrige Malabar Parottas serviert mit unserem würzigen Pork Fry.</p>
+                <div class="variant-selectors mt-auto">
+                  <div class="variant-item border-0 p-0">
+                    <div class="quantity-selector w-100 justify-content-between">
+                      <span class="fw-600">Anzahl</span>
+                      <div class="d-flex align-items-center gap-3">
+                          <button class="qty-btn" onclick="updateItem('combo_parotta_pork', -1, 8.50)">-</button>
+                          <span class="qty-number" id="qty-combo_parotta_pork">0</span>
+                          <button class="qty-btn" onclick="updateItem('combo_parotta_pork', 1, 8.50)">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="menu-card h-100">
+              <div class="menu-card-img-wrapper">
+                <img src="images/mittagessen.PNG" class="menu-card-img" alt="Angamaly Pork Fry">
+              </div>
+              <div class="menu-card-content d-flex flex-column">
+                <span class="dietary-badge non-veg"><i></i> Chef Spezial</span>
+                <div class="d-flex justify-content-between align-items-start">
+                  <h3>Angamaly Pork Fry</h3>
+                  <span class="item-card-price">6,50 €</span>
+                </div>
+                <p class="text-muted small mb-3">Würzige Schweinefleischstücke, langsam geröstet mit Kokosscheiben. Ein Muss!</p>
+                <div class="variant-selectors mt-auto">
+                  <div class="variant-item border-0 p-0">
+                    <div class="quantity-selector w-100 justify-content-between">
+                      <span class="fw-600">Anzahl</span>
+                      <div class="d-flex align-items-center gap-3">
+                          <button class="qty-btn" onclick="updateItem('pork_fry', -1, 6.50)">-</button>
+                          <span class="qty-number" id="qty-pork_fry">0</span>
+                          <button class="qty-btn" onclick="updateItem('pork_fry', 1, 6.50)">+</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Snacks -->
+      <h3 class="menu-category-title reveal">Snacks</h3>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5 reveal">
+        <div class="col">
+          <div class="menu-card h-100">
+            <div class="menu-card-content d-flex flex-column">
+              <span class="dietary-badge veg"><i></i> Vegetarisch</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <h3>Pazham Pori</h3>
+                <span class="item-card-price">1,50 € <small class="text-muted" style="font-size: 0.75rem;">/ Stk</small></span>
+              </div>
+              <p class="text-muted small mb-4">Traditionelle Kerala Bananen-Fritters - reife Kochbananen im Teig frittiert.</p>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item border-0 p-0">
+                  <div class="quantity-selector w-100 justify-content-between">
+                    <span class="fw-600">Anzahl</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="qty-btn" onclick="updateItem('pazhampori', -1, 1.50)">-</button>
+                        <span class="qty-number" id="qty-pazhampori">0</span>
+                        <button class="qty-btn" onclick="updateItem('pazhampori', 1, 1.50)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="menu-card h-100">
+            <div class="menu-card-content d-flex flex-column">
+              <span class="dietary-badge">Huhn / Veg</span>
+              <div class="d-flex justify-content-between align-items-start">
+                <h3>Cutlet</h3>
+                <span class="item-card-price">2,00 € <small class="text-muted" style="font-size: 0.75rem;">/ Stk</small></span>
+              </div>
+              <p class="text-muted small mb-4">Herzhaft gewürzte Frikadelle, paniert und perfekt frittiert. Wahlweise Huhn oder Veggie.</p>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item border-0 p-0">
+                  <div class="quantity-selector w-100 justify-content-between">
+                    <span class="fw-600">Anzahl</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <button class="qty-btn" onclick="updateItem('cutlet', -1, 2.00)">-</button>
+                        <span class="qty-number" id="qty-cutlet">0</span>
+                        <button class="qty-btn" onclick="updateItem('cutlet', 1, 2.00)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="menu-card h-100" style="border: 2px solid rgba(214, 40, 40, 0.2) !important;">
+                <div class="menu-card-content d-flex flex-column h-100">
+                  <span class="combo-badge">SNACKS PLATTE</span>
+                  <div class="d-flex justify-content-between align-items-start">
+                    <h3>Snacks Platte</h3>
+                    <span class="item-card-price">5,50 €</span>
+                  </div>
+                  <p class="text-muted small mb-4">2 Pazham Pori + 1 Cutlet + frischer Salat. Perfekt zum Teilen!</p>
+                  <div class="variant-selectors mt-auto">
+                    <div class="variant-item border-0 p-0">
+                      <div class="quantity-selector w-100 justify-content-between">
+                        <span class="fw-600">Anzahl</span>
+                        <div class="d-flex align-items-center gap-3">
+                            <button class="qty-btn" onclick="updateItem('snacks_plate', -1, 5.50)">-</button>
+                            <span class="qty-number" id="qty-snacks_plate">0</span>
+                            <button class="qty-btn" onclick="updateItem('snacks_plate', 1, 5.50)">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <!-- Drinks -->
+      <h3 class="menu-category-title reveal">Getränke</h3>
+      <div class="row row-cols-1 row-cols-md-3 g-4 reveal">
+          <div class="col">
+              <div class="menu-card h-auto">
+                  <div class="menu-card-content p-4">
+                      <h3>Tee</h3>
+                      <p class="item-card-price mb-3">1,50 €</p>
+                      <div class="quantity-selector justify-content-end gap-3">
+                          <button class="qty-btn" onclick="updateItem('tea', -1, 1.50)">-</button>
+                          <span class="qty-number" id="qty-tea">0</span>
+                          <button class="qty-btn" onclick="updateItem('tea', 1, 1.50)">+</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="menu-card h-auto">
+                  <div class="menu-card-content p-4">
+                      <h3>Kaltgetränke</h3>
+                      <p class="item-card-price mb-1">2,00 €</p>
+                      <p class="text-muted small mb-2">(€1,75 + €0,25 Pfand)</p>
+                      <div class="quantity-selector justify-content-end gap-3">
+                          <button class="qty-btn" onclick="updateItem('cold_drink', -1, 2.00)">-</button>
+                          <span class="qty-number" id="qty-cold_drink">0</span>
+                          <button class="qty-btn" onclick="updateItem('cold_drink', 1, 2.00)">+</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="menu-card h-auto">
+                  <div class="menu-card-content p-4">
+                      <h3>Mango Lassi</h3>
+                      <p class="item-card-price mb-3">3,00 €</p>
+                      <div class="quantity-selector justify-content-end gap-3">
+                          <button class="qty-btn" onclick="updateItem('mango_lassi', -1, 3.00)">-</button>
+                          <span class="qty-number" id="qty-mango_lassi">0</span>
+                          <button class="qty-btn" onclick="updateItem('mango_lassi', 1, 3.00)">+</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Checkout Section -->
+  <section class="py-5 bg-light border-top">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 reveal">
+          <div class="instructions-card">
+            <h3 class="font-display mb-4 text-center">Vorbestellung abschließen</h3>
+            <div class="mb-4">
+              <label for="special-requests" class="form-label fw-600">Spezielle Wünsche oder Anmerkungen?</label>
+              <textarea class="form-control" id="special-requests" rows="4" placeholder="Schärfegrad, Allergien, Ankunftszeit, etc."></textarea>
+            </div>
+            <div class="d-flex align-items-center gap-3 p-3 bg-light rounded-3 mb-4">
+                <i class="fas fa-info-circle text-danger fs-4"></i>
+                <p class="mb-0 small text-muted">Durch Klicken auf den Button unten werden Ihre Artikel zusammengefasst und Sie werden zu unserem offiziellen Google-Formular weitergeleitet, um Ihre Kontaktdaten anzugeben und die Buchung abzuschließen.</p>
+            </div>
+            <button onclick="submitToForm()" class="btn-ft btn-ft-primary w-100 py-3 fs-5">Auswahl bestätigen & Formular öffnen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Order Bar -->
+  <div id="sticky-bar" class="sticky-order-bar">
+    <div class="order-info">
+      <span class="order-count" id="cart-count">0 Artikel</span>
+      <span class="order-total" id="cart-total">Gesamt: 0,00 €</span>
+    </div>
+    <button onclick="document.getElementById('special-requests').scrollIntoView({behavior: 'smooth'})" class="order-submit-btn">Zur Kasse</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark text-white text-center">
+    <div class="container">
+      <img src="../images/foodeza_main_logo.png" alt="Foodeza" style="max-width: 120px;" class="mb-4">
+      <p class="opacity-50 small mb-0">&copy; 2026 Foodeza. Authentisches Kerala Street Food. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script>
+    const state = {
+      items: {
+        breakfast: 0,
+        breakfast_combo: 0,
+        chicken_biryani: 0,
+        addon_drink: 0,
+        veg_biryani: 0,
+        pork_addon: 0,
+        kappa_meen: 0,
+        pork_fry: 0,
+        combo_parotta_pork: 0,
+        pazhampori: 0,
+        cutlet: 0,
+        snacks_plate: 0,
+        tea: 0,
+        cold_drink: 0,
+        mango_lassi: 0
+      },
+      totalItems: 0,
+      totalPrice: 0
+    };
+
+    function updateItem(id, change, price) {
+      if (state.items[id] + change < 0) return;
+      
+      state.items[id] += change;
+      state.totalItems += change;
+      state.totalPrice += (change * price);
+      
+      const qtyEl = document.getElementById(`qty-${id}`);
+      if(qtyEl) qtyEl.innerText = state.items[id];
+      
+      const counts = document.querySelectorAll('#cart-count');
+      counts.forEach(el => el.innerText = `${state.totalItems} Artikel`);
+      
+      const totals = document.querySelectorAll('#cart-total');
+      totals.forEach(el => el.innerText = `Gesamt: ${state.totalPrice.toFixed(2).replace('.', ',')} €`);
+      
+      const bar = document.getElementById('sticky-bar');
+      if (state.totalItems > 0) {
+        bar.classList.add('active');
+      } else {
+        bar.classList.remove('active');
+      }
+    }
+
+    function submitToForm() {
+      if(state.totalItems === 0) {
+          alert("Bitte wählen Sie mindestens einen Artikel aus.");
+          return;
+      }
+
+      const formId = "1FAIpQLScYHVcr5dbpXheXoEfLKEGLV3SEa1_w9IcVuQ6sWFdaY6pXpw";
+      const baseUrl = `https://docs.google.com/forms/d/e/${formId}/viewform`;
+      
+      let params = [];
+      
+      // Direct Mapping
+      if (state.items.chicken_biryani > 0) params.push(`entry.460289156=${state.items.chicken_biryani}`);
+      if (state.items.veg_biryani > 0) params.push(`entry.158415623=${state.items.veg_biryani}`);
+      if (state.items.pork_fry > 0) params.push(`entry.1450031121=${state.items.pork_fry}`);
+      if (state.items.kappa_meen > 0) params.push(`entry.986781837=${state.items.kappa_meen}`);
+      if (state.items.combo_parotta_pork > 0) params.push(`entry.1334334880=${state.items.combo_parotta_pork}`);
+      if (state.items.mango_lassi > 0) params.push(`entry.1374800828=${state.items.mango_lassi}`);
+      
+      // Unmapped / Combo Data
+      let unmappedStr = "";
+      if (state.items.breakfast > 0) unmappedStr += `• Palappam + Veg Stew: ${state.items.breakfast}\n`;
+      if (state.items.breakfast_combo > 0) unmappedStr += `• Frühstück Combo: ${state.items.breakfast_combo}\n`;
+      if (state.items.addon_drink > 0) unmappedStr += `• Getränk Beilage (€1): ${state.items.addon_drink}\n`;
+      if (state.items.pork_addon > 0) unmappedStr += `• Pork Fry Beilage (€4): ${state.items.pork_addon}\n`;
+      if (state.items.pazhampori > 0) unmappedStr += `• Pazham Pori: ${state.items.pazhampori}\n`;
+      if (state.items.cutlet > 0) unmappedStr += `• Cutlet: ${state.items.cutlet}\n`;
+      if (state.items.snacks_plate > 0) unmappedStr += `• Snacks Platte: ${state.items.snacks_plate}\n`;
+      if (state.items.tea > 0) unmappedStr += `• Tee: ${state.items.tea}\n`;
+      if (state.items.cold_drink > 0) unmappedStr += `• Kaltgetränk: ${state.items.cold_drink}\n`;
+      
+      const userRequests = document.getElementById('special-requests').value;
+      let finalInstructions = unmappedStr;
+      if (userRequests) {
+        finalInstructions += "\nSpezielle Anweisungen:\n" + userRequests;
+      }
+      
+      if (finalInstructions) {
+        params.push(`entry.1747598157=${encodeURIComponent(finalInstructions.trim())}`);
+      }
+      
+      const finalUrl = baseUrl + "?" + params.join("&");
+      window.location.href = finalUrl;
+    }
+
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          entry.target.classList.add('aos-animate');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+  <script src="../js/cookie.js"></script>
+</body>
+
+</html>
