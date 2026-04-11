@@ -58,6 +58,13 @@ body {
     z-index: 0;
 }
 
+/* Fix: background-attachment: fixed breaks on iOS/mobile */
+@media (max-width: 768px) {
+    .hero-bg-desktop, .hero-bg-mobile {
+        background-attachment: scroll;
+    }
+}
+
 .catering-hero::before {
     content: '';
     position: absolute;
