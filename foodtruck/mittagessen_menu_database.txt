@@ -1,0 +1,237 @@
+# Foodeza Foodtruck - Mittagessen Menu Database
+
+This file contains all the available menu items for the Foodtruck Mittagessen (Lunch), in both German (DE) and English (EN). You can use this as a reference "database" text file when updating your weekly menus in `mittagessen.html` and `mittagessen-en.html`. 
+
+---
+
+## 1. Curry Bowl (Curry mit Reis) 
+**Keys:** `rice_nv` (Non-Veg), `rice_v` (Vegetarian), `rice_vn` (Vegan)
+**Prices:** Non-Veg 8.50 €, Vegetarian 7.50 €, Vegan 6.50 €
+**Image Path:** `images/ricebowl.png`
+**Image HTML Link:** `<img src="images/ricebowl.png" alt="Curry Bowl" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Curry Bowl
+- **Subtitle:** Tages-Spezial: Aromatischer Basmatireis serviert mit unserem Signature-Curry.
+- **Includes:**
+  • Basmatireis
+  • Wahlweise Hähnchen- oder Gemüsecurry
+  • Beilage: Frischer Salat
+
+**[EN] English**
+- **Title:** Curry Bowl
+- **Subtitle:** Today's Special: Aromatic Basmati rice served with our signature curry.
+- **Includes:**
+  • Basmati Rice
+  • Choice of Chicken or Veg Curry
+  • Side: Fresh Salad
+
+---
+
+## 2. Curry Wrap 
+**Keys:** `wrap_nv` (Non-Veg), `wrap_v` (Vegetarian)
+**Prices:** Non-Veg 8.50 €, Vegetarian 7.50 €
+**Image Path:** `images/wrap.webp`
+**Image HTML Link:** `<img src="images/wrap.webp" alt="Curry Wrap" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Curry Wrap
+- **Subtitle:** Unser beliebter Kerala Porotta Wrap (Normaler Wrap)
+- **Includes:**
+  • Hähnchen- oder Kartoffel-Curry Füllung
+  • Frischer Salat (Gurke, Tomate)
+  • Hausgemachte Spezial-Sauce
+
+**[EN] English**
+- **Title:** Curry Wrap
+- **Subtitle:** Our popular Kerala Porotta Wrap (Normal Wrap)
+- **Includes:**
+  • Chicken or Potato Curry Filling
+  • Fresh Salad (Cucumber, Tomato)
+  • Homemade Special Sauce
+
+---
+
+## 3. Combo 
+**Keys:** `combo_nv` (Non-Veg), `combo_v` (Vegetarian)
+**Prices:** Non-Veg 8.50 €, Vegetarian 7.50 €
+**Image Path:** `images/combo.webp`
+**Image HTML Link:** `<img src="images/combo.webp" alt="Combo" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Combo
+- **Subtitle:** Die perfekte Kombination für den kleinen Hunger
+- **Includes:**
+  • Kleiner Wrap
+  • Mango Lassi
+  • Special Kombination
+
+**[EN] English**
+- **Title:** Combo
+- **Subtitle:** The perfect combination for those slightly hungry
+- **Includes:**
+  • Small Wrap
+  • Mango Lassi
+  • Special Combination
+
+---
+
+## 4. Special Thali (Spezial Thali)
+**Keys:** `thali_nv` (Non-Veg), `thali_v` (Vegetarian), `thali_vn` (Vegan)
+**Prices:** Non-Veg 8.50 €, Vegetarian 7.50 €, Vegan 6.50 € (example standard)
+**Image Path:** `images/thali.webp`
+**Image HTML Link:** `<img src="images/thali.webp" alt="Special Thali" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Spezial Thali
+- **Subtitle:** Traditionelle indische Platte mit verschiedenen Currys
+- **Includes:**
+  • Reis / Brot
+  • Verschiedene Currys
+  • Chutney, Pappadum
+
+**[EN] English**
+- **Title:** Special Thali
+- **Subtitle:** Traditional Indian platter with various curries
+- **Includes:**
+  • Rice / Bread
+  • Various Curries
+  • Chutney, Pappadum
+
+---
+
+## 5. Curry with Bread (Curry mit Porotta)
+**Keys:** `porotta_brot_nv` (Non-Veg), `porotta_brot_v` (Vegetarian), `porotta_brot_vn` (Vegan)
+**Prices:** Non-Veg 8.50 €, Vegetarian 7.50 €, Vegan 6.50 € (example standard)
+**Image Path:** `images/currybrot.png`
+**Image HTML Link:** `<img src="images/currybrot.png" alt="Curry with Porotta" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Curry mit Porotta
+- **Subtitle:** Unser authentisches Kerala Porotta Brot mit Curry
+- **Includes:**
+  • 2x Flaky Kerala Porotta
+  • Curry nach Wahl
+  • Frischer Beilagensalat
+
+**[EN] English**
+- **Title:** Curry with Porotta (Bread)
+- **Subtitle:** Our authentic Kerala Porotta bread with curry
+- **Includes:**
+  • 2x Flaky Kerala Porotta
+  • Curry of Choice
+  • Fresh Side Salad
+
+---
+
+## 6. Fried Rice (Gebratener Reis)
+**Keys:** `fried_rice_nv` (Non-Veg), `fried_rice_v` (Vegetarian), `fried_rice_vn` (Vegan)
+**Prices:** Non-Veg 8.50 €, Vegetarian 7.50 €, Vegan 6.50 € (example standard)
+**Image Path:** `images/friedrice.webp`
+**Image HTML Link:** `<img src="images/friedrice.webp" alt="Fried Rice" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Gebratener Reis
+- **Subtitle:** Wok-gebratener Reis auf Kerala Art
+- **Includes:**
+  • Reis, Gemüse
+  • Wahlweise Hähnchen
+
+**[EN] English**
+- **Title:** Fried Rice
+- **Subtitle:** Wok-tossed rice Kerala style
+- **Includes:**
+  • Rice, Vegetables
+  • Choice of Chicken
+
+---
+
+## 7. Drinks (Getränke)
+**Keys:** `lassi` (Mango Lassi), `juice` (Saft)
+**Prices:** 3.00 €
+**Image Path:** `images/mango.jpg`
+**Image HTML Link:** `<img src="images/mango.jpg" alt="Drinks" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Getränke
+- **Subtitle:** Die perfekte Ergänzung zu unseren Gerichten
+- **Selection:**
+  • Mango Lassi (Joghurt) 3.00 €
+
+**[EN] English**
+- **Title:** Drinks
+- **Subtitle:** The perfect complement to our dishes
+- **Selection:**
+  • Mango Lassi (Yogurt) 3.00 €
+
+---
+
+## 8. Butter Chicken
+**Keys:** `butter_chicken`
+**Prices:** 8.50 €
+**Image Path:** `images/butter_chicken.jpg`
+**Image HTML Link:** `<img src="images/butter_chicken.jpg" alt="Butter Chicken" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Butter Chicken
+- **Subtitle:** Zarte Hähnchenstücke in einer buttrig-milden Tomatensauce
+- **Includes:**
+  • Butter Chicken Curry
+  • Basmatireis oder Porotta
+  • Beilagensalat
+
+**[EN] English**
+- **Title:** Butter Chicken
+- **Subtitle:** Tender chicken pieces in a buttery mild tomato sauce
+- **Includes:**
+  • Butter Chicken Curry
+  • Basmati Rice or Porotta
+  • Side Salad
+
+---
+
+## 9. Paneer Butter Masala (Vegetarian)
+**Keys:** `paneer_masala`
+**Prices:** 7.50 €
+**Image Path:** `images/paneer.jpg`
+**Image HTML Link:** `<img src="images/paneer.jpg" alt="Paneer Butter Masala" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Paneer Butter Masala
+- **Subtitle:** Indischer Käse (Paneer) in einer samtigen, mild-würzigen Tomaten-Creme-Sauce
+- **Includes:**
+  • Paneer Butter Masala
+  • Basmatireis oder Porotta
+  • Beilagensalat
+
+**[EN] English**
+- **Title:** Paneer Butter Masala
+- **Subtitle:** Indian cheese (Paneer) in a velvety, mildly spiced tomato cream sauce
+- **Includes:**
+  • Paneer Butter Masala
+  • Basmati Rice or Porotta
+  • Side Salad
+
+---
+
+## 10. Spinach Dal / Dal Spinat (Vegan)
+**Keys:** `spinach_dal`
+**Prices:** 6.50 €
+**Image Path:** `images/dal.jpg`
+**Image HTML Link:** `<img src="images/dal.jpg" alt="Spinach Dal" style="width: 100%; height: 220px; object-fit: cover;">`
+
+**[DE] German**
+- **Title:** Dal Spinat (vegan)
+- **Subtitle:** Herzhafter Linseneintopf mit frischem Spinat, Knoblauch und traditionellen Gewürzen
+- **Includes:**
+  • Spinat Dal
+  • Basmatireis oder Porotta
+  • Beilagensalat
+
+**[EN] English**
+- **Title:** Spinach Dal (Vegan)
+- **Subtitle:** Hearty lentil stew with fresh spinach, garlic, and traditional spices
+- **Includes:**
+  • Spinach Dal
+  • Basmati Rice or Porotta
+  • Side Salad

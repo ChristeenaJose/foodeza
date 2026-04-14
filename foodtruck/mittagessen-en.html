@@ -123,7 +123,7 @@
     <div class="container">
       <div class="text-center mb-5 reveal">
         <h2 class="section-title mb-1">Our Weekly Schedule</h2>
-        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Weekly Tour: April 6 – April 12, 2026</p>
+        <p class="text-muted mb-0" style="font-size: 1.1rem; font-weight: 500;">Weekly Tour: April 13 – April 19, 2026</p>
       </div>
 
       <div class="schedule-list mb-1" style="max-width: 900px; margin: 0 auto;">
@@ -137,7 +137,7 @@
           <!-- Date Calendar Tab -->
           <div class="d-flex flex-column align-items-center text-center pe-md-4 mb-4 mb-md-0" style="min-width: 100px;">
             <span class="text-danger fw-bold" style="font-size: 1.2rem;">Thu</span>
-            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">09.</span>
+            <span style="font-size: 2.8rem; line-height: 1; color: #1a1a1a; font-weight: 900;">16.</span>
             <span class="text-muted fw-bold text-uppercase mt-1"
               style="font-size: 0.85rem; letter-spacing: 1px;">April</span>
           </div>
@@ -194,47 +194,95 @@
       <!-- Horizontal Scroll Gallery with ordering -->
       <div class="row row-cols-1 row-cols-md-3 g-4 reveal">
 
-        <!-- Image Card 1: Curry Bowl -->
+        <!-- Image Card: Butter Chicken -->
         <div class="col">
           <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
             style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-            <img src="images/ricebowl.png" alt="Curry Bowl" style="width: 100%; height: 220px; object-fit: cover;">
+            <img src="images/butter_chicken.jpg" alt="Butter Chicken" style="width: 100%; height: 220px; object-fit: cover;">
             <div class="p-4 d-flex flex-column flex-grow-1 text-start">
               <span class="badge bg-danger text-white rounded-pill mb-2 align-self-start" style="font-size: 0.75rem; letter-spacing: 0.5px;">THIS WEEK</span>
-              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Curry Bowl</h4>
-              <p class="text-muted small mb-3">Today's Special: Aromatic Basmati rice served with our signature curry.</p>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Butter Chicken</h4>
+              <p class="text-muted small mb-3">Tender chicken pieces in a buttery mild tomato sauce</p>
               <div class="mb-3 flex-grow-1">
                 <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
                 <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
-                  <li>• Basmati Rice</li>
-                  <li>• Choice of Chicken or Veg Curry</li>
-                  <li>• Side: Fresh Salad</li>
+                  <li>• Butter Chicken Curry</li>
+                  <li>• Basmati Rice or Porotta</li>
+                  <li>• Side Salad</li>
                 </ul>
               </div>
               <div class="variant-selectors mt-auto">
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #c62828;"></i> Non-Veg <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">8.50 €</span></div>
+                  <div class="variant-label"><i style="background: #c62828;"></i> Normal <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">8.50 €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('rice_nv', -1, 8.5)">−</button>
-                    <span class="qty-number" id="qty-rice_nv">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('rice_nv', 1, 8.5)">+</button>
+                    <button class="qty-btn minus" onclick="updateQty('butter_chicken', -1, 8.5)">−</button>
+                    <span class="qty-number" id="qty-butter_chicken">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('butter_chicken', 1, 8.5)">+</button>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Card: Paneer Butter Masala -->
+        <div class="col">
+          <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
+            style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/paneer.jpg" alt="Paneer Butter Masala" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+              <span class="badge bg-danger text-white rounded-pill mb-2 align-self-start" style="font-size: 0.75rem; letter-spacing: 0.5px;">THIS WEEK</span>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Paneer Butter Masala</h4>
+              <p class="text-muted small mb-3">Indian cheese (Paneer) in a velvety, mildly spiced tomato cream sauce</p>
+              <div class="mb-3 flex-grow-1">
+                <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
+                <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                  <li>• Paneer Butter Masala</li>
+                  <li>• Basmati Rice or Porotta</li>
+                  <li>• Side Salad</li>
+                </ul>
+              </div>
+              <div class="variant-selectors mt-auto">
                 <div class="variant-item">
                   <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">7.50 €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('rice_v', -1, 7.5)">−</button>
-                    <span class="qty-number" id="qty-rice_v">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('rice_v', 1, 7.5)">+</button>
+                    <button class="qty-btn minus" onclick="updateQty('paneer_masala', -1, 7.5)">−</button>
+                    <span class="qty-number" id="qty-paneer_masala">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('paneer_masala', 1, 7.5)">+</button>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image Card: Spinach Dal -->
+        <div class="col">
+          <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
+            style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/dal.jpg" alt="Spinach Dal" style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+              <span class="badge bg-danger text-white rounded-pill mb-2 align-self-start" style="font-size: 0.75rem; letter-spacing: 0.5px;">THIS WEEK</span>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Spinach Dal (Vegan)</h4>
+              <p class="text-muted small mb-3">Hearty lentil stew with fresh spinach, garlic, and traditional spices</p>
+              <div class="mb-3 flex-grow-1">
+                <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
+                <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                  <li>• Spinach Dal</li>
+                  <li>• Basmati Rice or Porotta</li>
+                  <li>• Side Salad</li>
+                </ul>
+              </div>
+              <div class="variant-selectors mt-auto">
                 <div class="variant-item">
                   <div class="variant-label"><i style="background: #2e7d32;"></i> Vegan <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">6.50 €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('rice_vn', -1, 6.5)">−</button>
-                    <span class="qty-number" id="qty-rice_vn">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('rice_vn', 1, 6.5)">+</button>
+                    <button class="qty-btn minus" onclick="updateQty('spinach_dal', -1, 6.5)">−</button>
+                    <span class="qty-number" id="qty-spinach_dal">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('spinach_dal', 1, 6.5)">+</button>
                   </div>
                 </div>
               </div>
@@ -426,6 +474,9 @@
       combo_v: 0,
       lassi: 0,
       juice: 0,
+      butter_chicken: 0,
+      paneer_masala: 0,
+      spinach_dal: 0,
       totalItems: 0,
       totalPrice: 0
     };
@@ -466,7 +517,12 @@
       if (cart.fried_rice_v > 0) allItems.push(`Vegetarian (Fried Rice): ${cart.fried_rice_v}`);
       if (cart.fried_rice_vn > 0) allItems.push(`Vegan (Fried Rice): ${cart.fried_rice_vn}`);
       
-      // Rice & Curry
+      // Specials Dies Woche
+      if (cart.butter_chicken > 0) allItems.push(`Butter Chicken: ${cart.butter_chicken}`);
+      if (cart.paneer_masala > 0) allItems.push(`Paneer Butter Masala: ${cart.paneer_masala}`);
+      if (cart.spinach_dal > 0) allItems.push(`Dal Spinat (Vegan): ${cart.spinach_dal}`);
+
+      // Rice & Curry (Legacy)
       if (cart.rice_nv > 0) allItems.push(`Curry with Rice (non-veg): ${cart.rice_nv}`);
       if (cart.rice_v > 0) allItems.push(`Curry with Rice (veg): ${cart.rice_v}`);
       if (cart.rice_vn > 0) allItems.push(`Curry with Rice (vegan): ${cart.rice_vn}`);
