@@ -1,0 +1,480 @@
+:root {
+    --primary-red: #cc0605;
+    --primary-red-dark: #a00504;
+    --gold: #d4af37;
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f9d976 50%, #d4af37 100%);
+    --bg-dark: #121212;
+    --text-dark: #1a1a1a;
+    --text-muted: #555;
+    --white: #ffffff;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-md: 0 12px 30px rgba(0,0,0,0.12);
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Icon Fix */
+i.fas::before, i.fab::before, i.far::before {
+    position: static !important;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    line-height: 1.1;
+}
+
+.text-gold { color: var(--gold); }
+.text-red { color: var(--primary-red); }
+
+/* Hero Section */
+.tour-hero {
+    height: 90vh;
+    min-height: 600px;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('../images/tour-hero-banner.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 900px;
+    z-index: 2;
+}
+
+.hero-tagline {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.tour-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.hero-subheader {
+    font-size: 1.6rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 25px;
+}
+
+.hero-selling-line {
+    font-family: var(--font-display), serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--primary-red);
+    margin-top: 15px;
+    padding: 5px 20px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Sections */
+section {
+    padding: 100px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    color: var(--primary-red);
+    margin-bottom: 15px;
+}
+
+.section-header .divider {
+    width: 60px;
+    height: 4px;
+    background: var(--gold);
+    margin: 0 auto;
+}
+
+/* Feature Pillars */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.feature-pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 35px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.feature-pillar:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-md);
+    border-color: var(--gold);
+}
+
+.p_icon_wrap {
+    flex-shrink: 0;
+    width: 65px;
+    height: 65px;
+    background: var(--gold-gradient);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 1.6rem;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.p_icon_wrap i::before {
+    position: static !important;
+}
+
+.feature-pillar:hover .p_icon_wrap {
+    background: var(--primary-red);
+    color: var(--white);
+}
+
+.p_content h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.p_content p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+/* How It Works */
+.how-it-works {
+    background: #f8f9fa;
+    position: relative;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.step-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 30px;
+    position: relative;
+}
+
+.step-num {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    opacity: 0.1;
+    color: var(--primary-red);
+}
+
+/* Packaging Highlight */
+.packaging-section {
+    background: var(--bg-dark);
+    color: var(--white);
+}
+
+.packaging-section p, 
+.packaging-section ul li {
+    color: rgba(255,255,255,0.85);
+}
+
+.packaging-section h2 {
+    color: var(--white);
+}
+
+.packaging-grid {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.packaging-content {
+    flex: 1;
+    min-width: 350px;
+}
+
+.packaging-image {
+    flex: 1;
+    min-width: 350px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.packaging-image img {
+    width: 100%;
+    display: block;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.benefits-list li {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* Fix for global ::before style overriding icons */
+.benefits-list li i::before {
+    position: static !important;
+}
+
+.benefits-list i {
+    color: var(--gold);
+    font-size: 1.3rem;
+    margin-top: 5px; /* Alignment with text top */
+}
+
+/* Pricing Section */
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.price-card {
+    background: var(--white);
+    padding: 50px 40px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    width: 380px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.price-card:hover {
+    border-color: var(--gold);
+}
+
+.price-card.featured {
+    transform: scale(1.05);
+    border-color: var(--primary-red);
+}
+
+.price-val {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary-red);
+    margin: 20px 0;
+}
+
+/* Agency Benefits */
+.agency-section {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #333 100%);
+    color: var(--white);
+}
+
+.agency-section h2,
+.agency-section p,
+.agency-section .lead {
+    color: var(--white) !important;
+}
+
+.agency-benefit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.agency-box {
+    background: rgba(255,255,255,0.05);
+    padding: 60px 40px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Location Section */
+.location-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.location-tag {
+    background: var(--white);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.08);
+    transition: var(--transition);
+    letter-spacing: 0.5px;
+}
+
+.location-tag i {
+    color: var(--primary-red);
+    margin-right: 12px;
+}
+
+.location-tag:hover {
+    transform: scale(1.05);
+    border-color: var(--gold);
+    color: var(--primary-red);
+}
+
+/* Buttons */
+.btn-premium {
+    display: inline-block;
+    padding: 18px 45px;
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition);
+    box-shadow: 0 15px 30px rgba(204, 6, 5, 0.3);
+}
+
+.btn-premium:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(204, 6, 5, 0.5);
+    color: var(--white);
+    background: var(--primary-red-dark);
+}
+
+/* Responsive / Utility */
+@media (max-width: 768px) {
+    .section-header h2 { font-size: 2.2rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    .agency-benefit-grid { grid-template-columns: 1fr; }
+    .price-card.featured { transform: scale(1); }
+}
+
+.py-6 {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.mb-6 {
+    margin-bottom: 4rem !important;
+}
+
+.tracking-widest {
+    letter-spacing: 0.2em;
+}
+
+.rounded-4 {
+    border-radius: 2rem !important;
+}
+
+.rounded-5 {
+    border-radius: 3rem !important;
+}
+
+.text-secondary {
+    color: #999 !important;
+}
+
+.fs-5 {
+    font-size: 1.25rem !important;
+}
+
+.fs-4 {
+    font-size: 1.5rem !important;
+}
+
+.lw-relaxed {
+    line-height: 1.8;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* --- Advanced Animations --- */
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes premiumPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.hero-content h1 { 
+    animation: fadeInUp 1s ease-out forwards; 
+}
+
+.hero-selling-line { 
+    animation: fadeInUp 1.2s ease-out both;
+    animation-delay: 0.3s;
+}
+
+.partnership-cta {
+    animation: premiumPulse 4s infinite ease-in-out;
+}
+
+.item-container {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 12px;
+}
+
+.item-container:hover {
+    background: rgba(204, 6, 5, 0.03);
+    padding-left: 15px !important;
+}
+
+#travelMenuCard {
+    animation: fadeInUp 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
