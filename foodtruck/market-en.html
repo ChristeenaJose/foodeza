@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Foodeza Market | Your South Indian Market Update</title>
+  <meta name="description"
+    content="Foodeza food truck in Baden-Württemberg: Kerala street food at Stuttgart Feuersee, Karlsruhe, markets & events." />
+
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style id="premium-redesign">
+    :root {
+      --premium-gradient: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+      --premium-shadow: 0 10px 30px rgba(255, 65, 108, 0.2);
+    }
+
+    .hero-market-flyer {
+      background: linear-gradient(180deg, #1a1a1a 0%, #252525 100%);
+    }
+
+    .hero-market-flyer img {
+      width: 100%;
+      height: auto !important;
+      max-height: min(88vh, 640px);
+      object-fit: contain;
+      object-position: center top;
+      transform: none !important;
+    }
+
+    .hero-market-flyer:hover img {
+      transform: none !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="header-logo">
+        <a href="../index.html"><img src="../images/foodeza_main_logo.png" alt="Foodeza" style="max-width: 100px;"></a>
+      </div>
+      <nav class="d-none d-lg-block">
+        <ul class="ft-nav-list">
+          <li><a href="../index.html" class="nav-link-ft">Home</a></li>
+          <li><a href="index-en.html" class="nav-link-ft">Foodtruck</a></li>
+          <li><a href="mittagessen-en.html" class="nav-link-ft">Lunch</a></li>
+          <li><a href="market-en.html" class="nav-link-ft active">Market</a></li>
+          <li><a href="index-en.html#next-event" class="nav-link-ft">Events</a></li>
+          <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="google-rating-header">
+              <img src="../images/google-red.svg" alt="Google" class="google-icon">
+              <div class="google-stars">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="star">
+              </div>
+            </a>
+          </li>
+          <li><a href="#feuersee-menu" class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Pre-order</a></li>
+          <li class="lang-switcher">
+            <a href="#" class="lang-btn">
+              <span>EN</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </a>
+            <div class="lang-dropdown">
+              <a href="market.html">Deutsch (DE)</a>
+              <a href="market-en.html" class="active">English (EN)</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text reveal-right">
+        <h1>Foodeza Market – Authentically South Indian spiced.</h1>
+        <p>Fresh, authentic Kerala food for markets and evening stops across Baden-Württemberg and the surrounding
+          area.</p>
+        <div class="btn-group">
+          <a href="index-en.html#next-event" class="btn-ft btn-ft-primary">Weekly schedule</a>
+          <a href="https://forms.gle/8ueUUB2KLP9kPpDHA" target="_blank" class="btn-ft btn-ft-secondary">Request
+            catering</a>
+        </div>
+      </div>
+      <div class="hero-image hero-market-flyer reveal">
+        <img src="images/hero-market-kerala-street-food.png"
+          alt="Foodeza Stuttgart – Kerala street food, Feuersee, Thursdays 3:00 PM – 9:00 PM"
+          class="d-block w-100">
+      </div>
+    </div>
+  </section>
+
+  <section id="next-event" class="pt-5 pb-3 bg-light">
+    <div id="schedule" style="position: absolute; top: -100px;"></div>
+    <div class="container">
+      <div class="row justify-content-center mt-4 mb-2 reveal">
+        <div class="col-lg-10">
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 rounded-4 shadow-sm"
+            style="border: 2px dashed rgba(220, 53, 69, 0.3); background-color: #fffdfd;">
+            <div
+              class="d-flex flex-column flex-md-row align-items-center align-items-md-stretch gap-3 mb-3 mb-md-0 me-md-3 text-center text-md-start flex-grow-1"
+              style="min-width: 0;">
+              <span class="badge bg-danger text-white rounded-pill px-3 py-1 align-self-center flex-shrink-0"
+                style="font-weight: 600; font-size: 0.8rem; letter-spacing: 0.5px;">THIS WEEK</span>
+              <div class="d-flex flex-column gap-3 flex-grow-1" style="min-width: 0;">
+                <div class="rounded-3 p-3 text-md-start"
+                  style="background: rgba(220, 53, 69, 0.07); border-left: 4px solid #dc3545;">
+                  <div class="text-danger fw-bold" style="font-size: 0.95rem;">Thursday, May 7, 2026</div>
+                  <div class="fw-semibold mt-1" style="font-size: 1rem; color: #333;">Stuttgart Feuersee</div>
+                  <div class="text-muted mt-1" style="font-size: 0.9rem;">Market &amp; event · Feuersee, 70176 Stuttgart
+                    · 3:00 PM – 9:00 PM</div>
+                </div>
+                <div class="rounded-3 p-3 text-md-start"
+                  style="background: rgba(220, 53, 69, 0.07); border-left: 4px solid #dc3545;">
+                  <div class="text-danger fw-bold" style="font-size: 0.95rem;">Friday, May 8, 2026</div>
+                  <div class="fw-semibold mt-1" style="font-size: 1rem; color: #333;">Karlsruhe</div>
+                  <div class="text-muted mt-1" style="font-size: 0.9rem;">Market &amp; event · Durlacher Allee 111, 76137
+                    Karlsruhe · 10:30 AM – 9:00 PM</div>
+                </div>
+              </div>
+            </div>
+            <a href="#feuersee-menu" class="btn-ft px-4 py-2 text-danger"
+              style="background: transparent; border: 1px solid rgba(220, 53, 69, 0.3); border-radius: 50px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">
+              <i class="fas fa-utensils me-1"></i> View menu
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="weekly-menu" class="py-5" style="background: white;">
+    <div class="container">
+      <div class="section-title text-center mb-5 reveal">
+        <h2>This week's menu</h2>
+        <p class="text-muted" style="font-size: 1.1rem;">We change our menu every week. From our five signature menus, we
+          bring these dishes to the truck.</p>
+      </div>
+
+      <div id="feuersee-menu" style="position: absolute; top: -110px;"></div>
+
+      <div class="row justify-content-center mb-5 reveal">
+        <div class="col-lg-10">
+          <div class="bg-light rounded-4 p-4 p-md-5 shadow-sm" style="border: 1px solid rgba(0,0,0,0.06);">
+            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-3">
+              <div>
+                <span class="badge bg-danger text-white rounded-pill px-3 py-1 mb-2"
+                  style="font-size: 0.75rem; letter-spacing: 0.5px;">STUTTGART FEUERSEE</span>
+                <span class="badge bg-danger text-white rounded-pill px-3 py-1 mb-2"
+                  style="font-size: 0.75rem; letter-spacing: 0.5px;">Karlsruhe Durlacher</span>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Curry bowl</div>
+                <ul class="list-unstyled mb-0" style="color: #333;">
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Butter chicken</span><span
+                      class="fw-semibold">8.50&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Paneer butter masala (veg)</span><span
+                      class="fw-semibold">7.50&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Dal spinach (vegan)</span><span
+                      class="fw-semibold">6.50&nbsp;€</span></li>
+                </ul>
+                <div class="text-muted mt-2" style="font-size: 0.95rem;">With basmati rice or porotta</div>
+              </div>
+              <div class="col-md-6">
+                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">South Indian specials</div>
+                <ul class="list-unstyled mb-0" style="color: #333;">
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Masala dosa</span><span
+                      class="fw-semibold">9.80&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken kothu porotta</span><span
+                      class="fw-semibold">11.80&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken biriyani</span><span
+                      class="fw-semibold">10.90&nbsp;€</span></li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Snacks</div>
+                <ul class="list-unstyled mb-0" style="color: #333;">
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Pazhampori (3 pcs)</span><span
+                      class="fw-semibold">3.90&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken cutlet (2 pcs)</span><span
+                      class="fw-semibold">4.80&nbsp;€</span></li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Drinks</div>
+                <ul class="list-unstyled mb-0" style="color: #333;">
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Indian tea</span><span
+                      class="fw-semibold">2.00&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Mango lassi</span><span
+                      class="fw-semibold">3.00&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1"><span>Mojito</span><span
+                      class="fw-semibold">3.80&nbsp;€</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5 reveal" style="background: var(--text-dark); color: white;">
+    <div class="container text-center">
+      <div class="section-title mb-4">
+        <h2 style="color: white;">Follow the truck. Enjoy the week.</h2>
+      </div>
+      <div class="btn-group justify-content-center mb-5">
+        <a href="#next-event" class="btn-ft btn-ft-primary">Weekly schedule</a>
+        <a href="#feuersee-menu" class="btn-ft btn-ft-secondary" style="background: transparent; color: white;">Pre-order</a>
+      </div>
+      <div class="social-icons d-flex justify-content-center gap-4 mb-4">
+        <a href="https://instagram.com/foodeza.de/" target="_blank" class="social-btn instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61576927270257" target="_blank" class="social-btn facebook"><i
+            class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@Foodeza_de" target="_blank" class="social-btn youtube"><i
+            class="fab fa-youtube"></i></a>
+      </div>
+      <p class="mb-0 opacity-50">&copy; 2025 Foodeza. Authentic Kerala street food on wheels. | <a
+          href="../impressum.html" style="color: white; text-decoration: underline;">Legal notice</a> | <a
+          href="../datenschutz.html" style="color: white; text-decoration: underline;">Privacy</a> | <a
+          href="../agb.html" style="color: white; text-decoration: underline;">Terms</a></p>
+    </div>
+  </footer>
+
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script>
+    const observerOptions = { threshold: 0.15 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          entry.target.classList.add('aos-animate');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.reveal, .reveal-right, .reveal-scale, [data-aos]').forEach(el => {
+      observer.observe(el);
+    });
+
+    document.querySelectorAll('.menu-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      });
+    });
+  </script>
+  <script src="../js/cookie.js"></script>
+</body>
+
+</html>
