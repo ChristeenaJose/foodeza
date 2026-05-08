@@ -40,6 +40,42 @@
     .hero-market-flyer:hover img {
       transform: none !important;
     }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65);
+      animation: livePulse 1.35s infinite;
+    }
+
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65); }
+      70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0.0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.0); }
+    }
+
+    /* Ensure submit button always reachable on mobile */
+    #marketOrderModalEn .modal-content {
+      max-height: min(92vh, 720px);
+    }
+
+    #marketOrderModalEn .modal-body {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Keep sticky bar behind Bootstrap modal */
+    #sticky-order-bar-en {
+      z-index: 1040;
+    }
   </style>
 </head>
 
@@ -100,8 +136,8 @@
         </div>
       </div>
       <div class="hero-image hero-market-flyer reveal">
-        <img src="images/hero-market-kerala-street-food.png"
-          alt="Foodeza Stuttgart – Kerala street food, Feuersee, Thursdays 3:00 PM – 9:00 PM"
+        <img src="../images/truck1.webp"
+          alt="Foodeza foodtruck"
           class="d-block w-100">
       </div>
     </div>
@@ -136,10 +172,7 @@
                 </div>
               </div>
             </div>
-            <a href="#feuersee-menu" class="btn-ft px-4 py-2 text-danger"
-              style="background: transparent; border: 1px solid rgba(220, 53, 69, 0.3); border-radius: 50px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">
-              <i class="fas fa-utensils me-1"></i> View menu
-            </a>
+            <!-- removed: View menu button -->
           </div>
         </div>
       </div>
@@ -159,12 +192,16 @@
       <div class="row justify-content-center mb-5 reveal">
         <div class="col-lg-10">
           <div class="bg-light rounded-4 p-4 p-md-5 shadow-sm" style="border: 1px solid rgba(0,0,0,0.06);">
-            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-3">
-              <div>
-                <span class="badge bg-danger text-white rounded-pill px-3 py-1 mb-2"
-                  style="font-size: 0.75rem; letter-spacing: 0.5px;">STUTTGART FEUERSEE</span>
-                <span class="badge bg-danger text-white rounded-pill px-3 py-1 mb-2"
-                  style="font-size: 0.75rem; letter-spacing: 0.5px;">Karlsruhe Durlacher</span>
+            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-2">
+              <div class="text-muted small live-indicator" style="white-space: nowrap;">
+                <span class="live-dot" aria-hidden="true"></span>
+                <strong>Karlsruhe Durlacher</strong>
+                <span class="opacity-75">•</span>
+                <span><strong>May 8, 2026</strong></span>
+              </div>
+              <div class="small px-3 py-2 rounded-pill"
+                style="background: rgba(34, 197, 94, 0.10); border: 1px solid rgba(34, 197, 94, 0.35); color: #14532d;">
+                <strong>Tap + to add items to Pre-Order.</strong>
               </div>
             </div>
 
@@ -172,44 +209,126 @@
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Curry bowl</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Butter chicken</span><span
-                      class="fw-semibold">8.50&nbsp;€</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Paneer butter masala (veg)</span><span
-                      class="fw-semibold">7.50&nbsp;€</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Dal spinach (vegan)</span><span
-                      class="fw-semibold">6.50&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
+                    <span><s>Butter chicken</s> <span class="badge bg-secondary text-white rounded-pill ms-1"
+                        style="font-size: 0.7rem;">Sold out</span></span>
+                    <span class="fw-semibold"><s>8.50&nbsp;€</s></span>
+                  </li>
+                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
+                    <span><s>Paneer butter masala (veg)</s> <span class="badge bg-secondary text-white rounded-pill ms-1"
+                        style="font-size: 0.7rem;">Sold out</span></span>
+                    <span class="fw-semibold"><s>7.50&nbsp;€</s></span>
+                  </li>
+                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
+                    <span><s>Dal spinach (vegan)</s> <span class="badge bg-secondary text-white rounded-pill ms-1"
+                        style="font-size: 0.7rem;">Sold out</span></span>
+                    <span class="fw-semibold"><s>6.50&nbsp;€</s></span>
+                  </li>
                 </ul>
                 <div class="text-muted mt-2" style="font-size: 0.95rem;">With basmati rice or porotta</div>
               </div>
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">South Indian specials</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Masala dosa</span><span
-                      class="fw-semibold">9.80&nbsp;€</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken kothu porotta</span><span
-                      class="fw-semibold">11.80&nbsp;€</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken biriyani</span><span
-                      class="fw-semibold">10.90&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
+                    <span><s>Masala dosa</s> <span class="badge bg-secondary text-white rounded-pill ms-1"
+                        style="font-size: 0.7rem;">Sold out</span></span>
+                    <span class="fw-semibold"><s>9.80&nbsp;€</s></span>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Chicken kothu porotta</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2"
+                        style="color: #222; background: #f8f9fa; font-size: 0.8rem;">11.80&nbsp;€</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQtyEn('kothu', -1, 11.8)">−</button>
+                        <span class="qty-number" id="qty-kothu-en">0</span>
+                        <button class="qty-btn plus" onclick="updateQtyEn('kothu', 1, 11.8)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Chicken biriyani</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2"
+                        style="color: #222; background: #f8f9fa; font-size: 0.8rem;">10.90&nbsp;€</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQtyEn('biriyani', -1, 10.9)">−</button>
+                        <span class="qty-number" id="qty-biriyani-en">0</span>
+                        <button class="qty-btn plus" onclick="updateQtyEn('biriyani', 1, 10.9)">+</button>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Snacks</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Pazhampori (3 pcs)</span><span
-                      class="fw-semibold">3.90&nbsp;€</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken cutlet (2 pcs)</span><span
-                      class="fw-semibold">4.80&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Pazhampori (3 pcs)</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2"
+                        style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3.90&nbsp;€</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQtyEn('pazhampori', -1, 3.9)">−</button>
+                        <span class="qty-number" id="qty-pazhampori-en">0</span>
+                        <button class="qty-btn plus" onclick="updateQtyEn('pazhampori', 1, 3.9)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Chicken cutlet (2 pcs)</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2"
+                        style="color: #222; background: #f8f9fa; font-size: 0.8rem;">4.80&nbsp;€</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQtyEn('cutlet', -1, 4.8)">−</button>
+                        <span class="qty-number" id="qty-cutlet-en">0</span>
+                        <button class="qty-btn plus" onclick="updateQtyEn('cutlet', 1, 4.8)">+</button>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Drinks</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Indian tea</span><span
-                      class="fw-semibold">2.00&nbsp;€</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Mango lassi</span><span
-                      class="fw-semibold">3.00&nbsp;€</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Mojito</span><span
-                      class="fw-semibold">3.80&nbsp;€</span></li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Indian masala tea</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2"
+                        style="color: #222; background: #f8f9fa; font-size: 0.8rem;">2.00&nbsp;€</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQtyEn('tea', -1, 2.0)">−</button>
+                        <span class="qty-number" id="qty-tea-en">0</span>
+                        <button class="qty-btn plus" onclick="updateQtyEn('tea', 1, 2.0)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Mango lassi</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2"
+                        style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3.00&nbsp;€</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQtyEn('lassi', -1, 3.0)">−</button>
+                        <span class="qty-number" id="qty-lassi-en">0</span>
+                        <button class="qty-btn plus" onclick="updateQtyEn('lassi', 1, 3.0)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Mojito</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2"
+                        style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3.80&nbsp;€</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQtyEn('mojito', -1, 3.8)">−</button>
+                        <span class="qty-number" id="qty-mojito-en">0</span>
+                        <button class="qty-btn plus" onclick="updateQtyEn('mojito', 1, 3.8)">+</button>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -218,6 +337,76 @@
       </div>
     </div>
   </section>
+
+  <!-- Sticky Order Bar -->
+  <div id="sticky-order-bar-en" class="sticky-order-bar">
+    <div class="order-info">
+      <span class="order-count" id="order-count-en">0 items</span>
+      <span class="order-total" id="order-total-en">Total: 0.00 €</span>
+    </div>
+    <button onclick="openPreorderEn()" class="order-submit-btn">Pre-Order</button>
+  </div>
+
+  <!-- Preorder Modal -->
+  <div class="modal fade" id="marketOrderModalEn" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" style="border-radius: 18px;">
+        <div class="modal-header">
+          <h5 class="modal-title">Pre-Order</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="orderSuccessMsgEn" class="alert alert-success d-none" role="alert"></div>
+
+          <div class="mb-3">
+            <label class="form-label small">Name</label>
+            <input id="custNameEn" type="text" class="form-control" placeholder="Your name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label small">Pickup time</label>
+            <select id="pickupTimeEn" class="form-select">
+              <option value="" selected>Select…</option>
+              <option value="10:30">10:30 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="11:30">11:30 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="13:30">1:30 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="14:30">2:30 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="15:30">3:30 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="16:30">4:30 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="17:30">5:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+            </select>
+            <div class="form-text">Pickup window: 10:30 AM – 9:00 PM</div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label small">Order</label>
+            <div id="orderItemsPreviewEn" class="small text-muted"></div>
+          </div>
+
+          <div class="pt-2 border-top"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ft btn-ft-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn-ft btn-ft-primary" onclick="submitPreorderEn()">Submit order</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <footer class="py-5 reveal" style="background: var(--text-dark); color: white;">
     <div class="container text-center">
@@ -245,6 +434,7 @@
 
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.5.3.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
   <script>
     const observerOptions = { threshold: 0.15 };
     const observer = new IntersectionObserver((entries) => {
@@ -274,6 +464,196 @@
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       });
     });
+  </script>
+  <script>
+    // Online pre-order storage (shared with `online-orders.html`)
+    const STORAGE_KEY_EN = 'foodeza_market_orders';
+
+    const marketCartEn = {
+      pazhampori: 0,
+      cutlet: 0,
+      kothu: 0,
+      biriyani: 0,
+      tea: 0,
+      lassi: 0,
+      mojito: 0,
+      totalItems: 0,
+      totalPrice: 0
+    };
+
+    const marketMenuEn = {
+      pazhampori: { name: 'Pazhampori (3 pcs)', price: 3.9 },
+      cutlet: { name: 'Chicken cutlet (2 pcs)', price: 4.8 },
+      kothu: { name: 'Chicken kothu porotta', price: 11.8 },
+      biriyani: { name: 'Chicken biriyani', price: 10.9 },
+      tea: { name: 'Indian masala tea', price: 2.0 },
+      lassi: { name: 'Mango lassi', price: 3.0 },
+      mojito: { name: 'Mojito', price: 3.8 }
+    };
+
+    function updateQtyEn(item, change, price) {
+      if (!marketCartEn.hasOwnProperty(item)) return;
+      if (marketCartEn[item] + change < 0) return;
+
+      marketCartEn[item] += change;
+      marketCartEn.totalItems += change;
+      marketCartEn.totalPrice += (change * price);
+
+      const el = document.getElementById(`qty-${item}-en`);
+      if (el) el.innerText = marketCartEn[item];
+
+      updateStickyEn();
+    }
+
+    function updateStickyEn() {
+      const bar = document.getElementById('sticky-order-bar-en');
+      const countEl = document.getElementById('order-count-en');
+      const totalEl = document.getElementById('order-total-en');
+      if (!bar || !countEl || !totalEl) return;
+
+      countEl.innerText = `${marketCartEn.totalItems} items`;
+      totalEl.innerText = `Total: ${marketCartEn.totalPrice.toFixed(2)} €`;
+      if (marketCartEn.totalItems > 0) bar.classList.add('active');
+      else bar.classList.remove('active');
+    }
+
+    function openPreorderEn() {
+      if (marketCartEn.totalItems <= 0) return;
+      document.getElementById('orderSuccessMsgEn').classList.add('d-none');
+      document.getElementById('orderItemsPreviewEn').innerText = buildItemsTextEn();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('marketOrderModalEn')).show();
+    }
+
+    function buildItemsEn() {
+      const items = [];
+      Object.keys(marketMenuEn).forEach(key => {
+        if (marketCartEn[key] > 0) items.push({ key, name: marketMenuEn[key].name, qty: marketCartEn[key], price: marketMenuEn[key].price });
+      });
+      return items;
+    }
+
+    function buildItemsTextEn() {
+      return buildItemsEn().map(it => `${it.name} × ${it.qty}`).join(' | ');
+    }
+
+    function nextOrderNumberEn() {
+      const key = 'foodeza_market_order_counter';
+      const v = parseInt(localStorage.getItem(key) || '1000', 10);
+      const next = isNaN(v) ? 1000 : v + 1;
+      localStorage.setItem(key, String(next));
+      return next;
+    }
+
+    function loadOrdersEn() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY_EN) || '[]'); }
+      catch (e) { return []; }
+    }
+
+    function saveOrdersEn(list) {
+      localStorage.setItem(STORAGE_KEY_EN, JSON.stringify(list));
+    }
+
+    function generateOrdersPdfEn(orders) {
+      const PdfCtor = window.jspdf && window.jspdf.jsPDF;
+      if (!PdfCtor) return;
+      const doc = new PdfCtor({ unit: 'mm', format: 'a4' });
+      const margin = 14;
+      const pageW = doc.internal.pageSize.getWidth();
+      const rightX = pageW - margin;
+      let y = 16;
+      const lineH = 5;
+      const need = (mm) => { if (y + mm > 280) { doc.addPage(); y = 16; } };
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(14);
+      doc.text('Foodeza Market Orders', margin, y);
+      y += 8;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.text(`Export: ${new Date().toLocaleString('en-GB')} • Orders: ${orders.length}`, margin, y);
+      y += 10;
+
+      orders.forEach((o, idx) => {
+        need(20);
+        doc.setFont('helvetica', 'bold');
+        doc.text(`#${idx + 1} • Order ${o.orderNumber} • ${o.name}`, margin, y);
+        y += lineH;
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Time: ${new Date(o.orderTime).toLocaleString('en-GB')}`, margin, y);
+        y += lineH;
+        doc.text(`Pickup: ${o.pickupTime}`, margin, y);
+        y += lineH;
+        doc.text(`Total: ${o.total.toFixed(2)} €`, rightX, y, { align: 'right' });
+        y += lineH + 2;
+
+        (o.items || []).forEach(it => {
+          need(8);
+          const txt = `${it.name} × ${it.qty} (${it.price.toFixed(2)} €)`;
+          const wrapped = doc.splitTextToSize(txt, pageW - margin * 2);
+          wrapped.forEach(w => { need(6); doc.text(w, margin, y); y += lineH; });
+        });
+        y += 3;
+        doc.setDrawColor(220);
+        doc.line(margin, y, pageW - margin, y);
+        y += 6;
+      });
+
+      doc.save('Foodeza-Market-Orders.pdf');
+    }
+
+    function resetCartEn() {
+      Object.keys(marketCartEn).forEach(k => { if (k !== 'totalItems' && k !== 'totalPrice') marketCartEn[k] = 0; });
+      marketCartEn.totalItems = 0;
+      marketCartEn.totalPrice = 0;
+      Object.keys(marketMenuEn).forEach(k => {
+        const el = document.getElementById(`qty-${k}-en`);
+        if (el) el.innerText = '0';
+      });
+      updateStickyEn();
+    }
+
+    function submitPreorderEn() {
+      if (marketCartEn.totalItems <= 0) return;
+      const name = (document.getElementById('custNameEn').value || '').trim();
+      const pickup = (document.getElementById('pickupTimeEn').value || '').trim();
+      if (!name) { alert('Please enter your name.'); return; }
+      if (!pickup) { alert('Please select a pickup time.'); return; }
+
+      const items = buildItemsEn();
+      const orderNumber = nextOrderNumberEn();
+      const orderTime = Date.now();
+      const total = marketCartEn.totalPrice;
+      const order = { orderNumber, orderTime, name, pickupTime: pickup, items, total, collected: false };
+
+      const orders = loadOrdersEn();
+      orders.push(order);
+      saveOrdersEn(orders);
+
+      generateOrdersPdfEn(orders);
+
+      const msg = document.getElementById('orderSuccessMsgEn');
+      msg.classList.remove('d-none');
+      msg.innerHTML = `<strong>Order placed!</strong><br>\nOrder number: <strong>${orderNumber}</strong><br>\nTime: ${new Date(orderTime).toLocaleString('en-GB')}<br>\nPickup: ${pickup}<br>\nTotal: <strong>${total.toFixed(2)} €</strong>`;
+
+      resetCartEn();
+    }
+
+    // initial
+    updateStickyEn();
+
+    // Hide sticky bar while modal is open (prevents covering submit button)
+    const modalElEn = document.getElementById('marketOrderModalEn');
+    if (modalElEn) {
+      modalElEn.addEventListener('show.bs.modal', () => {
+        const bar = document.getElementById('sticky-order-bar-en');
+        if (bar) bar.style.display = 'none';
+      });
+      modalElEn.addEventListener('hidden.bs.modal', () => {
+        const bar = document.getElementById('sticky-order-bar-en');
+        if (bar) bar.style.display = '';
+        updateStickyEn();
+      });
+    }
   </script>
   <script src="../js/cookie.js"></script>
 </body>
