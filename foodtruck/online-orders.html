@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Foodeza | Online Orders</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      background: var(--bg-light, #f4f6f8);
+      font-family: var(--font-main, 'Poppins', sans-serif);
+    }
+
+    .topbar {
+      background: var(--text-dark);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      padding: 0.65rem 0;
+    }
+
+    .wrap {
+      max-width: 1200px;
+    }
+
+    .order-card {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .badge-soft {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.30);
+      color: #14532d;
+    }
+
+    .badge-soft-gray {
+      background: rgba(148, 163, 184, 0.20);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: #334155;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .items {
+      font-size: 0.92rem;
+      color: #334155;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar shadow-sm">
+    <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2 wrap">
+      <div class="d-flex align-items-center gap-3">
+        <strong><i class="fas fa-bag-shopping me-2"></i>Online Orders</strong>
+        <span id="clock" class="small opacity-75"></span>
+      </div>
+      <div class="d-flex gap-2 flex-wrap">
+        <button type="button" class="btn btn-sm btn-outline-light" id="refreshBtn">
+          <i class="fas fa-rotate me-1"></i>Refresh
+        </button>
+        <a href="pos.html" class="btn btn-sm btn-outline-light rounded-pill">← POS</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid px-3 py-3 wrap">
+    <div class="row g-3 align-items-end mb-2">
+      <div class="col-md-4">
+        <label class="form-label small text-muted">Date</label>
+        <input id="dateFilter" type="date" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label small text-muted">Show</label>
+        <select id="statusFilter" class="form-select">
+          <option value="all">All</option>
+          <option value="uncollected" selected>Uncollected</option>
+          <option value="collected">Collected</option>
+        </select>
+      </div>
+      <div class="col-md-4 d-flex gap-2 justify-content-md-end">
+        <button type="button" class="btn btn-outline-secondary" id="exportJsonBtn">
+          <i class="fas fa-file-code me-1"></i>Export JSON
+        </button>
+        <button type="button" class="btn btn-outline-secondary" id="clearBtn" title="Clears online orders locally">
+          <i class="fas fa-trash-can me-1"></i>Clear local
+        </button>
+      </div>
+    </div>
+
+    <div class="alert alert-info small">
+      <strong>Source:</strong> Orders created from `market.html` Pre-Order. Stored locally in your browser under
+      <span class="mono">foodeza_market_orders</span>.
+    </div>
+
+    <div id="list" class="d-flex flex-column gap-2"></div>
+  </div>
+
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script>
+    const STORAGE_KEY = 'foodeza_market_orders';
+
+    function nowYmd() {
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd}`;
+    }
+
+    function tick() {
+      document.getElementById('clock').textContent = new Date().toLocaleString('de-DE');
+    }
+
+    function loadOrders() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+      catch (e) { return []; }
+    }
+
+    function saveOrders(list) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    }
+
+    function escapeHtml(s) {
+      if (s == null) return '';
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function orderYmd(order) {
+      if (!order || !order.orderTime) return '';
+      return new Date(order.orderTime).toISOString().slice(0, 10);
+    }
+
+    function isCollected(order) {
+      return !!order.collected;
+    }
+
+    function setCollected(orderNumber, collected) {
+      const orders = loadOrders();
+      const idx = orders.findIndex(o => String(o.orderNumber) === String(orderNumber));
+      if (idx === -1) return;
+      orders[idx].collected = collected;
+      orders[idx].collectedAt = collected ? Date.now() : null;
+      saveOrders(orders);
+      render();
+    }
+
+    function matchesFilters(order, dateVal, statusVal) {
+      if (dateVal) {
+        if (orderYmd(order) !== dateVal) return false;
+      }
+      if (statusVal === 'collected' && !isCollected(order)) return false;
+      if (statusVal === 'uncollected' && isCollected(order)) return false;
+      return true;
+    }
+
+    function render() {
+      const host = document.getElementById('list');
+      const dateVal = document.getElementById('dateFilter').value;
+      const statusVal = document.getElementById('statusFilter').value;
+      const orders = loadOrders().slice().sort((a, b) => (b.orderTime || 0) - (a.orderTime || 0));
+      const filtered = orders.filter(o => matchesFilters(o, dateVal, statusVal));
+
+      if (!filtered.length) {
+        host.innerHTML = '<div class="text-muted small text-center py-4">No orders found.</div>';
+        return;
+      }
+
+      host.innerHTML = '';
+      filtered.forEach(order => {
+        const collected = isCollected(order);
+        const items = (order.items || []).map(it => `${it.name} × ${it.qty}`).join(' | ');
+        const t = order.orderTime ? new Date(order.orderTime).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) : '';
+        const dt = order.orderTime ? new Date(order.orderTime).toLocaleDateString('de-DE') : '';
+        const total = typeof order.total === 'number' ? order.total.toFixed(2).replace('.', ',') + ' €' : '';
+
+        const card = document.createElement('div');
+        card.className = 'order-card p-3';
+        card.innerHTML = `
+          <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap">
+            <div class="min-w-0">
+              <div class="d-flex align-items-center gap-2 flex-wrap">
+                <span class="badge ${collected ? 'badge-soft-gray' : 'badge-soft'} rounded-pill px-3 py-2">
+                  ${collected ? 'Collected' : 'New'}
+                </span>
+                <strong class="mono">#${escapeHtml(order.orderNumber)}</strong>
+                <span class="text-muted small">${escapeHtml(dt)} ${escapeHtml(t)}</span>
+              </div>
+              <div class="mt-2">
+                <div class="small text-muted">Name</div>
+                <div class="fw-semibold">${escapeHtml(order.name || '')}</div>
+              </div>
+              <div class="mt-2">
+                <div class="small text-muted">Pickup</div>
+                <div class="fw-semibold">${escapeHtml(order.pickupTime || '')}</div>
+              </div>
+              <div class="mt-2 items">${escapeHtml(items || '')}</div>
+            </div>
+            <div class="text-end">
+              <div class="small text-muted">Total</div>
+              <div class="fw-bold text-danger fs-5">${escapeHtml(total)}</div>
+              <div class="mt-3 d-flex gap-2 justify-content-end flex-wrap">
+                <button class="btn ${collected ? 'btn-outline-secondary' : 'btn-success'} btn-sm"
+                  data-action="toggle" data-order="${escapeHtml(order.orderNumber)}">
+                  <i class="fas ${collected ? 'fa-rotate-left' : 'fa-check'} me-1"></i>
+                  ${collected ? 'Undo' : 'Collected'}
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        host.appendChild(card);
+      });
+    }
+
+    function exportJson() {
+      const payload = {
+        exportedAt: new Date().toISOString(),
+        orders: loadOrders()
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Foodeza-Online-Orders.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+    }
+
+    document.getElementById('list').addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-action="toggle"]');
+      if (!btn) return;
+      const orderNo = btn.getAttribute('data-order');
+      const orders = loadOrders();
+      const o = orders.find(x => String(x.orderNumber) === String(orderNo));
+      if (!o) return;
+      setCollected(orderNo, !isCollected(o));
+    });
+
+    document.getElementById('refreshBtn').onclick = render;
+    document.getElementById('exportJsonBtn').onclick = exportJson;
+    document.getElementById('clearBtn').onclick = () => {
+      if (!confirm('Clear ALL online orders locally?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      render();
+    };
+    document.getElementById('dateFilter').addEventListener('change', render);
+    document.getElementById('statusFilter').addEventListener('change', render);
+
+    // init
+    document.getElementById('dateFilter').value = nowYmd();
+    tick();
+    setInterval(tick, 1000);
+    render();
+  </script>
+</body>
+
+</html>
+
