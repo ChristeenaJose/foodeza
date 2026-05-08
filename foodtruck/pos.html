@@ -202,6 +202,12 @@
             <li><button type="button" class="dropdown-item" id="pos-btn-export-jsonl">Rohdaten JSON Lines (.jsonl)</button></li>
           </ul>
         </div>
+        <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-view-orders" title="Gespeicherte Bestellungen ansehen">
+          <i class="fas fa-list-check me-1"></i>Bestellungen
+        </button>
+        <a href="online-orders.html" class="btn btn-sm btn-outline-light" title="Online Bestellungen (Vorbestellen)">
+          <i class="fas fa-bag-shopping me-1"></i>Online Orders
+        </a>
         <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-journal-pdf" title="Heute als PDF">
           <i class="fas fa-file-pdf me-1"></i>PDF heute
         </button>
@@ -341,6 +347,49 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
           <button type="button" class="btn btn-danger" id="pos-custom-add">In Warenkorb</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders viewer modal -->
+  <div class="modal fade" id="pos-modal-orders" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Gespeicherte Bestellungen</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info small mb-3">
+            <strong>Hinweis:</strong> Bestellungen werden lokal in diesem Browser gespeichert. Downloads findest du in deinem
+            <strong>Downloads</strong>-Ordner (oder im Browser-Download-Menü).
+          </div>
+
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <button type="button" class="btn btn-sm btn-outline-secondary" id="pos-orders-refresh">
+              <i class="fas fa-rotate me-1"></i>Aktualisieren
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" id="pos-orders-clear">
+              <i class="fas fa-trash-can me-1"></i>Alle löschen (lokal)
+            </button>
+            <div class="ms-auto d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-sm btn-outline-primary" id="pos-orders-download-csv">
+                <i class="fas fa-file-csv me-1"></i>CSV
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-primary" id="pos-orders-download-json">
+                <i class="fas fa-file-code me-1"></i>JSON
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-primary" id="pos-orders-download-jsonl">
+                <i class="fas fa-file-lines me-1"></i>JSONL
+              </button>
+            </div>
+          </div>
+
+          <div id="pos-orders-list" class="list-group"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
         </div>
       </div>
     </div>
@@ -1218,6 +1267,51 @@
     refreshSessionFooter();
     tickClock();
     setInterval(tickClock, 1000);
+
+    function renderOrdersModal() {
+      var host = document.getElementById('pos-orders-list');
+      if (!host) return;
+      var orders = readAllOrders();
+      if (!orders.length) {
+        host.innerHTML = '<div class="text-muted small py-3 text-center">Noch keine Bestellungen gespeichert.</div>';
+        return;
+      }
+      orders.sort(function (a, b) { return (b.ts || 0) - (a.ts || 0); });
+      host.innerHTML = '';
+      orders.slice(0, 200).forEach(function (o) {
+        var dt = o.ts ? new Date(o.ts).toLocaleString('de-DE') : '';
+        var items = o.itemsSummary || linesToItemsSummary(o.lines || []);
+        var row = document.createElement('div');
+        row.className = 'list-group-item';
+        row.innerHTML =
+          '<div class="d-flex justify-content-between align-items-start gap-3">' +
+          '<div class="min-w-0">' +
+          '<div class="fw-semibold small">#' + escapeHtml(o.id || '') + ' · ' + escapeHtml(dt) + '</div>' +
+          '<div class="text-muted small text-truncate">' + escapeHtml(items) + '</div>' +
+          '</div>' +
+          '<div class="text-end flex-shrink-0">' +
+          '<div class="fw-bold small text-danger">' + euros(o.totalCents || 0) + '</div>' +
+          '<div class="text-muted small">' + escapeHtml(o.payment || '') + '</div>' +
+          '</div>' +
+          '</div>';
+        host.appendChild(row);
+      });
+    }
+
+    document.getElementById('pos-btn-view-orders').onclick = function () {
+      renderOrdersModal();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('pos-modal-orders')).show();
+    };
+    document.getElementById('pos-orders-refresh').onclick = renderOrdersModal;
+    document.getElementById('pos-orders-download-csv').onclick = downloadSummaryCsv;
+    document.getElementById('pos-orders-download-json').onclick = downloadSummaryJson;
+    document.getElementById('pos-orders-download-jsonl').onclick = downloadAllOrdersJsonl;
+    document.getElementById('pos-orders-clear').onclick = function () {
+      if (!confirm('Alle lokal gespeicherten Bestellungen wirklich löschen?')) return;
+      try { localStorage.removeItem(ORDERS_JSONL_KEY); } catch (e) { }
+      refreshSessionFooter();
+      renderOrdersModal();
+    };
 
   </script>
 </body>

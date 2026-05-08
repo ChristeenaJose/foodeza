@@ -46,6 +46,47 @@
     .hero-market-flyer:hover img {
       transform: none !important;
     }
+
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65);
+      animation: livePulse 1.35s infinite;
+    }
+
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65); }
+      70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0.0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.0); }
+    }
+
+    /* Ensure checkout button is always reachable on mobile */
+    #marketOrderModal .modal-content {
+      max-height: min(92vh, 720px);
+    }
+
+    #marketOrderModal .modal-body {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Modal buttons: avoid global .btn overrides from style.css */
+    #marketOrderModal .btn-ft {
+      text-decoration: none;
+    }
+
+    /* Keep sticky bar behind Bootstrap modal */
+    #sticky-order-bar {
+      z-index: 1040;
+    }
   </style>
 </head>
 
@@ -170,15 +211,16 @@
         <div class="col-lg-10">
           <div class="bg-light rounded-4 p-4 p-md-5 shadow-sm"
             style="border: 1px solid rgba(0,0,0,0.06);">
-            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-3">
-              <div>
-                <span class="badge bg-danger text-white rounded-pill px-3 py-1 mb-2"
-                  style="font-size: 0.75rem; letter-spacing: 0.5px;">STUTTGART FEUERSEE</span>
-                  <span class="badge bg-danger text-white rounded-pill px-3 py-1 mb-2"
-                  style="font-size: 0.75rem; letter-spacing: 0.5px;">Karlsruhe Durlacher</span>
+            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-2">
+              <div class="text-muted small live-indicator" style="white-space: nowrap;">
+                <span class="live-dot" aria-hidden="true"></span>
+                <strong>Karlsruhe Durlacher</strong>
+                <span class="opacity-75">•</span>
+                <span><strong>May 8, 2026</strong></span>
               </div>
-              <div class="text-muted small" style="white-space: nowrap;">
-                <i class="fas fa-rotate me-1"></i><strong>Stand: 8. Mai 2026</strong>
+              <div class="small px-3 py-2 rounded-pill"
+                style="background: rgba(34, 197, 94, 0.10); border: 1px solid rgba(34, 197, 94, 0.35); color: #14532d;">
+                <strong>Tap + to add items to Pre-Order.</strong>
               </div>
             </div>
 
@@ -194,7 +236,10 @@
                     <span><s>Paneer Butter Masala (veg)</s> <span class="badge bg-secondary text-white rounded-pill ms-1" style="font-size: 0.7rem;">Ausverkauft</span></span>
                     <span class="fw-semibold"><s>7,50&nbsp;&euro;</s></span>
                   </li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Dal Spinach (Vegan)</span><span class="fw-semibold">6,50&nbsp;&euro;</span></li>
+                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
+                    <span><s>Dal Spinach (Vegan)</s> <span class="badge bg-secondary text-white rounded-pill ms-1" style="font-size: 0.7rem;">Ausverkauft</span></span>
+                    <span class="fw-semibold"><s>6,50&nbsp;&euro;</s></span>
+                  </li>
                 </ul>
                 <div class="text-muted" style="font-size: 0.95rem;">Mit Reis oder Porotta</div>
 
@@ -206,23 +251,93 @@
                     <span><s>Masala Dosa</s> <span class="badge bg-secondary text-white rounded-pill ms-1" style="font-size: 0.7rem;">Ausverkauft</span></span>
                     <span class="fw-semibold"><s>9,80&nbsp;&euro;</s></span>
                   </li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken Kothu Porotta</span><span class="fw-semibold">11,80&nbsp;&euro;</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken Biriyani</span><span class="fw-semibold">10,90&nbsp;&euro;</span></li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Chicken Kothu Porotta</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">11,80&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('kothu', -1, 11.8)">−</button>
+                        <span class="qty-number" id="qty-kothu">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('kothu', 1, 11.8)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Chicken Biriyani</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">10,90&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('biriyani', -1, 10.9)">−</button>
+                        <span class="qty-number" id="qty-biriyani">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('biriyani', 1, 10.9)">+</button>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Snacks</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Pazhampori (3 pcs)</span><span class="fw-semibold">3,90&nbsp;&euro;</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Chicken Cutlet (2 pcs)</span><span class="fw-semibold">4,80&nbsp;&euro;</span></li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Pazhampori (3 pcs)</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3,90&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('pazhampori', -1, 3.9)">−</button>
+                        <span class="qty-number" id="qty-pazhampori">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('pazhampori', 1, 3.9)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Chicken Cutlet (2 pcs)</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">4,80&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('cutlet', -1, 4.8)">−</button>
+                        <span class="qty-number" id="qty-cutlet">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('cutlet', 1, 4.8)">+</button>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Drinks</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Indian Tea</span><span class="fw-semibold">2,00&nbsp;&euro;</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Mango Lassi</span><span class="fw-semibold">3,00&nbsp;&euro;</span></li>
-                  <li class="d-flex justify-content-between gap-3 py-1"><span>Mojito</span><span class="fw-semibold">3,80&nbsp;&euro;</span></li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Indian Tea</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">2,00&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('tea', -1, 2.0)">−</button>
+                        <span class="qty-number" id="qty-tea">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('tea', 1, 2.0)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Mango Lassi</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3,00&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('lassi', -1, 3.0)">−</button>
+                        <span class="qty-number" id="qty-lassi">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('lassi', 1, 3.0)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Mojito</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3,80&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('mojito', -1, 3.8)">−</button>
+                        <span class="qty-number" id="qty-mojito">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('mojito', 1, 3.8)">+</button>
+                      </div>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -231,6 +346,76 @@
       </div>
     </div>
   </section>
+
+  <!-- Sticky Order Bar -->
+  <div id="sticky-order-bar" class="sticky-order-bar">
+    <div class="order-info">
+      <span class="order-count" id="order-count">0 Artikel</span>
+      <span class="order-total" id="order-total">Summe: 0,00 €</span>
+    </div>
+    <button onclick="openPreorder()" class="order-submit-btn">Vorbestellen (Pre-order)</button>
+  </div>
+
+  <!-- Preorder Modal -->
+  <div class="modal fade" id="marketOrderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" style="border-radius: 18px;">
+        <div class="modal-header">
+          <h5 class="modal-title">Vorbestellen</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="orderSuccessMsg" class="alert alert-success d-none" role="alert"></div>
+
+          <div class="mb-3">
+            <label class="form-label small">Name</label>
+            <input id="custName" type="text" class="form-control" placeholder="Dein Name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label small">Pickup time (Abholzeit)</label>
+            <select id="pickupTime" class="form-select">
+              <option value="" selected>Bitte wählen…</option>
+              <option value="10:30">10:30 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="11:30">11:30 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="12:30">12:30 PM</option>
+              <option value="13:00">1:00 PM</option>
+              <option value="13:30">1:30 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="14:30">2:30 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="15:30">3:30 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="16:30">4:30 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="17:30">5:30 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="18:30">6:30 PM</option>
+              <option value="19:00">7:00 PM</option>
+              <option value="19:30">7:30 PM</option>
+              <option value="20:00">8:00 PM</option>
+              <option value="20:30">8:30 PM</option>
+              <option value="21:00">9:00 PM</option>
+            </select>
+            <div class="form-text">Pickup window: 10:30 – 21:00</div>
+          </div>
+
+          <div class="mb-2">
+            <label class="form-label small">Bestellung</label>
+            <div id="orderItemsPreview" class="small text-muted"></div>
+          </div>
+
+          <div class="pt-2 border-top"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ft btn-ft-secondary" data-bs-dismiss="modal">Schließen</button>
+          <button type="button" class="btn-ft btn-ft-primary" onclick="submitPreorder()">Submit order</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer CTA -->
   <footer class="py-5 reveal" style="background: var(--text-dark); color: white;">
@@ -261,6 +446,7 @@
   <!-- Scripts -->
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.5.3.7.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
   <script>
     // Scroll Reveal Animation
     const observerOptions = {
@@ -298,6 +484,195 @@
         card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
       });
     });
+  </script>
+
+  <script>
+    // Ordering cart for all available items (no separate section)
+    const marketCart = {
+      pazhampori: 0,
+      cutlet: 0,
+      kothu: 0,
+      biriyani: 0,
+      tea: 0,
+      lassi: 0,
+      mojito: 0,
+      totalItems: 0,
+      totalPrice: 0
+    };
+
+    const marketMenu = {
+      pazhampori: { name: 'Pazhampori (3 pcs)', price: 3.9 },
+      cutlet: { name: 'Chicken Cutlet (2 pcs)', price: 4.8 },
+      kothu: { name: 'Chicken Kothu Porotta', price: 11.8 },
+      biriyani: { name: 'Chicken Biriyani', price: 10.9 },
+      tea: { name: 'Indian Tea', price: 2.0 },
+      lassi: { name: 'Mango Lassi', price: 3.0 },
+      mojito: { name: 'Mojito', price: 3.8 }
+    };
+
+    function updateQty(item, change, price) {
+      if (!marketCart.hasOwnProperty(item)) return;
+      if (marketCart[item] + change < 0) return;
+
+      marketCart[item] += change;
+      marketCart.totalItems += change;
+      marketCart.totalPrice += (change * price);
+
+      const el = document.getElementById(`qty-${item}`);
+      if (el) el.innerText = marketCart[item];
+
+      updateSticky();
+    }
+
+    function updateSticky() {
+      const bar = document.getElementById('sticky-order-bar');
+      const countEl = document.getElementById('order-count');
+      const totalEl = document.getElementById('order-total');
+      if (!bar || !countEl || !totalEl) return;
+
+      countEl.innerText = `${marketCart.totalItems} Artikel`;
+      totalEl.innerText = `Summe: ${marketCart.totalPrice.toFixed(2).replace('.', ',')} €`;
+      if (marketCart.totalItems > 0) bar.classList.add('active');
+      else bar.classList.remove('active');
+    }
+
+    function openPreorder() {
+      if (marketCart.totalItems <= 0) return;
+      document.getElementById('orderSuccessMsg').classList.add('d-none');
+      document.getElementById('orderItemsPreview').innerText = buildItemsText();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('marketOrderModal')).show();
+    }
+
+    function buildItems() {
+      const items = [];
+      Object.keys(marketMenu).forEach(key => {
+        if (marketCart[key] > 0) items.push({ key, name: marketMenu[key].name, qty: marketCart[key], price: marketMenu[key].price });
+      });
+      return items;
+    }
+
+    function buildItemsText() {
+      return buildItems().map(it => `${it.name} × ${it.qty}`).join(' | ');
+    }
+
+    function nextOrderNumber() {
+      const key = 'foodeza_market_order_counter';
+      const v = parseInt(localStorage.getItem(key) || '1000', 10);
+      const next = isNaN(v) ? 1000 : v + 1;
+      localStorage.setItem(key, String(next));
+      return next;
+    }
+
+    function loadOrders() {
+      try { return JSON.parse(localStorage.getItem('foodeza_market_orders') || '[]'); }
+      catch (e) { return []; }
+    }
+
+    function saveOrders(list) {
+      localStorage.setItem('foodeza_market_orders', JSON.stringify(list));
+    }
+
+    function generateOrdersPdf(orders) {
+      const PdfCtor = window.jspdf && window.jspdf.jsPDF;
+      if (!PdfCtor) return;
+      const doc = new PdfCtor({ unit: 'mm', format: 'a4' });
+      const margin = 14;
+      const pageW = doc.internal.pageSize.getWidth();
+      const rightX = pageW - margin;
+      let y = 16;
+      const lineH = 5;
+      const need = (mm) => { if (y + mm > 280) { doc.addPage(); y = 16; } };
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(14);
+      doc.text('Foodeza Market Orders', margin, y);
+      y += 8;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      doc.text(`Export: ${new Date().toLocaleString('de-DE')} • Bestellungen: ${orders.length}`, margin, y);
+      y += 10;
+
+      orders.forEach((o, idx) => {
+        need(20);
+        doc.setFont('helvetica', 'bold');
+        doc.text(`#${idx + 1} • Order ${o.orderNumber} • ${o.name}`, margin, y);
+        y += lineH;
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Zeit: ${new Date(o.orderTime).toLocaleString('de-DE')}`, margin, y);
+        y += lineH;
+        doc.text(`Pickup: ${o.pickupTime}`, margin, y);
+        y += lineH;
+        doc.text(`Total: ${o.total.toFixed(2).replace('.', ',')} €`, rightX, y, { align: 'right' });
+        y += lineH + 2;
+
+        (o.items || []).forEach(it => {
+          need(8);
+          const txt = `${it.name} × ${it.qty} (${it.price.toFixed(2).replace('.', ',')} €)`;
+          const wrapped = doc.splitTextToSize(txt, pageW - margin * 2);
+          wrapped.forEach(w => { need(6); doc.text(w, margin, y); y += lineH; });
+        });
+        y += 3;
+        doc.setDrawColor(220);
+        doc.line(margin, y, pageW - margin, y);
+        y += 6;
+      });
+
+      doc.save('Foodeza-Market-Orders.pdf');
+    }
+
+    function resetCart() {
+      Object.keys(marketCart).forEach(k => { if (k !== 'totalItems' && k !== 'totalPrice') marketCart[k] = 0; });
+      marketCart.totalItems = 0;
+      marketCart.totalPrice = 0;
+      Object.keys(marketMenu).forEach(k => {
+        const el = document.getElementById(`qty-${k}`);
+        if (el) el.innerText = '0';
+      });
+      updateSticky();
+    }
+
+    function submitPreorder() {
+      if (marketCart.totalItems <= 0) return;
+      const name = (document.getElementById('custName').value || '').trim();
+      const pickup = (document.getElementById('pickupTime').value || '').trim();
+      if (!name) { alert('Bitte Name eingeben.'); return; }
+      if (!pickup) { alert('Bitte Abholzeit wählen.'); return; }
+
+      const items = buildItems();
+      const orderNumber = nextOrderNumber();
+      const orderTime = Date.now();
+      const total = marketCart.totalPrice;
+      const order = { orderNumber, orderTime, name, pickupTime: pickup, items, total };
+
+      const orders = loadOrders();
+      orders.push(order);
+      saveOrders(orders);
+
+      generateOrdersPdf(orders);
+
+      const msg = document.getElementById('orderSuccessMsg');
+      msg.classList.remove('d-none');
+      msg.innerHTML = `<strong>Order placed!</strong><br>\nBestellnummer: <strong>${orderNumber}</strong><br>\nZeit: ${new Date(orderTime).toLocaleString('de-DE')}<br>\nPickup: ${pickup}<br>\nTotal: <strong>${total.toFixed(2).replace('.', ',')} €</strong>`;
+
+      resetCart();
+    }
+
+    // initial
+    updateSticky();
+
+    // Hide sticky bar while modal is open (prevents covering Submit button on some screens)
+    const modalEl = document.getElementById('marketOrderModal');
+    if (modalEl) {
+      modalEl.addEventListener('show.bs.modal', () => {
+        const bar = document.getElementById('sticky-order-bar');
+        if (bar) bar.style.display = 'none';
+      });
+      modalEl.addEventListener('hidden.bs.modal', () => {
+        const bar = document.getElementById('sticky-order-bar');
+        if (bar) bar.style.display = '';
+        updateSticky();
+      });
+    }
   </script>
 
   <script src="../js/cookie.js"></script>
