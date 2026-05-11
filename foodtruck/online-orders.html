@@ -75,6 +75,9 @@
         <button type="button" class="btn btn-sm btn-outline-light" id="refreshBtn">
           <i class="fas fa-rotate me-1"></i>Aktualisieren
         </button>
+        <button type="button" class="btn btn-sm btn-outline-light" id="ordersChangeKeyBtn" title="API-Schlüssel neu eingeben">
+          <i class="fas fa-key me-1"></i>API-Schlüssel
+        </button>
         <label class="btn btn-sm btn-outline-light mb-0 rounded-pill" style="cursor: pointer;">
           <i class="fas fa-file-import me-1"></i>JSON importieren
           <input id="importJsonInput" type="file" accept="application/json,.json" class="d-none">
@@ -102,29 +105,53 @@
         <button type="button" class="btn btn-outline-secondary" id="exportJsonBtn">
           <i class="fas fa-file-code me-1"></i>JSON exportieren
         </button>
-        <button type="button" class="btn btn-outline-secondary" id="clearBtn" title="Löscht alle Einträge im Browser">
-          <i class="fas fa-trash-can me-1"></i>Lokal leeren
+        <button type="button" class="btn btn-outline-secondary" id="clearBtn" title="Löscht alle Einträge in orders.json auf dem Server">
+          <i class="fas fa-trash-can me-1"></i>Server leeren
         </button>
       </div>
     </div>
 
-    <div class="alert alert-info small">
-      <strong>Speicher:</strong> Bestellungen aus <code>market.html</code> liegen im Browser unter
-      <span class="mono">foodeza_online_orders</span> (früher <span class="mono">foodeza_market_orders</span> — wird beim ersten Aufruf übernommen).
-      Zusätzlich werden beim Laden Bestellungen aus der Datei
-      <span class="mono">files/generated/online-order/market/orders.json</span> eingespielt (falls auf dem Server vorhanden).
-      <strong>Hinweis:</strong> Ohne eigenes Backend erscheinen Handy-Bestellungen nur auf dem jeweiligen Gerät — für eine zentrale Datei auf dem Server die JSON dort per FTP/deploy aktualisieren oder JSON importieren.
+    <div id="ordersLoadError" class="alert alert-danger small d-none mb-2" role="alert"></div>
+
+    <div class="alert alert-info small mb-0">
+      <strong>Server:</strong> Die Rohdatei <span class="mono">orders.json</span> ist per
+      <strong>.htaccess</strong> (Apache) bzw. <strong>web.config</strong> (IIS) für direkte URLs gesperrt — von außen nicht abrufbar.
+      Bei <strong>Nginx</strong> greift <span class="mono">.htaccess</span> nicht: dort ein <span class="mono">location</span> mit <span class="mono">deny all</span> bzw. <span class="mono">return 403</span> für genau diese URL setzen.
+      Nur <span class="mono">api/market-orders.php</span> liest/schreibt auf dem Server; die Übersicht hier nur mit Ihrem
+      <strong>API-Schlüssel</strong> (<span class="mono">foodeza-orders-config.php</span>). Kunden senden weiterhin per
+      <code>market.html</code> (POST, ohne Schlüssel). Optional: in der Config <span class="mono">orders_file</span> auf einen Ordner
+      <strong>außerhalb</strong> des Webroots setzen (siehe Beispiel-Config).
     </div>
 
-    <div id="list" class="d-flex flex-column gap-2"></div>
+    <div id="list" class="d-flex flex-column gap-2 mt-3"></div>
+  </div>
+
+  <div class="modal fade" id="ordersApiKeyModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="ordersApiKeyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ordersApiKeyModalLabel">API-Schlüssel</h5>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted">Ohne gültigen Schlüssel können keine Bestellungen vom Server geladen werden.</p>
+          <label for="ordersApiKeyInput" class="form-label">Geheimnis (<code>secret</code> in der Config auf dem Server)</label>
+          <input type="password" id="ordersApiKeyInput" class="form-control" autocomplete="off" maxlength="512"
+            placeholder="Einfügen und speichern">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" id="ordersApiKeySave">Speichern &amp; laden</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="../js/bootstrap.5.3.7.js"></script>
   <script>
-    const STORAGE_KEY = 'foodeza_online_orders';
-    const LEGACY_KEY = 'foodeza_market_orders';
-    /** Relativ zu dieser Seite (foodtruck/): Server-JSON für manuell gepflegte / deployte Bestellungen */
-    const SERVER_MARKET_ORDERS_JSON = 'files/generated/online-order/market/orders.json';
+    const API_BASE = 'api/market-orders.php';
+    const API_KEY_STORAGE = 'foodeza_market_orders_api_secret';
+
+    let ordersCache = [];
 
     function nowYmd() {
       const d = new Date();
@@ -138,36 +165,86 @@
       document.getElementById('clock').textContent = new Date().toLocaleString('de-DE');
     }
 
-    function migrateLegacy() {
+    function getApiKey() {
+      try { return sessionStorage.getItem(API_KEY_STORAGE) || ''; } catch (e) { return ''; }
+    }
+
+    function setApiKey(value) {
       try {
-        const cur = localStorage.getItem(STORAGE_KEY);
-        if (cur && cur !== '[]' && cur !== 'null') return;
-        const leg = localStorage.getItem(LEGACY_KEY);
-        if (leg && leg !== '[]' && leg !== 'null') {
-          localStorage.setItem(STORAGE_KEY, leg);
-        }
+        sessionStorage.setItem(API_KEY_STORAGE, value);
       } catch (e) { /* ignore */ }
     }
 
-    function loadOrders() {
-      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
-      catch (e) { return []; }
+    function authHeaders() {
+      const k = getApiKey();
+      const h = { 'Content-Type': 'application/json' };
+      if (k) {
+        h['Authorization'] = 'Bearer ' + k;
+        h['X-Api-Key'] = k;
+      }
+      return h;
     }
 
-    function saveOrders(list) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    function showLoadError(msg) {
+      const el = document.getElementById('ordersLoadError');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.remove('d-none');
+    }
+
+    function hideLoadError() {
+      const el = document.getElementById('ordersLoadError');
+      if (!el) return;
+      el.classList.add('d-none');
+      el.textContent = '';
+    }
+
+    async function loadOrdersFromApi() {
+      const r = await fetch(API_BASE, { method: 'GET', headers: authHeaders(), cache: 'no-store' });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) {
+        const err = (data && data.error) ? data.error : ('HTTP ' + r.status);
+        throw new Error(err);
+      }
+      ordersCache = Array.isArray(data.orders) ? data.orders : [];
+    }
+
+    async function putOrdersToServer(orders) {
+      const r = await fetch(API_BASE, {
+        method: 'PUT',
+        headers: authHeaders(),
+        body: JSON.stringify({ orders }),
+      });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok || !data.ok) {
+        const err = (data && data.error) ? data.error : ('HTTP ' + r.status);
+        throw new Error(err);
+      }
+    }
+
+    async function patchOrderOnServer(orderNumber, collected) {
+      const r = await fetch(API_BASE, {
+        method: 'PATCH',
+        headers: authHeaders(),
+        body: JSON.stringify({ orderNumber, collected }),
+      });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok || !data.ok) {
+        const err = (data && data.error) ? data.error : ('HTTP ' + r.status);
+        throw new Error(err);
+      }
     }
 
     function mergeOrdersByNumber(existing, incoming) {
       const seen = new Set(existing.map(o => String(o.orderNumber)));
-      let added = 0;
+      const out = existing.slice();
       (incoming || []).forEach(o => {
         if (!o || o.orderNumber == null) return;
         const id = String(o.orderNumber);
         if (!seen.has(id)) {
           seen.add(id);
-          existing.push({
-            source: o.source || 'file',
+          out.push({
+            source: o.source || 'import',
             orderNumber: o.orderNumber,
             orderTime: o.orderTime || Date.now(),
             name: o.name || '',
@@ -177,25 +254,9 @@
             collected: !!o.collected,
             collectedAt: o.collectedAt || null
           });
-          added++;
         }
       });
-      return added;
-    }
-
-    async function mergeFromServerJsonFile() {
-      try {
-        const r = await fetch(SERVER_MARKET_ORDERS_JSON, { cache: 'no-store' });
-        if (!r.ok) return 0;
-        const data = await r.json();
-        const fileOrders = Array.isArray(data) ? data : (data.orders || []);
-        const local = loadOrders();
-        const n = mergeOrdersByNumber(local, fileOrders);
-        if (n) saveOrders(local);
-        return n;
-      } catch (e) {
-        return 0;
-      }
+      return out;
     }
 
     function escapeHtml(s) {
@@ -212,14 +273,15 @@
       return !!order.collected;
     }
 
-    function setCollected(orderNumber, collected) {
-      const orders = loadOrders();
-      const idx = orders.findIndex(o => String(o.orderNumber) === String(orderNumber));
-      if (idx === -1) return;
-      orders[idx].collected = collected;
-      orders[idx].collectedAt = collected ? Date.now() : null;
-      saveOrders(orders);
-      render();
+    async function setCollected(orderNumber, collected) {
+      try {
+        await patchOrderOnServer(orderNumber, collected);
+        await loadOrdersFromApi();
+        hideLoadError();
+        render();
+      } catch (e) {
+        alert('Speichern fehlgeschlagen: ' + (e.message || e));
+      }
     }
 
     function matchesFilters(order, dateVal, statusVal) {
@@ -235,7 +297,7 @@
       const host = document.getElementById('list');
       const dateVal = document.getElementById('dateFilter').value;
       const statusVal = document.getElementById('statusFilter').value;
-      const orders = loadOrders().slice().sort((a, b) => (b.orderTime || 0) - (a.orderTime || 0));
+      const orders = ordersCache.slice().sort((a, b) => (b.orderTime || 0) - (a.orderTime || 0));
       const filtered = orders.filter(o => matchesFilters(o, dateVal, statusVal));
 
       if (!filtered.length) {
@@ -295,7 +357,7 @@
     function exportJson() {
       const payload = {
         exportedAt: new Date().toISOString(),
-        orders: loadOrders()
+        orders: ordersCache.slice()
       };
       const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
       const url = URL.createObjectURL(blob);
@@ -310,17 +372,20 @@
 
     function importJsonFile(file) {
       const reader = new FileReader();
-      reader.onload = () => {
+      reader.onload = async () => {
         try {
           const parsed = JSON.parse(reader.result);
           const arr = Array.isArray(parsed) ? parsed : (parsed.orders || []);
-          const local = loadOrders();
-          const n = mergeOrdersByNumber(local, arr);
-          saveOrders(local);
-          alert(n ? `${n} neue Bestellung(en) importiert.` : 'Keine neuen Bestellungen (Nummern schon vorhanden).');
+          const before = ordersCache.length;
+          const merged = mergeOrdersByNumber(ordersCache, arr);
+          const added = merged.length - before;
+          await putOrdersToServer(merged);
+          await loadOrdersFromApi();
+          hideLoadError();
           render();
+          alert(added ? `${added} neue Bestellung(en) importiert und auf dem Server gespeichert.` : 'Keine neuen Nummern — Liste wurde trotzdem auf den Server geschrieben.');
         } catch (err) {
-          alert('JSON konnte nicht gelesen werden.');
+          alert('Import oder Upload fehlgeschlagen: ' + (err.message || err));
         }
       };
       reader.readAsText(file, 'UTF-8');
@@ -330,14 +395,19 @@
       const btn = e.target.closest('button[data-action="toggle"]');
       if (!btn) return;
       const orderNo = btn.getAttribute('data-order');
-      const orders = loadOrders();
-      const o = orders.find(x => String(x.orderNumber) === String(orderNo));
+      const o = ordersCache.find(x => String(x.orderNumber) === String(orderNo));
       if (!o) return;
       setCollected(orderNo, !isCollected(o));
     });
 
-    document.getElementById('refreshBtn').onclick = () => {
-      mergeFromServerJsonFile().then(() => render());
+    document.getElementById('refreshBtn').onclick = async () => {
+      try {
+        await loadOrdersFromApi();
+        hideLoadError();
+        render();
+      } catch (e) {
+        showLoadError('Aktualisieren fehlgeschlagen: ' + (e.message || e) + '. API-Schlüssel prüfen oder PHP-API deployen.');
+      }
     };
     document.getElementById('exportJsonBtn').onclick = exportJson;
     document.getElementById('importJsonInput').addEventListener('change', (e) => {
@@ -345,20 +415,69 @@
       e.target.value = '';
       if (f) importJsonFile(f);
     });
-    document.getElementById('clearBtn').onclick = () => {
-      if (!confirm('Alle Online-Bestellungen im Browser löschen?')) return;
-      localStorage.removeItem(STORAGE_KEY);
-      render();
+    document.getElementById('clearBtn').onclick = async () => {
+      if (!confirm('Alle Bestellungen auf dem Server unwiderruflich löschen?')) return;
+      try {
+        await putOrdersToServer([]);
+        await loadOrdersFromApi();
+        hideLoadError();
+        render();
+      } catch (err) {
+        alert('Löschen fehlgeschlagen: ' + (err.message || err));
+      }
     };
     document.getElementById('dateFilter').addEventListener('change', render);
     document.getElementById('statusFilter').addEventListener('change', render);
 
+    function showApiKeyModal() {
+      const m = document.getElementById('ordersApiKeyModal');
+      if (!m) return;
+      const input = document.getElementById('ordersApiKeyInput');
+      if (input) input.value = '';
+      bootstrap.Modal.getOrCreateInstance(m).show();
+    }
+
+    document.getElementById('ordersChangeKeyBtn').onclick = () => {
+      try { sessionStorage.removeItem(API_KEY_STORAGE); } catch (e) { /* ignore */ }
+      showApiKeyModal();
+    };
+
+    document.getElementById('ordersApiKeySave').onclick = async () => {
+      const input = document.getElementById('ordersApiKeyInput');
+      const v = (input && input.value) ? input.value.trim() : '';
+      if (v.length < 16) {
+        alert('Bitte mindestens 16 Zeichen (wie in foodeza-orders-config.php auf dem Server).');
+        return;
+      }
+      setApiKey(v);
+      try {
+        await loadOrdersFromApi();
+        hideLoadError();
+        bootstrap.Modal.getOrCreateInstance(document.getElementById('ordersApiKeyModal')).hide();
+        document.getElementById('dateFilter').value = nowYmd();
+        render();
+      } catch (e) {
+        try { sessionStorage.removeItem(API_KEY_STORAGE); } catch (x) { /* ignore */ }
+        showLoadError('Laden fehlgeschlagen: ' + (e.message || e) + '. Schlüssel oder api/market-orders.php prüfen.');
+        alert('Schlüssel ungültig oder Server-Fehler. Bitte Config auf dem Webspace prüfen.');
+      }
+    };
+
     (async function init() {
-      migrateLegacy();
-      await mergeFromServerJsonFile();
       document.getElementById('dateFilter').value = nowYmd();
       tick();
       setInterval(tick, 1000);
+      if (!getApiKey()) {
+        showApiKeyModal();
+        render();
+        return;
+      }
+      try {
+        await loadOrdersFromApi();
+        hideLoadError();
+      } catch (e) {
+        showLoadError('Server: ' + (e.message || e));
+      }
       render();
     })();
   </script>

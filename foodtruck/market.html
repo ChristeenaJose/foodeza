@@ -559,37 +559,15 @@
       return buildItems().map(it => `${it.name} × ${it.qty}`).join(' | ');
     }
 
-    const ONLINE_ORDERS_KEY = 'foodeza_online_orders';
-    const LEGACY_ORDERS_KEY = 'foodeza_market_orders';
-    const ONLINE_COUNTER_KEY = 'foodeza_online_order_counter';
-    const LEGACY_COUNTER_KEY = 'foodeza_market_order_counter';
+    const MARKET_ORDERS_API = 'api/market-orders.php';
 
-    function nextOrderNumber() {
-      let v = parseInt(localStorage.getItem(ONLINE_COUNTER_KEY) || '', 10);
-      if (isNaN(v)) {
-        v = parseInt(localStorage.getItem(LEGACY_COUNTER_KEY) || '1000', 10);
-      }
-      const next = isNaN(v) ? 1000 : v + 1;
-      localStorage.setItem(ONLINE_COUNTER_KEY, String(next));
-      return next;
-    }
-
-    function loadOrders() {
-      try {
-        let raw = localStorage.getItem(ONLINE_ORDERS_KEY);
-        if (!raw || raw === '[]') {
-          const leg = localStorage.getItem(LEGACY_ORDERS_KEY);
-          if (leg && leg !== '[]') {
-            localStorage.setItem(ONLINE_ORDERS_KEY, leg);
-            raw = leg;
-          }
-        }
-        return JSON.parse(raw || '[]');
-      } catch (e) { return []; }
-    }
-
-    function saveOrders(list) {
-      localStorage.setItem(ONLINE_ORDERS_KEY, JSON.stringify(list));
+    function escapeHtml(s) {
+      if (s == null) return '';
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     }
 
     function resetCart() {
@@ -603,7 +581,7 @@
       updateSticky();
     }
 
-    function submitPreorder() {
+    async function submitPreorder() {
       if (marketCart.totalItems <= 0) return;
       const name = (document.getElementById('custName').value || '').trim();
       const pickup = (document.getElementById('pickupTime').value || '').trim();
@@ -611,20 +589,38 @@
       if (!pickup) { alert('Bitte Abholzeit wählen.'); return; }
 
       const items = buildItems();
-      const orderNumber = nextOrderNumber();
-      const orderTime = Date.now();
       const total = marketCart.totalPrice;
-      const order = { source: 'market', orderNumber, orderTime, name, pickupTime: pickup, items, total, collected: false };
+      const body = { action: 'append', order: { source: 'market', name, pickupTime: pickup, items, total } };
+      const btn = document.getElementById('preorderSubmitBtn');
+      if (btn) btn.disabled = true;
 
-      const orders = loadOrders();
-      orders.push(order);
-      saveOrders(orders);
-
-      const msg = document.getElementById('orderSuccessMsg');
-      msg.innerHTML = `<strong>Bestellung eingegangen!</strong><br>\nBestellnummer: <strong>${orderNumber}</strong><br>\nZeit: ${new Date(orderTime).toLocaleString('de-DE')}<br>\nAbholzeit: ${pickup}<br>\nSumme: <strong>${total.toFixed(2).replace('.', ',')} €</strong>`;
-      setPreorderModalSuccessMode(true);
-
-      resetCart();
+      try {
+        const r = await fetch(MARKET_ORDERS_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        const data = await r.json().catch(() => ({}));
+        if (!r.ok || !data.ok || !data.order) {
+          const err = (data && data.error) ? data.error : ('HTTP ' + r.status);
+          alert('Bestellung konnte nicht gespeichert werden (' + err + '). Bitte später erneut versuchen oder telefonisch bestellen.');
+          return;
+        }
+        const o = data.order;
+        const msg = document.getElementById('orderSuccessMsg');
+        msg.innerHTML =
+          '<strong>Bestellung eingegangen!</strong><br>\n' +
+          'Bestellnummer: <strong>' + escapeHtml(String(o.orderNumber)) + '</strong><br>\n' +
+          'Zeit: ' + escapeHtml(new Date(o.orderTime).toLocaleString('de-DE')) + '<br>\n' +
+          'Abholzeit: ' + escapeHtml(String(o.pickupTime)) + '<br>\n' +
+          'Summe: <strong>' + escapeHtml(Number(o.total).toFixed(2).replace('.', ',')) + ' €</strong>';
+        setPreorderModalSuccessMode(true);
+        resetCart();
+      } catch (e) {
+        alert('Keine Verbindung zum Server. Bitte Internet prüfen oder telefonisch bestellen.');
+      } finally {
+        if (btn) btn.disabled = false;
+      }
     }
 
     // initial
