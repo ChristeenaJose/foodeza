@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foodeza Mittagessen | Dein Südindisches Lunch Update</title>
+  <title>Foodeza Mittagessen | Dein südindisches Mittagessen-Update</title>
   <meta name="description"
-    content="Catch the Foodeza foodtruck in Baden-Württemberg! Authentic Kerala street food, rotating weekly menus, and premium catering for your events." />
+    content="Foodeza Mittagessen in Baden-Württemberg: authentisches Kerala-Streetfood, wöchentlich wechselnde Karte und Catering für Ihre Events." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../images/favicon.png">
@@ -44,33 +44,20 @@
           <li><a href="../index.html" class="nav-link-ft">Startseite</a></li>
           <li><a href="index.html" class="nav-link-ft">Foodtruck</a></li>
           <li><a href="mittagessen.html" class="nav-link-ft active">Mittagessen</a></li>
-          <li><a href="market.html" class="nav-link-ft">Market</a></li>
+          <li><a href="market.html" class="nav-link-ft">Markt</a></li>
           <li><a href="index.html#next-event" class="nav-link-ft">Events</a></li>
           <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="google-rating-header">
               <img src="../images/google-red.svg" alt="Google" class="google-icon">
               <div class="google-stars">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="">
+                <img src="../images/star-red.svg" alt="">
+                <img src="../images/star-red.svg" alt="">
+                <img src="../images/star-red.svg" alt="">
+                <img src="../images/star-red.svg" alt="">
               </div>
             </a>
           </li>
           <li><a href="#weekly-menu" class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Vorbestellen</a></li>
-          <li class="lang-switcher">
-            <a href="#" class="lang-btn">
-              <span>DE</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </a>
-            <div class="lang-dropdown">
-              <a href="mittagessen.html" class="active">Deutsch (DE)</a>
-              <a href="mittagessen-en.html">English (EN)</a>
-            </div>
-          </li>
         </ul>
       </nav>
     </div>
@@ -93,9 +80,10 @@
         <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active" aria-current="true"
-              aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              aria-label="Folie 1"></button>
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1" aria-label="Folie 2"></button>
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2" aria-label="Folie 3"></button>
+            <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="3" aria-label="Folie 4"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -113,18 +101,18 @@
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="visually-hidden">Zurück</span>
           </button>
           <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="visually-hidden">Weiter</span>
           </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Complete Menu Section serving as This Week Menu -->
+  <!-- Wochenkarte / Vorbestellung -->
   <section id="weekly-menu" class="py-5" style="background: white;">
     <div class="container">
       <div class="section-title text-center mb-5 reveal">
@@ -386,12 +374,48 @@
           </div>
         </div>
 
+        <!-- Masala Dosa: Wochen-Highlight (nach Getränke-Karte) -->
+        <div class="col">
+          <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
+            style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
+            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
+            <img src="images/pos/dosa.png" alt="Masala Dosa"
+              style="width: 100%; height: 220px; object-fit: cover;">
+            <div class="p-4 d-flex flex-column flex-grow-1 text-start">
+              <div class="d-flex gap-2 mb-2 align-items-center flex-wrap">
+                <span class="badge bg-danger text-white rounded-pill align-self-start"
+                  style="font-size: 0.75rem; letter-spacing: 0.5px;">WOCHEN-HIGHLIGHT</span>
+                <span class="badge bg-warning text-dark rounded-pill align-self-start"
+                  style="font-size: 0.75rem; letter-spacing: 0.5px;">MITTAGESSEN</span>
+              </div>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Masala Dosa</h4>
+              <p class="text-muted small mb-3">Knusprige Reis-Linsen-Crêpe mit aromatisch gewürzter Kartoffelfüllung — mit Chutney und Sambar.</p>
+              <div class="mb-3 flex-grow-1">
+                <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Enthält:</p>
+                <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
+                  <li>• Masala Dosa</li>
+                  <li>• Chutney &amp; Sambar</li>
+                  <li>• Beilagensalat</li>
+                </ul>
+              </div>
+              <div class="variant-selectors mt-auto">
+                <div class="variant-item">
+                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarisch <span
+                      class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">9,80
+                      €</span></div>
+                  <div class="quantity-selector">
+                    <button class="qty-btn minus" onclick="updateQty('masala_dosa', -1, 9.8)">−</button>
+                    <span class="qty-number" id="qty-masala_dosa">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('masala_dosa', 1, 9.8)">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="mt-5 text-center reveal">
-        <a href="../files/menu-foodtruck.pdf" target="_blank" class="btn-ft btn-ft-primary shadow-sm"><i
-            class="fas fa-file-pdf me-2"></i>Gesamtes Menü ansehen (PDF)</a>
-      </div>
     </div>
   </section>
 
@@ -457,6 +481,7 @@
       butter_chicken: 0,
       paneer_masala: 0,
       spinach_dal: 0,
+      masala_dosa: 0,
       totalItems: 0,
       totalPrice: 0
     };
@@ -498,6 +523,7 @@
       if (cart.fried_rice_vn > 0) allItems.push(`Vegan (Gebratener Reis): ${cart.fried_rice_vn}`);
 
       // Specials Dies Woche
+      if (cart.masala_dosa > 0) allItems.push(`Masala Dosa: ${cart.masala_dosa}`);
       if (cart.butter_chicken > 0) allItems.push(`Butter Chicken: ${cart.butter_chicken}`);
       if (cart.paneer_masala > 0) allItems.push(`Paneer Butter Masala: ${cart.paneer_masala}`);
       if (cart.spinach_dal > 0) allItems.push(`Dal Spinat (Vegan): ${cart.spinach_dal}`);

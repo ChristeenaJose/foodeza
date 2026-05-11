@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Foodeza | Online Orders</title>
+  <title>Foodeza | Online-Bestellungen</title>
   <link rel="icon" type="image/x-icon" href="../images/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,14 +68,18 @@
   <div class="topbar shadow-sm">
     <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2 wrap">
       <div class="d-flex align-items-center gap-3">
-        <strong><i class="fas fa-bag-shopping me-2"></i>Online Orders</strong>
+        <strong><i class="fas fa-bag-shopping me-2"></i>Online-Bestellungen</strong>
         <span id="clock" class="small opacity-75"></span>
       </div>
       <div class="d-flex gap-2 flex-wrap">
         <button type="button" class="btn btn-sm btn-outline-light" id="refreshBtn">
-          <i class="fas fa-rotate me-1"></i>Refresh
+          <i class="fas fa-rotate me-1"></i>Aktualisieren
         </button>
-        <a href="pos.html" class="btn btn-sm btn-outline-light rounded-pill">← POS</a>
+        <label class="btn btn-sm btn-outline-light mb-0 rounded-pill" style="cursor: pointer;">
+          <i class="fas fa-file-import me-1"></i>JSON importieren
+          <input id="importJsonInput" type="file" accept="application/json,.json" class="d-none">
+        </label>
+        <a href="pos.html" class="btn btn-sm btn-outline-light rounded-pill">← Kasse (POS)</a>
       </div>
     </div>
   </div>
@@ -83,30 +87,33 @@
   <div class="container-fluid px-3 py-3 wrap">
     <div class="row g-3 align-items-end mb-2">
       <div class="col-md-4">
-        <label class="form-label small text-muted">Date</label>
+        <label class="form-label small text-muted">Datum</label>
         <input id="dateFilter" type="date" class="form-control">
       </div>
       <div class="col-md-4">
-        <label class="form-label small text-muted">Show</label>
+        <label class="form-label small text-muted">Anzeige</label>
         <select id="statusFilter" class="form-select">
-          <option value="all">All</option>
-          <option value="uncollected" selected>Uncollected</option>
-          <option value="collected">Collected</option>
+          <option value="all">Alle</option>
+          <option value="uncollected" selected>Offen</option>
+          <option value="collected">Abgeholt</option>
         </select>
       </div>
       <div class="col-md-4 d-flex gap-2 justify-content-md-end">
         <button type="button" class="btn btn-outline-secondary" id="exportJsonBtn">
-          <i class="fas fa-file-code me-1"></i>Export JSON
+          <i class="fas fa-file-code me-1"></i>JSON exportieren
         </button>
-        <button type="button" class="btn btn-outline-secondary" id="clearBtn" title="Clears online orders locally">
-          <i class="fas fa-trash-can me-1"></i>Clear local
+        <button type="button" class="btn btn-outline-secondary" id="clearBtn" title="Löscht alle Einträge im Browser">
+          <i class="fas fa-trash-can me-1"></i>Lokal leeren
         </button>
       </div>
     </div>
 
     <div class="alert alert-info small">
-      <strong>Source:</strong> Orders created from `market.html` Pre-Order. Stored locally in your browser under
-      <span class="mono">foodeza_market_orders</span>.
+      <strong>Speicher:</strong> Bestellungen aus <code>market.html</code> liegen im Browser unter
+      <span class="mono">foodeza_online_orders</span> (früher <span class="mono">foodeza_market_orders</span> — wird beim ersten Aufruf übernommen).
+      Zusätzlich werden beim Laden Bestellungen aus der Datei
+      <span class="mono">files/generated/online-order/market/orders.json</span> eingespielt (falls auf dem Server vorhanden).
+      <strong>Hinweis:</strong> Ohne eigenes Backend erscheinen Handy-Bestellungen nur auf dem jeweiligen Gerät — für eine zentrale Datei auf dem Server die JSON dort per FTP/deploy aktualisieren oder JSON importieren.
     </div>
 
     <div id="list" class="d-flex flex-column gap-2"></div>
@@ -114,7 +121,10 @@
 
   <script src="../js/bootstrap.5.3.7.js"></script>
   <script>
-    const STORAGE_KEY = 'foodeza_market_orders';
+    const STORAGE_KEY = 'foodeza_online_orders';
+    const LEGACY_KEY = 'foodeza_market_orders';
+    /** Relativ zu dieser Seite (foodtruck/): Server-JSON für manuell gepflegte / deployte Bestellungen */
+    const SERVER_MARKET_ORDERS_JSON = 'files/generated/online-order/market/orders.json';
 
     function nowYmd() {
       const d = new Date();
@@ -128,6 +138,17 @@
       document.getElementById('clock').textContent = new Date().toLocaleString('de-DE');
     }
 
+    function migrateLegacy() {
+      try {
+        const cur = localStorage.getItem(STORAGE_KEY);
+        if (cur && cur !== '[]' && cur !== 'null') return;
+        const leg = localStorage.getItem(LEGACY_KEY);
+        if (leg && leg !== '[]' && leg !== 'null') {
+          localStorage.setItem(STORAGE_KEY, leg);
+        }
+      } catch (e) { /* ignore */ }
+    }
+
     function loadOrders() {
       try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
       catch (e) { return []; }
@@ -135,6 +156,46 @@
 
     function saveOrders(list) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    }
+
+    function mergeOrdersByNumber(existing, incoming) {
+      const seen = new Set(existing.map(o => String(o.orderNumber)));
+      let added = 0;
+      (incoming || []).forEach(o => {
+        if (!o || o.orderNumber == null) return;
+        const id = String(o.orderNumber);
+        if (!seen.has(id)) {
+          seen.add(id);
+          existing.push({
+            source: o.source || 'file',
+            orderNumber: o.orderNumber,
+            orderTime: o.orderTime || Date.now(),
+            name: o.name || '',
+            pickupTime: o.pickupTime || '',
+            items: o.items || [],
+            total: typeof o.total === 'number' ? o.total : 0,
+            collected: !!o.collected,
+            collectedAt: o.collectedAt || null
+          });
+          added++;
+        }
+      });
+      return added;
+    }
+
+    async function mergeFromServerJsonFile() {
+      try {
+        const r = await fetch(SERVER_MARKET_ORDERS_JSON, { cache: 'no-store' });
+        if (!r.ok) return 0;
+        const data = await r.json();
+        const fileOrders = Array.isArray(data) ? data : (data.orders || []);
+        const local = loadOrders();
+        const n = mergeOrdersByNumber(local, fileOrders);
+        if (n) saveOrders(local);
+        return n;
+      } catch (e) {
+        return 0;
+      }
     }
 
     function escapeHtml(s) {
@@ -178,7 +239,7 @@
       const filtered = orders.filter(o => matchesFilters(o, dateVal, statusVal));
 
       if (!filtered.length) {
-        host.innerHTML = '<div class="text-muted small text-center py-4">No orders found.</div>';
+        host.innerHTML = '<div class="text-muted small text-center py-4">Keine Bestellungen.</div>';
         return;
       }
 
@@ -189,6 +250,7 @@
         const t = order.orderTime ? new Date(order.orderTime).toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) : '';
         const dt = order.orderTime ? new Date(order.orderTime).toLocaleDateString('de-DE') : '';
         const total = typeof order.total === 'number' ? order.total.toFixed(2).replace('.', ',') + ' €' : '';
+        const src = order.source ? `<span class="badge bg-light text-dark border ms-1">${escapeHtml(order.source)}</span>` : '';
 
         const card = document.createElement('div');
         card.className = 'order-card p-3';
@@ -197,9 +259,10 @@
             <div class="min-w-0">
               <div class="d-flex align-items-center gap-2 flex-wrap">
                 <span class="badge ${collected ? 'badge-soft-gray' : 'badge-soft'} rounded-pill px-3 py-2">
-                  ${collected ? 'Collected' : 'New'}
+                  ${collected ? 'Abgeholt' : 'Neu'}
                 </span>
                 <strong class="mono">#${escapeHtml(order.orderNumber)}</strong>
+                ${src}
                 <span class="text-muted small">${escapeHtml(dt)} ${escapeHtml(t)}</span>
               </div>
               <div class="mt-2">
@@ -207,19 +270,19 @@
                 <div class="fw-semibold">${escapeHtml(order.name || '')}</div>
               </div>
               <div class="mt-2">
-                <div class="small text-muted">Pickup</div>
+                <div class="small text-muted">Abholzeit</div>
                 <div class="fw-semibold">${escapeHtml(order.pickupTime || '')}</div>
               </div>
               <div class="mt-2 items">${escapeHtml(items || '')}</div>
             </div>
             <div class="text-end">
-              <div class="small text-muted">Total</div>
+              <div class="small text-muted">Summe</div>
               <div class="fw-bold text-danger fs-5">${escapeHtml(total)}</div>
               <div class="mt-3 d-flex gap-2 justify-content-end flex-wrap">
                 <button class="btn ${collected ? 'btn-outline-secondary' : 'btn-success'} btn-sm"
                   data-action="toggle" data-order="${escapeHtml(order.orderNumber)}">
                   <i class="fas ${collected ? 'fa-rotate-left' : 'fa-check'} me-1"></i>
-                  ${collected ? 'Undo' : 'Collected'}
+                  ${collected ? 'Zurück' : 'Abgeholt'}
                 </button>
               </div>
             </div>
@@ -238,11 +301,29 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'Foodeza-Online-Orders.json';
+      a.download = 'Foodeza-Online-Bestellungen.json';
       document.body.appendChild(a);
       a.click();
       a.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1500);
+    }
+
+    function importJsonFile(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          const arr = Array.isArray(parsed) ? parsed : (parsed.orders || []);
+          const local = loadOrders();
+          const n = mergeOrdersByNumber(local, arr);
+          saveOrders(local);
+          alert(n ? `${n} neue Bestellung(en) importiert.` : 'Keine neuen Bestellungen (Nummern schon vorhanden).');
+          render();
+        } catch (err) {
+          alert('JSON konnte nicht gelesen werden.');
+        }
+      };
+      reader.readAsText(file, 'UTF-8');
     }
 
     document.getElementById('list').addEventListener('click', (e) => {
@@ -255,23 +336,32 @@
       setCollected(orderNo, !isCollected(o));
     });
 
-    document.getElementById('refreshBtn').onclick = render;
+    document.getElementById('refreshBtn').onclick = () => {
+      mergeFromServerJsonFile().then(() => render());
+    };
     document.getElementById('exportJsonBtn').onclick = exportJson;
+    document.getElementById('importJsonInput').addEventListener('change', (e) => {
+      const f = e.target.files && e.target.files[0];
+      e.target.value = '';
+      if (f) importJsonFile(f);
+    });
     document.getElementById('clearBtn').onclick = () => {
-      if (!confirm('Clear ALL online orders locally?')) return;
+      if (!confirm('Alle Online-Bestellungen im Browser löschen?')) return;
       localStorage.removeItem(STORAGE_KEY);
       render();
     };
     document.getElementById('dateFilter').addEventListener('change', render);
     document.getElementById('statusFilter').addEventListener('change', render);
 
-    // init
-    document.getElementById('dateFilter').value = nowYmd();
-    tick();
-    setInterval(tick, 1000);
-    render();
+    (async function init() {
+      migrateLegacy();
+      await mergeFromServerJsonFile();
+      document.getElementById('dateFilter').value = nowYmd();
+      tick();
+      setInterval(tick, 1000);
+      render();
+    })();
   </script>
 </body>
 
 </html>
-

@@ -177,6 +177,19 @@
       margin-top: 0 !important;
       padding-top: 0 !important;
     }
+
+    .pos-product-btn.pos-product-inactive {
+      opacity: 0.88;
+      border-style: dashed;
+      border-color: rgba(100, 116, 139, 0.45);
+      background: #f1f5f9;
+    }
+
+    .pos-product-btn.pos-product-inactive:hover,
+    .pos-product-btn.pos-product-inactive:focus-visible {
+      background: #e8eef5;
+      border-color: rgba(71, 85, 105, 0.55);
+    }
   </style>
 </head>
 
@@ -232,6 +245,10 @@
             <input id="pos-search" type="search" class="form-control border-start-0" placeholder="Artikel suchen…"
               autocomplete="off">
           </div>
+          <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" id="pos-toggle-inactive"
+            aria-pressed="false" title="Zusätzliche Artikel (aktuell nicht im Angebot) ein- oder ausblenden">
+            <i class="fas fa-eye-slash me-1"></i>Inaktives Menü
+          </button>
           <p class="mb-0 pos-muted">Jeder Abschluss speichert: <strong>was gekauft</strong>, <strong>Zahlungsart</strong>, Betrag, bei Bar: erhalten / Rückgeld. Gesamtübersicht über Menü „Gesamtübersicht“.</p>
         </div>
         <div id="pos-categories"></div>
@@ -427,18 +444,18 @@
   <script>
     /** Preise hier zentral pflegen — Cent-basierte Beträge = gerundete Euro */
     window.FOODEZA_MENU = [
-      { id: 'bc', category: 'Curry Bowl', name: 'Butter Chicken', priceCents: 850 },
-      { id: 'pbm', category: 'Curry Bowl', name: 'Paneer Butter Masala (veg)', priceCents: 750 },
-      { id: 'dal', category: 'Curry Bowl', name: 'Dal Spinach (vegan)', priceCents: 650 },
-      { id: 'dosa', category: 'South Indian', name: 'Masala Dosa', priceCents: 980 },
-      { id: 'kothu', category: 'South Indian', name: 'Chicken Kothu Porotta', priceCents: 1180 },
-      { id: 'biriyani', category: 'South Indian', name: 'Chicken Biriyani', priceCents: 1090 },
-      { id: 'pzh', category: 'Snacks', name: 'Pazhampori (3 Stk.)', priceCents: 390 },
-      { id: 'cutlet', category: 'Snacks', name: 'Chicken Cutlet (2 Stk.)', priceCents: 480 },
-      { id: 'c65', category: 'Snacks', name: 'Chicken 65 (6 pcs)', priceCents: 680 },
-      { id: 'tea', category: 'Getränke', name: 'Indian Masala Tea', priceCents: 200 },
-      { id: 'lassi', category: 'Getränke', name: 'Mango Lassi', priceCents: 300 },
-      { id: 'mojito', category: 'Getränke', name: 'Mojito', priceCents: 380 },
+      { id: 'bc', category: 'Curry Bowl', name: 'Butter Chicken', priceCents: 850, active: true },
+      { id: 'pbm', category: 'Curry Bowl', name: 'Paneer Butter Masala (veg)', priceCents: 750, active: true },
+      { id: 'dal', category: 'Curry Bowl', name: 'Dal Spinach (vegan)', priceCents: 650, active: true },
+      { id: 'dosa', category: 'South Indian', name: 'Masala Dosa', priceCents: 980, active: true },
+      { id: 'kothu', category: 'South Indian', name: 'Chicken Kothu Porotta', priceCents: 1180, active: false },
+      { id: 'biriyani', category: 'South Indian', name: 'Chicken Biriyani', priceCents: 1090, active: false },
+      { id: 'pzh', category: 'Snacks', name: 'Pazhampori (3 Stk.)', priceCents: 390, active: false },
+      { id: 'cutlet', category: 'Snacks', name: 'Chicken Cutlet (2 Stk.)', priceCents: 480, active: false },
+      { id: 'c65', category: 'Snacks', name: 'Chicken 65 (6 pcs)', priceCents: 680, active: false },
+      { id: 'tea', category: 'Getränke', name: 'Indian Masala Tea', priceCents: 200, active: false },
+      { id: 'lassi', category: 'Getränke', name: 'Mango Lassi', priceCents: 300, active: true },
+      { id: 'mojito', category: 'Getränke', name: 'Mojito', priceCents: 380, active: false },
     ];
 
     function formatMoney(cents) {
@@ -458,6 +475,8 @@
     }
 
     var state = { lines: [] };
+    /** Wenn false: nur Artikel mit active !== false im Raster */
+    var posMenuShowInactive = false;
 
     function nextId() { return 'L' + Date.now() + Math.random().toString(36).slice(2, 7); }
 
@@ -476,6 +495,7 @@
 
       var grouped = {};
       window.FOODEZA_MENU.forEach(function (p) {
+        if (!posMenuShowInactive && p.active === false) return;
         if (f && p.name.toLowerCase().indexOf(f) === -1 && p.category.toLowerCase().indexOf(f) === -1) return;
         if (!grouped[p.category]) grouped[p.category] = [];
         grouped[p.category].push(p);
@@ -494,7 +514,7 @@
           col.className = 'col-6 col-md-4 col-xl-3';
           var b = document.createElement('button');
           b.type = 'button';
-          b.className = 'pos-product-btn w-100 h-100';
+          b.className = 'pos-product-btn w-100 h-100' + (p.active === false ? ' pos-product-inactive' : '');
           b.dataset.id = p.id;
           var imgSrc = menuImageSrc(p.id);
           b.innerHTML =
@@ -1181,6 +1201,18 @@
 
     document.getElementById('pos-search').addEventListener('input', function () {
       rebuildCategories(this.value);
+    });
+
+    document.getElementById('pos-toggle-inactive').addEventListener('click', function () {
+      posMenuShowInactive = !posMenuShowInactive;
+      this.setAttribute('aria-pressed', posMenuShowInactive ? 'true' : 'false');
+      this.classList.toggle('btn-secondary', posMenuShowInactive);
+      this.classList.toggle('text-white', posMenuShowInactive);
+      this.classList.toggle('btn-outline-secondary', !posMenuShowInactive);
+      this.innerHTML = posMenuShowInactive
+        ? '<i class="fas fa-eye me-1"></i>Nur aktives Menü'
+        : '<i class="fas fa-eye-slash me-1"></i>Inaktives Menü';
+      rebuildCategories(document.getElementById('pos-search').value || '');
     });
 
     document.getElementById('pos-categories').addEventListener('click', function (e) {

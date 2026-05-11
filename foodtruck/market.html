@@ -53,21 +53,6 @@
       gap: 8px;
     }
 
-    .live-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65);
-      animation: livePulse 1.35s infinite;
-    }
-
-    @keyframes livePulse {
-      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65); }
-      70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0.0); }
-      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.0); }
-    }
-
     /* Ensure checkout button is always reachable on mobile */
     #marketOrderModal .modal-content {
       max-height: min(92vh, 720px);
@@ -117,19 +102,6 @@
             </a>
           </li>
           <li><a href="#feuersee-menu" class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Vorbestellen</a></li>
-          <li class="lang-switcher">
-            <a href="#" class="lang-btn">
-              <span>DE</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </a>
-            <div class="lang-dropdown">
-              <a href="market.html" class="active">Deutsch (DE)</a>
-              <a href="market-en.html">English (EN)</a>
-            </div>
-          </li>
         </ul>
       </nav>
     </div>
@@ -213,14 +185,13 @@
             style="border: 1px solid rgba(0,0,0,0.06);">
             <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-2">
               <div class="text-muted small live-indicator" style="white-space: nowrap;">
-                <span class="live-dot" aria-hidden="true"></span>
                 <strong>Karlsruhe Durlacher</strong>
                 <span class="opacity-75">•</span>
                 <span><strong>May 8, 2026</strong></span>
               </div>
-              <div class="small px-3 py-2 rounded-pill"
+              <div id="market-availability-pill" class="small px-3 py-2 rounded-pill"
                 style="background: rgba(34, 197, 94, 0.10); border: 1px solid rgba(34, 197, 94, 0.35); color: #14532d;">
-                <strong>Tap + to add items to Pre-Order.</strong>
+                <strong>Mit „+“ Gerichte zur Vorbestellung hinzufügen.</strong>
               </div>
             </div>
 
@@ -228,17 +199,38 @@
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Curry Bowl</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
-                    <span><s>Butter Chicken</s> <span class="badge bg-secondary text-white rounded-pill ms-1" style="font-size: 0.7rem;">Ausverkauft</span></span>
-                    <span class="fw-semibold"><s>8,50&nbsp;&euro;</s></span>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Butter Chicken</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">8,50&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('butter_chicken', -1, 8.5)">−</button>
+                        <span class="qty-number" id="qty-butter_chicken">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('butter_chicken', 1, 8.5)">+</button>
+                      </div>
+                    </div>
                   </li>
-                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
-                    <span><s>Paneer Butter Masala (veg)</s> <span class="badge bg-secondary text-white rounded-pill ms-1" style="font-size: 0.7rem;">Ausverkauft</span></span>
-                    <span class="fw-semibold"><s>7,50&nbsp;&euro;</s></span>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Paneer Butter Masala (veg)</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">7,50&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('paneer_masala', -1, 7.5)">−</button>
+                        <span class="qty-number" id="qty-paneer_masala">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('paneer_masala', 1, 7.5)">+</button>
+                      </div>
+                    </div>
                   </li>
-                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
-                    <span><s>Dal Spinach (Vegan)</s> <span class="badge bg-secondary text-white rounded-pill ms-1" style="font-size: 0.7rem;">Ausverkauft</span></span>
-                    <span class="fw-semibold"><s>6,50&nbsp;&euro;</s></span>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Dal Spinach (Vegan)</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">6,50&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('spinach_dal', -1, 6.5)">−</button>
+                        <span class="qty-number" id="qty-spinach_dal">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('spinach_dal', 1, 6.5)">+</button>
+                      </div>
+                    </div>
                   </li>
                 </ul>
                 <div class="text-muted" style="font-size: 0.95rem;">Mit Reis oder Porotta</div>
@@ -247,29 +239,14 @@
               <div class="col-md-6">
                 <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">South Indian Specials</div>
                 <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between gap-3 py-1" style="opacity: 0.55;">
-                    <span><s>Masala Dosa</s> <span class="badge bg-secondary text-white rounded-pill ms-1" style="font-size: 0.7rem;">Ausverkauft</span></span>
-                    <span class="fw-semibold"><s>9,80&nbsp;&euro;</s></span>
-                  </li>
                   <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Chicken Kothu Porotta</span>
+                    <span class="fw-semibold">Masala Dosa</span>
                     <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">11,80&nbsp;&euro;</span>
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">9,80&nbsp;&euro;</span>
                       <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('kothu', -1, 11.8)">−</button>
-                        <span class="qty-number" id="qty-kothu">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('kothu', 1, 11.8)">+</button>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Chicken Biriyani</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">10,90&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('biriyani', -1, 10.9)">−</button>
-                        <span class="qty-number" id="qty-biriyani">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('biriyani', 1, 10.9)">+</button>
+                        <button class="qty-btn minus" onclick="updateQty('masala_dosa', -1, 9.8)">−</button>
+                        <span class="qty-number" id="qty-masala_dosa">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('masala_dosa', 1, 9.8)">+</button>
                       </div>
                     </div>
                   </li>
@@ -297,6 +274,17 @@
                         <button class="qty-btn minus" onclick="updateQty('cutlet', -1, 4.8)">−</button>
                         <span class="qty-number" id="qty-cutlet">0</span>
                         <button class="qty-btn plus" onclick="updateQty('cutlet', 1, 4.8)">+</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
+                    <span class="fw-semibold">Samosa (2 pcs)</span>
+                    <div class="d-flex align-items-center gap-3">
+                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">4,80&nbsp;&euro;</span>
+                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
+                        <button class="qty-btn minus" onclick="updateQty('samosa', -1, 4.8)">−</button>
+                        <span class="qty-number" id="qty-samosa">0</span>
+                        <button class="qty-btn plus" onclick="updateQty('samosa', 1, 4.8)">+</button>
                       </div>
                     </div>
                   </li>
@@ -353,7 +341,7 @@
       <span class="order-count" id="order-count">0 Artikel</span>
       <span class="order-total" id="order-total">Summe: 0,00 €</span>
     </div>
-    <button onclick="openPreorder()" class="order-submit-btn">Vorbestellen (Pre-order)</button>
+    <button onclick="openPreorder()" class="order-submit-btn">Vorbestellen</button>
   </div>
 
   <!-- Preorder Modal -->
@@ -362,56 +350,58 @@
       <div class="modal-content" style="border-radius: 18px;">
         <div class="modal-header">
           <h5 class="modal-title">Vorbestellen</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Schließen"></button>
         </div>
         <div class="modal-body">
-          <div id="orderSuccessMsg" class="alert alert-success d-none" role="alert"></div>
+          <div id="orderSuccessMsg" class="alert alert-success d-none mb-0" role="alert"></div>
 
-          <div class="mb-3">
-            <label class="form-label small">Name</label>
-            <input id="custName" type="text" class="form-control" placeholder="Dein Name">
+          <div id="preorderFormWrap">
+            <div class="mb-3">
+              <label class="form-label small">Name</label>
+              <input id="custName" type="text" class="form-control" placeholder="Dein Name">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small">Abholzeit</label>
+              <select id="pickupTime" class="form-select">
+                <option value="" selected>Bitte wählen…</option>
+                <option value="10:30">10:30 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="11:30">11:30 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="12:30">12:30 PM</option>
+                <option value="13:00">1:00 PM</option>
+                <option value="13:30">1:30 PM</option>
+                <option value="14:00">2:00 PM</option>
+                <option value="14:30">2:30 PM</option>
+                <option value="15:00">3:00 PM</option>
+                <option value="15:30">3:30 PM</option>
+                <option value="16:00">4:00 PM</option>
+                <option value="16:30">4:30 PM</option>
+                <option value="17:00">5:00 PM</option>
+                <option value="17:30">5:30 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="18:30">6:30 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="19:30">7:30 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="20:30">8:30 PM</option>
+                <option value="21:00">9:00 PM</option>
+              </select>
+              <div class="form-text">Abholfenster: 10:30 – 21:00 Uhr</div>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small">Bestellung</label>
+              <div id="orderItemsPreview" class="small text-muted"></div>
+            </div>
+
+            <div class="pt-2 border-top"></div>
           </div>
-
-          <div class="mb-3">
-            <label class="form-label small">Pickup time (Abholzeit)</label>
-            <select id="pickupTime" class="form-select">
-              <option value="" selected>Bitte wählen…</option>
-              <option value="10:30">10:30 AM</option>
-              <option value="11:00">11:00 AM</option>
-              <option value="11:30">11:30 AM</option>
-              <option value="12:00">12:00 PM</option>
-              <option value="12:30">12:30 PM</option>
-              <option value="13:00">1:00 PM</option>
-              <option value="13:30">1:30 PM</option>
-              <option value="14:00">2:00 PM</option>
-              <option value="14:30">2:30 PM</option>
-              <option value="15:00">3:00 PM</option>
-              <option value="15:30">3:30 PM</option>
-              <option value="16:00">4:00 PM</option>
-              <option value="16:30">4:30 PM</option>
-              <option value="17:00">5:00 PM</option>
-              <option value="17:30">5:30 PM</option>
-              <option value="18:00">6:00 PM</option>
-              <option value="18:30">6:30 PM</option>
-              <option value="19:00">7:00 PM</option>
-              <option value="19:30">7:30 PM</option>
-              <option value="20:00">8:00 PM</option>
-              <option value="20:30">8:30 PM</option>
-              <option value="21:00">9:00 PM</option>
-            </select>
-            <div class="form-text">Pickup window: 10:30 – 21:00</div>
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label small">Bestellung</label>
-            <div id="orderItemsPreview" class="small text-muted"></div>
-          </div>
-
-          <div class="pt-2 border-top"></div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn-ft btn-ft-secondary" data-bs-dismiss="modal">Schließen</button>
-          <button type="button" class="btn-ft btn-ft-primary" onclick="submitPreorder()">Submit order</button>
+          <button type="button" id="preorderSubmitBtn" class="btn-ft btn-ft-primary" onclick="submitPreorder()">Bestellung absenden</button>
         </div>
       </div>
     </div>
@@ -446,7 +436,6 @@
   <!-- Scripts -->
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.5.3.7.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
   <script>
     // Scroll Reveal Animation
     const observerOptions = {
@@ -489,10 +478,13 @@
   <script>
     // Ordering cart for all available items (no separate section)
     const marketCart = {
+      butter_chicken: 0,
+      paneer_masala: 0,
+      spinach_dal: 0,
+      masala_dosa: 0,
       pazhampori: 0,
       cutlet: 0,
-      kothu: 0,
-      biriyani: 0,
+      samosa: 0,
       tea: 0,
       lassi: 0,
       mojito: 0,
@@ -501,10 +493,13 @@
     };
 
     const marketMenu = {
+      butter_chicken: { name: 'Butter Chicken', price: 8.5 },
+      paneer_masala: { name: 'Paneer Butter Masala (veg)', price: 7.5 },
+      spinach_dal: { name: 'Dal Spinach (Vegan)', price: 6.5 },
+      masala_dosa: { name: 'Masala Dosa', price: 9.8 },
       pazhampori: { name: 'Pazhampori (3 pcs)', price: 3.9 },
       cutlet: { name: 'Chicken Cutlet (2 pcs)', price: 4.8 },
-      kothu: { name: 'Chicken Kothu Porotta', price: 11.8 },
-      biriyani: { name: 'Chicken Biriyani', price: 10.9 },
+      samosa: { name: 'Samosa (2 pcs)', price: 4.8 },
       tea: { name: 'Indian Tea', price: 2.0 },
       lassi: { name: 'Mango Lassi', price: 3.0 },
       mojito: { name: 'Mojito', price: 3.8 }
@@ -536,9 +531,18 @@
       else bar.classList.remove('active');
     }
 
+    function setPreorderModalSuccessMode(success) {
+      const msg = document.getElementById('orderSuccessMsg');
+      const wrap = document.getElementById('preorderFormWrap');
+      const submitBtn = document.getElementById('preorderSubmitBtn');
+      if (wrap) wrap.classList.toggle('d-none', !!success);
+      if (submitBtn) submitBtn.classList.toggle('d-none', !!success);
+      if (msg) msg.classList.toggle('d-none', !success);
+    }
+
     function openPreorder() {
       if (marketCart.totalItems <= 0) return;
-      document.getElementById('orderSuccessMsg').classList.add('d-none');
+      setPreorderModalSuccessMode(false);
       document.getElementById('orderItemsPreview').innerText = buildItemsText();
       bootstrap.Modal.getOrCreateInstance(document.getElementById('marketOrderModal')).show();
     }
@@ -555,69 +559,37 @@
       return buildItems().map(it => `${it.name} × ${it.qty}`).join(' | ');
     }
 
+    const ONLINE_ORDERS_KEY = 'foodeza_online_orders';
+    const LEGACY_ORDERS_KEY = 'foodeza_market_orders';
+    const ONLINE_COUNTER_KEY = 'foodeza_online_order_counter';
+    const LEGACY_COUNTER_KEY = 'foodeza_market_order_counter';
+
     function nextOrderNumber() {
-      const key = 'foodeza_market_order_counter';
-      const v = parseInt(localStorage.getItem(key) || '1000', 10);
+      let v = parseInt(localStorage.getItem(ONLINE_COUNTER_KEY) || '', 10);
+      if (isNaN(v)) {
+        v = parseInt(localStorage.getItem(LEGACY_COUNTER_KEY) || '1000', 10);
+      }
       const next = isNaN(v) ? 1000 : v + 1;
-      localStorage.setItem(key, String(next));
+      localStorage.setItem(ONLINE_COUNTER_KEY, String(next));
       return next;
     }
 
     function loadOrders() {
-      try { return JSON.parse(localStorage.getItem('foodeza_market_orders') || '[]'); }
-      catch (e) { return []; }
+      try {
+        let raw = localStorage.getItem(ONLINE_ORDERS_KEY);
+        if (!raw || raw === '[]') {
+          const leg = localStorage.getItem(LEGACY_ORDERS_KEY);
+          if (leg && leg !== '[]') {
+            localStorage.setItem(ONLINE_ORDERS_KEY, leg);
+            raw = leg;
+          }
+        }
+        return JSON.parse(raw || '[]');
+      } catch (e) { return []; }
     }
 
     function saveOrders(list) {
-      localStorage.setItem('foodeza_market_orders', JSON.stringify(list));
-    }
-
-    function generateOrdersPdf(orders) {
-      const PdfCtor = window.jspdf && window.jspdf.jsPDF;
-      if (!PdfCtor) return;
-      const doc = new PdfCtor({ unit: 'mm', format: 'a4' });
-      const margin = 14;
-      const pageW = doc.internal.pageSize.getWidth();
-      const rightX = pageW - margin;
-      let y = 16;
-      const lineH = 5;
-      const need = (mm) => { if (y + mm > 280) { doc.addPage(); y = 16; } };
-
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(14);
-      doc.text('Foodeza Market Orders', margin, y);
-      y += 8;
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(10);
-      doc.text(`Export: ${new Date().toLocaleString('de-DE')} • Bestellungen: ${orders.length}`, margin, y);
-      y += 10;
-
-      orders.forEach((o, idx) => {
-        need(20);
-        doc.setFont('helvetica', 'bold');
-        doc.text(`#${idx + 1} • Order ${o.orderNumber} • ${o.name}`, margin, y);
-        y += lineH;
-        doc.setFont('helvetica', 'normal');
-        doc.text(`Zeit: ${new Date(o.orderTime).toLocaleString('de-DE')}`, margin, y);
-        y += lineH;
-        doc.text(`Pickup: ${o.pickupTime}`, margin, y);
-        y += lineH;
-        doc.text(`Total: ${o.total.toFixed(2).replace('.', ',')} €`, rightX, y, { align: 'right' });
-        y += lineH + 2;
-
-        (o.items || []).forEach(it => {
-          need(8);
-          const txt = `${it.name} × ${it.qty} (${it.price.toFixed(2).replace('.', ',')} €)`;
-          const wrapped = doc.splitTextToSize(txt, pageW - margin * 2);
-          wrapped.forEach(w => { need(6); doc.text(w, margin, y); y += lineH; });
-        });
-        y += 3;
-        doc.setDrawColor(220);
-        doc.line(margin, y, pageW - margin, y);
-        y += 6;
-      });
-
-      doc.save('Foodeza-Market-Orders.pdf');
+      localStorage.setItem(ONLINE_ORDERS_KEY, JSON.stringify(list));
     }
 
     function resetCart() {
@@ -642,17 +614,15 @@
       const orderNumber = nextOrderNumber();
       const orderTime = Date.now();
       const total = marketCart.totalPrice;
-      const order = { orderNumber, orderTime, name, pickupTime: pickup, items, total };
+      const order = { source: 'market', orderNumber, orderTime, name, pickupTime: pickup, items, total, collected: false };
 
       const orders = loadOrders();
       orders.push(order);
       saveOrders(orders);
 
-      generateOrdersPdf(orders);
-
       const msg = document.getElementById('orderSuccessMsg');
-      msg.classList.remove('d-none');
-      msg.innerHTML = `<strong>Order placed!</strong><br>\nBestellnummer: <strong>${orderNumber}</strong><br>\nZeit: ${new Date(orderTime).toLocaleString('de-DE')}<br>\nPickup: ${pickup}<br>\nTotal: <strong>${total.toFixed(2).replace('.', ',')} €</strong>`;
+      msg.innerHTML = `<strong>Bestellung eingegangen!</strong><br>\nBestellnummer: <strong>${orderNumber}</strong><br>\nZeit: ${new Date(orderTime).toLocaleString('de-DE')}<br>\nAbholzeit: ${pickup}<br>\nSumme: <strong>${total.toFixed(2).replace('.', ',')} €</strong>`;
+      setPreorderModalSuccessMode(true);
 
       resetCart();
     }
