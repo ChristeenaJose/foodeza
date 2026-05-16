@@ -118,9 +118,8 @@
       <strong>.htaccess</strong> (Apache) bzw. <strong>web.config</strong> (IIS) für direkte URLs gesperrt — von außen nicht abrufbar.
       Bei <strong>Nginx</strong> greift <span class="mono">.htaccess</span> nicht: dort ein <span class="mono">location</span> mit <span class="mono">deny all</span> bzw. <span class="mono">return 403</span> für genau diese URL setzen.
       Nur <span class="mono">api/market-orders.php</span> liest/schreibt auf dem Server; die Übersicht hier nur mit Ihrem
-      <strong>API-Schlüssel</strong> (<span class="mono">foodeza-orders-config.php</span>). Kunden senden weiterhin per
-      <code>market.html</code> (POST, ohne Schlüssel). Optional: in der Config <span class="mono">orders_file</span> auf einen Ordner
-      <strong>außerhalb</strong> des Webroots setzen (siehe Beispiel-Config).
+      <strong>API-Schlüssel</strong> (<span class="mono">foodeza-orders-config.php</span>). Der Schlüssel wird <strong>einmal</strong> eingegeben und in diesem Browser gespeichert (<span class="mono">localStorage</span>) bis Sie oben <strong>API-Schlüssel</strong> wählen oder die Website-Daten löschen.
+      Kunden senden weiterhin per <code>market.html</code> (POST, ohne Schlüssel). Optional: in der Config <span class="mono">orders_file</span> außerhalb des Webroots (siehe Beispiel-Config).
     </div>
 
     <div id="list" class="d-flex flex-column gap-2 mt-3"></div>
@@ -135,11 +134,14 @@
         </div>
         <div class="modal-body">
           <p class="small text-muted">Ohne gültigen Schlüssel können keine Bestellungen vom Server geladen werden.</p>
+          <p class="small text-muted mb-2">Sie müssen das Geheimnis <strong>nicht bei jedem Besuch</strong> neu eingeben: nach „Speichern &amp; laden“ bleibt es auf <strong>diesem Gerät/Browser</strong> gespeichert, bis Sie oben <strong>API-Schlüssel</strong> nutzen oder den Browser-Speicher leeren.</p>
           <label for="ordersApiKeyInput" class="form-label">Geheimnis (<code>secret</code> in der Config auf dem Server)</label>
-          <input type="password" id="ordersApiKeyInput" class="form-control" autocomplete="off" maxlength="512"
-            placeholder="Einfügen und speichern">
+          <input type="password" id="ordersApiKeyInput" class="form-control" autocomplete="current-password" maxlength="512"
+            placeholder="Einmal einfügen und speichern">
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer flex-wrap gap-2">
+          <button type="button" class="btn btn-outline-secondary d-none" id="ordersApiKeyCancel" data-bs-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-outline-danger d-none ms-auto" id="ordersApiKeyRemove">Von diesem Gerät entfernen</button>
           <button type="button" class="btn btn-danger" id="ordersApiKeySave">Speichern &amp; laden</button>
         </div>
       </div>
@@ -165,13 +167,31 @@
       document.getElementById('clock').textContent = new Date().toLocaleString('de-DE');
     }
 
+    /** Einmal pro Gerät/Browser (localStorage). „API-Schlüssel“ oben löscht den Eintrag. */
+    function migrateApiKeyFromSessionStorage() {
+      try {
+        const fromSess = sessionStorage.getItem(API_KEY_STORAGE);
+        if (fromSess && !localStorage.getItem(API_KEY_STORAGE)) {
+          localStorage.setItem(API_KEY_STORAGE, fromSess);
+        }
+        if (fromSess) sessionStorage.removeItem(API_KEY_STORAGE);
+      } catch (e) { /* ignore */ }
+    }
+
     function getApiKey() {
-      try { return sessionStorage.getItem(API_KEY_STORAGE) || ''; } catch (e) { return ''; }
+      try { return localStorage.getItem(API_KEY_STORAGE) || ''; } catch (e) { return ''; }
     }
 
     function setApiKey(value) {
       try {
-        sessionStorage.setItem(API_KEY_STORAGE, value);
+        localStorage.setItem(API_KEY_STORAGE, value);
+      } catch (e) { /* ignore */ }
+    }
+
+    function clearApiKey() {
+      try {
+        localStorage.removeItem(API_KEY_STORAGE);
+        sessionStorage.removeItem(API_KEY_STORAGE);
       } catch (e) { /* ignore */ }
     }
 
@@ -429,17 +449,25 @@
     document.getElementById('dateFilter').addEventListener('change', render);
     document.getElementById('statusFilter').addEventListener('change', render);
 
-    function showApiKeyModal() {
+    function showApiKeyModal(options) {
+      const opts = options || {};
       const m = document.getElementById('ordersApiKeyModal');
       if (!m) return;
       const input = document.getElementById('ordersApiKeyInput');
+      const cancelBtn = document.getElementById('ordersApiKeyCancel');
+      const removeBtn = document.getElementById('ordersApiKeyRemove');
       if (input) input.value = '';
+      if (cancelBtn) {
+        cancelBtn.classList.toggle('d-none', !opts.showCancel);
+      }
+      if (removeBtn) {
+        removeBtn.classList.toggle('d-none', !(opts.showCancel && getApiKey()));
+      }
       bootstrap.Modal.getOrCreateInstance(m).show();
     }
 
     document.getElementById('ordersChangeKeyBtn').onclick = () => {
-      try { sessionStorage.removeItem(API_KEY_STORAGE); } catch (e) { /* ignore */ }
-      showApiKeyModal();
+      showApiKeyModal({ showCancel: true });
     };
 
     document.getElementById('ordersApiKeySave').onclick = async () => {
@@ -449,6 +477,7 @@
         alert('Bitte mindestens 16 Zeichen (wie in foodeza-orders-config.php auf dem Server).');
         return;
       }
+      const previous = getApiKey();
       setApiKey(v);
       try {
         await loadOrdersFromApi();
@@ -457,18 +486,30 @@
         document.getElementById('dateFilter').value = nowYmd();
         render();
       } catch (e) {
-        try { sessionStorage.removeItem(API_KEY_STORAGE); } catch (x) { /* ignore */ }
+        if (previous) {
+          setApiKey(previous);
+        } else {
+          clearApiKey();
+        }
         showLoadError('Laden fehlgeschlagen: ' + (e.message || e) + '. Schlüssel oder api/market-orders.php prüfen.');
         alert('Schlüssel ungültig oder Server-Fehler. Bitte Config auf dem Webspace prüfen.');
       }
     };
 
+    document.getElementById('ordersApiKeyRemove').onclick = () => {
+      if (!confirm('API-Schlüssel von diesem Gerät löschen? Sie müssen ihn danach erneut eingeben.')) return;
+      clearApiKey();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('ordersApiKeyModal')).hide();
+      showApiKeyModal({ showCancel: false });
+    };
+
     (async function init() {
+      migrateApiKeyFromSessionStorage();
       document.getElementById('dateFilter').value = nowYmd();
       tick();
       setInterval(tick, 1000);
       if (!getApiKey()) {
-        showApiKeyModal();
+        showApiKeyModal({ showCancel: false });
         render();
         return;
       }
