@@ -145,6 +145,33 @@
       }
     }
 
+    /* Mobile POS Layout Fix */
+    @media (max-width: 991.98px) {
+      .pos-cart-col {
+        position: static !important;
+        top: auto !important;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin-top: 1rem;
+        padding: 0 !important;
+      }
+      .pos-lines {
+          border-top: 2px solid #dee2e6 !important;
+          box-shadow: none !important;
+          margin-top: 1rem !important;
+        }
+        border-top: 2px solid #dee2e6 !important;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.05) !important;
+        z-index: 20 !important;
+        max-height: 50vh !important;
+      }
+        padding-bottom: 2rem;
+      }
+    }
+
     #pos-categories {
       margin-top: 0;
       padding-top: 0;
@@ -199,7 +226,6 @@
     <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
       <div class="d-flex align-items-center gap-3">
         <strong><i class="fas fa-cash-register me-2"></i>Foodeza Kassa</strong>
-        <span id="pos-clock" class="small opacity-75"></span>
       </div>
       <div class="d-flex gap-2 flex-wrap align-items-center">
         <div class="btn-group">
@@ -218,9 +244,6 @@
         <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-view-orders" title="Gespeicherte Bestellungen ansehen">
           <i class="fas fa-list-check me-1"></i>Bestellungen
         </button>
-        <a href="online-orders.html" class="btn btn-sm btn-outline-light" title="Online Bestellungen (Vorbestellen)">
-          <i class="fas fa-bag-shopping me-1"></i>Online Orders
-        </a>
         <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-journal-pdf" title="Heute als PDF">
           <i class="fas fa-file-pdf me-1"></i>PDF heute
         </button>
@@ -236,7 +259,7 @@
     <div class="row g-3">
 
       <!-- Product grid -->
-      <div class="col-lg-7 col-xl-8 order-2 order-lg-1">
+      <div class="col-lg-7 col-xl-8 pos-col-products order-1">
         <div class="mb-2 d-flex gap-2 flex-wrap align-items-center">
           <p id="pos-session-footer" class="mb-0 pos-muted small w-100 order-first"></p>
           <label class="visually-hidden" for="pos-search">Suche</label>
@@ -255,7 +278,7 @@
       </div>
 
       <!-- Cart -->
-      <div class="col-lg-5 col-xl-4 order-1 order-lg-2">
+      <div class="col-lg-5 col-xl-4 pos-col-cart order-2">
         <div class="pos-cart-col rounded-4 shadow-sm bg-white border p-3">
           <h2 class="pos-cart-heading h5 mb-3 d-flex justify-content-between align-items-center flex-shrink-0">
             <span><i class="fas fa-cart-shopping text-danger me-2"></i>Warenkorb</span>
@@ -454,6 +477,10 @@
       { id: 'pzh', category: 'Snacks', name: 'Pazhampori (3 Stk.)', priceCents: 390, active: false },
       { id: 'cutlet', category: 'Snacks', name: 'Chicken Cutlet (2 Stk.)', priceCents: 480, active: false },
       { id: 'c65', category: 'Snacks', name: 'Chicken 65 (6 pcs)', priceCents: 680, active: false },
+      { id: 'samosa', category: 'Snacks', name: 'Samosa (2 pcs)', priceCents: 500, active: true },
+      { id: 'chcutlet', category: 'Snacks', name: 'Chicken Cutlet (2 pcs)', priceCents: 500, active: true },
+      { id: 'bananafry', category: 'Snacks', name: 'Banana Fry (3 pcs)', priceCents: 450, active: true },
+      { id: 'snackteller', category: 'Snacks', name: 'Snack Teller', priceCents: 650, active: true },
       { id: 'tea', category: 'Getränke', name: 'Indische Tea', priceCents: 250, active: true },
       { id: 'lassi', category: 'Getränke', name: 'Mango Lassi', priceCents: 380, active: true },
       { id: 'mojito', category: 'Getränke', name: 'Mojito', priceCents: 420, active: true },
@@ -1197,7 +1224,7 @@
     }
 
     function tickClock() {
-      document.getElementById('pos-clock').textContent = new Date().toLocaleString('de-DE');
+      // document.getElementById('pos-clock').textContent = new Date().toLocaleString('de-DE');
     }
 
     document.getElementById('pos-search').addEventListener('input', function () {
@@ -1298,8 +1325,8 @@
     rebuildCategories('');
     renderCart();
     refreshSessionFooter();
-    tickClock();
-    setInterval(tickClock, 1000);
+    // tickClock();
+    // setInterval(tickClock, 1000);
 
     function renderOrdersModal() {
       var host = document.getElementById('pos-orders-list');
