@@ -467,23 +467,24 @@
   <script>
     /** Preise hier zentral pflegen — Cent-basierte Beträge = gerundete Euro */
     window.FOODEZA_MENU = [
-      { id: 'bc', category: 'Curry Bowl', name: 'Butter Chicken', priceCents: 950, active: true },
-      { id: 'pbm', category: 'Curry Bowl', name: 'Paneer Butter Masala (veg)', priceCents: 850, active: true },
-      { id: 'dal', category: 'Curry Bowl', name: 'Spinach Dal (vegan)', priceCents: 750, active: true },
-      { id: 'dosa', category: 'South Indian', name: 'Masala Dosa', priceCents: 980, active: true },
-      { id: 'sussdosa', category: 'South Indian', name: 'Süss Dosa', priceCents: 690, active: true },
+      { id: 'bc', category: 'Curry Bowl', name: 'Butter Chicken', priceCents: 850, active: true },
+      { id: 'pbm', category: 'Curry Bowl', name: 'Paneer Butter Masala (veg)', priceCents: 750, active: true },
+      { id: 'dal', category: 'Curry Bowl', name: 'Spinach Dal (vegan)', priceCents: 650, active: true },
+      { id: 'dosa', category: 'South Indian', name: 'Masala Dosa', priceCents: 980, active: false },
+      { id: 'sussdosa', category: 'South Indian', name: 'Süss Dosa', priceCents: 690, active: false },
       { id: 'kothu', category: 'South Indian', name: 'Chicken Kothu Porotta', priceCents: 1180, active: false },
       { id: 'biriyani', category: 'South Indian', name: 'Chicken Biriyani', priceCents: 1090, active: false },
       { id: 'pzh', category: 'Snacks', name: 'Pazhampori (3 Stk.)', priceCents: 390, active: false },
       { id: 'cutlet', category: 'Snacks', name: 'Chicken Cutlet (2 Stk.)', priceCents: 480, active: false },
       { id: 'c65', category: 'Snacks', name: 'Chicken 65 (6 pcs)', priceCents: 680, active: false },
-      { id: 'samosa', category: 'Snacks', name: 'Samosa (2 pcs)', priceCents: 500, active: true },
-      { id: 'chcutlet', category: 'Snacks', name: 'Chicken Cutlet (2 pcs)', priceCents: 500, active: true },
-      { id: 'bananafry', category: 'Snacks', name: 'Banana Fry (3 pcs)', priceCents: 450, active: true },
-      { id: 'snackteller', category: 'Snacks', name: 'Snack Teller', priceCents: 650, active: true },
-      { id: 'tea', category: 'Getränke', name: 'Indische Tea', priceCents: 250, active: true },
-      { id: 'lassi', category: 'Getränke', name: 'Mango Lassi', priceCents: 380, active: true },
-      { id: 'mojito', category: 'Getränke', name: 'Mojito', priceCents: 420, active: true },
+      { id: 'samosa', category: 'Snacks', name: 'Samosa (2 pcs)', priceCents: 500, active: false },
+      { id: 'chcutlet', category: 'Snacks', name: 'Chicken Cutlet (2 pcs)', priceCents: 500, active: false },
+      { id: 'bananafry', category: 'Snacks', name: 'Banana Fry (3 pcs)', priceCents: 450, active: false },
+      { id: 'snackteller', category: 'Snacks', name: 'Snack Teller', priceCents: 650, active: false },
+      { id: 'tea', category: 'Getränke', name: 'Indische Tea', priceCents: 250, active: false },
+      { id: 'lassi', category: 'Getränke', name: 'Mango Lassi', priceCents: 300, active: true },
+      { id: 'mojito', category: 'Getränke', name: 'Mojito', priceCents: 420, active: false },
+      { id: 'lemonade', category: 'Getränke', name: 'Super Cool Lemonade', priceCents: 250, active: true },
     ];
 
     function formatMoney(cents) {

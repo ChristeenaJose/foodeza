@@ -536,39 +536,39 @@
           </div>
         </div>
 
-        <!-- Image Card: Masala Dosa (week's highlight) — after drinks -->
+        <!-- Super Cool Lemonade (week's highlight) — after drinks -->
         <div class="col">
           <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
             style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
             onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-            <img src="images/pos/dosa.png" alt="Masala Dosa"
+            <img src="images/pos/mojito.png" alt="Super Cool Lemonade"
               style="width: 100%; height: 220px; object-fit: cover;">
             <div class="p-4 d-flex flex-column flex-grow-1 text-start">
               <div class="d-flex gap-2 mb-2 align-items-center flex-wrap">
                 <span class="badge bg-danger text-white rounded-pill align-self-start"
                   style="font-size: 0.75rem; letter-spacing: 0.5px;">WEEK'S HIGHLIGHT</span>
                 <span class="badge bg-warning text-dark rounded-pill align-self-start"
-                  style="font-size: 0.75rem; letter-spacing: 0.5px;">LUNCH</span>
+                  style="font-size: 0.75rem; letter-spacing: 0.5px;">DRINK</span>
               </div>
-              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Masala Dosa</h4>
-              <p class="text-muted small mb-3">Crispy rice-and-lentil crepe with spiced potato filling — served with chutney and sambar.</p>
+              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Super Cool Lemonade</h4>
+              <p class="text-muted small mb-3">Refreshing homemade lemonade — cool, fizzy, and perfect with our street food.</p>
               <div class="mb-3 flex-grow-1">
                 <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Includes:</p>
                 <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
-                  <li>• Masala Dosa</li>
-                  <li>• Chutney &amp; sambar</li>
-                  <li>• Side salad</li>
+                  <li>• Super Cool Lemonade</li>
+                  <li>• Freshly prepared</li>
+                  <li>• Vegan</li>
                 </ul>
               </div>
               <div class="variant-selectors mt-auto">
                 <div class="variant-item">
-                  <div class="variant-label"><i style="background: #2e7d32;"></i> Vegetarian <span
-                      class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">9.80
+                  <div class="variant-label"><i style="background: #fbbf24;"></i> Regular <span
+                      class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">2.50
                       €</span></div>
                   <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('masala_dosa', -1, 9.8)">−</button>
-                    <span class="qty-number" id="qty-masala_dosa">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('masala_dosa', 1, 9.8)">+</button>
+                    <button class="qty-btn minus" onclick="updateQty('super_cool_lemonade', -1, 2.5)">−</button>
+                    <span class="qty-number" id="qty-super_cool_lemonade">0</span>
+                    <button class="qty-btn plus" onclick="updateQty('super_cool_lemonade', 1, 2.5)">+</button>
                   </div>
                 </div>
               </div>
@@ -646,7 +646,7 @@
       butter_chicken: 0,
       paneer_masala: 0,
       spinach_dal: 0,
-      masala_dosa: 0,
+      super_cool_lemonade: 0,
       totalItems: 0,
       totalPrice: 0
     };
@@ -688,7 +688,7 @@
       if (cart.fried_rice_vn > 0) allItems.push(`Vegan (Fried Rice): ${cart.fried_rice_vn}`);
 
       // Specials Dies Woche
-      if (cart.masala_dosa > 0) allItems.push(`Masala Dosa: ${cart.masala_dosa}`);
+      if (cart.super_cool_lemonade > 0) allItems.push(`Super Cool Lemonade: ${cart.super_cool_lemonade}`);
       if (cart.butter_chicken > 0) allItems.push(`Butter Chicken: ${cart.butter_chicken}`);
       if (cart.paneer_masala > 0) allItems.push(`Paneer Butter Masala: ${cart.paneer_masala}`);
       if (cart.spinach_dal > 0) allItems.push(`Dal Spinat (Vegan): ${cart.spinach_dal}`);
