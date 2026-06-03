@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Foodeza Market | Dein Südindisches Markt-Update</title>
+  <title>Foodeza Markt | Südindisches Streetfood auf Märkten</title>
   <meta name="description"
-    content="Catch the Foodeza foodtruck in Baden-Württemberg! Authentic Kerala street food, rotating weekly menus, and premium catering for your events." />
+    content="Foodeza Foodtruck auf Wochenmärkten in Baden-Württemberg: authentisches Kerala-Streetfood, wechselnde Karte und Vorbestellung vor Ort." />
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="../images/favicon.png">
@@ -72,6 +72,146 @@
     #sticky-order-bar {
       z-index: 1040;
     }
+
+    .market-cat {
+      margin-bottom: 2rem;
+    }
+
+    .market-cat-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      border-bottom: 2px solid #dc3545;
+      padding-bottom: 0.45rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .market-cat-note {
+      font-size: 0.88rem;
+      color: #777;
+      margin: -0.5rem 0 0.75rem;
+    }
+
+    .market-highlight {
+      background: rgba(220, 53, 69, 0.05);
+      border-left: 3px solid #dc3545;
+      border-radius: 0 8px 8px 0;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .market-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .market-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      flex-wrap: wrap;
+    }
+
+    .market-row:last-child {
+      border-bottom: none;
+    }
+
+    .market-row-name {
+      font-weight: 600;
+      color: #1a1a1a;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .market-row-sub {
+      display: block;
+      font-weight: 400;
+      font-size: 0.82rem;
+      color: #777;
+      margin-top: 0.15rem;
+      line-height: 1.45;
+    }
+
+    .market-level {
+      display: inline-block;
+      margin-top: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .market-level-spicy {
+      color: #c0392b;
+    }
+
+    .market-level-sweet,
+    .market-level-cold {
+      font-weight: 600;
+    }
+
+    .market-level-sweet {
+      color: #d97706;
+    }
+
+    .market-level-cold {
+      color: #2563eb;
+    }
+
+    .market-level-legend {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem 1rem;
+      font-size: 0.82rem;
+      color: #888;
+      margin-bottom: 1.25rem;
+    }
+
+    .market-level-legend > strong {
+      font-weight: 600;
+      color: #555;
+    }
+
+    .market-level-legend .market-level {
+      margin-top: 0;
+    }
+
+    .market-level-legend .market-level-sweet,
+    .market-level-legend .market-level-cold {
+      margin-top: 0;
+    }
+
+    .market-preorder-badge {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      color: #fff;
+      background: #dc3545;
+      border-radius: 4px;
+    }
+
+    .market-row-price {
+      font-weight: 600;
+      color: #333;
+      white-space: nowrap;
+      min-width: 4.5rem;
+      text-align: right;
+    }
+
+    .market-row .quantity-selector {
+      margin: 0;
+      padding: 5px 10px;
+      gap: 8px;
+    }
   </style>
 </head>
 
@@ -88,20 +228,20 @@
           <li><a href="../index.html" class="nav-link-ft">Startseite</a></li>
           <li><a href="index.html" class="nav-link-ft">Foodtruck</a></li>
           <li><a href="mittagessen.html" class="nav-link-ft">Mittagessen</a></li>
-          <li><a href="market.html" class="nav-link-ft active">Market</a></li>
-          <li><a href="index.html#next-event" class="nav-link-ft">Events</a></li>
+          <li><a href="market.html" class="nav-link-ft active">Markt</a></li>
+          <li><a href="index.html#next-event" class="nav-link-ft">Termine</a></li>
           <li><a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" class="google-rating-header">
               <img src="../images/google-red.svg" alt="Google" class="google-icon">
               <div class="google-stars">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
-                <img src="../images/star-red.svg" alt="star">
+                <img src="../images/star-red.svg" alt="Stern">
+                <img src="../images/star-red.svg" alt="Stern">
+                <img src="../images/star-red.svg" alt="Stern">
+                <img src="../images/star-red.svg" alt="Stern">
+                <img src="../images/star-red.svg" alt="Stern">
               </div>
             </a>
           </li>
-          <li><a href="#feuersee-menu" class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Vorbestellen</a></li>
+          <li><a href="#foodtruck-menu" class="btn-ft btn-ft-primary py-2 px-4 shadow-none">Vorbestellen</a></li>
         </ul>
       </nav>
     </div>
@@ -111,9 +251,9 @@
   <section class="hero">
     <div class="container hero-content">
       <div class="hero-text reveal-right">
-        <h1>Foodeza Market – Authentisch südindisch gewürzt.</h1>
-        <p>Frisches, authentisches Kerala-Essen, schnell serviert für eine belebende Mittagspause in Baden-Württemberg
-          und Umgebung.</p>
+        <h1>Foodeza Markt – Authentisches Kerala-Streetfood.</h1>
+        <p>Frisches südindisches Essen auf Wochenmärkten und bei Veranstaltungen in Baden-Württemberg – direkt vom
+          Foodtruck, voller Geschmack.</p>
         <div class="btn-group">
           <a href="index.html#next-event" class="btn-ft btn-ft-primary">Aktueller Wochenplan</a>
           <a href="https://forms.gle/8ueUUB2KLP9kPpDHA" target="_blank" class="btn-ft btn-ft-secondary">Catering
@@ -122,7 +262,7 @@
       </div>
       <div class="hero-image hero-market-flyer reveal">
         <img src="../images/truck1.webp"
-          alt="Foodeza Foodtruck"
+          alt="Foodeza Foodtruck auf dem Markt"
           class="d-block w-100">
       </div>
     </div>
@@ -145,19 +285,19 @@
               <div class="d-flex flex-column gap-3 flex-grow-1" style="min-width: 0;">
                 <div class="rounded-3 p-3 text-md-start"
                   style="background: rgba(220, 53, 69, 0.07); border-left: 4px solid #dc3545;">
-                  <div class="text-danger fw-bold" style="font-size: 0.95rem;">Donnerstag, 7. Mai 2026</div>
-                  <div class="fw-semibold mt-1" style="font-size: 1rem; color: #333;">Stuttgart Feuersee</div>
-                  <div class="text-muted mt-1" style="font-size: 0.9rem;">Markt &amp; Event · Feuersee, 70176 Stuttgart · 15:00 – 21:00 Uhr</div>
+                  <div class="text-danger fw-bold" style="font-size: 0.95rem;">Freitag, 5. Juni 2026</div>
+                  <div class="fw-semibold mt-1" style="font-size: 1rem; color: #333;">Durlach Center Karlsruhe</div>
+                  <div class="text-muted mt-1" style="font-size: 0.9rem;">Markt &amp; Event · Durlacher Allee 111, 76137 Karlsruhe · 10:30 – 21:00 Uhr</div>
                 </div>
                 <div class="rounded-3 p-3 text-md-start"
                   style="background: rgba(220, 53, 69, 0.07); border-left: 4px solid #dc3545;">
-                  <div class="text-danger fw-bold" style="font-size: 0.95rem;">Freitag, 8. Mai 2026</div>
-                  <div class="fw-semibold mt-1" style="font-size: 1rem; color: #333;">Karlsruhe</div>
-                  <div class="text-muted mt-1" style="font-size: 0.9rem;">Markt &amp; Event · Durlacher Allee 111, 76137 Karlsruhe · 10:30 – 21:00 Uhr</div>
+                  <div class="text-danger fw-bold" style="font-size: 0.95rem;">Donnerstag, 11. Juni 2026</div>
+                  <div class="fw-semibold mt-1" style="font-size: 1rem; color: #333;">Stuttgart Feuersee</div>
+                  <div class="text-muted mt-1" style="font-size: 0.9rem;">Markt &amp; Event · Feuersee, 70176 Stuttgart · 15:00 – 21:00 Uhr</div>
                 </div>
               </div>
             </div>
-            <a href="#feuersee-menu" class="btn-ft px-4 py-2 text-danger"
+            <a href="#foodtruck-menu" class="btn-ft px-4 py-2 text-danger"
               style="background: transparent; border: 1px solid rgba(220, 53, 69, 0.3); border-radius: 50px; font-weight: 600; font-size: 0.85rem; white-space: nowrap;">
               <i class="fas fa-utensils me-1"></i> Menü ansehen
             </a>
@@ -169,170 +309,203 @@
   </section>
 
   <!-- Complete Menu Section serving as This Week Menu -->
-  <section id="weekly-menu" class="py-5" style="background: white;">
+  <section id="foodtruck-menu" class="py-5" style="background: white; scroll-margin-top: 110px;">
     <div class="container">
       <div class="section-title text-center mb-5 reveal">
-        <h2>Menü dieser Woche</h2>
-        <p class="text-muted" style="font-size: 1.1rem;">Wir wechseln unsere Menükarte jede Woche. Aus unseren 5
-          Signature-Menüs bringen wir jede Woche diese Optionen in den Truck!</p>
+        <h2>Foodtruck-Men&uuml;</h2>
+        <p class="text-muted mb-0" style="font-size: 1.05rem;">Mit + hinzuf&uuml;gen &middot; Vorbestellung unten abschlie&szlig;en</p>
       </div>
 
-      <!-- Stuttgart Feuersee Menu -->
-      <div id="feuersee-menu" style="position: absolute; top: -110px;"></div>
       <div class="row justify-content-center mb-5 reveal">
         <div class="col-lg-10">
-          <div class="bg-light rounded-4 p-4 p-md-5 shadow-sm"
-            style="border: 1px solid rgba(0,0,0,0.06);">
-            <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3 mb-2">
-              <div class="text-muted small live-indicator" style="white-space: nowrap;">
-                <strong>Karlsruhe Durlacher</strong>
-                <span class="opacity-75">•</span>
-                <span><strong>May 8, 2026</strong></span>
+          <div class="bg-white rounded-4 p-4 p-md-5 shadow-sm" style="border: 1px solid rgba(0,0,0,0.08);">
+
+            <p class="market-level-legend mb-4">
+              <strong>Sch&auml;rfegrad:</strong>
+              <span class="market-level market-level-spicy">leicht scharf</span>
+              <span class="market-level market-level-spicy">mild scharf</span>
+              <span class="market-level market-level-spicy">scharf</span>
+              <span class="market-level market-level-sweet">s&uuml;&szlig;</span>
+              <span class="market-level market-level-cold">kalt</span>
+            </p>
+
+            <div class="market-cat">
+              <h3 class="market-cat-title">Snacks &amp; Vorspeisen</h3>
+              <div class="market-highlight">
+                <ul class="market-list">
+                  <li class="market-row">
+                    <span class="market-row-name">Snacks-Teller<span class="market-row-sub">3 Snacks, Pommes und Salat &middot; ideal zum Teilen</span></span>
+                    <span class="market-row-price">9,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('snack_teller', -1, 9.5)">&minus;</button>
+                      <span class="qty-number" id="qty-snack_teller">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('snack_teller', 1, 9.5)">+</button>
+                    </div>
+                  </li>
+                </ul>
               </div>
-              <div id="market-availability-pill" class="small px-3 py-2 rounded-pill"
-                style="background: rgba(34, 197, 94, 0.10); border: 1px solid rgba(34, 197, 94, 0.35); color: #14532d;">
-                <strong>Mit „+“ Gerichte zur Vorbestellung hinzufügen.</strong>
-              </div>
+              <ul class="market-list">
+                  <li class="market-row">
+                    <span class="market-row-name">Chicken Cutlet<span class="market-row-sub">2 Stk. &middot; Mit Gem&uuml;se und H&auml;hnchen, w&uuml;rzig paniert und frittiert</span><span class="market-level market-level-spicy">mild scharf</span></span>
+                    <span class="market-row-price">5,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('cutlet', -1, 5.5)">&minus;</button>
+                      <span class="qty-number" id="qty-cutlet">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('cutlet', 1, 5.5)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Chicken 65<span class="market-row-sub">S&uuml;dindisches frittiertes H&auml;hnchen in scharfer Joghurt-Chili-Marinade mit Currybl&auml;ttern</span><span class="market-level market-level-spicy">scharf</span></span>
+                    <span class="market-row-price">6,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('chicken_65', -1, 6.5)">&minus;</button>
+                      <span class="qty-number" id="qty-chicken_65">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('chicken_65', 1, 6.5)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Samosa<span class="market-row-sub">2 Stk. &middot; Knusprige Teigtasche mit Kartoffel-Erbsen-F&uuml;llung &middot; gelegentlich verf&uuml;gbar</span><span class="market-level market-level-spicy">leicht scharf</span></span>
+                    <span class="market-row-price">4,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('samosa', -1, 4.5)">&minus;</button>
+                      <span class="qty-number" id="qty-samosa">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('samosa', 1, 4.5)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Banana Fry (Pazhampori)<span class="market-row-sub">3 Stk. &middot; S&uuml;&szlig;e frittierte Banane im Teigmantel &middot; gelegentlich verf&uuml;gbar</span><span class="market-level market-level-sweet">s&uuml;&szlig;</span></span>
+                    <span class="market-row-price">4,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('pazhampori', -1, 4.5)">&minus;</button>
+                      <span class="qty-number" id="qty-pazhampori">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('pazhampori', 1, 4.5)">+</button>
+                    </div>
+                  </li>
+              </ul>
             </div>
 
-            <div class="row g-4">
-              <div class="col-md-6">
-                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Curry Bowl</div>
-                <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Butter Chicken</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">8,50&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('butter_chicken', -1, 8.5)">−</button>
-                        <span class="qty-number" id="qty-butter_chicken">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('butter_chicken', 1, 8.5)">+</button>
-                      </div>
+            <div class="market-cat">
+              <h3 class="market-cat-title">Indische Klassiker</h3>
+              <p class="market-cat-note">Schalen &amp; Wraps &middot; mit Reis oder Porotta</p>
+              <div class="market-highlight">
+                <ul class="market-list">
+                  <li class="market-row">
+                    <span class="market-row-name">Butter Chicken<span class="market-row-sub">H&auml;hnchen in cremiger Tomaten-Butter-So&szlig;e</span><span class="market-level market-level-spicy">mild scharf</span></span>
+                    <span class="market-row-price">8,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('butter_chicken', -1, 8.5)">&minus;</button>
+                      <span class="qty-number" id="qty-butter_chicken">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('butter_chicken', 1, 8.5)">+</button>
                     </div>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Paneer Butter Masala (veg)</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">7,50&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('paneer_masala', -1, 7.5)">−</button>
-                        <span class="qty-number" id="qty-paneer_masala">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('paneer_masala', 1, 7.5)">+</button>
-                      </div>
+                  <li class="market-row">
+                    <span class="market-row-name">Paneer Butter Masala<span class="market-row-sub">Frischk&auml;se in cremiger, w&uuml;rziger Masala-So&szlig;e</span><span class="market-level market-level-spicy">leicht scharf</span></span>
+                    <span class="market-row-price">7,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('paneer_masala', -1, 7.5)">&minus;</button>
+                      <span class="qty-number" id="qty-paneer_masala">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('paneer_masala', 1, 7.5)">+</button>
                     </div>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Dal Spinach (Vegan)</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">6,50&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('spinach_dal', -1, 6.5)">−</button>
-                        <span class="qty-number" id="qty-spinach_dal">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('spinach_dal', 1, 6.5)">+</button>
-                      </div>
+                  <li class="market-row">
+                    <span class="market-row-name">Dal Spinat<span class="market-row-sub">Linsencurry mit Spinat, mild gew&uuml;rzt</span><span class="market-level market-level-spicy">leicht scharf</span></span>
+                    <span class="market-row-price">6,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('spinach_dal', -1, 6.5)">&minus;</button>
+                      <span class="qty-number" id="qty-spinach_dal">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('spinach_dal', 1, 6.5)">+</button>
                     </div>
                   </li>
-                </ul>
-                <div class="text-muted" style="font-size: 0.95rem;">Mit Reis oder Porotta</div>
-
-              </div>
-              <div class="col-md-6">
-                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">South Indian Specials</div>
-                <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Masala Dosa</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">9,80&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('masala_dosa', -1, 9.8)">−</button>
-                        <span class="qty-number" id="qty-masala_dosa">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('masala_dosa', 1, 9.8)">+</button>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-6">
-                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Snacks</div>
-                <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Pazhampori (3 pcs)</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3,90&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('pazhampori', -1, 3.9)">−</button>
-                        <span class="qty-number" id="qty-pazhampori">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('pazhampori', 1, 3.9)">+</button>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Chicken Cutlet (2 pcs)</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">4,80&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('cutlet', -1, 4.8)">−</button>
-                        <span class="qty-number" id="qty-cutlet">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('cutlet', 1, 4.8)">+</button>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Samosa (2 pcs)</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">4,80&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('samosa', -1, 4.8)">−</button>
-                        <span class="qty-number" id="qty-samosa">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('samosa', 1, 4.8)">+</button>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-md-6">
-                <div class="fw-bold mb-2" style="letter-spacing: 0.5px;">Drinks</div>
-                <ul class="list-unstyled mb-0" style="color: #333;">
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Indian Tea</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">2,00&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('tea', -1, 2.0)">−</button>
-                        <span class="qty-number" id="qty-tea">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('tea', 1, 2.0)">+</button>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Mango Lassi</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3,00&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('lassi', -1, 3.0)">−</button>
-                        <span class="qty-number" id="qty-lassi">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('lassi', 1, 3.0)">+</button>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="d-flex justify-content-between align-items-center gap-3 py-1 flex-wrap">
-                    <span class="fw-semibold">Mojito</span>
-                    <div class="d-flex align-items-center gap-3">
-                      <span class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">3,80&nbsp;&euro;</span>
-                      <div class="quantity-selector m-0" style="margin-top: 0; padding: 6px 10px; gap: 10px;">
-                        <button class="qty-btn minus" onclick="updateQty('mojito', -1, 3.8)">−</button>
-                        <span class="qty-number" id="qty-mojito">0</span>
-                        <button class="qty-btn plus" onclick="updateQty('mojito', 1, 3.8)">+</button>
-                      </div>
+                  <li class="market-row">
+                    <span class="market-row-name">Scharfes Hähnchencurry<span class="market-row-sub">Feuriges H&auml;hnchencurry mit s&uuml;dindischen Gew&uuml;rzen</span><span class="market-level market-level-spicy">scharf</span></span>
+                    <span class="market-row-price">9,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('spicy_chicken_curry', -1, 9.5)">&minus;</button>
+                      <span class="qty-number" id="qty-spicy_chicken_curry">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('spicy_chicken_curry', 1, 9.5)">+</button>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
+
+            <div class="market-cat">
+              <h3 class="market-cat-title">Kerala-Spezialitäten</h3>
+              <div class="market-highlight">
+                <ul class="market-list">
+                  <li class="market-row">
+                    <span class="market-row-name">H&auml;hnchen-Biryani<span class="market-row-sub">Duftender Basmati-Reis mit H&auml;hnchen und Gew&uuml;rzen &middot; Beilage: Butter Chicken oder Chicken 65</span><span class="market-level market-level-spicy">scharf</span><span class="market-preorder-badge">Vorbestellung erforderlich</span></span>
+                    <span class="market-row-price">13,00&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('chicken_biriyani', -1, 13)">&minus;</button>
+                      <span class="qty-number" id="qty-chicken_biriyani">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('chicken_biriyani', 1, 13)">+</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <ul class="market-list">
+                  <li class="market-row">
+                    <span class="market-row-name">Kothu Porotta<span class="market-row-sub">Gehacktes Fladenbrot, w&uuml;rzig gebraten</span><span class="market-level market-level-spicy">scharf</span></span>
+                    <span class="market-row-price">11,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('kothu_porotta', -1, 11.5)">&minus;</button>
+                      <span class="qty-number" id="qty-kothu_porotta">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('kothu_porotta', 1, 11.5)">+</button>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+
+            <div class="market-cat mb-0">
+              <h3 class="market-cat-title">Getr&auml;nke</h3>
+              <div class="market-highlight">
+                <ul class="market-list">
+                  <li class="market-row">
+                    <span class="market-row-name">Mango Lassi<span class="market-row-sub">Erfrischender Joghurt-Drink mit Mango</span><span class="market-level market-level-sweet">s&uuml;&szlig;</span> <span class="market-level market-level-cold">kalt</span></span>
+                    <span class="market-row-price">3,00&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('lassi', -1, 3.0)">&minus;</button>
+                      <span class="qty-number" id="qty-lassi">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('lassi', 1, 3.0)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Indian Tee (mit Milch)<span class="market-row-sub">Warmer Tee mit indischen Gew&uuml;rzen &ndash; Chai</span></span>
+                    <span class="market-row-price">2,00&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('tea', -1, 2.0)">&minus;</button>
+                      <span class="qty-number" id="qty-tea">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('tea', 1, 2.0)">+</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <ul class="market-list">
+                  <li class="market-row">
+                    <span class="market-row-name">Mojito (Mango, Wassermelone)<span class="market-row-sub">Alkoholfreier Mocktail &middot; Sommerspecial</span></span>
+                    <span class="market-row-price">3,80&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('mojito', -1, 3.8)">&minus;</button>
+                      <span class="qty-number" id="qty-mojito">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('mojito', 1, 3.8)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Limonade<span class="market-row-sub">Hausgemachte Zitronenlimonade &middot; Sommerspecial</span></span>
+                    <span class="market-row-price">2,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('lemonade', -1, 2.5)">&minus;</button>
+                      <span class="qty-number" id="qty-lemonade">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('lemonade', 1, 2.5)">+</button>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </div>
-    </div>
   </section>
 
   <!-- Sticky Order Bar -->
@@ -362,33 +535,22 @@
             </div>
 
             <div class="mb-3">
+              <label class="form-label small">Standort</label>
+              <select id="custLocation" class="form-select">
+                <option value="" selected>Bitte w&auml;hlen&hellip;</option>
+                <option value="Stuttgart">Stuttgart</option>
+                <option value="Kalsruhe">Karlsruhe</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
               <label class="form-label small">Abholzeit</label>
               <select id="pickupTime" class="form-select">
-                <option value="" selected>Bitte wählen…</option>
-                <option value="10:30">10:30 AM</option>
-                <option value="11:00">11:00 AM</option>
-                <option value="11:30">11:30 AM</option>
-                <option value="12:00">12:00 PM</option>
-                <option value="12:30">12:30 PM</option>
-                <option value="13:00">1:00 PM</option>
-                <option value="13:30">1:30 PM</option>
-                <option value="14:00">2:00 PM</option>
-                <option value="14:30">2:30 PM</option>
-                <option value="15:00">3:00 PM</option>
-                <option value="15:30">3:30 PM</option>
-                <option value="16:00">4:00 PM</option>
-                <option value="16:30">4:30 PM</option>
-                <option value="17:00">5:00 PM</option>
-                <option value="17:30">5:30 PM</option>
-                <option value="18:00">6:00 PM</option>
-                <option value="18:30">6:30 PM</option>
-                <option value="19:00">7:00 PM</option>
-                <option value="19:30">7:30 PM</option>
-                <option value="20:00">8:00 PM</option>
-                <option value="20:30">8:30 PM</option>
-                <option value="21:00">9:00 PM</option>
+                <option value="" selected>Bitte w&auml;hlen&hellip;</option>
+                <option value="11:30 - 13:30">11:30 &ndash; 13:30 Uhr</option>
+                <option value="15:00 - 17:30">15:00 &ndash; 17:30 Uhr</option>
+                <option value="17:30 - 20:00">17:30 &ndash; 20:00 Uhr</option>
               </select>
-              <div class="form-text">Abholfenster: 10:30 – 21:00 Uhr</div>
             </div>
 
             <div class="mb-2">
@@ -401,7 +563,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn-ft btn-ft-secondary" data-bs-dismiss="modal">Schließen</button>
-          <button type="button" id="preorderSubmitBtn" class="btn-ft btn-ft-primary" onclick="submitPreorder()">Bestellung absenden</button>
+          <button type="button" id="preorderSubmitBtn" class="btn-ft btn-ft-primary" onclick="submitPreorder()">Weiter zum Formular</button>
         </div>
       </div>
     </div>
@@ -411,11 +573,11 @@
   <footer class="py-5 reveal" style="background: var(--text-dark); color: white;">
     <div class="container text-center">
       <div class="section-title mb-4">
-        <h2 style="color: white;">Folgen Sie dem Truck. Genießen Sie die Woche.</h2>
+        <h2 style="color: white;">Dem Foodtruck folgen. Die Woche genie&szlig;en.</h2>
       </div>
       <div class="btn-group justify-content-center mb-5">
         <a href="#next-event" class="btn-ft btn-ft-primary">Wochenplan ansehen</a>
-        <a href="#feuersee-menu" class="btn-ft btn-ft-secondary" style="background: transparent; color: white;">Jetzt
+        <a href="#foodtruck-menu" class="btn-ft btn-ft-secondary" style="background: transparent; color: white;">Jetzt
           vorbestellen</a>
       </div>
       <div class="social-icons d-flex justify-content-center gap-4 mb-4">
@@ -426,7 +588,7 @@
         <a href="https://www.youtube.com/@Foodeza_de" target="_blank" class="social-btn youtube"><i
             class="fab fa-youtube"></i></a>
       </div>
-      <p class="mb-0 opacity-50">&copy; 2025 Foodeza. Authentisches Kerala Streetfood auf Rädern. | <a
+      <p class="mb-0 opacity-50">&copy; 2025 Foodeza. Authentisches Kerala-Streetfood auf R&auml;dern. | <a
           href="../impressum.html" style="color: white; text-decoration: underline;">Impressum</a> | <a
           href="../datenschutz.html" style="color: white; text-decoration: underline;">Datenschutz</a> | <a
           href="../agb.html" style="color: white; text-decoration: underline;">AGB</a></p>
@@ -478,31 +640,41 @@
   <script>
     // Ordering cart for all available items (no separate section)
     const marketCart = {
+      snack_teller: 0,
+      pazhampori: 0,
+      samosa: 0,
+      chicken_65: 0,
+      cutlet: 0,
       butter_chicken: 0,
       paneer_masala: 0,
       spinach_dal: 0,
-      masala_dosa: 0,
-      pazhampori: 0,
-      cutlet: 0,
-      samosa: 0,
-      tea: 0,
+      spicy_chicken_curry: 0,
+      kothu_porotta: 0,
+      chicken_biriyani: 0,
       lassi: 0,
+      tea: 0,
       mojito: 0,
+      lemonade: 0,
       totalItems: 0,
       totalPrice: 0
     };
 
     const marketMenu = {
+      snack_teller: { name: 'Snacks-Teller (3 Snacks, Pommes und Salat)', price: 9.5 },
+      pazhampori: { name: 'Banana Fry (Pazhampori) · 3 Stk.', price: 4.5 },
+      samosa: { name: 'Samosa · 2 Stk.', price: 4.5 },
+      chicken_65: { name: 'Chicken 65 (scharf frittiertes Hähnchen)', price: 6.5 },
+      cutlet: { name: 'Chicken Cutlet · 2 Stk.', price: 5.5 },
       butter_chicken: { name: 'Butter Chicken', price: 8.5 },
-      paneer_masala: { name: 'Paneer Butter Masala (veg)', price: 7.5 },
-      spinach_dal: { name: 'Dal Spinach (Vegan)', price: 6.5 },
-      masala_dosa: { name: 'Masala Dosa', price: 9.8 },
-      pazhampori: { name: 'Pazhampori (3 pcs)', price: 3.9 },
-      cutlet: { name: 'Chicken Cutlet (2 pcs)', price: 4.8 },
-      samosa: { name: 'Samosa (2 pcs)', price: 4.8 },
-      tea: { name: 'Indian Tea', price: 2.0 },
+      paneer_masala: { name: 'Paneer Butter Masala', price: 7.5 },
+      spinach_dal: { name: 'Dal Spinat', price: 6.5 },
+      spicy_chicken_curry: { name: 'Scharfes Hähnchencurry', price: 9.5 },
+      kothu_porotta: { name: 'Kothu Porotta (gehacktes Fladenbrot, würzig gebraten)', price: 11.5 },
+      chicken_biriyani: { name: 'Hähnchen-Biryani (mit Beilage: Butter Chicken oder Chicken 65)', price: 13.0 },
       lassi: { name: 'Mango Lassi', price: 3.0 },
-      mojito: { name: 'Mojito', price: 3.8 }
+      tea: { name: 'Indian Tee (mit Milch) – Chai', price: 2.0 },
+      mojito: { name: 'Mojito (Mango, Wassermelone)', price: 3.8 },
+      lemonade: { name: 'Limonade', price: 2.5 }
     };
 
     function updateQty(item, change, price) {
@@ -513,7 +685,7 @@
       marketCart.totalItems += change;
       marketCart.totalPrice += (change * price);
 
-      const el = document.getElementById(`qty-${item}`);
+      const el = document.getElementById('qty-' + item);
       if (el) el.innerText = marketCart[item];
 
       updateSticky();
@@ -556,71 +728,63 @@
     }
 
     function buildItemsText() {
-      return buildItems().map(it => `${it.name} × ${it.qty}`).join(' | ');
+      return buildItems().map(it => `${it.name} · ${it.qty}×`).join(' | ');
     }
 
-    const MARKET_ORDERS_API = 'api/market-orders.php';
+    const MARKET_FORM_BASE =
+      'https://docs.google.com/forms/d/e/1FAIpQLSfV-0pTys9EeRUrOTloMsaX7jlg50AlQBfuBFApML2CcAHXHQ/viewform';
+    const MARKET_FORM_ENTRIES = {
+      name: 'entry.2092238618',
+      location: 'entry.1835688175',
+      pickup: 'entry.479301265',
+      chickenBiryani: 'entry.1486961606',
+      orderDetails: 'entry.1946155460',
+      total: 'entry.2057144369'
+    };
 
-    function escapeHtml(s) {
-      if (s == null) return '';
-      return String(s)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-    }
-
-    function resetCart() {
-      Object.keys(marketCart).forEach(k => { if (k !== 'totalItems' && k !== 'totalPrice') marketCart[k] = 0; });
-      marketCart.totalItems = 0;
-      marketCart.totalPrice = 0;
-      Object.keys(marketMenu).forEach(k => {
-        const el = document.getElementById(`qty-${k}`);
-        if (el) el.innerText = '0';
+    function buildOrderDetailsText() {
+      const lines = [];
+      Object.keys(marketMenu).forEach(key => {
+        if (key === 'chicken_biriyani') return;
+        if (marketCart[key] > 0) {
+          lines.push(`${marketMenu[key].name}: ${marketCart[key]}`);
+        }
       });
-      updateSticky();
+      return lines.join('\n');
     }
 
-    async function submitPreorder() {
+    function submitPreorder() {
       if (marketCart.totalItems <= 0) return;
+
       const name = (document.getElementById('custName').value || '').trim();
+      const location = (document.getElementById('custLocation').value || '').trim();
       const pickup = (document.getElementById('pickupTime').value || '').trim();
+
       if (!name) { alert('Bitte Name eingeben.'); return; }
+      if (!location) { alert('Bitte Standort wählen.'); return; }
       if (!pickup) { alert('Bitte Abholzeit wählen.'); return; }
 
-      const items = buildItems();
-      const total = marketCart.totalPrice;
-      const body = { action: 'append', order: { source: 'market', name, pickupTime: pickup, items, total } };
-      const btn = document.getElementById('preorderSubmitBtn');
-      if (btn) btn.disabled = true;
+      const params = [
+        `${MARKET_FORM_ENTRIES.name}=${encodeURIComponent(name)}`,
+        `${MARKET_FORM_ENTRIES.location}=${encodeURIComponent(location)}`,
+        `${MARKET_FORM_ENTRIES.pickup}=${encodeURIComponent(pickup)}`
+      ];
 
-      try {
-        const r = await fetch(MARKET_ORDERS_API, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
-        });
-        const data = await r.json().catch(() => ({}));
-        if (!r.ok || !data.ok || !data.order) {
-          const err = (data && data.error) ? data.error : ('HTTP ' + r.status);
-          alert('Bestellung konnte nicht gespeichert werden (' + err + '). Bitte später erneut versuchen oder telefonisch bestellen.');
-          return;
-        }
-        const o = data.order;
-        const msg = document.getElementById('orderSuccessMsg');
-        msg.innerHTML =
-          '<strong>Bestellung eingegangen!</strong><br>\n' +
-          'Bestellnummer: <strong>' + escapeHtml(String(o.orderNumber)) + '</strong><br>\n' +
-          'Zeit: ' + escapeHtml(new Date(o.orderTime).toLocaleString('de-DE')) + '<br>\n' +
-          'Abholzeit: ' + escapeHtml(String(o.pickupTime)) + '<br>\n' +
-          'Summe: <strong>' + escapeHtml(Number(o.total).toFixed(2).replace('.', ',')) + ' €</strong>';
-        setPreorderModalSuccessMode(true);
-        resetCart();
-      } catch (e) {
-        alert('Keine Verbindung zum Server. Bitte Internet prüfen oder telefonisch bestellen.');
-      } finally {
-        if (btn) btn.disabled = false;
+      if (marketCart.chicken_biriyani > 0) {
+        params.push(`${MARKET_FORM_ENTRIES.chickenBiryani}=${encodeURIComponent(String(marketCart.chicken_biriyani))}`);
       }
+
+      const orderDetails = buildOrderDetailsText();
+      if (orderDetails) {
+        params.push(`${MARKET_FORM_ENTRIES.orderDetails}=${encodeURIComponent(orderDetails)}`);
+      }
+
+      if (marketCart.totalPrice > 0) {
+        params.push(`${MARKET_FORM_ENTRIES.total}=${encodeURIComponent(marketCart.totalPrice.toFixed(2).replace('.', ',') + ' €')}`);
+      }
+
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('marketOrderModal')).hide();
+      window.location.href = MARKET_FORM_BASE + '?' + params.join('&');
     }
 
     // initial
