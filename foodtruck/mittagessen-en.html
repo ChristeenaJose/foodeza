@@ -28,6 +28,23 @@
       --premium-gradient: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
       --premium-shadow: 0 10px 30px rgba(255, 65, 108, 0.2);
     }
+
+    #lunchOrderModal .modal-content {
+      max-height: min(92vh, 720px);
+    }
+
+    #lunchOrderModal .modal-body {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #lunchOrderModal .btn-ft {
+      text-decoration: none;
+    }
+
+    #sticky-order-bar {
+      z-index: 1040;
+    }
   </style>
 </head>
 
@@ -616,7 +633,55 @@
       <span class="order-count" id="order-count">0 items</span>
       <span class="order-total" id="order-total">Total: 0.00 €</span>
     </div>
-    <button onclick="submitOrder()" class="order-submit-btn">Complete Order</button>
+    <button onclick="openPreorder()" class="order-submit-btn">Pre-order</button>
+  </div>
+
+  <!-- Preorder Modal -->
+  <div class="modal fade" id="lunchOrderModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content" style="border-radius: 18px;">
+        <div class="modal-header">
+          <h5 class="modal-title">Pre-order</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="preorderFormWrap">
+            <div class="mb-3">
+              <label class="form-label small">Name</label>
+              <input id="custName" type="text" class="form-control" placeholder="Your name">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small">Location</label>
+              <select id="custLocation" class="form-select">
+                <option value="" selected>Please choose&hellip;</option>
+                <option value="Lingwiesenstr. 11/2, 70825 Korntal-Münchingen">Korntal-M&uuml;nchingen</option>
+                <option value="Presselstr. 17, 70191, Stuttgart-North">Stuttgart-Nord</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small">Pickup time</label>
+              <select id="pickupTime" class="form-select">
+                <option value="" selected>Please choose&hellip;</option>
+                <option value="11:30 - 12:00">11:30 &ndash; 12:00</option>
+                <option value="12:00 - 12:30">12:00 &ndash; 12:30</option>
+                <option value="12:30 - 13:30">12:30 &ndash; 13:30</option>
+              </select>
+            </div>
+
+            <div class="mb-2">
+              <label class="form-label small">Order</label>
+              <div id="orderItemsPreview" class="small text-muted"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-ft btn-ft-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="preorderSubmitBtn" class="btn-ft btn-ft-primary" onclick="submitPreorder()">Continue to form</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Scripts -->
@@ -674,63 +739,89 @@
       }
     }
 
-    function submitOrder() {
-      const baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdo0a3SJCsOkdfr4kT1__Td2K9irO9sCEcwdCRB0B7jA-Pkzg/viewform";
+    function buildOrderDetailsText() {
+      const allItems = [];
 
-      let params = [];
-
-      // 1. Bestellung Details - entry.1946155460
-      let allItems = [];
-
-      // Fried Rice
       if (cart.fried_rice_nv > 0) allItems.push(`Non-Veg (Fried Rice): ${cart.fried_rice_nv}`);
       if (cart.fried_rice_v > 0) allItems.push(`Vegetarian (Fried Rice): ${cart.fried_rice_v}`);
       if (cart.fried_rice_vn > 0) allItems.push(`Vegan (Fried Rice): ${cart.fried_rice_vn}`);
 
-      // Specials Dies Woche
       if (cart.super_cool_lemonade > 0) allItems.push(`Super Cool Lemonade: ${cart.super_cool_lemonade}`);
       if (cart.butter_chicken > 0) allItems.push(`Butter Chicken: ${cart.butter_chicken}`);
       if (cart.paneer_masala > 0) allItems.push(`Paneer Butter Masala: ${cart.paneer_masala}`);
       if (cart.spinach_dal > 0) allItems.push(`Dal Spinat (Vegan): ${cart.spinach_dal}`);
 
-      // Rice & Curry (Legacy)
       if (cart.rice_nv > 0) allItems.push(`Curry with Rice (non-veg): ${cart.rice_nv}`);
       if (cart.rice_v > 0) allItems.push(`Curry with Rice (veg): ${cart.rice_v}`);
       if (cart.rice_vn > 0) allItems.push(`Curry with Rice (vegan): ${cart.rice_vn}`);
 
-      // Thali
       if (cart.thali_nv > 0) allItems.push(`Special Thali (non-veg): ${cart.thali_nv}`);
       if (cart.thali_v > 0) allItems.push(`Special Thali (veg): ${cart.thali_v}`);
       if (cart.thali_vn > 0) allItems.push(`Special Thali (vegan): ${cart.thali_vn}`);
 
-      // Bread & Curry
       if (cart.porotta_brot_nv > 0) allItems.push(`Curry with Bread (non-veg): ${cart.porotta_brot_nv}`);
       if (cart.porotta_brot_v > 0) allItems.push(`Curry with Bread (veg): ${cart.porotta_brot_v}`);
       if (cart.porotta_brot_vn > 0) allItems.push(`Curry with Bread (vegan): ${cart.porotta_brot_vn}`);
 
-      // Wrap
       if (cart.wrap_nv > 0) allItems.push(`Wrap (non-veg): ${cart.wrap_nv}`);
       if (cart.wrap_v > 0) allItems.push(`Wrap (veg): ${cart.wrap_v}`);
 
-      // Combo
       if (cart.combo_nv > 0) allItems.push(`Combo (non-veg): ${cart.combo_nv}`);
       if (cart.combo_v > 0) allItems.push(`Combo (veg): ${cart.combo_v}`);
 
-      // Drinks
       if (cart.lassi > 0) allItems.push(`Mango Lassi: ${cart.lassi}`);
 
-      if (allItems.length > 0) {
-        params.push(`entry.1946155460=${encodeURIComponent(allItems.join(', \n'))}`);
+      return allItems.join('\n');
+    }
+
+    function buildItemsText() {
+      return buildOrderDetailsText().replace(/\n/g, ' | ');
+    }
+
+    function openPreorder() {
+      if (cart.totalItems <= 0) return;
+      document.getElementById('orderItemsPreview').innerText = buildItemsText();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('lunchOrderModal')).show();
+    }
+
+    const LUNCH_FORM_BASE =
+      'https://docs.google.com/forms/d/e/1FAIpQLSdo0a3SJCsOkdfr4kT1__Td2K9irO9sCEcwdCRB0B7jA-Pkzg/viewform';
+    const LUNCH_FORM_ENTRIES = {
+      name: 'entry.2092238618',
+      location: 'entry.1835688175',
+      pickup: 'entry.479301265',
+      orderDetails: 'entry.1946155460',
+      total: 'entry.2057144369'
+    };
+
+    function submitPreorder() {
+      if (cart.totalItems <= 0) return;
+
+      const name = (document.getElementById('custName').value || '').trim();
+      const location = (document.getElementById('custLocation').value || '').trim();
+      const pickup = (document.getElementById('pickupTime').value || '').trim();
+
+      if (!name) { alert('Please enter your name.'); return; }
+      if (!location) { alert('Please choose a location.'); return; }
+      if (!pickup) { alert('Please choose a pickup time.'); return; }
+
+      const params = [
+        `${LUNCH_FORM_ENTRIES.name}=${encodeURIComponent(name)}`,
+        `${LUNCH_FORM_ENTRIES.location}=${encodeURIComponent(location)}`,
+        `${LUNCH_FORM_ENTRIES.pickup}=${encodeURIComponent(pickup)}`
+      ];
+
+      const orderDetails = buildOrderDetailsText();
+      if (orderDetails) {
+        params.push(`${LUNCH_FORM_ENTRIES.orderDetails}=${encodeURIComponent(orderDetails)}`);
       }
 
-      // 6. Total Price - entry.2057144369
       if (cart.totalPrice > 0) {
-        params.push(`entry.2057144369=${encodeURIComponent(cart.totalPrice.toFixed(2).replace('.', ','))} €`);
+        params.push(`${LUNCH_FORM_ENTRIES.total}=${encodeURIComponent(cart.totalPrice.toFixed(2).replace('.', ',') + ' €')}`);
       }
 
-      // Open pre-filled form in the same window
-      const finalUrl = baseUrl + "?" + params.join("&");
-      window.location.href = finalUrl;
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('lunchOrderModal')).hide();
+      window.location.href = LUNCH_FORM_BASE + '?' + params.join('&');
     }
 
     // Reload page when navigating back to ensure state is fresh
@@ -739,6 +830,18 @@
         window.location.reload();
       }
     });
+
+    const lunchModalEl = document.getElementById('lunchOrderModal');
+    if (lunchModalEl) {
+      lunchModalEl.addEventListener('show.bs.modal', () => {
+        const bar = document.getElementById('sticky-order-bar');
+        if (bar) bar.style.display = 'none';
+      });
+      lunchModalEl.addEventListener('hidden.bs.modal', () => {
+        const bar = document.getElementById('sticky-order-bar');
+        if (bar) bar.style.display = '';
+      });
+    }
 
     // Scroll Reveal Animation
     const observerOptions = {

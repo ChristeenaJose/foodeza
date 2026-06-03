@@ -148,6 +148,10 @@
       color: #c0392b;
     }
 
+    .market-level + .market-preorder-badge {
+      margin-top: 0.65rem;
+    }
+
     .market-level-sweet,
     .market-level-cold {
       font-weight: 600;
@@ -187,8 +191,9 @@
     }
 
     .market-preorder-badge {
-      display: inline-block;
-      margin-top: 0.4rem;
+      display: block;
+      width: fit-content;
+      margin-top: 0.65rem;
       padding: 0.25rem 0.6rem;
       font-size: 0.72rem;
       font-weight: 700;
@@ -434,7 +439,7 @@
               <div class="market-highlight">
                 <ul class="market-list">
                   <li class="market-row">
-                    <span class="market-row-name">H&auml;hnchen-Biryani<span class="market-row-sub">Duftender Basmati-Reis mit H&auml;hnchen und Gew&uuml;rzen &middot; Beilage: Butter Chicken oder Chicken 65</span><span class="market-level market-level-spicy">scharf</span><span class="market-preorder-badge">Vorbestellung erforderlich</span></span>
+                    <span class="market-row-name">Chicken Biryani<span class="market-row-sub">Duftender Basmati-Reis mit H&auml;hnchen und Gew&uuml;rzen &middot; Beilage: Butter Chicken oder Chicken 65</span><span class="market-level market-level-spicy">scharf</span><span class="market-preorder-badge">Vorbestellung erforderlich &middot; 24 Std. im Voraus</span></span>
                     <span class="market-row-price">13,00&nbsp;&euro;</span>
                     <div class="quantity-selector m-0">
                       <button type="button" class="qty-btn minus" onclick="updateQty('chicken_biriyani', -1, 13)">&minus;</button>
@@ -670,7 +675,7 @@
       spinach_dal: { name: 'Dal Spinat', price: 6.5 },
       spicy_chicken_curry: { name: 'Scharfes Hähnchencurry', price: 9.5 },
       kothu_porotta: { name: 'Kothu Porotta (gehacktes Fladenbrot, würzig gebraten)', price: 11.5 },
-      chicken_biriyani: { name: 'Hähnchen-Biryani (mit Beilage: Butter Chicken oder Chicken 65)', price: 13.0 },
+      chicken_biriyani: { name: 'Chicken Biryani (Beilage: Butter Chicken oder Chicken 65)', price: 13.0 },
       lassi: { name: 'Mango Lassi', price: 3.0 },
       tea: { name: 'Indian Tee (mit Milch) – Chai', price: 2.0 },
       mojito: { name: 'Mojito (Mango, Wassermelone)', price: 3.8 },
