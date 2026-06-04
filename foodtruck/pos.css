@@ -92,6 +92,118 @@ body.pos-shell {
       flex-shrink: 0;
     }
 
+    /* Cash panel — easy to spot under "Total due" */
+    .pos-cash-panel {
+      background: linear-gradient(180deg, #fff9e6 0%, #fff3cc 100%);
+      border: 2px solid #e6a800;
+      border-radius: 14px;
+      padding: 0.85rem 0.9rem 0.75rem;
+      box-shadow: 0 4px 14px rgba(230, 168, 0, 0.22);
+    }
+
+    .pos-cash-panel-label {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #7a4f00;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+    }
+
+    .pos-cash-panel-label i {
+      font-size: 1.15rem;
+      color: #c99200;
+    }
+
+    .pos-tender-input {
+      font-size: 1.35rem !important;
+      min-height: 3rem;
+      background: #fff;
+      border-color: #e6a800;
+    }
+
+    .pos-tender-input:focus {
+      border-color: #d62828;
+      box-shadow: 0 0 0 0.2rem rgba(214, 40, 40, 0.2);
+    }
+
+    .pos-tender-quick-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .pos-tender-quick-row .pos-tender-quick {
+      flex: 1 1 auto;
+      min-width: 2.75rem;
+      padding: 0.35rem 0.5rem;
+      font-size: 0.9rem;
+      border-radius: 999px;
+    }
+
+    .pos-change-box {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .pos-change-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pos-change-amount {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: right;
+    }
+
+    .pos-change-box--hint .pos-change-amount {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .pos-change-box--short {
+      background: #fde8e8;
+      border-color: #d62828;
+    }
+
+    .pos-change-box--short .pos-change-label {
+      color: #b91c1c;
+    }
+
+    .pos-change-box--short .pos-change-amount {
+      color: #d62828;
+      font-size: 1.15rem;
+    }
+
+    .pos-change-box--ok {
+      background: #e8f8ee;
+      border: 2px solid #198754;
+    }
+
+    .pos-change-box--ok .pos-change-label {
+      color: #146c43;
+    }
+
+    .pos-change-box--ok .pos-change-amount {
+      color: #198754;
+      font-size: 1.85rem;
+    }
+
     .pos-line-actions .btn {
       min-width: 2rem;
       padding: 0.15rem 0.45rem;

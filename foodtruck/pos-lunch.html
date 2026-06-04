@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Foodeza Kassa · Mittagessen</title>
+  <title>Foodeza POS · Lunch</title>
   <link rel="icon" type="image/x-icon" href="../images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,33 +19,33 @@
   <div class="pos-topbar shadow-sm">
     <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
       <div class="d-flex align-items-center gap-3">
-        <strong><i class="fas fa-cash-register me-2"></i><span id="pos-brand-title">Mittagessen</span></strong>
+        <strong><i class="fas fa-cash-register me-2"></i><span id="pos-brand-title">Lunch</span></strong>
       </div>
       <div class="d-flex gap-2 flex-wrap align-items-center">
         <div class="btn-group">
           <button type="button" class="btn btn-sm btn-light text-dark dropdown-toggle" data-bs-toggle="dropdown"
-            aria-expanded="false" title="Komplette Übersicht aller gespeicherten Bestellungen">
-            <i class="fas fa-download me-1"></i>Gesamtübersicht
+            aria-expanded="false" title="Full summary of all saved orders">
+            <i class="fas fa-download me-1"></i>Export summary
           </button>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><button type="button" class="dropdown-item" id="pos-btn-summary-json"><strong>Zusammenfassung JSON</strong> – alle Daten</button></li>
-            <li><button type="button" class="dropdown-item" id="pos-btn-summary-csv">Tabelle CSV (Excel)</button></li>
-            <li><button type="button" class="dropdown-item" id="pos-btn-summary-txt">Lesbar TXT</button></li>
+            <li><button type="button" class="dropdown-item" id="pos-btn-summary-json"><strong>Summary JSON</strong> — all data</button></li>
+            <li><button type="button" class="dropdown-item" id="pos-btn-summary-csv">Table CSV (Excel)</button></li>
+            <li><button type="button" class="dropdown-item" id="pos-btn-summary-txt">Readable TXT</button></li>
             <li><hr class="dropdown-divider"></li>
-            <li><button type="button" class="dropdown-item" id="pos-btn-export-jsonl">Rohdaten JSON Lines (.jsonl)</button></li>
+            <li><button type="button" class="dropdown-item" id="pos-btn-export-jsonl">Raw JSON Lines (.jsonl)</button></li>
           </ul>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-view-orders" title="Gespeicherte Bestellungen ansehen">
-          <i class="fas fa-list-check me-1"></i>Bestellungen
+        <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-view-orders" title="View saved orders">
+          <i class="fas fa-list-check me-1"></i>Orders
         </button>
-        <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-journal-pdf" title="Heute als PDF">
-          <i class="fas fa-file-pdf me-1"></i>PDF heute
+        <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-journal-pdf" title="Today as PDF">
+          <i class="fas fa-file-pdf me-1"></i>PDF today
         </button>
-        <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-custom" title="Freibetrag">
-          <i class="fas fa-euro-sign me-1"></i>Freibetrag
+        <button type="button" class="btn btn-sm btn-outline-light" id="pos-btn-custom" title="Custom amount">
+          <i class="fas fa-euro-sign me-1"></i>Custom
         </button>
-        <a href="pos.html" class="btn btn-sm btn-outline-light rounded-pill">Kassa</a>
-        <a href="index.html" class="btn btn-sm btn-outline-light rounded-pill">← Foodtruck</a>
+        <a href="pos.html" class="btn btn-sm btn-outline-light rounded-pill">POS</a>
+        <a href="index.html" class="btn btn-sm btn-outline-light rounded-pill">← Food truck</a>
       </div>
     </div>
   </div>
@@ -57,17 +57,17 @@
       <div class="col-lg-7 col-xl-8 pos-col-products order-1">
         <div class="mb-2 d-flex gap-2 flex-wrap align-items-center">
           <p id="pos-session-footer" class="mb-0 pos-muted small w-100 order-first"></p>
-          <label class="visually-hidden" for="pos-search">Suche</label>
+          <label class="visually-hidden" for="pos-search">Search</label>
           <div class="input-group" style="max-width: 320px;">
             <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
-            <input id="pos-search" type="search" class="form-control border-start-0" placeholder="Artikel suchen…"
+            <input id="pos-search" type="search" class="form-control border-start-0" placeholder="Search items…"
               autocomplete="off">
           </div>
           <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" id="pos-toggle-inactive"
-            aria-pressed="false" title="Zusätzliche Artikel (aktuell nicht im Angebot) ein- oder ausblenden">
-            <i class="fas fa-eye-slash me-1"></i>Inaktives Menü
+            aria-pressed="false" title="Show or hide items not currently on offer">
+            <i class="fas fa-eye-slash me-1"></i>Inactive menu
           </button>
-          <p class="mb-0 pos-muted">Jeder Abschluss speichert: <strong>was gekauft</strong>, <strong>Zahlungsart</strong>, Betrag, bei Bar: erhalten / Rückgeld. Gesamtübersicht über Menü „Gesamtübersicht“.</p>
+          <p class="mb-0 pos-muted">Each checkout saves <strong>items</strong>, <strong>payment</strong>, amount, and for cash: tender / change. Use <strong>Export summary</strong> in the menu.</p>
         </div>
 <div id="pos-categories"></div>
       </div>
@@ -76,79 +76,77 @@
       <div class="col-lg-5 col-xl-4 pos-col-cart order-2">
         <div class="pos-cart-col rounded-4 shadow-sm bg-white border p-3">
           <h2 class="pos-cart-heading h5 mb-3 d-flex justify-content-between align-items-center flex-shrink-0">
-            <span><i class="fas fa-cart-shopping text-danger me-2"></i>Warenkorb</span>
+            <span><i class="fas fa-cart-shopping text-danger me-2"></i>Cart</span>
             <button type="button" class="btn btn-outline-danger btn-sm rounded-pill" id="pos-clear-all"
-              disabled>Alles löschen</button>
+              disabled>Clear all</button>
           </h2>
 
           <div class="pos-lines mb-3" id="pos-lines">
-            <p class="text-muted small mb-0 py-5 text-center">Noch leer.</p>
+            <p class="text-muted small mb-0 py-5 text-center">Cart is empty.</p>
           </div>
 
           <div class="pos-cart-footer border-top pt-3 bg-white">
             <div class="d-flex justify-content-between mb-2">
-              <span class="text-muted">Zwischensumme</span>
+              <span class="text-muted">Subtotal</span>
               <strong id="pos-subtotal">0,00&nbsp;€</strong>
             </div>
             <div class="d-flex align-items-center gap-2 mb-2">
-              <label for="pos-discount-pct" class="text-muted small mb-0">Rabatt</label>
+              <label for="pos-discount-pct" class="text-muted small mb-0">Discount</label>
               <div class="input-group input-group-sm" style="max-width: 120px;">
                 <input type="number" id="pos-discount-pct" class="form-control" min="0" max="100" step="1" value="0"
                   inputmode="numeric">
                 <span class="input-group-text">%</span>
               </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center fs-5 mb-3 pb-2 border-bottom">
-              <span class="fw-bold">Zu zahlen</span>
+            <div class="d-flex justify-content-between align-items-center fs-5 mb-2 pb-2 border-bottom">
+              <span class="fw-bold">Total due</span>
               <span class="fw-bold text-danger" id="pos-total">0,00&nbsp;€</span>
             </div>
 
-            <div class="mb-3 pb-3 border-bottom">
-              <span class="small text-muted text-uppercase fw-semibold d-block mb-2">Zahlungsart</span>
-              <div class="btn-group w-100" role="group">
-                <input type="radio" class="btn-check" name="pos-pay-method" id="pos-pay-method-bar" value="bar"
-                  autocomplete="off" checked>
-                <label class="btn btn-outline-danger btn-sm" for="pos-pay-method-bar"><i class="fas fa-money-bill-wave me-1"></i>Bar</label>
-                <input type="radio" class="btn-check" name="pos-pay-method" id="pos-pay-method-card" value="card"
-                  autocomplete="off">
-                <label class="btn btn-outline-secondary btn-sm" for="pos-pay-method-card"><i class="fas fa-credit-card me-1"></i>Karte</label>
+            <div id="pos-tender-wrap" class="pos-cash-panel mb-3 d-none" aria-label="Cash payment">
+              <label for="pos-tender-received" class="pos-cash-panel-label">
+                <i class="fas fa-coins" aria-hidden="true"></i>
+                <span>Customer pays</span>
+              </label>
+              <div class="input-group input-group-lg mb-2">
+                <input type="text" id="pos-tender-received" class="form-control pos-tender-input fw-bold"
+                  inputmode="decimal" placeholder="Enter amount" autocomplete="off" disabled>
+                <span class="input-group-text fw-bold">€</span>
+              </div>
+              <div class="pos-tender-quick-row mb-2">
+                <button type="button" class="btn btn-warning fw-semibold pos-tender-quick" data-tender="exact">Exact</button>
+                <button type="button" class="btn btn-outline-dark pos-tender-quick" data-tender="10">10&nbsp;€</button>
+                <button type="button" class="btn btn-outline-dark pos-tender-quick" data-tender="20">20&nbsp;€</button>
+                <button type="button" class="btn btn-outline-dark pos-tender-quick" data-tender="50">50&nbsp;€</button>
+                <button type="button" class="btn btn-outline-secondary pos-tender-quick" data-tender="clear" title="Clear">✕</button>
+              </div>
+              <div class="pos-change-box" id="pos-change-box">
+                <span class="pos-change-label">Change</span>
+                <strong class="pos-change-amount" id="pos-change-value">—</strong>
               </div>
             </div>
 
-            <div id="pos-tender-wrap" class="mb-3 pb-3 border-bottom">
-              <label for="pos-tender-received" class="form-label small text-muted mb-1">Kunde gibt (bei Bar)</label>
-              <div class="input-group input-group-sm mb-2">
-                <input type="text" id="pos-tender-received" class="form-control" inputmode="decimal"
-                  placeholder="z. B. 20 oder leer = Passend" autocomplete="off" disabled>
-                <span class="input-group-text">€</span>
-              </div>
-              <div class="d-flex flex-wrap gap-1 mb-2">
-                <button type="button" class="btn btn-light btn-sm border rounded-pill px-2 py-0 pos-tender-quick"
-                  data-tender="exact">Passend</button>
-                <button type="button" class="btn btn-light btn-sm border rounded-pill px-2 py-0 pos-tender-quick"
-                  data-tender="10">10&nbsp;€</button>
-                <button type="button" class="btn btn-light btn-sm border rounded-pill px-2 py-0 pos-tender-quick"
-                  data-tender="20">20&nbsp;€</button>
-                <button type="button" class="btn btn-light btn-sm border rounded-pill px-2 py-0 pos-tender-quick"
-                  data-tender="50">50&nbsp;€</button>
-                <button type="button" class="btn btn-light btn-sm border rounded-pill px-2 py-0 pos-tender-quick"
-                  data-tender="clear">✕</button>
-              </div>
-              <div class="rounded-3 px-3 py-2 small bg-light border" id="pos-change-box">
-                <span class="text-muted">Rückgeld:&nbsp;</span>
-                <strong id="pos-change-value">—</strong>
+            <div class="mb-3 pb-3 border-bottom">
+              <span class="small text-muted text-uppercase fw-semibold d-block mb-2">Payment</span>
+              <div class="btn-group w-100" role="group">
+                <input type="radio" class="btn-check" name="pos-pay-method" id="pos-pay-method-bar" value="bar"
+                  autocomplete="off" checked>
+                <label class="btn btn-outline-danger btn-sm" for="pos-pay-method-bar"><i class="fas fa-money-bill-wave me-1"></i>Cash</label>
+                <input type="radio" class="btn-check" name="pos-pay-method" id="pos-pay-method-card" value="card"
+                  autocomplete="off">
+                <label class="btn btn-outline-secondary btn-sm" for="pos-pay-method-card"><i class="fas fa-credit-card me-1"></i>Card</label>
               </div>
             </div>
 
             <button type="button" class="btn btn-success w-100 py-3 rounded-3 fw-bold shadow-none mb-2"
               id="pos-complete-sale" disabled>
-              <i class="fas fa-check-double me-2"></i>Verkauf abschließen &amp; speichern
+              <i class="fas fa-check-double me-2"></i>Complete sale &amp; save
             </button>
-            <p class="text-muted small mb-2 px-1">Speichert nur lokal (Artikel + Zahlung). Kein Druck/PDF automatisch — Bon optional über „Bon drucken (Entwurf)“. Export über „Gesamtübersicht“.</p>
+            <p class="text-muted small mb-2 px-1">Saved locally only (items + payment). No auto print/PDF — optional receipt via <strong>Print draft receipt</strong>. Export via <strong>Export summary</strong>.</p>
             <div class="d-grid mt-2 gap-2">
               <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill shadow-none"
                 id="pos-print-draft" disabled>
-                <i class="fas fa-print me-1"></i>Bon drucken (Entwurf)
+                <i class="fas fa-print me-1"></i>Print draft receipt
               </button>
             </div>
           </div>
@@ -165,23 +163,23 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Freibetrag</h5>
+          <h5 class="modal-title">Custom amount</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <label for="pos-custom-label" class="form-label small">Bezeichnung</label>
-          <input type="text" id="pos-custom-label" class="form-control mb-3" maxlength="120" placeholder="z. B. Sonstiges">
+          <label for="pos-custom-label" class="form-label small">Label</label>
+          <input type="text" id="pos-custom-label" class="form-control mb-3" maxlength="120" placeholder="e.g. Misc">
 
-          <label for="pos-custom-amount" class="form-label small">Betrag brutto</label>
+          <label for="pos-custom-amount" class="form-label small">Gross amount</label>
           <div class="input-group">
             <input type="number" id="pos-custom-amount" class="form-control" min="0" step="0.05" inputmode="decimal"
-              placeholder="0,00">
+              placeholder="0.00">
             <span class="input-group-text">€</span>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
-          <button type="button" class="btn btn-danger" id="pos-custom-add">In Warenkorb</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" id="pos-custom-add">Add to cart</button>
         </div>
       </div>
     </div>
@@ -192,21 +190,21 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Gespeicherte Bestellungen</h5>
+          <h5 class="modal-title">Saved orders</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <div class="alert alert-info small mb-3">
-            <strong>Hinweis:</strong> Bestellungen werden lokal in diesem Browser gespeichert. Downloads findest du in deinem
-            <strong>Downloads</strong>-Ordner (oder im Browser-Download-Menü).
+            <strong>Note:</strong> Orders are stored locally in this browser. Downloads appear in your
+            <strong>Downloads</strong> folder (or the browser download menu).
           </div>
 
           <div class="d-flex flex-wrap gap-2 mb-3">
             <button type="button" class="btn btn-sm btn-outline-secondary" id="pos-orders-refresh">
-              <i class="fas fa-rotate me-1"></i>Aktualisieren
+              <i class="fas fa-rotate me-1"></i>Refresh
             </button>
             <button type="button" class="btn btn-sm btn-outline-secondary" id="pos-orders-clear">
-              <i class="fas fa-trash-can me-1"></i>Alle löschen (lokal)
+              <i class="fas fa-trash-can me-1"></i>Clear all (local)
             </button>
             <div class="ms-auto d-flex flex-wrap gap-2">
               <button type="button" class="btn btn-sm btn-outline-primary" id="pos-orders-download-csv">
@@ -224,7 +222,7 @@
           <div id="pos-orders-list" class="list-group"></div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schließen</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -246,10 +244,10 @@
       <div class="d-flex flex-column align-items-end gap-2 flex-shrink-0">
         <div class="fw-bold small pos-line-total"></div>
         <div class="btn-group pos-line-actions" role="group">
-          <button type="button" class="btn btn-light border btn-sm pos-minus" aria-label="Weniger">−</button>
+          <button type="button" class="btn btn-light border btn-sm pos-minus" aria-label="Less">−</button>
           <span class="btn btn-sm btn-light border disabled px-2 pos-qty">1</span>
-          <button type="button" class="btn btn-light border btn-sm pos-plus" aria-label="Mehr">+</button>
-          <button type="button" class="btn btn-outline-danger btn-sm pos-remove ms-1" aria-label="Entfernen"><i
+          <button type="button" class="btn btn-light border btn-sm pos-plus" aria-label="More">+</button>
+          <button type="button" class="btn btn-outline-danger btn-sm pos-remove ms-1" aria-label="Remove"><i
               class="fas fa-trash-can"></i></button>
         </div>
       </div>
@@ -260,7 +258,7 @@
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.5.3.7.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" crossorigin="anonymous"></script>
-  <script>window.POS_PAGE = { menuGroup: 'Corporate Lunch', title: 'Foodeza Kassa · Mittagessen', brand: 'Mittagessen' };</script>
+  <script>window.POS_PAGE = { menuGroup: 'Corporate Lunch', title: 'Foodeza POS · Lunch', brand: 'Lunch' };</script>
   <script src="pos-menu-lunch.js"></script>
   <script src="pos-app.js"></script>
 </body>

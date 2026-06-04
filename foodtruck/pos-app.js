@@ -189,13 +189,21 @@
       if (!cardEl) return;
       var card = cardEl.checked;
       var hasCart = state.lines.length > 0;
+      var showCash = hasCart && !card;
       var tenderWrap = document.getElementById('pos-tender-wrap');
       var tenderInp = document.getElementById('pos-tender-received');
-      if (tenderWrap) tenderWrap.classList.toggle('d-none', !hasCart || card);
+      if (tenderWrap) tenderWrap.classList.toggle('d-none', !showCash);
       document.querySelectorAll('.pos-tender-quick').forEach(function (b) {
-        b.disabled = !hasCart || card;
+        b.disabled = !showCash;
       });
-      if (tenderInp) tenderInp.disabled = !hasCart || card;
+      if (tenderInp) tenderInp.disabled = !showCash;
+    }
+
+    function setChangeBoxState(stateName) {
+      var box = document.getElementById('pos-change-box');
+      if (!box) return;
+      box.className = 'pos-change-box';
+      if (stateName) box.classList.add('pos-change-box--' + stateName);
     }
 
     function renderCart() {
@@ -213,7 +221,7 @@
 
       var tenderEl = document.getElementById('pos-tender-received');
       if (!state.lines.length) {
-        wrap.innerHTML = '<p class="text-muted small mb-0 py-5 text-center">Noch leer.</p>';
+        wrap.innerHTML = '<p class="text-muted small mb-0 py-5 text-center">Cart is empty.</p>';
         document.getElementById('pos-subtotal').innerHTML = '0,00&nbsp;€';
         document.getElementById('pos-total').innerHTML = '0,00&nbsp;€';
         if (tenderEl) {
@@ -265,39 +273,33 @@
     }
 
     function updateChangeDisplay() {
-      var box = document.getElementById('pos-change-box');
       var valEl = document.getElementById('pos-change-value');
+      if (!valEl) return;
       if (!state.lines.length) {
         valEl.textContent = '—';
-        valEl.className = '';
-        box.className = 'rounded-3 px-3 py-2 small bg-light border';
+        setChangeBoxState('');
         return;
       }
       if (document.getElementById('pos-pay-method-card').checked) {
-        valEl.textContent = 'Kartenzahlung — kein Rückgeld';
-        valEl.className = 'text-muted fw-normal';
-        box.className = 'rounded-3 px-3 py-2 small bg-light border';
+        setChangeBoxState('');
         return;
       }
       var total = totalCents();
       var tender = tenderReceivedCents();
       if (tender === null) {
-        valEl.textContent = 'Betrag eintragen → Rückgeld wird berechnet';
-        valEl.className = 'text-muted fw-normal';
-        box.className = 'rounded-3 px-3 py-2 small bg-light border';
+        valEl.textContent = '—';
+        setChangeBoxState('hint');
         return;
       }
       if (tender < total) {
         var need = total - tender;
-        valEl.textContent = 'Zu wenig — noch ' + euros(need) + ' fehlen';
-        valEl.className = 'text-danger';
-        box.className = 'rounded-3 px-3 py-2 small border border-danger bg-danger bg-opacity-10';
+        valEl.textContent = '−' + euros(need);
+        setChangeBoxState('short');
         return;
       }
       var change = tender - total;
       valEl.textContent = euros(change);
-      valEl.className = 'text-success';
-      box.className = 'rounded-3 px-3 py-2 small border border-success bg-success bg-opacity-10';
+      setChangeBoxState('ok');
     }
 
     function changeQty(lineId, delta) {
@@ -337,16 +339,16 @@
         var cashExtra = {};
         if (tender != null) {
           if (tender < tot) {
-            alert('Zu wenig Bargeld: Kunde gibt ' + euros(tender) + ', zu zahlen ' + euros(tot) + '.');
+            alert('Not enough cash: customer pays ' + euros(tender) + ', total due ' + euros(tot) + '.');
             return;
           }
           cashExtra = { tenderCents: tender, changeCents: tender - tot };
         }
-        appendOrderRecord('Bar', cashExtra);
+        appendOrderRecord('Cash', cashExtra);
         logCompletedSale();
         clearAll();
       } else {
-        appendOrderRecord('Karte', {});
+        appendOrderRecord('Card', {});
         logCompletedSale();
         clearAll();
       }
@@ -362,27 +364,27 @@
       var tot = totalCents();
       var disc = discountPct();
       var discLine = disc > 0 && sub !== tot
-        ? '<tr><td colspan="2">Rabatt ' + disc + '%</td><td class="txt-r">−' + euros(sub - tot) + '</td></tr>'
+        ? '<tr><td colspan="2">Discount ' + disc + '%</td><td class="txt-r">−' + euros(sub - tot) + '</td></tr>'
         : '';
       var cashLines = '';
       if (cashExtra.tenderCents != null && cashExtra.changeCents != null) {
         cashLines =
-          '<tr><td colspan="2">Erhalten</td><td class="txt-r">' + euros(cashExtra.tenderCents) + '</td></tr>' +
-          '<tr><td colspan="2"><strong>Rückgeld</strong></td><td class="txt-r"><strong>' + euros(cashExtra.changeCents) + '</strong></td></tr>';
+          '<tr><td colspan="2">Tender</td><td class="txt-r">' + euros(cashExtra.tenderCents) + '</td></tr>' +
+          '<tr><td colspan="2"><strong>Change</strong></td><td class="txt-r"><strong>' + euros(cashExtra.changeCents) + '</strong></td></tr>';
       }
       return (
         '<div class="rcp">' +
         '<h1 style="font-size:13px;margin:0 0 6px;text-align:center">FOODEZA</h1>' +
-        '<div style="text-align:center;font-size:11px;margin-bottom:12px">' + escapeHtml(now.toLocaleString('de-DE')) + '</div>' +
+        '<div style="text-align:center;font-size:11px;margin-bottom:12px">' + escapeHtml(now.toLocaleString('en-GB')) + '</div>' +
         '<style>.rcp table{width:100%;border-collapse:collapse;font-size:12px}.rcp td{padding:4px 0;vertical-align:top}.rcp .txt-r{text-align:right;white-space:nowrap}.rcp hr{border:none;border-top:1px dashed #000;margin:8px 0}</style>' +
         '<table><tbody>' + lines + '</tbody></table>' +
         '<hr><table style="font-size:12px;width:100%">' +
-        '<tr><td>Zwischensumme</td><td colspan="2" class="txt-r">' + euros(sub) + '</td></tr>' + discLine +
-        '<tr><td colspan="2"><strong>Zu zahlen</strong></td><td class="txt-r"><strong>' + euros(tot) + '</strong></td></tr>' +
+        '<tr><td>Subtotal</td><td colspan="2" class="txt-r">' + euros(sub) + '</td></tr>' + discLine +
+        '<tr><td colspan="2"><strong>Total due</strong></td><td class="txt-r"><strong>' + euros(tot) + '</strong></td></tr>' +
         cashLines +
-        '<tr><td colspan="3"><strong>Zahlungsart:</strong> ' + escapeHtml(paymentLabel || '—') + '</td></tr>' +
+        '<tr><td colspan="3"><strong>Payment:</strong> ' + escapeHtml(paymentLabel || '—') + '</td></tr>' +
         '</table>' +
-        '<p style="font-size:10px;margin-top:16px;text-align:center">Danke!</p>' +
+        '<p style="font-size:10px;margin-top:16px;text-align:center">Thank you!</p>' +
         '</div>'
       );
     }
@@ -410,12 +412,12 @@
         var log = JSON.parse(sessionStorage.getItem('foodeza_pos_log') || 'null');
         var todayStr = '';
         if (log && log.day === day) {
-          todayStr = 'Heute: ' + euros(log.totalCents) + ' · ' + log.count + ' Bon(s). ';
+          todayStr = 'Today: ' + euros(log.totalCents) + ' · ' + log.count + ' sale(s). ';
         }
         var n = readAllOrders().length;
         footer.textContent =
           todayStr +
-          'Gespeichert gesamt: ' + n + ' Bestellung(en). Gesamtübersicht → Menü „Gesamtübersicht“.';
+          'Saved total: ' + n + ' order(s). Export via menu "Export summary".';
       } catch (e) {
         footer.textContent = '';
       }
@@ -475,7 +477,7 @@
         id: 'ord-' + Date.now() + '-' + Math.random().toString(36).slice(2, 9),
         ts: Date.now(),
         payment: paymentLabel,
-        paymentMethod: paymentLabel === 'Bar' ? 'cash' : 'card',
+        paymentMethod: (paymentLabel === 'Cash' || paymentLabel === 'Bar') ? 'cash' : 'card',
         lines: linesSnap,
         itemsSummary: linesToItemsSummary(linesSnap),
         subtotalCents: subtotalCents(),
@@ -489,7 +491,7 @@
         var line = JSON.stringify(txn);
         localStorage.setItem(ORDERS_JSONL_KEY, prev ? prev + '\n' + line : line);
       } catch (e) {
-        alert('Speicher voll oder blockiert: Bestellung konnte nicht gespeichert werden.');
+        alert('Storage full or blocked: could not save order.');
       }
       return txn;
     }
@@ -531,12 +533,12 @@
         return s + (o.totalCents || 0);
       }, 0);
       var barSum = orders.filter(function (o) {
-        return o.paymentMethod === 'cash' || o.payment === 'Bar';
+        return o.paymentMethod === 'cash' || o.payment === 'Bar' || o.payment === 'Cash';
       }).reduce(function (s, o) {
         return s + (o.totalCents || 0);
       }, 0);
       var cardSum = orders.filter(function (o) {
-        return o.paymentMethod === 'card' || o.payment === 'Karte';
+        return o.paymentMethod === 'card' || o.payment === 'Karte' || o.payment === 'Card';
       }).reduce(function (s, o) {
         return s + (o.totalCents || 0);
       }, 0);
@@ -555,17 +557,17 @@
     function downloadSummaryJson() {
       var payload = buildSummaryPayload();
       if (!payload.orderCount) {
-        alert('Keine gespeicherten Bestellungen.');
+        alert('No saved orders.');
         return;
       }
       var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
-      triggerDownload(blob, 'Foodeza-POS-Gesamtuebersicht.json');
+      triggerDownload(blob, 'Foodeza-POS-summary.json');
     }
 
     function downloadSummaryCsv() {
       var orders = readAllOrders();
       if (!orders.length) {
-        alert('Keine gespeicherten Bestellungen.');
+        alert('No saved orders.');
         return;
       }
       var headers = [
@@ -598,39 +600,39 @@
         rows.push(row.join(','));
       });
       var blob = new Blob([rows.join('\r\n') + '\r\n'], { type: 'text/csv;charset=utf-8' });
-      triggerDownload(blob, 'Foodeza-POS-Gesamtuebersicht.csv');
+      triggerDownload(blob, 'Foodeza-POS-summary.csv');
     }
 
     function downloadSummaryTxt() {
       var p = buildSummaryPayload();
       if (!p.orderCount) {
-        alert('Keine gespeicherten Bestellungen.');
+        alert('No saved orders.');
         return;
       }
       var lines = [];
-      lines.push('FOODEZA POS — GESAMTÜBERSICHT');
-      lines.push('Exportiert: ' + new Date(p.exportedAt).toLocaleString('de-DE'));
-      lines.push('Anzahl Bestellungen: ' + p.orderCount);
-      lines.push('Summe gesamt: ' + formatMoney(p.sumTotalCents) + ' EUR');
+      lines.push('FOODEZA POS — FULL SUMMARY');
+      lines.push('Exported: ' + new Date(p.exportedAt).toLocaleString('en-GB'));
+      lines.push('Order count: ' + p.orderCount);
+      lines.push('Grand total: ' + formatMoney(p.sumTotalCents) + ' EUR');
       lines.push('');
-      lines.push('Summe Bar: ' + p.sumBarEUR.replace('.', ',') + ' EUR');
-      lines.push('Summe Karte: ' + p.sumCardEUR.replace('.', ',') + ' EUR');
+      lines.push('Cash total: ' + p.sumBarEUR.replace('.', ',') + ' EUR');
+      lines.push('Card total: ' + p.sumCardEUR.replace('.', ',') + ' EUR');
       lines.push('');
       p.orders.forEach(function (o, i) {
-        lines.push('--- Bestellung ' + (i + 1) + ' ---');
+        lines.push('--- Order ' + (i + 1) + ' ---');
         lines.push('ID: ' + o.id);
-        lines.push('Zeit: ' + new Date(o.ts).toLocaleString('de-DE'));
-        lines.push('Artikel: ' + (o.itemsSummary || linesToItemsSummary(o.lines || [])));
-        lines.push('Zwischensumme: ' + formatMoney(o.subtotalCents) + ' EUR');
-        if (o.discountPct) lines.push('Rabatt: ' + o.discountPct + ' %');
-        lines.push('Zu zahlen: ' + formatMoney(o.totalCents) + ' EUR');
-        lines.push('Zahlung: ' + (o.payment || o.paymentMethod || ''));
-        if (o.tenderCents != null) lines.push('Erhalten: ' + formatMoney(o.tenderCents) + ' EUR');
-        if (o.changeCents != null) lines.push('Rueckgeld: ' + formatMoney(o.changeCents) + ' EUR');
+        lines.push('Time: ' + new Date(o.ts).toLocaleString('en-GB'));
+        lines.push('Items: ' + (o.itemsSummary || linesToItemsSummary(o.lines || [])));
+        lines.push('Subtotal: ' + formatMoney(o.subtotalCents) + ' EUR');
+        if (o.discountPct) lines.push('Discount: ' + o.discountPct + ' %');
+        lines.push('Total due: ' + formatMoney(o.totalCents) + ' EUR');
+        lines.push('Payment: ' + (o.payment || o.paymentMethod || ''));
+        if (o.tenderCents != null) lines.push('Tender: ' + formatMoney(o.tenderCents) + ' EUR');
+        if (o.changeCents != null) lines.push('Change: ' + formatMoney(o.changeCents) + ' EUR');
         lines.push('');
       });
       var blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
-      triggerDownload(blob, 'Foodeza-POS-Gesamtuebersicht.txt');
+      triggerDownload(blob, 'Foodeza-POS-summary.txt');
     }
 
     function triggerDownload(blob, filename) {
@@ -650,10 +652,10 @@
     function downloadAllOrdersJsonl() {
       var raw = localStorage.getItem(ORDERS_JSONL_KEY) || '';
       if (!raw.trim()) {
-        alert('Noch keine Bestellungen gespeichert.');
+        alert('No orders saved yet.');
         return;
       }
-      triggerDownload(new Blob([raw.trim() + '\n'], { type: 'application/x-ndjson;charset=utf-8' }), 'Foodeza-Kassa-ALLE-Bestellungen.jsonl');
+      triggerDownload(new Blob([raw.trim() + '\n'], { type: 'application/x-ndjson;charset=utf-8' }), 'Foodeza-POS-all-orders.jsonl');
     }
 
     function pdfMoneyPlain(cents) {
@@ -669,11 +671,11 @@
       var list = ordersForDay(day);
       var PdfCtor = window.jspdf && window.jspdf.jsPDF;
       if (!PdfCtor) {
-        alert('PDF-Bibliothek nicht geladen (Netzwerk/CDN prüfen).');
+        alert('PDF library not loaded (check network/CDN).');
         return;
       }
       if (!list.length) {
-        alert('Keine verkauften Bon(s) für ' + day + ' im lokalen Journal. Erst einen Verkauf mit Bar/Karte abschließen.');
+        alert('No sales for ' + day + ' in local journal. Complete a cash or card sale first.');
         return;
       }
 
@@ -693,18 +695,18 @@
 
       doc.setFontSize(14);
       doc.setFont('helvetica', 'bold');
-      doc.text('Foodeza Kassa Journal', margin, y);
+      doc.text('Foodeza POS Journal', margin, y);
       y += 8;
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
-      doc.text('Datum: ' + day + '    Verkaeufe: ' + list.length, margin, y);
+      doc.text('Date: ' + day + '    Sales: ' + list.length, margin, y);
       y += 10;
 
       var daySum = 0;
       list.forEach(function (txn, idx) {
         needSpace(28);
         doc.setFont('helvetica', 'bold');
-        doc.text('Bon ' + (idx + 1) + ' - ' + new Date(txn.ts).toLocaleString('de-DE'), margin, y);
+        doc.text('Receipt ' + (idx + 1) + ' - ' + new Date(txn.ts).toLocaleString('en-GB'), margin, y);
         y += lh + 2;
         doc.setFont('helvetica', 'normal');
 
@@ -725,22 +727,22 @@
 
         if (txn.discountPct > 0 && txn.subtotalCents !== txn.totalCents) {
           needSpace(lh + 2);
-          doc.text('Rabatt ' + txn.discountPct + ' %', margin + 4, y);
+          doc.text('Discount ' + txn.discountPct + ' %', margin + 4, y);
           doc.text('-' + pdfMoneyPlain(txn.subtotalCents - txn.totalCents), rightX, y, { align: 'right' });
           y += lh;
         }
 
         needSpace(lh + 2);
         doc.setFont('helvetica', 'bold');
-        doc.text('Summe', margin + 4, y);
+        doc.text('Total', margin + 4, y);
         doc.text(pdfMoneyPlain(txn.totalCents), rightX, y, { align: 'right' });
         y += lh;
         doc.setFont('helvetica', 'normal');
-        doc.text('Zahlung: ' + String(txn.payment), margin + 4, y);
+        doc.text('Payment: ' + String(txn.payment), margin + 4, y);
         y += lh;
         if (txn.tenderCents != null && txn.changeCents != null) {
           doc.text(
-            'Erhalten: ' + pdfMoneyPlain(txn.tenderCents) + '    Rueckgeld: ' + pdfMoneyPlain(txn.changeCents),
+            'Tender: ' + pdfMoneyPlain(txn.tenderCents) + '    Change: ' + pdfMoneyPlain(txn.changeCents),
             margin + 4,
             y
           );
@@ -755,20 +757,20 @@
 
       needSpace(14);
       doc.setFont('helvetica', 'bold');
-      doc.text('Tagesumsatz', margin, y);
+      doc.text('Day total', margin, y);
       doc.text(pdfMoneyPlain(daySum), rightX, y, { align: 'right' });
       y += lh + 4;
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(8);
       doc.setTextColor(100);
       doc.text(
-        'Rohdaten aller Tage: Export „Alle Bestellungen (.jsonl)“. Dieses PDF nur Tag ' + day + '.',
+        'All days raw data: export "Raw JSON Lines (.jsonl)". This PDF is for ' + day + ' only.',
         margin,
         y,
         { maxWidth: pageW - margin * 2 }
       );
 
-      doc.save('Foodeza-Kassa-Journal-' + day + '.pdf');
+      doc.save('Foodeza-POS-journal-' + day + '.pdf');
     }
 
     function tickClock() {
@@ -786,8 +788,8 @@
       this.classList.toggle('text-white', posMenuShowInactive);
       this.classList.toggle('btn-outline-secondary', !posMenuShowInactive);
       this.innerHTML = posMenuShowInactive
-        ? '<i class="fas fa-eye me-1"></i>Nur aktives Menü'
-        : '<i class="fas fa-eye-slash me-1"></i>Inaktives Menü';
+        ? '<i class="fas fa-eye me-1"></i>Active menu only'
+        : '<i class="fas fa-eye-slash me-1"></i>Inactive menu';
       rebuildCategories(document.getElementById('pos-search').value || '');
     });
 
@@ -848,7 +850,7 @@
 
     document.getElementById('pos-print-draft').onclick = function () {
       if (!state.lines.length) return;
-      printReceipt(buildReceiptHtml('Entwurf (Probe)'), { clearAfter: false });
+      printReceipt(buildReceiptHtml('Draft'), { clearAfter: false });
     };
 
     document.getElementById('pos-btn-custom').onclick = function () {
@@ -858,7 +860,7 @@
     };
 
     document.getElementById('pos-custom-add').onclick = function () {
-      var label = document.getElementById('pos-custom-label').value.trim() || 'Freibetrag';
+      var label = document.getElementById('pos-custom-label').value.trim() || 'Custom';
       var amt = parseMoneyToCents(document.getElementById('pos-custom-amount').value);
       if (amt <= 0) return;
       addLine(null, {
@@ -887,13 +889,13 @@
       if (!host) return;
       var orders = readAllOrders();
       if (!orders.length) {
-        host.innerHTML = '<div class="text-muted small py-3 text-center">Noch keine Bestellungen gespeichert.</div>';
+        host.innerHTML = '<div class="text-muted small py-3 text-center">No orders saved yet.</div>';
         return;
       }
       orders.sort(function (a, b) { return (b.ts || 0) - (a.ts || 0); });
       host.innerHTML = '';
       orders.slice(0, 200).forEach(function (o) {
-        var dt = o.ts ? new Date(o.ts).toLocaleString('de-DE') : '';
+        var dt = o.ts ? new Date(o.ts).toLocaleString('en-GB') : '';
         var items = o.itemsSummary || linesToItemsSummary(o.lines || []);
         var row = document.createElement('div');
         row.className = 'list-group-item';
@@ -921,7 +923,7 @@
     document.getElementById('pos-orders-download-json').onclick = downloadSummaryJson;
     document.getElementById('pos-orders-download-jsonl').onclick = downloadAllOrdersJsonl;
     document.getElementById('pos-orders-clear').onclick = function () {
-      if (!confirm('Alle lokal gespeicherten Bestellungen wirklich löschen?')) return;
+      if (!confirm('Delete all locally saved orders?')) return;
       try { localStorage.removeItem(ORDERS_JSONL_KEY); } catch (e) { }
       refreshSessionFooter();
       renderOrdersModal();
