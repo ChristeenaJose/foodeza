@@ -390,8 +390,8 @@
             </div>
 
             <div class="market-cat">
-              <h3 class="market-cat-title">Indische Klassiker</h3>
-              <p class="market-cat-note">Schalen &amp; Wraps &middot; mit Reis oder Porotta</p>
+              <h3 class="market-cat-title">Indische Klassiker &middot; Reisschale</h3>
+              <p class="market-cat-note">Mit Reis</p>
               <div class="market-highlight">
                 <ul class="market-list">
                   <li class="market-row">
@@ -413,7 +413,7 @@
                     </div>
                   </li>
                   <li class="market-row">
-                    <span class="market-row-name">Dal Spinat<span class="market-row-sub">Linsencurry mit Spinat, mild gew&uuml;rzt</span><span class="market-level market-level-spicy">leicht scharf</span></span>
+                    <span class="market-row-name">Dal Spinach<span class="market-row-sub">Linsencurry mit Spinat, mild gew&uuml;rzt</span><span class="market-level market-level-spicy">leicht scharf</span></span>
                     <span class="market-row-price">6,50&nbsp;&euro;</span>
                     <div class="quantity-selector m-0">
                       <button type="button" class="qty-btn minus" onclick="updateQty('spinach_dal', -1, 6.5)">&minus;</button>
@@ -421,13 +421,49 @@
                       <button type="button" class="qty-btn plus" onclick="updateQty('spinach_dal', 1, 6.5)">+</button>
                     </div>
                   </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="market-cat">
+              <h3 class="market-cat-title">Signature Wraps</h3>
+              <p class="market-cat-note">Indische Klassiker im Wrap</p>
+              <div class="market-highlight">
+                <ul class="market-list">
                   <li class="market-row">
-                    <span class="market-row-name">Scharfes Hähnchencurry<span class="market-row-sub">Feuriges H&auml;hnchencurry mit s&uuml;dindischen Gew&uuml;rzen</span><span class="market-level market-level-spicy">scharf</span></span>
+                    <span class="market-row-name">Butter Chicken Wrap<span class="market-row-sub">Butter Chicken im Fladenwrap</span><span class="market-level market-level-spicy">mild scharf</span></span>
                     <span class="market-row-price">9,50&nbsp;&euro;</span>
                     <div class="quantity-selector m-0">
-                      <button type="button" class="qty-btn minus" onclick="updateQty('spicy_chicken_curry', -1, 9.5)">&minus;</button>
-                      <span class="qty-number" id="qty-spicy_chicken_curry">0</span>
-                      <button type="button" class="qty-btn plus" onclick="updateQty('spicy_chicken_curry', 1, 9.5)">+</button>
+                      <button type="button" class="qty-btn minus" onclick="updateQty('wrap_butter_chicken', -1, 9.5)">&minus;</button>
+                      <span class="qty-number" id="qty-wrap_butter_chicken">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('wrap_butter_chicken', 1, 9.5)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Paneer Butter Masala Wrap<span class="market-row-sub">Paneer Butter Masala im Fladenwrap</span><span class="market-level market-level-spicy">leicht scharf</span></span>
+                    <span class="market-row-price">8,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('wrap_paneer_masala', -1, 8.5)">&minus;</button>
+                      <span class="qty-number" id="qty-wrap_paneer_masala">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('wrap_paneer_masala', 1, 8.5)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Spicy Chicken Wrap<span class="market-row-sub">Feuriges H&auml;hnchencurry im Fladenwrap</span><span class="market-level market-level-spicy">scharf</span></span>
+                    <span class="market-row-price">9,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('wrap_spicy_chicken', -1, 9.5)">&minus;</button>
+                      <span class="qty-number" id="qty-wrap_spicy_chicken">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('wrap_spicy_chicken', 1, 9.5)">+</button>
+                    </div>
+                  </li>
+                  <li class="market-row">
+                    <span class="market-row-name">Fried Chicken Wrap<span class="market-row-sub">Chicken 65 im Fladenwrap</span><span class="market-level market-level-spicy">scharf</span></span>
+                    <span class="market-row-price">10,50&nbsp;&euro;</span>
+                    <div class="quantity-selector m-0">
+                      <button type="button" class="qty-btn minus" onclick="updateQty('wrap_fried_chicken', -1, 10.5)">&minus;</button>
+                      <span class="qty-number" id="qty-wrap_fried_chicken">0</span>
+                      <button type="button" class="qty-btn plus" onclick="updateQty('wrap_fried_chicken', 1, 10.5)">+</button>
                     </div>
                   </li>
                 </ul>
@@ -653,7 +689,10 @@
       butter_chicken: 0,
       paneer_masala: 0,
       spinach_dal: 0,
-      spicy_chicken_curry: 0,
+      wrap_butter_chicken: 0,
+      wrap_paneer_masala: 0,
+      wrap_spicy_chicken: 0,
+      wrap_fried_chicken: 0,
       kothu_porotta: 0,
       chicken_biriyani: 0,
       lassi: 0,
@@ -670,10 +709,13 @@
       samosa: { name: 'Samosa · 2 Stk.', price: 4.5 },
       chicken_65: { name: 'Chicken 65 (scharf frittiertes Hähnchen)', price: 6.5 },
       cutlet: { name: 'Chicken Cutlet · 2 Stk.', price: 5.5 },
-      butter_chicken: { name: 'Butter Chicken', price: 8.5 },
-      paneer_masala: { name: 'Paneer Butter Masala', price: 7.5 },
-      spinach_dal: { name: 'Dal Spinat', price: 6.5 },
-      spicy_chicken_curry: { name: 'Scharfes Hähnchencurry', price: 9.5 },
+      butter_chicken: { name: 'Butter Chicken (Reisschale)', price: 8.5 },
+      paneer_masala: { name: 'Paneer Butter Masala (Reisschale)', price: 7.5 },
+      spinach_dal: { name: 'Dal Spinach (Reisschale)', price: 6.5 },
+      wrap_butter_chicken: { name: 'Butter Chicken Wrap', price: 9.5 },
+      wrap_paneer_masala: { name: 'Paneer Butter Masala Wrap', price: 8.5 },
+      wrap_spicy_chicken: { name: 'Spicy Chicken Wrap', price: 9.5 },
+      wrap_fried_chicken: { name: 'Fried Chicken Wrap', price: 10.5 },
       kothu_porotta: { name: 'Kothu Porotta (gehacktes Fladenbrot, würzig gebraten)', price: 11.5 },
       chicken_biriyani: { name: 'Chicken Biryani (Beilage: Butter Chicken oder Chicken 65)', price: 13.0 },
       lassi: { name: 'Mango Lassi', price: 3.0 },
