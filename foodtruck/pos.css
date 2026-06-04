@@ -1,0 +1,240 @@
+body.pos-shell {
+      background: var(--bg-light, #f4f6f8);
+      min-height: 100dvh;
+      font-family: var(--font-main, 'Poppins', sans-serif);
+    }
+
+    .pos-topbar {
+      background: var(--text-dark);
+      color: #fff;
+      padding: 0.65rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+    }
+
+    .pos-topbar .container-fluid {
+      max-width: 1400px;
+    }
+
+    .pos-main {
+      max-width: 1400px;
+    }
+
+    .pos-product-btn {
+      text-align: left;
+      white-space: normal;
+      padding: 0.5rem 0.55rem 0.65rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: #fff;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .pos-product-thumb-wrap {
+      display: block;
+      height: 5.25rem;
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(145deg, #f3f4f6 0%, #e8eaee 100%);
+      margin-bottom: 0.45rem;
+    }
+
+    .pos-product-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .pos-product-btn:hover,
+    .pos-product-btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(214, 40, 40, 0.12);
+      border-color: rgba(214, 40, 40, 0.25);
+      background: #fff;
+    }
+
+    .pos-cart-col {
+      position: sticky;
+      top: 56px;
+      align-self: start;
+      max-height: calc(100dvh - 56px);
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* Scroll bucket for cart lines — flex layout was collapsing/hiding rows on some heights */
+    .pos-lines {
+      flex: 1 1 0;
+      min-height: 8rem;
+      max-height: min(42vh, 22rem);
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @media (min-width: 992px) {
+      .pos-lines {
+        max-height: min(52vh, 28rem);
+      }
+    }
+
+    .pos-cart-heading {
+      flex-shrink: 0;
+    }
+
+    .pos-cart-footer {
+      flex-shrink: 0;
+    }
+
+    .pos-line-actions .btn {
+      min-width: 2rem;
+      padding: 0.15rem 0.45rem;
+    }
+
+    @media print {
+      body.pos-shell * {
+        visibility: hidden;
+      }
+
+      #pos-receipt-print,
+      #pos-receipt-print * {
+        visibility: visible;
+      }
+
+      #pos-receipt-print {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80mm;
+        max-width: 100%;
+        padding: 0.5cm;
+      }
+    }
+
+    .pos-muted {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      .pos-product-thumb-wrap {
+        height: 6rem;
+      }
+    }
+
+    /* Mobile POS Layout Fix */
+    @media (max-width: 991.98px) {
+      .pos-cart-col {
+        position: static !important;
+        top: auto !important;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin-top: 1rem;
+        padding: 0 !important;
+      }
+      .pos-lines {
+          border-top: 2px solid #dee2e6 !important;
+          box-shadow: none !important;
+          margin-top: 1rem !important;
+        }
+        border-top: 2px solid #dee2e6 !important;
+        box-shadow: 0 -4px 10px rgba(0,0,0,0.05) !important;
+        z-index: 20 !important;
+        max-height: 50vh !important;
+      }
+        padding-bottom: 2rem;
+      }
+    }
+
+    #pos-categories {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    .pos-category-section {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .pos-category-section:not(:last-child) {
+      margin-bottom: 0.35rem;
+    }
+
+    .pos-category-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .pos-menu-group {
+      margin-bottom: 1rem;
+    }
+
+    .pos-menu-group:not(:first-child) {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 2px solid rgba(214, 40, 40, 0.15);
+    }
+
+    .pos-menu-group > h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.02em;
+    }
+
+    .pos-menu-switch {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pos-menu-switch .btn {
+      flex: 1 1 12rem;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 0.55rem 1rem;
+    }
+
+    .pos-menu-switch .btn.active {
+      background: #dc3545;
+      border-color: #dc3545;
+      color: #fff;
+    }
+
+    .pos-category-section h3 {
+      margin-top: 0;
+      margin-bottom: 0.125rem;
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: 1.15;
+    }
+
+    .pos-category-section .pos-product-row {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .pos-product-btn.pos-product-inactive {
+      opacity: 0.88;
+      border-style: dashed;
+      border-color: rgba(100, 116, 139, 0.45);
+      background: #f1f5f9;
+    }
+
+    .pos-product-btn.pos-product-inactive:hover,
+    .pos-product-btn.pos-product-inactive:focus-visible {
+      background: #e8eef5;
+      border-color: rgba(71, 85, 105, 0.55);
+    }
