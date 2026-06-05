@@ -580,15 +580,13 @@
               <select id="custLocation" class="form-select">
                 <option value="" selected>Bitte w&auml;hlen&hellip;</option>
                 <option value="Stuttgart">Stuttgart</option>
-                <option value="Kalsruhe">Karlsruhe</option>
               </select>
             </div>
 
             <div class="mb-3">
-              <label class="form-label small">Abholzeit</label>
+              <label class="form-label small">Abhol Uhrzeit</label>
               <select id="pickupTime" class="form-select">
                 <option value="" selected>Bitte w&auml;hlen&hellip;</option>
-                <option value="11:30 - 13:30">11:30 &ndash; 13:30 Uhr</option>
                 <option value="15:00 - 17:30">15:00 &ndash; 17:30 Uhr</option>
                 <option value="17:30 - 20:00">17:30 &ndash; 20:00 Uhr</option>
               </select>
@@ -778,15 +776,16 @@
       return buildItems().map(it => `${it.name} · ${it.qty}×`).join(' | ');
     }
 
+    /** Synced with Google Form — options must match exactly for prefill */
     const MARKET_FORM_BASE =
       'https://docs.google.com/forms/d/e/1FAIpQLSfV-0pTys9EeRUrOTloMsaX7jlg50AlQBfuBFApML2CcAHXHQ/viewform';
     const MARKET_FORM_ENTRIES = {
-      name: 'entry.2092238618',
-      location: 'entry.1835688175',
-      pickup: 'entry.479301265',
-      chickenBiryani: 'entry.1486961606',
-      orderDetails: 'entry.1946155460',
-      total: 'entry.2057144369'
+      name: 'entry.2092238618',           // Name
+      location: 'entry.1835688175',      // Location → Stuttgart
+      pickup: 'entry.479301265',         // Abhol Uhrzeit
+      chickenBiryani: 'entry.1486961606', // Chicken Biriyani - 13 €
+      orderDetails: 'entry.1946155460',  // Bestellung Details
+      total: 'entry.2057144369'          // Summe
     };
 
     function buildOrderDetailsText() {
@@ -809,7 +808,7 @@
 
       if (!name) { alert('Bitte Name eingeben.'); return; }
       if (!location) { alert('Bitte Standort wählen.'); return; }
-      if (!pickup) { alert('Bitte Abholzeit wählen.'); return; }
+      if (!pickup) { alert('Bitte Abhol Uhrzeit wählen.'); return; }
 
       const params = [
         `${MARKET_FORM_ENTRIES.name}=${encodeURIComponent(name)}`,
