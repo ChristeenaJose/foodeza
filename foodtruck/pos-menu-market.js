@@ -15,7 +15,7 @@ window.FOODEZA_MENU = [
   { id: 'wrap_spicy', menuGroup: 'Market & Events', category: 'Signature Wraps', name: 'Spicy Chicken Wrap', priceCents: 950, active: true },
   { id: 'wrap_fried', menuGroup: 'Market & Events', category: 'Signature Wraps', name: 'Fried Chicken Wrap', priceCents: 1050, active: true },
 
-  { id: 'biriyani', menuGroup: 'Market & Events', category: 'Kerala Specialties', name: 'Chicken Biryani', priceCents: 1300, active: true },
+  { id: 'biriyani', menuGroup: 'Market & Events', category: 'Kerala Specialties', name: 'Chicken Biryani', priceCents: 1350, active: true },
   { id: 'kothu', menuGroup: 'Market & Events', category: 'Kerala Specialties', name: 'Kothu Porotta', priceCents: 1150, active: true },
 
   { id: 'lassi', menuGroup: 'Market & Events', category: 'Drinks', name: 'Mango Lassi', priceCents: 300, active: true },
