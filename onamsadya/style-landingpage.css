@@ -1,606 +1,843 @@
-@font-face {
-  font-family: brume;
-  src: url(./fonts/Brume-Regular.woff) format("woff"),
-		url(./fonts/Brume-Regular.woff2) format("woff2");
-}
+/* Foodeza Onam Sadya 2026 */
 @font-face {
   font-family: poppins;
-  src: url(./fonts/Poppins.woff) format("woff"),
-		url(./fonts/Poppins.woff2) format("woff2");
-}
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  src: url(./fonts/Poppins.woff2) format("woff2"), url(./fonts/Poppins.woff) format("woff");
 }
 
-body {
-  font-family: poppins;
-  background: #fff;
-  color: #333;
+:root {
+  --onam-red: #c81e08;
+  --onam-red-dark: #9a1506;
+  --onam-red-soft: rgba(200, 30, 8, 0.08);
+  --onam-gold: #e6a800;
+  --onam-text: #1a1a1a;
+  --onam-muted: #5c5c5c;
+  --onam-border: rgba(0, 0, 0, 0.08);
+  --onam-bg: #fafafa;
+  --onam-radius: 16px;
+  --onam-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --onam-font: 'Poppins', poppins, system-ui, sans-serif;
+  --onam-max: 1120px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-a {
-  text-decoration: none;
-}
-
-.hero {
-  background-color: #c81e08;
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.2em;
-}
-
-.sadhya-offer {
-  padding: 50px 20px;
-}
-
-.content {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-  gap: 40px;
-}
-
-.image img {
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.details {
-  flex: 1;
-}
-
-.details h2 {
-  color: #c81e08;
-  margin-bottom: 15px;
-  font-size: 2em;
-}
-
-.details p {
-  font-size: 1.1em;
-  margin-bottom: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 35px;
-}
-
-th, td {
-  text-align: left;
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  color: #c81e08;
-  font-weight: bold;
-  width: 40%;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #888;
-  margin-right: 10px;
-}
-
-.new-price {
-  color: #c81e08;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.btn {
-  background: #c81e08;
-  color: #fff;
-  padding: 12px 30px;
-  border-radius: 4px;
-  font-weight: bold;
-  display: inline-block;
-  transition: background 0.3s;
-}
-
-.btn:hover {
-  background: #a00000;
-}
-
-.booking {
-  padding: 50px 20px;
-  background: #f8f8f8;
-  text-align: center;
-}
-
-.booking h2 {
-  color: #c81e08;
-  margin-bottom: 20px;
-  font-size: 2em;
-}
-
-.booking p {
-  margin-bottom: 30px;
-  font-size: 1.1em;
-}
-
-.booking form {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.booking input, .booking button {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 4px;
-  font-size: 1em;
-}
-
-.booking input {
-  border: 1px solid #ccc;
-}
-
-.booking button {
-  background: #c81e08;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.booking button:hover {
-  background: #a00000;
-}
-
-footer {
-  background: #c81e08;
-  color: #fff;
-  text-align: center;
-  padding: 50px 60px;
-
-}
-.footer-content{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
-}
-.footer-list{
-  flex: 1 1 300px;
-  max-width: 300px;
-  text-align: left;
-}
-.footer-title{
-  color: #FFF;
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 25px;
-}
-.rts-footer-menu ul{
-  list-style-type: none;
-}
-.rts-footer-menu ul li a{
- color: #fff;
- text-decoration: none;
- display: flex;
- align-items: center;
- column-gap: 10px;
-}
-.rts-footer-menu ul li a:hover{
-  text-decoration: underline;
-}
-.rts-footer-menu ul li{
-  margin-bottom: 7px;
-}
-/* Packages Section */
-.packages {
-  padding: 50px 35px;
-  background-image: url("../images/background-3.png");
-    text-align: center;
-    background-size: cover;
-}
-
-.packages h2 {
-  color: #fff;
-  margin-bottom: 40px;
-  font-size: 2em;
-  font-family: poppins;
-  letter-spacing: 1px;
-}
-.packages h2 span {
-    font-size: 45px;
-}
-
-.package-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.package-cards .card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 30px;
-    flex: 1 1 300px;
-    max-width: fit-content;
-  text-align: left;
-}
-
-.package-cards .card h3 {
-  color: #c81e08;
-  margin-bottom: 5px;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.package-cards .card p {
-  font-size: 15px;
-  margin-bottom: 15px;
-}
-.fw-600{
-  font-weight: 600;
-}
-.package-cards .card ul {
-  list-style: disc;
-  margin-left: 20px;
-  color: #333;
-}
-
-.package-cards .card ul li {
-  margin-bottom: 5px;
-}
-
-/* Menu Section */
-.menu-section {
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.menu-section h2 {
-  color: #c81e08;
-  margin-bottom: 20px;
-  font-size: 2em;
-}
-
-.menu-section p {
-  margin-bottom: 30px;
-  font-size: 1.1em;
-}
-
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.menu-item {
-  background: #f8f8f8;
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.menu-item h4 {
-  color: #c81e08;
-  font-size: 1.2em;
-}
-
-.menu-image {
-  max-width: 1000px;
-  margin: 30px auto;
-  text-align: center;
-}
-
-.menu-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-}
-
-
-.hero-logo {
-  margin-bottom: 20px;
-}
-
-.hero-logo img {
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-.people-number{
-font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: #000;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    column-gap: 0px;
-}
-.people-number .offer-label {
-   
-    font-size: 12px;
-    padding: 5px;
-}
-
-.serves-content span{
-  display: block;
-  font-size:13px
-}
-.card ul{
-  font-size: 15px;
-}
-.order-btn{
-  margin-top: 30px;
-}
-.footer-list .social-icons ul{
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-}
-@media screen and (max-width: 768px) {
-  .hero-logo img {
-    max-width: 140px;
-  }
-}
-.package-cards .card p em {
-  color: #666;
-  font-style: normal;
-  display: block;
-  margin-bottom: 10px;
-  font-size: 15px;
-}
-.offer-label {
-  display: inline-block;
-  background: #0a8207;
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.85em;
-  padding: 4px 8px;
-  border-radius: 4px;
-  margin-left: 10px;
-  vertical-align: middle;
-}
-.hero-logo a {
-  display: inline-block;
-}
-
-.hero-logo a img {
-  display: block;
-}
-.banner img{
-  width: 100%;
-}
-.details h2, .menu-section h2, .menu-section h2, .booking h2{
-  font-family:poppins ;
-  letter-spacing: 1px;
-}
-.details h2 span, .menu-section h2 span, .menu-section h2 span, .booking h2 span{
-  font-size: 45px;
-}
-.copyright-content{
- color: #fff;
- font-size: 14px;
- background-color: #c81e08;
- text-align: center;
- padding: 20px 20px 20px;
- border-top: 1px solid #d5d5d57d;
-}
-
-@media screen and (max-width: 1100px) {
-.footer-list {
-    flex: 1 1 200px;
-    max-width: 200px;
-    text-align: left;
-}
-}
-@media screen and (max-width: 992px) {
-.details h2, .packages h2, .menu-section h2, .booking h2 {
-    font-size: 26px;
-}
-.details h2 span, .packages h2 span, .menu-section h2 span, .booking h2 span{
-  font-size: 35px;
-}
-    .footer-list {
-        flex: 1 1 100px;
-    }
-}
-@media screen and (max-width: 768px) {
-.sadhya-offer .content {
-   
-    flex-direction: column-reverse;
-}
-.sadhya-offer {
-    padding: 30px 20px;
-}
-}
-@media screen and (max-width: 650px) {
-    .footer-list {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-    .footer-content {
-    
-    gap: 30px;
-}
-}
-@media screen and (max-width: 420px) {
-    .details h2, .packages h2, .menu-section h2, .booking h2 {
-        font-size: 24px;
-    }
-    .package-cards .card h3 {
-    
-    font-size: 21px;
-}
-footer {
- 
-  padding: 30px 20px;
-
-}
-.booking, .menu-section, .packages, .sadhya-offer {
-    padding: 30px 20px;
-}
-.footer-content {
-  
-    justify-content: flex-start;
-}
-}
-
-
-.highlight-banner {
-  background: #ffc107;
-  color: #c81e08;
-  font-weight: bold;
-  padding: 15px 20px;
-  border-radius: 8px;
-  display: inline-block;
-  margin-bottom: 30px;
-  font-size: 1.1em;
-}
-
-.highlight-banner a {
-  color: #c81e08;
-  text-decoration: underline;
-}
-
-.highlight-banner a:hover {
-  text-decoration: none;
-}
-.preorder {
-  padding: 0px 20px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.preorder h2 {
-  color: #c81e08;
-  margin-bottom: 20px;
-  font-size: 2em;
-}
-
-.preorder p {
-  font-size: 1.1em;
-  color: #333;
-  max-width: 1000px;
-  margin: 0 auto 20px auto;
-  line-height: 1.6;
-}
-.accompaniments {
-  padding: 50px 20px;
-  background: #ffffff;
-  text-align: center;
-}
-
-.accompaniments h2 {
-  color: #c81e08;
-  margin-bottom: 30px;
-  font-size: 2em;
-}
-
-.elementor-price-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 1000px;
-}
-
-.elementor-price-list-item {
-  display: block;
-  text-decoration: none;
-  color: #333;
-}
-
-.elementor-price-list-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  padding: 12px 0;
-}
-
-.elementor-price-list-title {
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-.elementor-price-list-price {
-  color: #c81e08;
-  font-weight: bold;
-}
-
-.elementor-price-list-separator {
-  display: none;
-}
-.highlight-label {
-    display: inline-block;
-    background-color: #ffcc00;
-    color: #000;
-    padding: 4px 8px;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 4px;
-    margin-right: 10px;
-    vertical-align: middle;
-  }
-
-  .btn {
-  display: inline-block;
-  background-color: #e74c3c;
-  color: #fff;
-  padding: 12px 24px;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-  margin: 8px;
-  width: 300px;
-  text-align: center;
-}
-
-.btn:hover {
-  background-color: #e68900;
-}
-
-.button-group {
-  margin-top: 20px;
-}
-
-.onam-notice {
-  background-color: #e68900;
-  color: #fff;
-  text-align: center;
-  padding: 15px 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9999;
-  font-family: poppins;
-}
-
 body {
-  padding-top: 60px; /* Adjust depending on banner height */
+  font-family: var(--onam-font);
+  color: var(--onam-text);
+  background: #fff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.onam-wrap {
+  width: min(100% - 2rem, var(--onam-max));
+  margin-inline: auto;
+}
+
+/* Header */
+.onam-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--onam-border);
+}
+
+.onam-header-inner {
+  width: min(100% - 2rem, var(--onam-max));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0;
+}
+
+.onam-logo img {
+  max-width: 100px;
+  width: auto;
+  height: auto;
+}
+
+.onam-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.onam-nav a:hover {
+  color: var(--onam-red);
+}
+
+.onam-nav-cta {
+  background: var(--onam-red);
+  color: #fff !important;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+}
+
+.onam-nav-cta:hover {
+  background: var(--onam-red-dark);
+}
+
+.onam-menu-toggle {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  color: var(--onam-text);
+  cursor: pointer;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.onam-menu-toggle i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Banner */
+.onam-banner {
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+.onam-banner img {
+  width: 100%;
+}
+
+/* Intro */
+.onam-intro {
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.onam-kicker {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--onam-red);
+  margin-bottom: 0.75rem;
+}
+
+.onam-kicker--light {
+  color: #ffc9c0;
+}
+
+.onam-intro h1 {
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+  max-width: 720px;
+  margin: 0 auto 0.75rem;
+}
+
+.onam-lead {
+  font-size: 1.05rem;
+  color: var(--onam-muted);
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.onam-lead--light {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Overview cards */
+.onam-overview {
+  padding: 0 0 3.5rem;
+}
+
+.onam-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.onam-overview-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--onam-border);
+  border-radius: var(--onam-radius);
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+}
+
+.onam-overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--onam-shadow);
+  border-color: rgba(200, 30, 8, 0.2);
+}
+
+.onam-overview-card--featured {
+  border-color: rgba(200, 30, 8, 0.35);
+  background: linear-gradient(180deg, #fff 0%, #fff9f8 100%);
+}
+
+.onam-overview-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--onam-red);
+  color: #fff;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+}
+
+.onam-overview-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+  background: var(--onam-red-soft);
+  color: var(--onam-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.onam-overview-icon i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 1em;
+  height: 1em;
+}
+
+.onam-overview-card h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.onam-overview-card p {
+  font-size: 0.9rem;
+  color: var(--onam-muted);
+  margin-bottom: 1rem;
+}
+
+.onam-overview-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--onam-red);
+}
+
+.onam-overview-link i {
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+/* Sections */
+.onam-section {
+  padding: 4rem 0;
+}
+
+.onam-section--light {
+  background: var(--onam-bg);
+}
+
+.onam-section--dark {
+  background: linear-gradient(145deg, #1a1a1a 0%, #2d1210 100%);
+  color: #fff;
+}
+
+.onam-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.onam-split-media img {
+  border-radius: var(--onam-radius);
+  box-shadow: var(--onam-shadow);
+  width: 100%;
+  object-fit: cover;
+}
+
+.onam-split-content h2 {
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.onam-split-content > p {
+  color: var(--onam-muted);
+  margin-bottom: 1.25rem;
+}
+
+.onam-section--dark .onam-split-content > p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.onam-checklist {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.onam-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.55rem;
+  color: var(--onam-muted);
+}
+
+.onam-section--dark .onam-checklist li {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.onam-checklist i {
+  color: var(--onam-red);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 1em;
+  margin-top: 0.2rem;
+}
+
+.onam-section--dark .onam-checklist i {
+  color: #ff8a75;
+}
+
+/* Price cards */
+.onam-price-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.onam-price-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--onam-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.onam-price-card--highlight {
+  border-color: var(--onam-red);
+  box-shadow: 0 0 0 1px rgba(200, 30, 8, 0.15);
+}
+
+.onam-price-card-tag {
+  position: absolute;
+  top: -0.55rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--onam-gold);
+  color: #1a1a1a;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.onam-price-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.onam-price-card-for {
+  font-size: 0.85rem;
+  color: var(--onam-muted);
+  margin-bottom: 0.5rem;
+}
+
+.onam-price-card-amount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--onam-red);
+  line-height: 1;
+}
+
+.onam-price-card-amount small {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.onam-price-card-note {
+  font-size: 0.8rem;
+  color: var(--onam-muted);
+  margin-top: 0.35rem;
+}
+
+.onam-callout {
+  background: var(--onam-red-soft);
+  border-left: 4px solid var(--onam-red);
+  padding: 1rem 1.15rem;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--onam-text);
+}
+
+.onam-callout p {
+  color: var(--onam-text);
+  margin: 0;
+}
+
+.onam-callout strong {
+  color: var(--onam-red);
+}
+
+/* Buttons */
+.onam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.onam-actions--center {
+  justify-content: center;
+}
+
+.onam-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.onam-btn--primary {
+  background: var(--onam-red);
+  color: #fff;
+}
+
+.onam-btn--primary:hover {
+  background: var(--onam-red-dark);
+}
+
+.onam-btn--ghost {
+  background: transparent;
+  color: var(--onam-red);
+  border-color: rgba(200, 30, 8, 0.35);
+}
+
+.onam-btn--ghost:hover {
+  background: var(--onam-red-soft);
+}
+
+.onam-btn--ghost-dark {
+  color: var(--onam-text);
+  border-color: var(--onam-border);
+}
+
+.onam-btn--light {
+  background: #fff;
+  color: var(--onam-red);
+}
+
+.onam-btn--light:hover {
+  background: #f5f5f5;
+}
+
+.onam-btn--outline-light {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.onam-btn--outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Food truck section */
+.onam-truck-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+}
+
+.onam-truck-head h2 {
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.onam-truck-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.onam-truck-step {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--onam-radius);
+  padding: 1.5rem;
+}
+
+.onam-truck-step-num {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #ff8a75;
+  margin-bottom: 0.5rem;
+}
+
+.onam-truck-step h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.onam-truck-step p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.onam-truck-includes {
+  list-style: none;
+  max-width: 720px;
+  margin: 0 auto 2rem;
+}
+
+.onam-truck-includes li {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.onam-truck-includes i {
+  color: #ff8a75;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  width: 1em;
+  margin-top: 0.2rem;
+}
+
+/* Menu */
+.onam-menu-block {
+  text-align: center;
+}
+
+.onam-menu-block h2 {
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.onam-menu-image {
+  margin: 2rem auto;
+  max-width: 900px;
+  border-radius: var(--onam-radius);
+  overflow: hidden;
+  box-shadow: var(--onam-shadow);
+}
+
+.onam-menu-note {
+  font-size: 0.9rem;
+  color: var(--onam-muted);
+}
+
+/* How it works */
+.onam-how {
+  padding: 3.5rem 0;
+  background: #fff;
+}
+
+.onam-how-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.onam-steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  counter-reset: none;
+}
+
+.onam-steps li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.onam-step-num {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--onam-red);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onam-steps strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.onam-steps p {
+  font-size: 0.9rem;
+  color: var(--onam-muted);
+}
+
+/* CTA */
+.onam-cta {
+  padding: 4rem 0;
+  background: var(--onam-red-soft);
+  text-align: center;
+}
+
+.onam-cta h2 {
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.onam-cta > .onam-wrap > p {
+  color: var(--onam-muted);
+  margin-bottom: 1.5rem;
+}
+
+.onam-cta-phone {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.onam-cta-phone a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  color: var(--onam-red);
+  font-weight: 500;
+}
+
+.onam-cta-phone i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.onam-cta-phone a:hover {
+  text-decoration: underline;
+}
+
+/* Common footer — restore layout & center icons */
+.onam-page footer .container {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.onam-page footer .row {
+  width: 100%;
+  margin-inline: 0;
+  justify-content: center;
+  row-gap: 2rem;
+}
+
+.onam-page footer .col-lg-4.col-sm-12 {
+  width: 100%;
+  max-width: 360px;
+}
+
+.onam-page .footer-logo-row,
+.onam-page .footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.onam-page .footer-contact a,
+.onam-page .footer-submenu .submenu-title {
+  align-items: center;
+}
+
+.onam-page .footer-contact a img,
+.onam-page .footer-submenu .toggle-arrow {
+  flex-shrink: 0;
+  display: block;
+}
+
+.onam-page .follow-icons {
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.onam-page .follow-icons > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onam-page .follow-icons img {
+  display: block;
+}
+
+.onam-page .google-rating {
+  align-items: center;
+}
+
+.onam-page .rating-tag {
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .onam-page footer .row {
+    justify-content: space-between;
+  }
+
+  .onam-page footer .col-lg-4.col-sm-12 {
+    width: 33.333333%;
+    max-width: none;
+  }
+
+  .onam-page .footer-logo-row {
+    justify-content: flex-start;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .onam-overview-grid,
+  .onam-truck-grid,
+  .onam-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .onam-split,
+  .onam-split--reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .onam-split--reverse .onam-split-media {
+    order: -1;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .onam-menu-toggle {
+    display: flex;
+  }
+
+  .onam-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: #fff;
+    border-bottom: 1px solid var(--onam-border);
+    padding: 1rem;
+    box-shadow: var(--onam-shadow);
+  }
+
+  .onam-nav.is-open {
+    display: flex;
+  }
+
+  .onam-nav a {
+    padding: 0.5rem 0;
+  }
+
+  .onam-header {
+    position: relative;
+  }
+
+  .onam-header-inner {
+    position: relative;
+  }
+
+  .onam-price-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .onam-section {
+    padding: 2.75rem 0;
+  }
+
+  .onam-intro h1 {
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .onam-actions {
+    flex-direction: column;
+  }
+
+  .onam-btn {
+    width: 100%;
+  }
 }
