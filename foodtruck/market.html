@@ -565,7 +565,12 @@
           <div id="preorderFormWrap">
             <div class="mb-3">
               <label class="form-label small">Name</label>
-              <input id="custName" type="text" class="form-control" placeholder="Dein Name">
+              <input id="custName" type="text" class="form-control" placeholder="Dein Name" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label small">Telefon</label>
+              <input id="custPhone" type="tel" class="form-control" placeholder="+49 …" required>
             </div>
 
             <div class="mb-3">
@@ -759,16 +764,17 @@
       return buildItems().map(it => `${it.name} · ${it.qty}×`).join(' | ');
     }
 
-    /** Synced with Google Form — options must match exactly for prefill */
+    /** Synced with Google Form https://forms.gle/PQHU4DPDKELvT6Ss8 — options must match exactly for prefill */
     const MARKET_FORM_BASE =
       'https://docs.google.com/forms/d/e/1FAIpQLSfV-0pTys9EeRUrOTloMsaX7jlg50AlQBfuBFApML2CcAHXHQ/viewform';
     const MARKET_FORM_ENTRIES = {
-      name: 'entry.2092238618',           // Name
-      location: 'entry.1835688175',      // Location → Stuttgart
-      pickup: 'entry.479301265',         // Abhol Uhrzeit
-      chickenBiryani: 'entry.1486961606', // Chicken Biriyani
-      orderDetails: 'entry.1946155460',  // Bestellung Details
-      total: 'entry.2057144369'          // Summe
+      name: 'entry.826355120',            // Name
+      phone: 'entry.766131553',           // Phone Number
+      location: 'entry.1675404949',       // Location → Stuttgart
+      pickup: 'entry.245385898',          // Abhol Uhrzeit
+      chickenBiryani: 'entry.2024533386', // Chicken Biriyani
+      orderDetails: 'entry.978027723',    // Bestellung Details
+      total: 'entry.1876288712'           // Summe
     };
 
     function buildOrderDetailsText() {
@@ -786,15 +792,18 @@
       if (marketCart.totalItems <= 0) return;
 
       const name = (document.getElementById('custName').value || '').trim();
+      const phone = (document.getElementById('custPhone').value || '').trim();
       const location = (document.getElementById('custLocation').value || '').trim();
       const pickup = (document.getElementById('pickupTime').value || '').trim();
 
       if (!name) { alert('Bitte Name eingeben.'); return; }
+      if (!phone) { alert('Bitte Telefonnummer eingeben.'); return; }
       if (!location) { alert('Bitte Standort wählen.'); return; }
       if (!pickup) { alert('Bitte Abhol Uhrzeit wählen.'); return; }
 
       const params = [
         `${MARKET_FORM_ENTRIES.name}=${encodeURIComponent(name)}`,
+        `${MARKET_FORM_ENTRIES.phone}=${encodeURIComponent(phone)}`,
         `${MARKET_FORM_ENTRIES.location}=${encodeURIComponent(location)}`,
         `${MARKET_FORM_ENTRIES.pickup}=${encodeURIComponent(pickup)}`
       ];

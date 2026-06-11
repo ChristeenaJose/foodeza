@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Foodeza POS · Market preorders</title>
+  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="pos.css" />
+  <style>
+    .preorder-table th {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+    .preorder-table td {
+      vertical-align: middle;
+    }
+
+    .status-select {
+      min-width: 8.5rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+
+    .status-select[data-status="Pending"] {
+      border-color: #f59e0b;
+      color: #b45309;
+    }
+
+    .status-select[data-status="Confirmed"] {
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .status-select[data-status="Collected"] {
+      border-color: #22c55e;
+      color: #15803d;
+    }
+
+    .status-select.is-saving {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .preorder-card {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    @media (max-width: 767px) {
+      .preorder-table-wrap {
+        display: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .preorder-cards-wrap {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="pos-shell">
+
+  <div class="pos-topbar shadow-sm">
+    <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
+      <div class="d-flex align-items-center gap-3">
+        <strong><i class="fas fa-clipboard-list me-2"></i>Market preorders</strong>
+        <span id="clock" class="small opacity-75"></span>
+      </div>
+      <div class="d-flex gap-2 flex-wrap align-items-center">
+        <button type="button" class="btn btn-sm btn-outline-light" id="refreshBtn">
+          <i class="fas fa-rotate me-1"></i>Refresh
+        </button>
+        <a id="sheetOpenBtn" href="#" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light">
+          <i class="fas fa-table me-1"></i>Sheet
+        </a>
+        <button type="button" class="btn btn-sm btn-outline-light" id="settingsBtn">
+          <i class="fas fa-gear me-1"></i>API
+        </button>
+        <a href="pos-market.html" class="btn btn-sm btn-outline-light rounded-pill">← Market POS</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid pos-main px-3 py-3">
+    <div class="row g-2 align-items-end mb-3">
+      <div class="col-md-4">
+        <label class="form-label small text-muted" for="dateFilter">Date</label>
+        <input id="dateFilter" type="date" class="form-control form-control-sm">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label small text-muted" for="statusFilter">Filter status</label>
+        <select id="statusFilter" class="form-select form-select-sm">
+          <option value="all">All</option>
+          <option value="Pending">Pending</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Collected">Collected</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label small text-muted" for="searchFilter">Search name</label>
+        <input id="searchFilter" type="search" class="form-control form-control-sm" placeholder="Name…" autocomplete="off">
+      </div>
+    </div>
+
+    <div id="loadError" class="alert alert-danger small d-none mb-2" role="alert"></div>
+    <div id="apiWarning" class="alert alert-warning small d-none mb-2" role="alert"></div>
+
+    <div class="preorder-table-wrap table-responsive bg-white rounded-3 border shadow-sm">
+      <table class="table table-hover mb-0 preorder-table">
+        <thead class="table-light">
+          <tr>
+            <th>Name</th>
+            <th>Chicken Biryani</th>
+            <th>Summe</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <div id="cardsList" class="preorder-cards-wrap d-flex flex-column gap-2"></div>
+  </div>
+
+  <div class="modal fade" id="settingsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sheet write API</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted">Orders load from the published Google Sheet. To <strong>update Status</strong> in the sheet, deploy <code>google-apps-script/market-preorders.gs</code> and paste the <code>/exec</code> URL below.</p>
+          <label class="form-label" for="writeApiInput">Apps Script URL</label>
+          <input type="url" id="writeApiInput" class="form-control mb-3" placeholder="https://script.google.com/macros/s/…/exec">
+          <label class="form-label" for="apiTokenInput">API token <span class="text-muted">(optional)</span></label>
+          <input type="password" id="apiTokenInput" class="form-control" autocomplete="off">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" id="saveSettingsBtn">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script src="pos-preorders-config.js"></script>
+  <script>
+    const STATUS_OPTIONS = ['Pending', 'Confirmed', 'Collected'];
+    const STORAGE_WRITE = 'foodeza_market_write_api';
+    const STORAGE_TOKEN = 'foodeza_market_api_token';
+    let ordersCache = [];
+
+    function cfg() { return window.POS_PREORDERS_CONFIG || {}; }
+
+    function getWriteApiUrl() {
+      try { return localStorage.getItem(STORAGE_WRITE) || cfg().writeApiUrl || ''; }
+      catch (e) { return cfg().writeApiUrl || ''; }
+    }
+
+    function getApiToken() {
+      try { return localStorage.getItem(STORAGE_TOKEN) || cfg().apiToken || ''; }
+      catch (e) { return cfg().apiToken || ''; }
+    }
+
+    function setStoredSettings(writeUrl, token) {
+      try {
+        localStorage.setItem(STORAGE_WRITE, writeUrl);
+        localStorage.setItem(STORAGE_TOKEN, token);
+      } catch (e) { /* ignore */ }
+    }
+
+    function normalizeStatus(val) {
+      const s = String(val || '').trim().toLowerCase();
+      if (s === 'collected') return 'Collected';
+      if (s === 'confirmed') return 'Confirmed';
+      return 'Pending';
+    }
+
+    function headerKey(h) {
+      return String(h || '').trim().toLowerCase()
+        .replace(/\s+/g, '_')
+        .replace(/[^a-z0-9_äöüß:]/g, '')
+        .replace(/:+$/, '');
+    }
+
+    function parseCsv(text) {
+      const rows = [];
+      let row = [];
+      let cell = '';
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (inQuotes) {
+          if (c === '"' && text[i + 1] === '"') { cell += '"'; i++; }
+          else if (c === '"') inQuotes = false;
+          else cell += c;
+        } else if (c === '"') inQuotes = true;
+        else if (c === ',') { row.push(cell); cell = ''; }
+        else if (c === '\n' || (c === '\r' && text[i + 1] === '\n')) {
+          if (c === '\r') i++;
+          row.push(cell); cell = '';
+          if (row.some(x => String(x).trim() !== '')) rows.push(row);
+          row = [];
+        } else cell += c;
+      }
+      if (cell || row.length) {
+        row.push(cell);
+        if (row.some(x => String(x).trim() !== '')) rows.push(row);
+      }
+      return rows;
+    }
+
+    function rowToOrder(headers, row, rowIndex) {
+      const o = { rowIndex, name: '', timestamp: '', chickenBiryani: '', total: '', status: 'Pending' };
+      headers.forEach((h, j) => {
+        const key = headerKey(h);
+        const val = String(row[j] == null ? '' : row[j]).trim();
+        if (key === 'name') o.name = val;
+        else if (key === 'timestamp') o.timestamp = val;
+        else if (key.indexOf('chicken') !== -1 && key.indexOf('biri') !== -1) o.chickenBiryani = val;
+        else if (key === 'summe' || key === 'total') o.total = val;
+        else if (key === 'status') o.status = normalizeStatus(val);
+      });
+      return o;
+    }
+
+    function orderDateYmd(order) {
+      if (!order.timestamp) return '';
+      const d = new Date(order.timestamp);
+      if (!isNaN(d.getTime())) {
+        return d.toISOString().slice(0, 10);
+      }
+      const m = String(order.timestamp).match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+      if (m) return m[3] + '-' + String(m[1]).padStart(2, '0') + '-' + String(m[2]).padStart(2, '0');
+      return '';
+    }
+
+    function escapeHtml(s) {
+      return String(s == null ? '' : s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function statusSelectHtml(order) {
+      const opts = STATUS_OPTIONS.map(function (s) {
+        const sel = s === order.status ? ' selected' : '';
+        return '<option value="' + s + '"' + sel + '>' + s + '</option>';
+      }).join('');
+      return '<select class="form-select form-select-sm status-select" data-status="' + escapeHtml(order.status) + '" data-row="' + order.rowIndex + '" aria-label="Status for ' + escapeHtml(order.name) + '">' + opts + '</select>';
+    }
+
+    async function loadOrders() {
+      const csvUrl = (cfg().publishedCsvUrl || '').trim();
+      if (!csvUrl) throw new Error('publishedCsvUrl missing in config.');
+      const r = await fetch(csvUrl + (csvUrl.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now(), { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const table = parseCsv(await r.text());
+      if (!table.length) { ordersCache = []; return; }
+      const headers = table[0];
+      const orders = [];
+      for (let i = 1; i < table.length; i++) {
+        if (!table[i].some(x => String(x).trim() !== '')) continue;
+        orders.push(rowToOrder(headers, table[i], i + 1));
+      }
+      orders.reverse();
+      ordersCache = orders;
+    }
+
+    async function setStatus(rowIndex, status) {
+      const url = getWriteApiUrl().trim();
+      if (!url) throw new Error('Apps Script URL not set. Open API and paste your /exec URL.');
+      const r = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          action: 'setStatus',
+          rowIndex: rowIndex,
+          status: status,
+          token: getApiToken()
+        })
+      });
+      const data = await r.json().catch(() => ({}));
+      if (!data.ok) throw new Error(data.error || ('HTTP ' + r.status));
+    }
+
+    function matchesFilters(order) {
+      const dateVal = document.getElementById('dateFilter').value;
+      const statusVal = document.getElementById('statusFilter').value;
+      const search = (document.getElementById('searchFilter').value || '').trim().toLowerCase();
+      if (dateVal && orderDateYmd(order) !== dateVal) return false;
+      if (statusVal !== 'all' && order.status !== statusVal) return false;
+      if (search && order.name.toLowerCase().indexOf(search) === -1) return false;
+      return true;
+    }
+
+    function render() {
+      const filtered = ordersCache.filter(matchesFilters);
+      const empty = '<tr><td colspan="4" class="text-muted text-center py-4">No preorders.</td></tr>';
+      const tbody = document.getElementById('tableBody');
+      const cards = document.getElementById('cardsList');
+
+      if (!filtered.length) {
+        tbody.innerHTML = empty;
+        cards.innerHTML = '<div class="text-muted small text-center py-4">No preorders.</div>';
+        return;
+      }
+
+      tbody.innerHTML = filtered.map(function (o) {
+        return '<tr>' +
+          '<td class="fw-semibold">' + escapeHtml(o.name || '—') + '</td>' +
+          '<td>' + escapeHtml(o.chickenBiryani || '—') + '</td>' +
+          '<td>' + escapeHtml(o.total || '—') + '</td>' +
+          '<td>' + statusSelectHtml(o) + '</td>' +
+          '</tr>';
+      }).join('');
+
+      cards.innerHTML = filtered.map(function (o) {
+        return '<div class="preorder-card">' +
+          '<div class="fw-bold mb-1">' + escapeHtml(o.name || '—') + '</div>' +
+          '<div class="small text-muted mb-2">Biryani: <strong class="text-dark">' + escapeHtml(o.chickenBiryani || '—') + '</strong> · Summe: <strong class="text-dark">' + escapeHtml(o.total || '—') + '</strong></div>' +
+          statusSelectHtml(o) +
+          '</div>';
+      }).join('');
+
+      document.querySelectorAll('.status-select').forEach(function (sel) {
+        sel.dataset.status = sel.value;
+      });
+    }
+
+    function updateApiWarning() {
+      const el = document.getElementById('apiWarning');
+      if (!el) return;
+      if (getWriteApiUrl().trim()) {
+        el.classList.add('d-none');
+        return;
+      }
+      el.textContent = 'Status changes need the Apps Script write API. Open API → paste your deployed /exec URL.';
+      el.classList.remove('d-none');
+    }
+
+    async function refresh() {
+      try {
+        await loadOrders();
+        document.getElementById('loadError').classList.add('d-none');
+        render();
+      } catch (e) {
+        const err = document.getElementById('loadError');
+        err.textContent = 'Load failed: ' + (e.message || e);
+        err.classList.remove('d-none');
+        render();
+      }
+    }
+
+    async function onStatusChange(selectEl) {
+      const rowIndex = parseInt(selectEl.getAttribute('data-row'), 10);
+      const newStatus = selectEl.value;
+      const prev = selectEl.getAttribute('data-status') || 'Pending';
+      selectEl.classList.add('is-saving');
+      try {
+        await setStatus(rowIndex, newStatus);
+        const o = ordersCache.find(x => x.rowIndex === rowIndex);
+        if (o) o.status = newStatus;
+        selectEl.setAttribute('data-status', newStatus);
+        document.getElementById('loadError').classList.add('d-none');
+      } catch (e) {
+        selectEl.value = prev;
+        alert('Could not update sheet: ' + (e.message || e));
+      } finally {
+        selectEl.classList.remove('is-saving');
+        selectEl.dataset.status = selectEl.value;
+      }
+    }
+
+    document.addEventListener('change', function (e) {
+      if (e.target && e.target.classList.contains('status-select')) {
+        onStatusChange(e.target);
+      }
+    });
+
+    document.getElementById('refreshBtn').onclick = refresh;
+    document.getElementById('dateFilter').addEventListener('change', render);
+    document.getElementById('statusFilter').addEventListener('change', render);
+    document.getElementById('searchFilter').addEventListener('input', render);
+
+    document.getElementById('settingsBtn').onclick = function () {
+      document.getElementById('writeApiInput').value = getWriteApiUrl();
+      document.getElementById('apiTokenInput').value = getApiToken();
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('settingsModal')).show();
+    };
+
+    document.getElementById('saveSettingsBtn').onclick = function () {
+      const writeUrl = (document.getElementById('writeApiInput').value || '').trim();
+      const token = (document.getElementById('apiTokenInput').value || '').trim();
+      if (writeUrl && writeUrl.indexOf('script.google.com') === -1) {
+        alert('Please paste a valid Apps Script /exec URL.');
+        return;
+      }
+      setStoredSettings(writeUrl, token);
+      bootstrap.Modal.getOrCreateInstance(document.getElementById('settingsModal')).hide();
+      updateApiWarning();
+    };
+
+    (function init() {
+      const sheetBtn = document.getElementById('sheetOpenBtn');
+      if (sheetBtn && cfg().sheetUrl) sheetBtn.href = cfg().sheetUrl;
+      document.getElementById('dateFilter').value = new Date().toISOString().slice(0, 10);
+      setInterval(function () {
+        document.getElementById('clock').textContent = new Date().toLocaleString('en-GB');
+      }, 1000);
+      updateApiWarning();
+      refresh();
+    })();
+  </script>
+</body>
+
+</html>
