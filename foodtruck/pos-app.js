@@ -37,6 +37,7 @@
       mojito: 'mojito',
       samosa: 'samosa',
       snackteller: 'snackteller',
+      biriyani_group: 'biriyani',
     };
 
     function menuImageSrc(productId) {

@@ -204,6 +204,35 @@
       border-radius: 4px;
     }
 
+    .market-unavail-badge {
+      display: block;
+      width: fit-content;
+      margin-top: 0.65rem;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: #6b7280;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+    }
+
+    .market-row--unavail {
+      opacity: 0.72;
+    }
+
+    .market-row--unavail .market-row-price {
+      color: #9ca3af;
+    }
+
+    .market-unavail-note {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #9ca3af;
+      white-space: nowrap;
+    }
+
     .market-row-price {
       font-weight: 600;
       color: #333;
@@ -362,14 +391,10 @@
                       <button type="button" class="qty-btn plus" onclick="updateQty('chicken_65', 1, 6.5)">+</button>
                     </div>
                   </li>
-                  <li class="market-row">
-                    <span class="market-row-name">Samosa<span class="market-row-sub">2 Stk. &middot; Knusprige Teigtasche mit Kartoffel-Erbsen-F&uuml;llung &middot; gelegentlich verf&uuml;gbar</span><span class="market-level market-level-spicy">leicht scharf</span></span>
+                  <li class="market-row market-row--unavail">
+                    <span class="market-row-name">Samosa<span class="market-row-sub">2 Stk. &middot; Knusprige Teigtasche mit Kartoffel-Erbsen-F&uuml;llung</span><span class="market-level market-level-spicy">leicht scharf</span><span class="market-unavail-badge">Heute nicht verf&uuml;gbar</span></span>
                     <span class="market-row-price">4,50&nbsp;&euro;</span>
-                    <div class="quantity-selector m-0">
-                      <button type="button" class="qty-btn minus" onclick="updateQty('samosa', -1, 4.5)">&minus;</button>
-                      <span class="qty-number" id="qty-samosa">0</span>
-                      <button type="button" class="qty-btn plus" onclick="updateQty('samosa', 1, 4.5)">+</button>
-                    </div>
+                    <span class="market-unavail-note">—</span>
                   </li>
                   <li class="market-row">
                     <span class="market-row-name">Banana Fry (Pazhampori)<span class="market-row-sub">3 Stk. &middot; S&uuml;&szlig;e frittierte Banane im Teigmantel &middot; gelegentlich verf&uuml;gbar</span><span class="market-level market-level-sweet">s&uuml;&szlig;</span></span>
@@ -425,24 +450,6 @@
               <div class="market-highlight">
                 <ul class="market-list">
                   <li class="market-row">
-                    <span class="market-row-name">Butter Chicken Wrap<span class="market-row-sub">Butter Chicken im Fladenwrap</span><span class="market-level market-level-spicy">mild scharf</span></span>
-                    <span class="market-row-price">9,50&nbsp;&euro;</span>
-                    <div class="quantity-selector m-0">
-                      <button type="button" class="qty-btn minus" onclick="updateQty('wrap_butter_chicken', -1, 9.5)">&minus;</button>
-                      <span class="qty-number" id="qty-wrap_butter_chicken">0</span>
-                      <button type="button" class="qty-btn plus" onclick="updateQty('wrap_butter_chicken', 1, 9.5)">+</button>
-                    </div>
-                  </li>
-                  <li class="market-row">
-                    <span class="market-row-name">Paneer Butter Masala Wrap<span class="market-row-sub">Paneer Butter Masala im Fladenwrap</span><span class="market-level market-level-spicy">leicht scharf</span></span>
-                    <span class="market-row-price">8,50&nbsp;&euro;</span>
-                    <div class="quantity-selector m-0">
-                      <button type="button" class="qty-btn minus" onclick="updateQty('wrap_paneer_masala', -1, 8.5)">&minus;</button>
-                      <span class="qty-number" id="qty-wrap_paneer_masala">0</span>
-                      <button type="button" class="qty-btn plus" onclick="updateQty('wrap_paneer_masala', 1, 8.5)">+</button>
-                    </div>
-                  </li>
-                  <li class="market-row">
                     <span class="market-row-name">Spicy Chicken Wrap<span class="market-row-sub">Feuriges H&auml;hnchencurry im Fladenwrap</span><span class="market-level market-level-spicy">scharf</span></span>
                     <span class="market-row-price">9,50&nbsp;&euro;</span>
                     <div class="quantity-selector m-0">
@@ -451,14 +458,10 @@
                       <button type="button" class="qty-btn plus" onclick="updateQty('wrap_spicy_chicken', 1, 9.5)">+</button>
                     </div>
                   </li>
-                  <li class="market-row">
-                    <span class="market-row-name">Fried Chicken Wrap<span class="market-row-sub">Chicken 65 im Fladenwrap</span><span class="market-level market-level-spicy">scharf</span></span>
+                  <li class="market-row market-row--unavail">
+                    <span class="market-row-name">Fried Chicken Wrap<span class="market-row-sub">Chicken 65 im Fladenwrap</span><span class="market-level market-level-spicy">scharf</span><span class="market-unavail-badge">Heute nicht verf&uuml;gbar</span></span>
                     <span class="market-row-price">10,50&nbsp;&euro;</span>
-                    <div class="quantity-selector m-0">
-                      <button type="button" class="qty-btn minus" onclick="updateQty('wrap_fried_chicken', -1, 10.5)">&minus;</button>
-                      <span class="qty-number" id="qty-wrap_fried_chicken">0</span>
-                      <button type="button" class="qty-btn plus" onclick="updateQty('wrap_fried_chicken', 1, 10.5)">+</button>
-                    </div>
+                    <span class="market-unavail-note">—</span>
                   </li>
                 </ul>
               </div>
@@ -526,14 +529,10 @@
                       <button type="button" class="qty-btn plus" onclick="updateQty('mojito', 1, 3.8)">+</button>
                     </div>
                   </li>
-                  <li class="market-row">
-                    <span class="market-row-name">Limonade<span class="market-row-sub">Hausgemachte Zitronenlimonade &middot; Sommerspecial</span></span>
+                  <li class="market-row market-row--unavail">
+                    <span class="market-row-name">Limonade<span class="market-row-sub">Hausgemachte Zitronenlimonade &middot; Sommerspecial</span><span class="market-unavail-badge">Heute nicht verf&uuml;gbar</span></span>
                     <span class="market-row-price">2,50&nbsp;&euro;</span>
-                    <div class="quantity-selector m-0">
-                      <button type="button" class="qty-btn minus" onclick="updateQty('lemonade', -1, 2.5)">&minus;</button>
-                      <span class="qty-number" id="qty-lemonade">0</span>
-                      <button type="button" class="qty-btn plus" onclick="updateQty('lemonade', 1, 2.5)">+</button>
-                    </div>
+                    <span class="market-unavail-note">—</span>
                   </li>
               </ul>
             </div>
@@ -675,22 +674,17 @@
     const marketCart = {
       snack_teller: 0,
       pazhampori: 0,
-      samosa: 0,
       chicken_65: 0,
       cutlet: 0,
       butter_chicken: 0,
       paneer_masala: 0,
       spinach_dal: 0,
-      wrap_butter_chicken: 0,
-      wrap_paneer_masala: 0,
       wrap_spicy_chicken: 0,
-      wrap_fried_chicken: 0,
       kothu_porotta: 0,
       chicken_biriyani: 0,
       lassi: 0,
       tea: 0,
       mojito: 0,
-      lemonade: 0,
       totalItems: 0,
       totalPrice: 0
     };
@@ -698,22 +692,17 @@
     const marketMenu = {
       snack_teller: { name: 'Snacks-Teller (3 Snacks, Pommes und Salat)', price: 9.5 },
       pazhampori: { name: 'Banana Fry (Pazhampori) · 3 Stk.', price: 4.5 },
-      samosa: { name: 'Samosa · 2 Stk.', price: 4.5 },
       chicken_65: { name: 'Chicken 65 (scharf frittiertes Hähnchen)', price: 6.5 },
       cutlet: { name: 'Chicken Cutlet · 2 Stk.', price: 5.5 },
       butter_chicken: { name: 'Butter Chicken (Reisschale)', price: 8.5 },
       paneer_masala: { name: 'Paneer Butter Masala (Reisschale)', price: 7.5 },
       spinach_dal: { name: 'Dal Spinach (Reisschale)', price: 6.5 },
-      wrap_butter_chicken: { name: 'Butter Chicken Wrap', price: 9.5 },
-      wrap_paneer_masala: { name: 'Paneer Butter Masala Wrap', price: 8.5 },
       wrap_spicy_chicken: { name: 'Spicy Chicken Wrap', price: 9.5 },
-      wrap_fried_chicken: { name: 'Fried Chicken Wrap', price: 10.5 },
       kothu_porotta: { name: 'Kothu Porotta (gehacktes Fladenbrot, würzig gebraten)', price: 11.5 },
       chicken_biriyani: { name: 'Chicken Biryani (Beilage: Butter Chicken oder Chicken 65)', price: 13.5 },
       lassi: { name: 'Mango Lassi', price: 3.0 },
       tea: { name: 'Indian Tee (mit Milch) – Chai', price: 2.0 },
-      mojito: { name: 'Mojito (Mango, Wassermelone)', price: 3.8 },
-      lemonade: { name: 'Limonade', price: 2.5 }
+      mojito: { name: 'Mojito (Mango, Wassermelone)', price: 3.8 }
     };
 
     function updateQty(item, change, price) {
