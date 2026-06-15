@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Foodeza POS · Market preorders</title>
-  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="../../images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
-  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="../../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../../css/foodtruck.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="pos.css" />
   <style>
@@ -75,6 +75,8 @@
 </head>
 
 <body class="pos-shell">
+  <script src="js/pos-auth-config.js"></script>
+  <script src="js/pos-auth.js"></script>
 
   <div class="pos-topbar shadow-sm">
     <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
@@ -146,7 +148,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p class="small text-muted">Orders load from the published Google Sheet. To <strong>update Status</strong> in the sheet, deploy <code>google-apps-script/market-preorders.gs</code> and paste the <code>/exec</code> URL below.</p>
+          <p class="small text-muted">Orders load from the published Google Sheet. To <strong>update Status</strong> in the sheet, deploy <code>pos/google-apps-script/market-preorders.gs</code> and paste the <code>/exec</code> URL below.</p>
           <label class="form-label" for="writeApiInput">Apps Script URL</label>
           <input type="url" id="writeApiInput" class="form-control mb-3" placeholder="https://script.google.com/macros/s/…/exec">
           <label class="form-label" for="apiTokenInput">API token <span class="text-muted">(optional)</span></label>
@@ -160,8 +162,8 @@
     </div>
   </div>
 
-  <script src="../js/bootstrap.5.3.7.js"></script>
-  <script src="pos-preorders-config.js"></script>
+  <script src="../../js/bootstrap.5.3.7.js"></script>
+  <script src="js/pos-preorders-config.js"></script>
   <script>
     const STATUS_OPTIONS = ['Pending', 'Confirmed', 'Collected'];
     const STORAGE_WRITE = 'foodeza_market_write_api';

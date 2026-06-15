@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Foodeza POS</title>
-  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="../../images/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
-  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="../../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../../css/foodtruck.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="pos.css" />
   <style>
@@ -47,6 +47,8 @@
 </head>
 
 <body class="pos-shell">
+  <script src="js/pos-auth-config.js"></script>
+  <script src="js/pos-auth.js"></script>
 
   <div class="pos-topbar shadow-sm">
     <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2">
@@ -54,7 +56,7 @@
         <strong><i class="fas fa-cash-register me-2"></i>Foodeza POS</strong>
       </div>
       <div class="d-flex gap-2 flex-wrap align-items-center">
-        <a href="index.html" class="btn btn-sm btn-outline-light rounded-pill">← Food truck</a>
+        <a href="../index.html" class="btn btn-sm btn-outline-light rounded-pill">← Food truck</a>
       </div>
     </div>
   </div>
@@ -81,8 +83,11 @@
     </div>
 
     <p class="text-center mt-4 mb-2">
-      <a href="pos-preorders.html" class="btn btn-outline-danger btn-sm rounded-pill">
+      <a href="pos-preorders.html" class="btn btn-outline-danger btn-sm rounded-pill me-2">
         <i class="fas fa-clipboard-list me-1"></i>Market preorders (Google Sheet)
+      </a>
+      <a href="online-orders.html" class="btn btn-outline-secondary btn-sm rounded-pill">
+        <i class="fas fa-bag-shopping me-1"></i>Online orders (API)
       </a>
     </p>
     <p class="text-muted small text-center mb-0">Orders and exports are shared across both registers (this browser).</p>

@@ -7,7 +7,7 @@
  * 3. Extensions → Apps Script → paste this file → Save.
  * 4. (Optional) Script properties → API_TOKEN = long random string.
  * 5. Deploy → New deployment → Web app → Execute as: Me → Anyone → copy /exec URL.
- * 6. Paste /exec URL into pos-preorders-config.js → writeApiUrl on your website.
+ * 6. Paste /exec URL into pos/js/pos-preorders-config.js → writeApiUrl on your website.
  */
 
 var SHEET_NAME = 'Form Responses 1';

@@ -6,15 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex,nofollow" />
   <title>Foodeza | Online-Bestellungen</title>
-  <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="../../images/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../css/bootstrap.5.3.7.css" />
-  <link rel="stylesheet" href="../css/foodtruck.css" />
+  <link rel="stylesheet" href="../../css/bootstrap.5.3.7.css" />
+  <link rel="stylesheet" href="../../css/foodtruck.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="pos.css" />
 
   <style>
     body {
@@ -64,8 +65,11 @@
   </style>
 </head>
 
-<body>
-  <div class="topbar shadow-sm">
+<body class="pos-shell">
+  <script src="js/pos-auth-config.js"></script>
+  <script src="js/pos-auth.js"></script>
+
+  <div class="pos-topbar shadow-sm">
     <div class="container-fluid px-3 d-flex align-items-center justify-content-between flex-wrap gap-2 wrap">
       <div class="d-flex align-items-center gap-3">
         <strong><i class="fas fa-bag-shopping me-2"></i>Online-Bestellungen</strong>
@@ -82,7 +86,7 @@
           <i class="fas fa-file-import me-1"></i>JSON importieren
           <input id="importJsonInput" type="file" accept="application/json,.json" class="d-none">
         </label>
-        <a href="pos.html" class="btn btn-sm btn-outline-light rounded-pill">← Kasse (POS)</a>
+        <a href="index.html" class="btn btn-sm btn-outline-light rounded-pill">← POS</a>
       </div>
     </div>
   </div>
@@ -148,7 +152,7 @@
     </div>
   </div>
 
-  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script src="../../js/bootstrap.5.3.7.js"></script>
   <script>
     const API_BASE = 'api/market-orders.php';
     const API_KEY_STORAGE = 'foodeza_market_orders_api_secret';

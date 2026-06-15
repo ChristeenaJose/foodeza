@@ -3,7 +3,7 @@
  * Deployment: copy this file to foodeza-orders-config.php (same folder) and set a long random secret.
  * Do not commit foodeza-orders-config.php to git.
  *
- * Staff uses this secret on online-orders.html (stored in session until tab closes).
+ * Staff uses this secret on pos/online-orders.html (stored in localStorage until removed).
  * Customer preorders (market.html) use POST without secret; keep "allow_public_append" true unless you add your own protection.
  */
 return [

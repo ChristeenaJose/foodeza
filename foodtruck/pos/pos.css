@@ -350,3 +350,101 @@ body.pos-shell {
       background: #e8eef5;
       border-color: rgba(71, 85, 105, 0.55);
     }
+
+    /* Staff login gate */
+    body.pos-auth-locked > *:not(#pos-auth-gate) {
+      visibility: hidden;
+    }
+
+    .pos-auth-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: linear-gradient(160deg, #1e293b 0%, #0f172a 55%, #1a0a0a 100%);
+    }
+
+    .pos-auth-card {
+      width: 100%;
+      max-width: 360px;
+      padding: 2rem 1.75rem;
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+      text-align: center;
+    }
+
+    .pos-auth-logo {
+      width: 3.5rem;
+      height: 3.5rem;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #dc2626;
+      color: #fff;
+      font-size: 1.35rem;
+    }
+
+    .pos-auth-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 0 0 0.25rem;
+      color: #0f172a;
+    }
+
+    .pos-auth-sub {
+      margin: 0 0 1.5rem;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    .pos-auth-label {
+      display: block;
+      text-align: left;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 0.35rem;
+    }
+
+    .pos-auth-input {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .pos-auth-input:focus {
+      outline: none;
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+    }
+
+    .pos-auth-error {
+      margin: 0 0 0.75rem;
+      font-size: 0.85rem;
+      color: #dc2626;
+    }
+
+    .pos-auth-submit {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #fff;
+      background: #dc2626;
+      cursor: pointer;
+    }
+
+    .pos-auth-submit:hover {
+      background: #b91c1c;
+    }

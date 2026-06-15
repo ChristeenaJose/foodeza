@@ -26,7 +26,7 @@ if (!is_file($configPath)) {
     echo json_encode([
         'ok' => false,
         'error' => 'config_missing',
-        'hint' => 'Copy api/foodeza-orders-config.example.php to api/foodeza-orders-config.php and set secret.',
+        'hint' => 'Copy pos/api/foodeza-orders-config.example.php to pos/api/foodeza-orders-config.php and set secret.',
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -38,7 +38,7 @@ $allowPublicAppend = !isset($config['allow_public_append']) || $config['allow_pu
 
 $ordersFile = isset($config['orders_file']) && is_string($config['orders_file']) && trim($config['orders_file']) !== ''
     ? trim($config['orders_file'])
-    : dirname(__DIR__) . '/files/generated/online-order/market/orders.json';
+    : dirname(__DIR__, 2) . '/files/generated/online-order/market/orders.json';
 
 function foodeza_read_auth_header(): string
 {

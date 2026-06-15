@@ -30,7 +30,7 @@
 
     function euros(c) { return formatMoney(c) + '\u00A0€'; }
 
-    /** Thumbnails: foodtruck/images/pos/{file}.png */
+    /** Thumbnails: foodtruck/pos/images/{file}.png */
     var POS_IMAGE_FILES = {
       tea: 'chai',
       c65: 'c65',
@@ -42,7 +42,7 @@
 
     function menuImageSrc(productId) {
       var file = POS_IMAGE_FILES[productId] || productId;
-      return 'images/pos/' + file + '.png';
+      return 'images/' + file + '.png';
     }
 
     function appendCategorySection(parent, cat, items, tmpl) {

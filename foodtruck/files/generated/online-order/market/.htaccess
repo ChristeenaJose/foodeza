@@ -1,6 +1,6 @@
 # No direct web access to anything in this folder (including orders.json).
-# Data is only read/written by PHP (api/market-orders.php) on the server filesystem.
-# online-orders.html uses the API + your secret — there is no public URL for the raw file.
+# Data is only read/written by PHP (pos/api/market-orders.php) on the server filesystem.
+# pos/online-orders.html uses the API + your secret — there is no public URL for the raw file.
 
 Options -Indexes
 
