@@ -134,7 +134,7 @@
     <div class="container">
       <div class="section-title text-center mb-5 reveal">
         <h2>Diese Woche auf der Wochenkarte</h2>
-        <p class="text-muted" style="font-size: 1.1rem;">Vorbestellen für Mittagessen in Stuttgart-Nord: diese Woche Do, 18. Juni · nächste Woche Do, 25. Juni.</p>
+        <p class="text-muted" style="font-size: 1.1rem;">Vorbestellen: diese Woche Stuttgart-Nord (Do, 2. Juli) · nächste Woche Korntal (Di, 7. Juli) &amp; Stuttgart-Nord (Do, 9. Juli).</p>
       </div>
 
       <!-- Horizontal Scroll Gallery with ordering -->
@@ -390,46 +390,6 @@
           </div>
         </div>
 
-        <!-- Super Cool Lemonade: Wochen-Highlight (nach Getränke-Karte) -->
-        <div class="col">
-          <div class="food-gallery-card shadow-sm transition-hover h-100 d-flex flex-column"
-            style="border-radius: 20px; overflow: hidden; background: white; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s;"
-            onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='none'">
-            <img src="pos/images/mojito.png" alt="Super Cool Lemonade"
-              style="width: 100%; height: 220px; object-fit: cover;">
-            <div class="p-4 d-flex flex-column flex-grow-1 text-start">
-              <div class="d-flex gap-2 mb-2 align-items-center flex-wrap">
-                <span class="badge bg-danger text-white rounded-pill align-self-start"
-                  style="font-size: 0.75rem; letter-spacing: 0.5px;">WOCHEN-HIGHLIGHT</span>
-                <span class="badge bg-warning text-dark rounded-pill align-self-start"
-                  style="font-size: 0.75rem; letter-spacing: 0.5px;">GETRÄNKE</span>
-              </div>
-              <h4 class="fw-bold mb-1 fs-5" style="color: #1a1a1a;">Super Cool Lemonade</h4>
-              <p class="text-muted small mb-3">Erfrischende hausgemachte Limonade — kühl, spritzig und perfekt zu unserem Streetfood.</p>
-              <div class="mb-3 flex-grow-1">
-                <p class="mb-1" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Enthält:</p>
-                <ul class="list-unstyled mb-0" style="font-size: 0.9rem; color: #444;">
-                  <li>• Super Cool Lemonade</li>
-                  <li>• Frisch zubereitet</li>
-                  <li>• Vegan</li>
-                </ul>
-              </div>
-              <div class="variant-selectors mt-auto">
-                <div class="variant-item">
-                  <div class="variant-label"><i style="background: #fbbf24;"></i> Standard <span
-                      class="badge border ms-2" style="color: #222; background: #f8f9fa; font-size: 0.8rem;">2,50
-                      €</span></div>
-                  <div class="quantity-selector">
-                    <button class="qty-btn minus" onclick="updateQty('super_cool_lemonade', -1, 2.5)">−</button>
-                    <span class="qty-number" id="qty-super_cool_lemonade">0</span>
-                    <button class="qty-btn plus" onclick="updateQty('super_cool_lemonade', 1, 2.5)">+</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -545,7 +505,6 @@
       butter_chicken: 0,
       paneer_masala: 0,
       spinach_dal: 0,
-      super_cool_lemonade: 0,
       totalItems: 0,
       totalPrice: 0
     };
@@ -580,7 +539,6 @@
       if (cart.fried_rice_v > 0) allItems.push(`Vegetarisch (Gebratener Reis): ${cart.fried_rice_v}`);
       if (cart.fried_rice_vn > 0) allItems.push(`Vegan (Gebratener Reis): ${cart.fried_rice_vn}`);
 
-      if (cart.super_cool_lemonade > 0) allItems.push(`Super Cool Lemonade: ${cart.super_cool_lemonade}`);
       if (cart.butter_chicken > 0) allItems.push(`Butter Chicken: ${cart.butter_chicken}`);
       if (cart.paneer_masala > 0) allItems.push(`Paneer Butter Masala: ${cart.paneer_masala}`);
       if (cart.spinach_dal > 0) allItems.push(`Dal Spinat (Vegan): ${cart.spinach_dal}`);
