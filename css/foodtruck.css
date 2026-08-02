@@ -135,6 +135,92 @@ body {
     /* Space for sticky nav */
 }
 
+/* Relocation / short-break notice */
+.ft-notice-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+    background: #ffe566;
+    color: #1a1a1a;
+    text-align: center;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ft-notice-bar .container {
+    max-width: 1100px;
+}
+
+.ft-notice-bar strong {
+    font-weight: 700;
+}
+
+body.has-ft-notice {
+    padding-top: 140px;
+}
+
+body.has-ft-notice .header {
+    top: 60px;
+}
+
+@media (max-width: 768px) {
+    body.has-ft-notice {
+        padding-top: 180px;
+    }
+
+    body.has-ft-notice .header {
+        top: 100px;
+    }
+
+    .ft-notice-bar {
+        font-size: 0.85rem;
+        padding: 10px 12px;
+        text-align: left;
+    }
+}
+
+.ft-break-notice {
+    max-width: 720px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 1.35rem 1.5rem;
+    text-align: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+.ft-break-notice-kicker {
+    display: inline-block;
+    margin: 0 0 0.75rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    background: #ffe566;
+    border-radius: 999px;
+}
+
+.ft-break-notice-text {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+}
+
+.ft-break-notice-text strong {
+    color: #111;
+    font-weight: 700;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

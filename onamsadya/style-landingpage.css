@@ -56,6 +56,25 @@ a {
 }
 
 /* Header */
+.site-notice-bar {
+  position: sticky;
+  top: 0;
+  z-index: 110;
+  background: #ffe566;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.4;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.site-notice-bar strong {
+  font-weight: 700;
+  margin-right: 0.25rem;
+}
+
 .onam-header {
   position: sticky;
   top: 0;
@@ -63,6 +82,10 @@ a {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--onam-border);
+}
+
+body.onam-page .onam-header {
+  top: 0;
 }
 
 .onam-header-inner {
@@ -136,6 +159,26 @@ a {
 
 .onam-banner img {
   width: 100%;
+}
+
+.onam-closed-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 0.85rem;
+}
+
+.onam-nav-cta--closed {
+  background: #555 !important;
+  color: #fff !important;
+  cursor: default;
+  pointer-events: none;
 }
 
 /* Intro */
@@ -459,6 +502,19 @@ a {
 
 .onam-btn--primary:hover {
   background: var(--onam-red-dark);
+}
+
+.onam-btn--closed {
+  background: #555;
+  color: #fff;
+  cursor: default;
+  pointer-events: none;
+}
+
+.onam-btn--closed-light {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .onam-btn--ghost {
