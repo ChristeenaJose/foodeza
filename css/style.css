@@ -806,6 +806,16 @@ footer{
   padding-bottom: 30px;
   border-bottom: 3px dotted #fff;
 }
+.service-instagram-link{
+  display: inline-block;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.service-instagram-link:hover{
+  color: var(--yellow);
+}
 .service-box{
   margin-bottom: 50px;
 }
