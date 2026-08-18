@@ -1,26 +1,7 @@
-/* Kerala catering page — Foodeza homepage graphic language */
+/* Kerala catering — Foodeza colours, unique catering layout */
 
 body.kz-page {
   background: #fff;
-}
-
-.kz-page .tablinks img {
-  width: 90px;
-  height: 74px;
-  object-fit: contain;
-}
-.kz-page .dish-img img {
-  max-width: 360px;
-  width: 100%;
-  height: auto;
-}
-.kz-page .carousel-inner.img-border {
-  max-height: 420px;
-  overflow: hidden;
-}
-.kz-page .carousel-item img {
-  height: 420px;
-  object-fit: cover;
 }
 
 @keyframes kz-spin {
@@ -29,120 +10,287 @@ body.kz-page {
 }
 
 .kz-crumb {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 15px;
+  color: var(--red);
+  font-size: 14px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
 .kz-crumb a {
-  color: var(--yellow);
+  color: var(--red);
   text-decoration: none;
 }
 
-.kz-page .intro-section h1.title {
-  width: 100%;
-  font-size: 58px;
-  letter-spacing: 4px;
-  line-height: 1.05;
+/* Yellow graphic hero */
+.kz-hero {
+  background: var(--yellow);
+  position: relative;
+  overflow: hidden;
 }
-
+.kz-hero::before,
+.kz-hero::after {
+  width: 280px;
+  height: 280px;
+  border: 8px dotted var(--red);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.28;
+}
+.kz-hero::before {
+  top: -90px;
+  left: -80px;
+  animation: kz-spin 48s linear infinite;
+}
+.kz-hero::after {
+  bottom: -100px;
+  right: -70px;
+  animation: kz-spin 56s linear infinite reverse;
+}
+.kz-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+.kz-kicker {
+  color: var(--red);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.kz-hero h1 {
+  font-family: Brume, serif;
+  color: var(--red);
+  font-size: clamp(2.5rem, 5.4vw, 4.5rem);
+  letter-spacing: 3px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+.kz-hero h1 span {
+  display: block;
+  color: #1a1a1a;
+  font-size: 0.58em;
+  letter-spacing: 4px;
+  margin-top: 6px;
+}
 .kz-lead {
-  color: #fff;
+  color: #1a1a1a;
   font-size: 18px;
   line-height: 1.7;
-  max-width: 38rem;
-  margin: 12px 0 0;
-}
-
-.kz-promise-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 28px 36px;
-  margin: 70px 0 20px !important;
-}
-.kz-promise-row .badge-circle {
-  width: 148px;
-  height: 148px;
-  font-size: 15px;
-  line-height: 1.25;
-  padding: 14px;
-}
-
-.kz-menu-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.kz-menu-list li {
-  color: #fff;
-  padding: 8px 0;
-  border-bottom: 2px dotted rgba(255, 255, 255, 0.45);
-  font-size: 16px;
-}
-.kz-dish {
-  margin-bottom: 18px;
-}
-.kz-dish h4 {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 4px;
-}
-.kz-dish p {
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 15px;
-  line-height: 1.55;
+  max-width: 36rem;
   margin: 0 0 8px;
 }
-.kz-menu-group {
-  margin-bottom: 18px;
+.kz-hero .white-btn.main-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.kz-hero .white-btn.main-btn a {
+  background: #fff;
+  color: var(--red);
+  margin-top: 12px;
+}
+.kz-hero-photos {
+  position: relative;
+  min-height: 430px;
+}
+.kz-hero-photos .kz-hero-main {
+  width: 84%;
+  margin-left: auto;
+  display: block;
+  border: 5px solid var(--red);
+  height: 400px;
+  object-fit: cover;
+}
+.kz-hero-photos .kz-hero-stack {
+  position: absolute;
+  width: 46%;
+  left: 0;
+  bottom: 18px;
+  border: 5px solid #fff;
+  height: 210px;
+  object-fit: cover;
+  box-shadow: 12px 16px 0 var(--red);
+}
+.kz-hero-photos .badge-on-slider {
+  position: absolute;
+  top: -8px;
+  right: -6px;
+  rotate: 18deg;
+  z-index: 2;
+}
+
+/* Promise chips */
+.kz-chips {
+  background: var(--red);
+  padding: 22px 0 !important;
+}
+.kz-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.kz-chip {
+  border: 2px dotted #fff;
+  color: #fff;
+  padding: 9px 16px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+/* Story */
+.kz-story {
+  background: #fff;
+}
+.kz-story-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+.kz-story img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 460px;
+}
+.kz-story .sub-title {
+  color: var(--red);
+  text-align: left;
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.kz-story p {
+  color: #333;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* Menu board */
+.kz-menu-section .sub-title {
+  margin-bottom: 28px;
+}
+.kz-board {
+  background: var(--yellow);
+  padding: 42px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.kz-board::before,
+.kz-board::after {
+  width: 180px;
+  height: 180px;
+  border: 7px dotted var(--red);
+  border-radius: 50%;
+  opacity: 0.22;
+  pointer-events: none;
+}
+.kz-board::before {
+  top: -70px;
+  right: -50px;
+}
+.kz-board::after {
+  bottom: -80px;
+  left: -60px;
+}
+.kz-board-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 48px;
+}
+.kz-board-col h3 {
+  font-family: Brume, serif;
+  color: var(--red);
+  font-size: 28px;
+  letter-spacing: 1px;
+  border-bottom: 3px dotted var(--red);
+  padding-bottom: 8px;
+  margin: 22px 0 12px;
+}
+.kz-board-col h3:first-child {
+  margin-top: 0;
 }
 .kz-menu-kicker {
   font-family: Brume, serif;
-  color: var(--yellow);
-  font-size: 22px;
+  color: var(--red);
+  font-size: 20px;
   letter-spacing: 1px;
-  margin: 6px 0 4px;
+  margin: 12px 0 4px;
+}
+.kz-dish {
+  margin-bottom: 12px;
+}
+.kz-dish h4 {
+  color: var(--red);
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+.kz-dish p,
+.kz-board p {
+  color: #1a1a1a !important;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+.kz-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+.kz-menu-list li {
+  color: #1a1a1a;
+  padding: 7px 0;
+  border-bottom: 2px dotted rgba(214, 40, 40, 0.28);
+  font-size: 15px;
 }
 .kz-veg {
   display: inline-block;
   margin-left: 6px;
-  color: var(--yellow);
+  color: var(--darkgreen);
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.04em;
 }
 .kz-include {
-  color: var(--yellow) !important;
+  color: var(--red) !important;
   font-weight: 600;
-  font-size: 15px;
-  margin-top: 12px;
-  line-height: 1.55;
+  font-size: 14px;
+  margin: 8px 0 16px;
+  line-height: 1.5;
 }
 .kz-menu-banner {
   text-align: center;
-  color: var(--yellow) !important;
+  color: var(--red) !important;
   font-family: Brume, serif;
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: 1px;
-  margin: 28px 0 10px;
-  line-height: 1.35;
+  margin: 28px 0 8px;
+  position: relative;
+  z-index: 1;
 }
 .kz-menu-foot {
   text-align: center;
-  color: #fff !important;
-  max-width: 46rem;
+  color: #1a1a1a !important;
+  max-width: 44rem;
   margin: 0 auto;
   font-size: 15px;
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
-.kz-page .tabcontent-detail {
-  align-items: flex-start;
-}
-.kz-page .food-tab .tab {
-  gap: 10px 18px;
+.kz-menu-section .white-btn.main-btn a {
+  background: #fff;
+  color: var(--red);
 }
 
 .kz-price-section {
@@ -564,7 +712,6 @@ body.kz-page {
 .kz-page .testimonial-section {
   padding-top: 70px;
 }
-
 .kz-reviews-link {
   text-align: center;
   margin-top: 10px;
@@ -578,6 +725,8 @@ body.kz-page {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .kz-hero::before,
+  .kz-hero::after,
   .kz-price-section::before,
   .kz-price-section::after {
     animation: none;
@@ -596,20 +745,35 @@ body.kz-page {
 }
 
 @media (max-width: 980px) {
+  .kz-hero-grid,
+  .kz-story-grid,
+  .kz-board-grid,
   .kz-enquire-grid,
-  .kz-form {
+  .kz-form,
+  .kz-serve-grid {
     grid-template-columns: 1fr;
   }
-  .kz-price-copy .sub-title {
+  .kz-hero-photos {
+    min-height: 0;
+    max-width: 520px;
+  }
+  .kz-hero-photos .kz-hero-main {
+    height: 280px;
+    width: 100%;
+  }
+  .kz-hero-photos .kz-hero-stack {
+    width: 42%;
+    height: 150px;
+    bottom: -8px;
+  }
+  .kz-price-copy .sub-title,
+  .kz-story .sub-title {
     font-size: 36px;
   }
   .kz-how-section .badge-row {
     column-gap: 40px;
     flex-wrap: wrap;
     row-gap: 30px;
-  }
-  .kz-serve-grid {
-    grid-template-columns: 1fr;
   }
   .kz-serve-wide {
     grid-template-columns: 1fr;
@@ -620,25 +784,15 @@ body.kz-page {
     border-right: 0;
     border-bottom: 5px solid #fff;
   }
-  .kz-serve-wide h3,
-  .kz-serve-wide p {
-    padding: 0;
-  }
   .kz-serve-wide > div {
     padding: 22px 20px 24px;
   }
-  .kz-page .intro-section h1.title {
-    font-size: 42px;
-    letter-spacing: 3px;
+  .kz-board {
+    padding: 28px 20px;
   }
 }
 
 @media (max-width: 767px) {
-  .kz-page .carousel-item img,
-  .kz-page .carousel-inner.img-border {
-    height: 240px;
-    max-height: 240px;
-  }
   .kz-gallery-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -660,7 +814,8 @@ body.kz-page {
   }
   .kz-price-copy .sub-title,
   .kz-enquire-aside .sub-title,
-  .kz-form-panel .sub-title {
+  .kz-form-panel .sub-title,
+  .kz-story .sub-title {
     font-size: 30px;
     text-align: center;
   }
@@ -678,19 +833,15 @@ body.kz-page {
   .kz-how-card {
     max-width: 140px;
   }
-  .kz-promise-row .badge-circle {
-    width: 132px;
-    height: 132px;
-    font-size: 13px;
-  }
-  .kz-page .intro-section h1.title {
-    font-size: 32px;
-    letter-spacing: 2px;
-  }
   .kz-serve-card h3 {
     font-size: 24px;
   }
   .kz-serve-wide h3 {
     font-size: 28px;
+  }
+  .kz-hero-photos .badge-on-slider {
+    width: 110px;
+    height: 110px;
+    font-size: 13px;
   }
 }
