@@ -715,6 +715,81 @@ footer{
     line-height: normal;
 
 }
+.kerala-offer-section{
+  background-color: var(--yellow);
+  position: relative;
+  overflow: hidden;
+}
+.kerala-offer-section::before{
+  width: 280px;
+  height: 280px;
+  border: 8px dotted var(--red);
+  border-radius: 50%;
+  top: -90px;
+  left: -70px;
+  opacity: 0.35;
+  pointer-events: none;
+  animation: keralaSpin 48s linear infinite;
+}
+.kerala-offer-section::after{
+  width: 180px;
+  height: 180px;
+  border: 8px dotted var(--red);
+  border-radius: 50%;
+  bottom: -60px;
+  right: -40px;
+  opacity: 0.28;
+  pointer-events: none;
+  animation: keralaSpin 56s linear infinite reverse;
+}
+@keyframes keralaSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.kerala-offer-row{
+  position: relative;
+  z-index: 1;
+}
+.kerala-offer-photo{
+  max-width: 560px;
+}
+.kerala-offer-img{
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  min-height: 320px;
+  max-height: 420px;
+  object-position: center;
+}
+.kerala-offer-copy{
+  padding-left: 40px;
+}
+.kerala-offer-copy .title{
+  color: var(--red);
+  font-family: Brume, serif;
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.kerala-offer-copy p{
+  color: #1a1a1a;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 36rem;
+}
+.kerala-offer-copy .white-btn.main-btn a{
+  background-color: var(--white);
+  color: var(--red);
+}
+@media (prefers-reduced-motion: reduce) {
+  .kerala-offer-section::before,
+  .kerala-offer-section::after {
+    animation: none;
+  }
+}
 .service-section{
   background-color: var(--red);
 }
@@ -1325,6 +1400,13 @@ h1.title{
 .about-section{
   column-gap: 60px;
 }
+.kerala-offer-copy{
+  padding-left: 24px;
+}
+.kerala-offer-copy .title{
+  font-size: 42px;
+  letter-spacing: 3px;
+}
 .flag{
   top: -32%;
 }
@@ -1539,6 +1621,26 @@ footer .row{
     .food-tab .tab {
         column-gap: 60px;
         padding: 20px 20px 20px;
+    }
+    .kerala-offer-copy{
+      padding-left: 0;
+      padding-top: 36px;
+      text-align: center;
+    }
+    .kerala-offer-copy p{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .kerala-offer-copy .title{
+      font-size: 32px;
+      letter-spacing: 2px;
+    }
+    .kerala-offer-photo{
+      max-width: 100%;
+    }
+    .kerala-offer-img{
+      min-height: 240px;
+      max-height: 300px;
     }
 }
 @media screen and (max-width: 680px){

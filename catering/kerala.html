@@ -15,7 +15,12 @@
   <link rel="icon" href="../images/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/bootstrap.5.3.7.css">
+  <link rel="stylesheet" href="../css/swiper-bundle.min.css">
   <link rel="stylesheet" href="kerala.css">
+  <script src="../js/script.js"></script>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.5.3.7.js"></script>
+  <script src="../js/swiper-bundle.min.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -265,228 +270,312 @@
   </div>
   <!--header end-->
 
-  <div class="kz">
-    <div class="wrap kz-crumb">
-      <a href="../index.html">Home</a> / <a href="index.html">Catering</a> / Kerala Catering
-    </div>
-  <section class="hero">
-    <div class="hero-img" role="img" aria-label="Authentic Kerala catering buffet from Foodeza in Germany"></div>
-    <div class="hero-copy fade">
-      <p class="kicker">Kerala Food Truck &amp; Catering · Germany</p>
-      <h1>Authentic Kerala Catering in Germany</h1>
-      <p class="sub">From our kitchen to your event.</p>
-      <p>Traditional Kerala flavours, freshly prepared for weddings, family celebrations, corporate events, festivals and private gatherings.</p>
-      <div class="pills">
-        <span>10–1,000+ Guests</span>
-        <span>From €10 / person</span>
-        <span>Customised Menus</span>
-      </div>
-      <div class="actions">
-        <a class="kz-btn kz-btn-fill" href="#enquire">Get a Quote</a>
-        <a class="kz-btn kz-btn-ghost" href="#menu">View Menu</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap intro">
-      <p class="kicker">FOODEZA</p>
-      <h2>Kerala Food, Made With Heart</h2>
-      <p>At FOODEZA, we bring the flavours of Kerala and South India from our kitchen to your event.</p>
-      <p>From a small family gathering to a celebration for hundreds of guests, we prepare fresh, authentic food and take care of the catering so you can enjoy your occasion.</p>
-      <strong class="line">Fresh food. Authentic flavours. Stress-free catering.</strong>
-    </div>
-  </section>
-
-  <section class="section" id="services" style="padding-top:0;">
-    <div class="wrap">
-      <div class="center">
-        <p class="kicker">How we cater</p>
-        <h2>Catering for Your Occasion</h2>
-      </div>
-      <div class="cards-4">
-        <article class="svc">
-          <img src="../images/catering_hero.png" alt="Indoor Kerala catering for weddings and family events in Germany">
-          <div>
-            <h3>Indoor Catering</h3>
-            <p>Perfect for weddings, birthdays, family celebrations and corporate events.</p>
+  <section class="intro-section">
+    <div class="container">
+      <div class="row align-c animate-section">
+        <div class="col-12">
+          <div class="kz-crumb">
+            <a href="../index.html">Home</a> / <a href="index.html">Catering</a> / Kerala Catering
           </div>
-        </article>
-        <article class="svc">
-          <img src="../images/truck1.webp" alt="Outdoor Kerala catering and food truck in Germany">
-          <div>
-            <h3>Outdoor Catering</h3>
-            <p>Fresh Kerala food for garden parties, festivals, community events and celebrations.</p>
-          </div>
-        </article>
-        <article class="svc">
-          <img src="../images/food1.webp" alt="Hot buffet Kerala catering served at the venue">
-          <div>
-            <h3>Hot Buffet</h3>
-            <p>Freshly prepared dishes served hot at your venue.</p>
-          </div>
-        </article>
-        <article class="svc">
-          <img src="../foodtruck/images/hero-market-kerala-street-food.png" alt="Live Kerala food service at an event">
-          <div>
-            <h3>Live Service</h3>
-            <p>Professional on-site food service and live food stations.</p>
-          </div>
-        </article>
-      </div>
-      <article class="delivery">
-        <img src="../foodtruck/images/thali.webp" alt="Kerala catering delivery ready to serve">
-        <div>
-          <h3>Delivery</h3>
-          <p>Freshly prepared catering delivered to your location, ready to serve.</p>
         </div>
-      </article>
+        <div class="col-lg-6 col-sm-12">
+          <h1 class="title pb-m-25 animate-title">Authentic Kerala Catering</h1>
+          <p class="kz-lead">Traditional Kerala cuisine, freshly prepared for your special occasions — from intimate gatherings to events with 1,000+ guests.</p>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <div class="slider-box">
+            <div id="imgSlider" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#imgSlider" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#imgSlider" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#imgSlider" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#imgSlider" data-bs-slide-to="3"></button>
+              </div>
+              <div class="carousel-inner img-border">
+                <div class="carousel-item active">
+                  <img src="../images/catering_hero.png" alt="Kerala catering buffet" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/onam_sadya.png" alt="Kerala Sadya" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/food1.webp" alt="Foodeza Kerala food" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                  <img src="../images/truck1.webp" alt="Foodeza food truck catering" class="d-block w-100">
+                </div>
+              </div>
+            </div>
+            <div class="slider-badge-row">
+              <div class="red-badge badge-circle badge-on-slider">FROM OUR KITCHEN</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="link-btn white-btn main-btn"><a title="Get a Quote" class="btn btn-2 hover-slide-down"
+              href="#enquire"><span>Get a Quote <svg fill="none"
+                  height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.5109 11.75H3.25001" stroke="#cc0605" stroke-width="2" stroke-linecap="round" />
+                  <path d="M14.7065 6.20649L20.25 11.75L14.7065 17.2935" stroke-width="2" stroke="#cc0605"
+                    stroke-linecap="round" />
+                </svg></span></a></div>
+        </div>
+        <div class="col-12 badge-row animate-badge">
+          <div class="red-badge badge-circle">10–1,000+ Guests Welcome</div>
+          <div class="green-badge badge-circle">From €10 per Person</div>
+          <div class="red-badge badge-circle">Veg, Non-Veg &amp; Vegan Menus</div>
+          <div class="green-badge badge-circle">Custom Kerala Menus</div>
+        </div>
+        <div class="col-12 sub-title title-width animate-badge">Our Kerala Catering Menu</div>
+        <div class="col-12 food-tab" id="menu">
+          <div class="tab">
+            <button class="tablinks active" onclick="openCity(event, 'kstarters')">
+              <img src="../images/cutlet.png" alt="Starters" />
+              <div class="menu-name">Starters</div>
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'kmains')">
+              <img src="../images/biriyani.png" alt="Main Course" />
+              <div class="menu-name">Mains</div>
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'kcurries')">
+              <img src="../images/chicken_dishes.png" alt="Curries" />
+              <div class="menu-name">Curries</div>
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'kdesserts')">
+              <img src="../images/dessert_trio.png" alt="Desserts" />
+              <div class="menu-name">Desserts</div>
+            </button>
+          </div>
+
+          <div id="kstarters" class="tabcontent" style="display: block;">
+            <div class="tabcontent-detail active">
+              <div>
+                <h3>Kerala Starters &amp; Favourites</h3>
+                <ul class="kz-menu-list">
+                  <li>Kappa with Coconut &amp; Chammanthi</li>
+                  <li>Chicken Cutlet</li>
+                  <li>Beef Cutlet</li>
+                  <li>Kappa with Fish Curry</li>
+                  <li>Appam with Beef Ishtu</li>
+                  <li>Kerala Porotta with Chicken Curry</li>
+                  <li>Appam with Chicken Curry</li>
+                </ul>
+              </div>
+              <div class="dish-img"><img src="../images/dish-cutlet.webp" alt="Kerala starters" /></div>
+            </div>
+          </div>
+
+          <div id="kmains" class="tabcontent">
+            <div class="tabcontent-detail">
+              <div>
+                <h3>Main Course</h3>
+                <ul class="kz-menu-list">
+                  <li>Kerala Chicken Biryani</li>
+                  <li>Chilli Chicken Fried Rice</li>
+                  <li>Ghee Rice with Chicken Roast</li>
+                  <li>Traditional Kerala Meals</li>
+                  <li>Kerala Sadya</li>
+                  <li>Vegetarian Kerala Dishes</li>
+                  <li>Vegan Kerala Dishes</li>
+                </ul>
+              </div>
+              <div class="dish-img"><img src="../images/dish-biriyani.webp" alt="Kerala biryani" /></div>
+            </div>
+          </div>
+
+          <div id="kcurries" class="tabcontent">
+            <div class="tabcontent-detail">
+              <div>
+                <h3>Curries &amp; Add-ons</h3>
+                <ul class="kz-menu-list">
+                  <li>Butter Chicken</li>
+                  <li>Paneer Butter Masala</li>
+                  <li>Dal Palak</li>
+                  <li>Chicken 65</li>
+                  <li>Spicy Pani Fry</li>
+                  <li>Gobi Fry</li>
+                  <li>Seasonal Kerala Specialities</li>
+                </ul>
+              </div>
+              <div class="dish-img"><img src="../images/chicken_dishes.png" alt="Kerala curries" /></div>
+            </div>
+          </div>
+
+          <div id="kdesserts" class="tabcontent">
+            <div class="tabcontent-detail">
+              <div>
+                <h3>Desserts</h3>
+                <ul class="kz-menu-list">
+                  <li>Semiya Payasam</li>
+                  <li>Palada Payasam</li>
+                  <li>Ice Cream with Fruit Salad</li>
+                </ul>
+              </div>
+              <div class="dish-img"><img src="../images/dessert_trio.png" alt="Kerala desserts" /></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 pb-90 pb-md-60 pb-sm-40">
+          <div class="link-btn white-btn main-btn d-flex justify-content-center"><a title="Create My Menu"
+              class="btn btn-2 hover-slide-down" href="#enquire"><span>Create My Menu <svg fill="none" height="24" viewBox="0 0 24 24" width="24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.5109 11.75H3.25001" stroke="#cc0605" stroke-width="2" stroke-linecap="round" />
+                  <path d="M14.7065 6.20649L20.25 11.75L14.7065 17.2935" stroke-width="2" stroke="#cc0605"
+                    stroke-linecap="round" />
+                </svg></span></a></div>
+        </div>
+        <div class="col-12 about-section show">
+          <img class="img-border about-img" src="../images/about-us.jpeg" alt="Jobins and Christeena of Foodeza" />
+          <div>
+            <div class="sub-title text-start pb-30">A Little Taste of Home</div>
+            <div>
+              <p>
+                FOODEZA started with something simple — missing the taste of home. We are Jobins and Christeena, originally from Kerala. What began with cooking the food we grew up with for friends and family slowly became a food truck and catering service.
+                <br><br />
+                Today we share the flavours of Kerala across Germany. Fresh food from our kitchen, customised menus, hot buffet, live service and delivery — for 10 to 1,000+ guests.
+                <br><br />
+                Because for us, food is more than a meal. It carries memories, brings people together and shares a little bit of home.
+                <br><br />
+                ✨ Foodeza – The Taste of Kerala, Served with Heart.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="menu" style="background:var(--paper);">
-    <div class="wrap">
-      <div class="center">
-        <p class="kicker">What we cook</p>
-        <h2>Our Kerala Catering Menu</h2>
-        <p class="lead">Choose from our favourites or create your own menu.</p>
-      </div>
-      <div class="menu-box">
-        <details class="acc" open>
-          <summary>Kerala Starters &amp; Favourites</summary>
-          <ul>
-            <li>Kappa with Coconut &amp; Chammanthi</li>
-            <li>Chicken Cutlet</li>
-            <li>Beef Cutlet</li>
-            <li>Kappa with Fish Curry</li>
-            <li>Appam with Beef Ishtu</li>
-            <li>Kerala Porotta with Chicken Curry</li>
-            <li>Appam with Chicken Curry</li>
-          </ul>
-        </details>
-        <details class="acc">
-          <summary>Main Course</summary>
-          <ul>
-            <li>Kerala Chicken Biryani</li>
-            <li>Chilli Chicken Fried Rice</li>
-            <li>Ghee Rice with Chicken Roast</li>
-            <li>Traditional Kerala Meals</li>
-            <li>Kerala Sadya</li>
-            <li>Vegetarian Kerala Dishes</li>
-            <li>Vegan Kerala Dishes</li>
-          </ul>
-        </details>
-        <details class="acc">
-          <summary>Curries &amp; Add-ons</summary>
-          <ul>
-            <li>Butter Chicken</li>
-            <li>Paneer Butter Masala</li>
-            <li>Dal Palak</li>
-            <li>Chicken 65</li>
-            <li>Spicy Pani Fry</li>
-            <li>Gobi Fry</li>
-            <li>Seasonal Kerala Specialities</li>
-          </ul>
-        </details>
-        <details class="acc">
-          <summary>Desserts</summary>
-          <ul>
-            <li>Semiya Payasam</li>
-            <li>Palada Payasam</li>
-            <li>Ice Cream with Fruit Salad</li>
-          </ul>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="custom">
-        <div>
-          <p class="kicker" style="color:var(--yellow);">Made for your event</p>
-          <h2>Want Something Special?</h2>
-          <p>Every event is different.</p>
-          <p>Choose from our menu or let us create a <strong>customised Kerala catering menu</strong> based on your guests, event style, dietary preferences and budget.</p>
+  <section class="kz-price-section">
+    <div class="container">
+      <div class="kz-price-inner">
+        <div class="kz-price-copy">
+          <div class="sub-title animate-title">Want Something Special?</div>
+          <p>Every event is different. Choose from our menu or let us create a customised Kerala catering menu based on your guests, event style, dietary preferences and budget.</p>
+          <div class="link-btn white-btn main-btn">
+            <a title="Create My Menu" class="btn btn-2 hover-slide-down" href="#enquire"><span>Create My Menu</span></a>
+          </div>
         </div>
         <div>
-          <p class="price">From €10 / person</p>
-          <p>Small gathering or large celebration — <strong>10 to 1,000+ guests welcome.</strong></p>
-          <a class="kz-btn kz-btn-fill" href="#enquire">Create My Menu</a>
+          <div class="kz-price-figure">From €10<small>per person · 10–1,000+ guests</small></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding-top:0;">
-    <div class="wrap">
-      <div class="center">
-        <p class="kicker">How it works</p>
-        <h2>Your Event. Our Food. No Stress.</h2>
+  <section class="service-section" id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 sub-title animate-title">How We Cater</div>
+        <div class="col-lg-10 col-12 mx-auto text-center mb-4">
+          <p class="service-intro">
+            Indoor or outdoor, onsite live stations, hot buffet counters, live service support, and delivery — we provide full catering support so your day is memorable, without stress.
+          </p>
+        </div>
       </div>
-      <div class="steps">
-        <article class="step">
-          <b>01</b>
-          <h3>Tell us about your event</h3>
+      <div class="row service-row">
+        <div class="col-lg-6 col-sm-12 service-box">
+          <div class="service-title-row">
+            <img src="../images/wedding-party.svg" alt="Indoor Catering" />
+            <div class="service-title">Indoor Catering</div>
+          </div>
+          <div class="service-content">
+            Perfect for weddings, birthdays, family celebrations and corporate events. Fresh Kerala dishes served in your venue, with professional setup and warm hospitality.
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 service-box">
+          <div class="service-title-row">
+            <img src="../images/summer-party.svg" alt="Outdoor Catering" />
+            <div class="service-title">Outdoor Catering</div>
+          </div>
+          <div class="service-content">
+            Fresh Kerala food for garden parties, festivals, community events and celebrations. Food truck service and outdoor stations that keep guests coming back for more.
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 service-box">
+          <div class="service-title-row">
+            <img src="../images/birthday-party.svg" alt="Hot Buffet" />
+            <div class="service-title">Hot Buffet</div>
+          </div>
+          <div class="service-content">
+            Freshly prepared dishes served hot at your venue. A colourful Kerala buffet that looks as generous as it tastes.
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 service-box">
+          <div class="service-title-row">
+            <img src="../images/company-party.svg" alt="Live Service" />
+            <div class="service-title">Live Service</div>
+          </div>
+          <div class="service-content">
+            Professional on-site food service and live food stations — so guests eat well, and you enjoy the occasion.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kz-how-section">
+    <div class="container">
+      <div class="col-12 sub-title animate-title">Your Event. Our Food. No Stress.</div>
+      <div class="badge-row animate-badge">
+        <div class="kz-how-card">
+          <div class="red-badge badge-circle"><span class="kz-how-num">01</span>Tell us</div>
+          <h3>Your Event</h3>
           <p>Date · Location · Guests</p>
-        </article>
-        <article class="step">
-          <b>02</b>
-          <h3>Choose your menu</h3>
+        </div>
+        <div class="kz-how-card">
+          <div class="green-badge badge-circle"><span class="kz-how-num">02</span>Choose</div>
+          <h3>Your Menu</h3>
           <p>Our menu or customised options</p>
-        </article>
-        <article class="step">
-          <b>03</b>
-          <h3>We prepare everything</h3>
-          <p>Freshly prepared in our kitchen</p>
-        </article>
-        <article class="step">
-          <b>04</b>
-          <h3>Enjoy your event</h3>
-          <p>Delivery, setup and live service available</p>
-        </article>
+        </div>
+        <div class="kz-how-card">
+          <div class="red-badge badge-circle"><span class="kz-how-num">03</span>We cook</div>
+          <h3>Fresh Kitchen</h3>
+          <p>Prepared fresh in our kitchen</p>
+        </div>
+        <div class="kz-how-card">
+          <div class="green-badge badge-circle"><span class="kz-how-num">04</span>Enjoy</div>
+          <h3>Your Day</h3>
+          <p>Delivery, setup and live service</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="events">
-    <div class="wrap">
-      <div class="center">
-        <p class="kicker">Occasions</p>
-        <h2>Perfect for Every Occasion</h2>
-      </div>
-      <div class="events">
-        <a class="event" href="#enquire">
-          <img src="../images/onam_sadya1.png" alt="Kerala wedding catering and Sadya in Germany">
-          <div>
+  <section class="service-section" id="events">
+    <div class="container">
+      <div class="col-12 sub-title animate-title">Perfect for Every Occasion</div>
+      <div class="kz-occasion-grid">
+        <a class="kz-occasion-card" href="#enquire">
+          <img src="../images/onam_sadya1.png" alt="Kerala wedding catering">
+          <div class="kz-occasion-label">
             <h3>Weddings</h3>
             <p>Kerala Sadya · Buffet · Live Service</p>
           </div>
         </a>
-        <a class="event" href="#enquire">
-          <img src="../images/food2.webp" alt="Kerala food for family celebrations">
-          <div>
+        <a class="kz-occasion-card" href="#enquire">
+          <img src="../images/food2.webp" alt="Family celebration catering">
+          <div class="kz-occasion-label">
             <h3>Family Celebrations</h3>
             <p>Birthdays · Anniversaries · Gatherings</p>
           </div>
         </a>
-        <a class="event" href="#enquire">
-          <img src="../foodtruck/images/butter_chicken.jpg" alt="Corporate Indian and Kerala catering">
-          <div>
+        <a class="kz-occasion-card" href="#enquire">
+          <img src="../foodtruck/images/butter_chicken.jpg" alt="Corporate Kerala catering">
+          <div class="kz-occasion-label">
             <h3>Corporate Events</h3>
-            <p>Office Lunch · Company Parties · Business Events</p>
+            <p>Office Lunch · Company Parties</p>
           </div>
         </a>
-        <a class="event" href="../onamsadya/">
-          <img src="../holycommunion/images/holy.jpg" alt="Onam, Christmas and cultural event catering">
-          <div>
-            <h3>Festivals &amp; Community Events</h3>
+        <a class="kz-occasion-card" href="../onamsadya/">
+          <img src="../holycommunion/images/holy.jpg" alt="Festival and community catering">
+          <div class="kz-occasion-label">
+            <h3>Festivals</h3>
             <p>Onam · Christmas · Cultural Events</p>
           </div>
         </a>
-        <a class="event" href="#enquire">
+        <a class="kz-occasion-card" href="#enquire">
           <img src="../images/catering_snacks.jpg" alt="Private party Kerala catering">
-          <div>
+          <div class="kz-occasion-label">
             <h3>Private Parties</h3>
             <p>Fresh Kerala food for your special moments</p>
           </div>
@@ -495,135 +584,84 @@
     </div>
   </section>
 
-  <section class="section" id="about">
-    <div class="wrap split">
-      <img src="../images/about-us.jpeg" alt="Jobins and Christeena, founders of Foodeza Kerala catering in Germany">
-      <div>
-        <p class="kicker">Our story</p>
-        <h2>A Little Taste of Home</h2>
-        <p class="lead">FOODEZA started with something simple — <strong>missing the taste of home.</strong></p>
-        <p class="lead">We are Jobins and Christeena, originally from Kerala. What began with cooking the food we grew up with for friends and family slowly became a food truck and catering service.</p>
-        <p class="lead">Today, we love sharing the flavours of Kerala with people across Germany.</p>
-        <p class="lead">Because for us, food is more than a meal.</p>
-        <p class="lead"><strong>It carries memories, brings people together and shares a little bit of home.</strong></p>
-        <p class="heart">FOODEZA — The Taste of Kerala, Served with Heart. ❤️</p>
-        <a class="kz-btn kz-btn-line" href="../index.html">More About Us</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="gallery" style="background:var(--paper);">
-    <div class="wrap">
-      <div class="center">
-        <p class="kicker">From our kitchen</p>
-        <h2>Food That Brings People Together</h2>
-      </div>
-      <div class="gallery">
+  <section class="kz-gallery-section" id="gallery">
+    <div class="container">
+      <div class="col-12 sub-title animate-title">Food That Brings People Together</div>
+      <div class="kz-gallery-grid">
         <button type="button" data-full="../images/onam_sadya.png"><img src="../images/onam_sadya.png" alt="Kerala Sadya catering in Germany"></button>
         <button type="button" data-full="../holycommunion/images/chicken_biriyani.png"><img src="../holycommunion/images/chicken_biriyani.png" alt="Kerala chicken biryani"></button>
-        <button type="button" data-full="../foodtruck/images/butter_chicken.jpg"><img src="../foodtruck/images/butter_chicken.jpg" alt="Kerala and South Indian curries"></button>
+        <button type="button" data-full="../foodtruck/images/butter_chicken.jpg"><img src="../foodtruck/images/butter_chicken.jpg" alt="South Indian curries"></button>
         <button type="button" data-full="../foodtruck/images/chicken-kothu-porotta.png"><img src="../foodtruck/images/chicken-kothu-porotta.png" alt="Kerala porotta"></button>
         <button type="button" data-full="../images/appam_stew.png"><img src="../images/appam_stew.png" alt="Appam with stew"></button>
         <button type="button" data-full="../images/catering_hero.png"><img src="../images/catering_hero.png" alt="Kerala catering buffet setup"></button>
         <button type="button" data-full="../images/about-us.jpeg"><img src="../images/about-us.jpeg" alt="Food preparation at Foodeza"></button>
         <button type="button" data-full="../images/truck1.webp"><img src="../images/truck1.webp" alt="Foodeza Kerala food truck"></button>
-        <button type="button" data-full="../holycommunion/images/holy.jpg"><img src="../holycommunion/images/holy.jpg" alt="Guests enjoying Kerala catering at an event"></button>
+        <button type="button" data-full="../holycommunion/images/holy.jpg"><img src="../holycommunion/images/holy.jpg" alt="Guests enjoying Kerala catering"></button>
         <button type="button" data-full="../images/food1.webp"><img src="../images/food1.webp" alt="Foodeza catering event food"></button>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="center">
-        <p class="kicker">Google Reviews ★★★★★</p>
-        <h2>Loved by Our Customers</h2>
-      </div>
-      <div class="reviews">
-        <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>“We first ordered from Foodeza catering for our daughter's birthday, and the experience was absolutely outstanding. The food is always fresh, delicious, and consistent in quality.”</p>
-          <b>Vrinda S</b>
-        </article>
-        <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>“I recently ordered the chicken biryani and pork fry, and it was an absolutely amazing experience. The spices were spot on, creating a balanced and aromatic dish.”</p>
-          <b>Geo Vincent</b>
-        </article>
-        <article class="review">
-          <div class="stars">★★★★★</div>
-          <p>“The food was really excellent. Thanks a lot Jobins for your service.”</p>
-          <b>tomjose jose</b>
-        </article>
-      </div>
-      <div class="center" style="margin-top:28px;">
-        <a class="kz-btn kz-btn-line" href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" rel="noopener">Read All Reviews</a>
+  <section class="testimonial-section">
+    <div class="col-12 sub-title title-red title-width animate-title">Google Reviews</div>
+    <div id="craouselContainer" class="swiper-container testimonial-slider">
+      <div class="swiper-wrapper" id="slideHolder"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="kz-reviews-link">
+      <a href="https://g.page/r/CRab0QxyHVn1EAE/review" target="_blank" rel="noopener">Read All Reviews</a>
+    </div>
+  </section>
+
+  <section class="service-section" id="enquire">
+    <div class="container">
+      <div class="kz-enquire-grid">
+        <aside class="kz-enquire-aside">
+          <div class="sub-title">Planning an Event?</div>
+          <p>Tell us your date, location and number of guests. We'll help you create the right Kerala catering menu.</p>
+          <p>Phone / WhatsApp<br><a href="tel:+4917665815015">+49 176 658 15015</a></p>
+          <p>Email<br><a href="mailto:foodezacuisine@gmail.com">foodezacuisine@gmail.com</a></p>
+          <div class="link-btn white-btn main-btn">
+            <a class="btn btn-2 hover-slide-down" href="https://wa.me/4917665815015?text=Hello%2C%20I%20would%20like%20a%20Kerala%20catering%20quote." target="_blank" rel="noopener"><span>WhatsApp Us</span></a>
+          </div>
+        </aside>
+        <div class="kz-form-panel">
+          <div class="sub-title">Tell Us About Your Event</div>
+          <div class="kz-ok" id="ok">Thank you. Your enquiry is opening in WhatsApp — send it and we will reply shortly.</div>
+          <form class="kz-form" id="form">
+            <label>Name<input type="text" name="name" required autocomplete="name"></label>
+            <label>Phone / WhatsApp<input type="tel" name="phone" required autocomplete="tel"></label>
+            <label>Email<input type="email" name="email" required autocomplete="email"></label>
+            <label>Event Date<input type="date" name="date"></label>
+            <label>Event Location<input type="text" name="location" placeholder="City or venue"></label>
+            <label>Number of Guests<input type="number" name="guests" min="10" placeholder="e.g. 80"></label>
+            <label class="full">Event Type
+              <select name="type">
+                <option value="">Please choose</option>
+                <option>Wedding</option>
+                <option>Family celebration</option>
+                <option>Corporate</option>
+                <option>Festival / community</option>
+                <option>Private party</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="full">Message<textarea name="message" placeholder="Menu wishes, diet needs, anything we should know"></textarea></label>
+            <p class="note">Sending opens WhatsApp with your details so we can reply quickly.</p>
+            <div class="link-btn white-btn main-btn">
+              <button class="btn btn-2 hover-slide-down" type="submit"><span>Send Enquiry</span></button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="final">
-    <div class="final-bg" aria-hidden="true"></div>
-    <div class="wrap">
-      <h2>Planning an Event?</h2>
-      <p>Tell us your date, location and number of guests. We'll help you create the right Kerala catering menu for your event.</p>
-      <div class="actions">
-        <a class="kz-btn kz-btn-fill" href="#enquire">Get a Catering Quote</a>
-        <a class="kz-btn kz-btn-ghost" href="https://wa.me/4917665815015?text=Hello%2C%20I%20would%20like%20a%20Kerala%20catering%20quote." target="_blank" rel="noopener">WhatsApp Us</a>
-      </div>
-      <small>10–1,000+ Guests · From €10/person · Custom Menus Available</small>
-    </div>
-  </section>
-
-  <section class="section" id="enquire">
-    <div class="wrap enquire">
-      <aside class="aside">
-        <p class="kicker" style="color:var(--yellow);">FOODEZA</p>
-        <h2>Kerala Food Truck &amp; Catering</h2>
-        <p>Authentic Kerala Catering in Germany<br>From our kitchen to your event.</p>
-        <p>Phone / WhatsApp<br><a href="tel:+4917665815015">+49 176 658 15015</a></p>
-        <p>Email<br><a href="mailto:foodezacuisine@gmail.com">foodezacuisine@gmail.com</a></p>
-        <a class="kz-btn kz-btn-fill" href="https://wa.me/4917665815015?text=Hello%2C%20I%20would%20like%20a%20Kerala%20catering%20quote." target="_blank" rel="noopener" style="background:#fff;color:#d62828;margin-top:8px;">WhatsApp Us</a>
-      </aside>
-      <div>
-        <p class="kicker">Enquiry</p>
-        <h2>Tell Us About Your Event</h2>
-        <div class="ok" id="ok">Thank you. Your enquiry is opening in WhatsApp — send it and we will reply shortly.</div>
-        <form class="form" id="form">
-          <label>Name<input type="text" name="name" required autocomplete="name"></label>
-          <label>Phone / WhatsApp<input type="tel" name="phone" required autocomplete="tel"></label>
-          <label>Email<input type="email" name="email" required autocomplete="email"></label>
-          <label>Event Date<input type="date" name="date"></label>
-          <label>Event Location<input type="text" name="location" placeholder="City or venue"></label>
-          <label>Number of Guests<input type="number" name="guests" min="10" placeholder="e.g. 80"></label>
-          <label class="full">Event Type
-            <select name="type">
-              <option value="">Please choose</option>
-              <option>Wedding</option>
-              <option>Family celebration</option>
-              <option>Corporate</option>
-              <option>Festival / community</option>
-              <option>Private party</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <label class="full">Message<textarea name="message" placeholder="Menu wishes, diet needs, anything we should know"></textarea></label>
-          <p class="note">Sending opens WhatsApp with your details so we can reply quickly.</p>
-          <button class="kz-btn kz-btn-fill" type="submit">Send Enquiry</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="kz-lightbox" id="lightbox" aria-hidden="true">
     <button type="button" aria-label="Close">&times;</button>
     <img alt="">
   </div>
-  <div class="sticky">
-    <a class="wa" href="https://wa.me/4917665815015?text=Hello%2C%20I%20would%20like%20a%20Kerala%20catering%20quote." target="_blank" rel="noopener">WhatsApp</a>
-    <a class="qt" href="#enquire">Get a Quote</a>
-  </div>
-    </div>
+
   <footer>
     <div class="container">
       <div class="row">
@@ -762,49 +800,143 @@
 
 
   <script src="../js/cookie.js"></script>
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.5.3.7.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll(".sub-menu-dropdown .dropdown-toggle").forEach(function (toggle) {
-        toggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          this.closest(".sub-menu-dropdown").classList.toggle("open");
-        });
-      });
-      const toggle = document.getElementById("burger-toggle");
-      const burger = document.querySelector(".burger-container");
-      const menu = document.querySelector(".nav-menu");
-      const mobMenu = document.querySelector(".mob-menu");
-      if (toggle) {
-        toggle.addEventListener("change", function () {
-          if (this.checked) {
-            burger.classList.add("active");
-            menu.classList.add("open");
-            mobMenu.classList.add("menu-open");
-            document.body.style.overflow = "hidden";
-          } else {
-            burger.classList.remove("active");
-            menu.classList.remove("open");
-            mobMenu.classList.remove("menu-open");
-            document.body.style.overflow = "";
-          }
-        });
-      }
+<script>
+  var testiomnialData = [
+    {
+      avatar: "../images/profil1.png",
+      name: "Vrinda S",
+      review: "We first ordered from Foodeza catering for our daughter's birthday, and the experience was absolutely outstanding! Since then, they have become our go-to service partner for every event we have hosted. The food is always fresh, delicious, and consistent in quality. Their service is professional, friendly, and reliable — we know we can trust them every single time. On top of that, their pricing is very affordable without compromising on taste or presentation, which makes them an easy choice for both small gatherings and large celebrations."
+    },
+    {
+      avatar: "../images/profil2.png",
+      name: "Geo Vincent",
+      review: "Deliciously Satisfying! I recently ordered the chicken biryani and pork fry, and I must say, it was an absolutely amazing experience. The chicken biryani was flavorful with perfectly cooked rice and tender, juicy pieces of chicken. The spices were spot on, creating a balanced and aromatic dish."
+    },
+    {
+      avatar: "../images/profil3.png",
+      name: "tomjose jose",
+      review: "The food was really excellent. Thanks a lot Jobins for your service."
+    },
+    {
+      avatar: "../images/profil1.png",
+      name: "Vrinda S",
+      review: "We first ordered from Foodeza catering for our daughter's birthday, and the experience was absolutely outstanding! Since then, they have become our go-to service partner for every event we have hosted. The food is always fresh, delicious, and consistent in quality. Their service is professional, friendly, and reliable — we know we can trust them every single time. On top of that, their pricing is very affordable without compromising on taste or presentation, which makes them an easy choice for both small gatherings and large celebrations."
+    },
+    {
+      avatar: "../images/profil2.png",
+      name: "Geo Vincent",
+      review: "Deliciously Satisfying! I recently ordered the chicken biryani and pork fry, and I must say, it was an absolutely amazing experience. The chicken biryani was flavorful with perfectly cooked rice and tender, juicy pieces of chicken. The spices were spot on, creating a balanced and aromatic dish."
+    },
+    {
+      avatar: "../images/profil3.png",
+      name: "tomjose jose",
+      review: "The food was really excellent. Thanks a lot Jobins for your service."
+    }
+  ];
+  var slideHolder = document.querySelector("#slideHolder");
+  if (slideHolder) {
+    for (let i of testiomnialData) slideHolder.innerHTML += `<div class="swiper-slide"> <div class="ImgHolder"><img src="${i.avatar}"></div><div class="ContentHolder"><h3>${i.name}</h3><p>${i.review}</p></div></div>`;
+    const swiper = new Swiper('#craouselContainer', {
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 2.3,
+      loop: true,
+      spaceBetween: 30,
+      effect: "coverflow",
+      coverflowEffect: { rotate: 0, depth: 800, slideShadows: true },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      autoplay: { delay: 400000 }
     });
+    window.onresize = queryResizer;
+    queryResizer();
+    function queryResizer() {
+      if (window.innerWidth < 724) swiper.params.slidesPerView = 2;
+      if (window.innerWidth > 501) swiper.params.slidesPerView = 2;
+      if (window.innerWidth > 724) swiper.params.slidesPerView = 2.3;
+      if (window.innerWidth < 501) swiper.params.slidesPerView = 1;
+      swiper.update();
+    }
+  }
+</script>
+<script>
+  document.querySelectorAll(".footer-submenu .toggle-arrow").forEach(function (arrow) {
+    arrow.addEventListener("click", function (e) {
+      e.preventDefault();
+      this.closest(".footer-submenu").classList.toggle("open");
+    });
+  });
+</script>
+<script>
+  const badges = document.querySelectorAll('.animate-badge');
+  const badgeObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+      else entry.target.classList.remove('show');
+    });
+  }, { threshold: 0.3 });
+  badges.forEach(function (badge) { badgeObserver.observe(badge); });
+</script>
+<script>
+  (function () {
+    function runObserver() {
+      var els = document.querySelectorAll('.animate-title');
+      if (!els.length) return;
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('inview'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) entry.target.classList.add('inview');
+          else entry.target.classList.remove('inview');
+        });
+      }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', runObserver);
+    else runObserver();
+  })();
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".sub-menu-dropdown .dropdown-toggle").forEach(function (toggle) {
+      toggle.addEventListener("click", function (e) {
+        e.preventDefault();
+        this.closest(".sub-menu-dropdown").classList.toggle("open");
+      });
+    });
+    const toggle = document.getElementById("burger-toggle");
+    const burger = document.querySelector(".burger-container");
+    const menu = document.querySelector(".nav-menu");
+    const mobMenu = document.querySelector(".mob-menu");
+    if (toggle) {
+      toggle.addEventListener("change", function () {
+        if (this.checked) {
+          burger.classList.add("active");
+          menu.classList.add("open");
+          mobMenu.classList.add("menu-open");
+          document.body.style.overflow = "hidden";
+        } else {
+          burger.classList.remove("active");
+          menu.classList.remove("open");
+          mobMenu.classList.remove("menu-open");
+          document.body.style.overflow = "";
+        }
+      });
+    }
     const box = document.getElementById("lightbox");
     const pic = box.querySelector("img");
-    document.querySelectorAll(".gallery button").forEach((btn) => {
-      btn.addEventListener("click", () => {
+    document.querySelectorAll(".kz-gallery-grid button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
         pic.src = btn.dataset.full;
         pic.alt = btn.querySelector("img").alt;
         box.classList.add("open");
       });
     });
-    box.querySelector("button").addEventListener("click", () => box.classList.remove("open"));
-    box.addEventListener("click", (e) => { if (e.target === box) box.classList.remove("open"); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape") box.classList.remove("open"); });
-    document.getElementById("form").addEventListener("submit", (e) => {
+    box.querySelector("button").addEventListener("click", function () { box.classList.remove("open"); });
+    box.addEventListener("click", function (e) { if (e.target === box) box.classList.remove("open"); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") box.classList.remove("open"); });
+    document.getElementById("form").addEventListener("submit", function (e) {
       e.preventDefault();
       const d = Object.fromEntries(new FormData(e.target).entries());
       const text = [
@@ -817,10 +949,11 @@
         "Guests: " + (d.guests || "-"),
         "Event: " + (d.type || "-"),
         "Message: " + (d.message || "-")
-      ].join("\\n");
+      ].join("\n");
       document.getElementById("ok").classList.add("show");
       window.open("https://wa.me/4917665815015?text=" + encodeURIComponent(text), "_blank");
     });
-  </script>
+  });
+</script>
 </body>
 </html>
