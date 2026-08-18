@@ -616,6 +616,7 @@ section {
         width: 200px;
         min-width: 180px;
     }
+}
 
 /* Minimalist Icon System */
 .process-icon {
@@ -661,4 +662,463 @@ section {
 .btn-premium i {
     font-size: 0.9em;
     opacity: 0.8;
+}
+
+.kerala-copy {
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+.kerala-points {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+}
+.kerala-points li {
+    position: relative;
+    padding: 8px 0 8px 22px;
+    font-weight: 600;
+    color: #222;
+}
+.kerala-points li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-red);
+}
+.kerala-intro-img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    max-height: 460px;
+    box-shadow: var(--shadow-md);
+}
+.kerala-cat {
+    font-family: var(--font-main);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin: 12px 0 8px;
+}
+.kerala-served {
+    color: #666;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+.kerala-dish {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+}
+.kerala-dish img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+.kerala-dish h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 14px 16px 6px;
+    color: #222;
+}
+.kerala-dish p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0 16px 16px;
+}
+.kerala-addon {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 28px;
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+}
+.kerala-addon h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin-bottom: 12px;
+}
+.kerala-addon ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.kerala-addon li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    font-weight: 500;
+}
+.kerala-addon li:last-child {
+    border-bottom: 0;
+}
+.kerala-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+.kerala-gallery-item {
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    min-height: 180px;
+}
+.kerala-gallery-item img {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.kerala-gallery-item:hover img {
+    transform: scale(1.05);
+}
+.kerala-gallery-wide {
+    grid-column: span 2;
+}
+@media (max-width: 992px) {
+    .kerala-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 575px) {
+    .kerala-gallery,
+    .kerala-gallery-wide {
+        grid-template-columns: 1fr;
+        grid-column: auto;
+    }
+}
+
+/* Kerala catering page */
+.kerala-page section {
+    padding: 0;
+}
+.kerala-page .header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.kerala-page .header .container {
+    position: relative;
+    width: 100%;
+}
+.kerala-burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+.kerala-burger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--primary-red);
+    margin: 0 auto;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.kerala-page .header.is-open .kerala-burger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.kerala-page .header.is-open .kerala-burger span:nth-child(2) {
+    opacity: 0;
+}
+.kerala-page .header.is-open .kerala-burger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+.kerala-hero-kicker {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 18px;
+}
+.kerala-page .hero-content h1 {
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    text-transform: none;
+    line-height: 1.05;
+}
+.kerala-page .hero-content p {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.kerala-hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.kerala-hero-actions .btn-outline {
+    background: transparent;
+    color: #fff;
+    border-color: #fff;
+}
+.kerala-hero-actions .btn-outline:hover {
+    background: #fff;
+    color: var(--primary-red);
+}
+.kerala-info-bar {
+    background: #111;
+    color: #fff;
+    padding: 28px 0;
+}
+.kerala-info-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+.kerala-info-row h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: var(--gold);
+}
+.kerala-info-row p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+.kerala-page .kerala-section {
+    padding: 80px 0;
+}
+.kerala-occasions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+.kerala-occasion {
+    background: #fff;
+    border-radius: 18px;
+    padding: 28px 24px 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: var(--transition);
+}
+a.kerala-occasion:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    color: inherit;
+}
+.kerala-occasion img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 14px;
+}
+.kerala-occasion h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-red);
+    margin: 0 0 8px;
+}
+.kerala-occasion p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+.kerala-serve {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+.kerala-serve-item {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+.kerala-serve-item strong {
+    display: block;
+    color: var(--primary-red);
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+.kerala-serve-item p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+.kerala-cities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+.kerala-cities span {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.kerala-page .kerala-quote {
+    background: #111;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+.kerala-quote h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: #fff;
+    margin-bottom: 12px;
+}
+.kerala-quote p {
+    max-width: 620px;
+    margin: 0 auto 28px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.1rem;
+}
+.kerala-quote-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.kerala-quote .btn-premium {
+    background: var(--gold);
+    color: #111;
+    box-shadow: none;
+}
+.kerala-quote .btn-premium:hover {
+    background: #ffc94a;
+    color: #111;
+}
+.kerala-quote .btn-ghost {
+    display: inline-block;
+    padding: 18px 32px;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.kerala-quote .btn-ghost:hover {
+    background: #fff;
+    color: #111;
+}
+.kerala-footer {
+    background: #cc0605;
+    color: #fff;
+    padding: 48px 0 28px;
+    text-align: center;
+}
+.kerala-footer img {
+    max-width: 140px;
+    margin-bottom: 16px;
+}
+.kerala-footer p {
+    margin: 0 0 8px;
+}
+.kerala-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+.kerala-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 16px 0 8px;
+}
+.kerala-footer-meta {
+    opacity: 0.85;
+    font-size: 0.9rem;
+    margin-top: 16px;
+}
+
+@media (max-width: 992px) {
+    .kerala-page .header {
+        display: flex !important;
+    }
+    .kerala-page .header .menu-center {
+        margin: 0;
+    }
+    .kerala-burger {
+        display: flex;
+        order: 3;
+    }
+    .kerala-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+        padding: 12px 20px 20px;
+        z-index: 998;
+    }
+    .kerala-page .header.is-open .kerala-nav {
+        display: block;
+    }
+    .kerala-nav .menu-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+    .kerala-nav .menu-list li {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .kerala-nav .menu-list a {
+        padding: 12px 0;
+        font-size: 18px;
+    }
+    .kerala-nav .menu-list .btn {
+        margin-top: 10px;
+        display: inline-block;
+    }
+    .kerala-info-row,
+    .kerala-occasions,
+    .kerala-serve {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .kerala-page .kerala-section {
+        padding: 56px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .kerala-info-row,
+    .kerala-occasions,
+    .kerala-serve {
+        grid-template-columns: 1fr;
+    }
+    .kerala-page .catering-hero {
+        min-height: 460px;
+        height: 70vh;
+    }
 }
