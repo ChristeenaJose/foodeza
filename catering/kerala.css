@@ -77,9 +77,72 @@ body.kz-page {
 }
 .kz-menu-list li {
   color: #fff;
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 2px dotted rgba(255, 255, 255, 0.45);
   font-size: 16px;
+}
+.kz-dish {
+  margin-bottom: 18px;
+}
+.kz-dish h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+.kz-dish p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+.kz-menu-group {
+  margin-bottom: 18px;
+}
+.kz-menu-kicker {
+  font-family: Brume, serif;
+  color: var(--yellow);
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 6px 0 4px;
+}
+.kz-veg {
+  display: inline-block;
+  margin-left: 6px;
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.kz-include {
+  color: var(--yellow) !important;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 12px;
+  line-height: 1.55;
+}
+.kz-menu-banner {
+  text-align: center;
+  color: var(--yellow) !important;
+  font-family: Brume, serif;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 28px 0 10px;
+  line-height: 1.35;
+}
+.kz-menu-foot {
+  text-align: center;
+  color: #fff !important;
+  max-width: 46rem;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.kz-page .tabcontent-detail {
+  align-items: flex-start;
+}
+.kz-page .food-tab .tab {
+  gap: 10px 18px;
 }
 
 .kz-price-section {

@@ -328,20 +328,24 @@
           <div class="red-badge badge-circle">Hot Buffet &amp; Live Service</div>
           <div class="green-badge badge-circle">Delivery Available</div>
         </div>
-        <div class="col-12 sub-title title-width animate-badge">Our Kerala Catering Menu</div>
+        <div class="col-12 sub-title title-width animate-badge">Kerala Catering Menu</div>
         <div class="col-12 food-tab" id="menu">
           <div class="tab">
             <button class="tablinks active" onclick="openCity(event, 'kstarters')">
               <img src="../images/cutlet.png" alt="Starters" />
               <div class="menu-name">Starters</div>
             </button>
-            <button class="tablinks" onclick="openCity(event, 'kmains')">
-              <img src="../images/biriyani.png" alt="Main Course" />
-              <div class="menu-name">Mains</div>
+            <button class="tablinks" onclick="openCity(event, 'krice')">
+              <img src="../images/biriyani.png" alt="Rice Specialties" />
+              <div class="menu-name">Rice</div>
             </button>
-            <button class="tablinks" onclick="openCity(event, 'kcurries')">
-              <img src="../images/chicken_dishes.png" alt="Curries" />
-              <div class="menu-name">Curries</div>
+            <button class="tablinks" onclick="openCity(event, 'kspecials')">
+              <img src="../images/wrapper.png" alt="Traditional Kerala Specialties" />
+              <div class="menu-name">Specials</div>
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'kaddons')">
+              <img src="../images/chicken_dishes.png" alt="Side dishes and add-ons" />
+              <div class="menu-name">Add-ons</div>
             </button>
             <button class="tablinks" onclick="openCity(event, 'kdesserts')">
               <img src="../images/dessert_trio.png" alt="Desserts" />
@@ -352,54 +356,100 @@
           <div id="kstarters" class="tabcontent" style="display: block;">
             <div class="tabcontent-detail active">
               <div>
-                <h3>Kerala Starters &amp; Favourites</h3>
-                <ul class="kz-menu-list">
-                  <li>Kappa with Coconut &amp; Chammanthi</li>
-                  <li>Chicken Cutlet</li>
-                  <li>Beef Cutlet</li>
-                  <li>Kappa with Fish Curry</li>
-                  <li>Appam with Beef Ishtu</li>
-                  <li>Kerala Porotta with Chicken Curry</li>
-                  <li>Appam with Chicken Curry</li>
-                </ul>
+                <h3>Starters</h3>
+                <article class="kz-dish">
+                  <h4>Kerala Cutlet</h4>
+                  <p>Beef or Chicken Cutlet served with Fresh Salad &amp; Dip</p>
+                </article>
+                <article class="kz-dish">
+                  <h4>Kerala Snacks Platter</h4>
+                  <p>A selection of Kerala favourites:</p>
+                  <ul class="kz-menu-list">
+                    <li>Kerala Cutlet</li>
+                    <li>Pazhampori (Banana Fritters)</li>
+                    <li>Chicken 65</li>
+                    <li>Pomes</li>
+                    <li>Fresh Salad</li>
+                    <li>Served with Side Dip</li>
+                  </ul>
+                </article>
               </div>
-              <div class="dish-img"><img src="../images/dish-cutlet.webp" alt="Kerala starters" /></div>
+              <div class="dish-img"><img src="../images/dish-cutlet.webp" alt="Kerala cutlet starter" /></div>
             </div>
           </div>
 
-          <div id="kmains" class="tabcontent">
+          <div id="krice" class="tabcontent">
             <div class="tabcontent-detail">
               <div>
-                <h3>Main Course</h3>
-                <ul class="kz-menu-list">
-                  <li>Kerala Chicken Biryani</li>
-                  <li>Chilli Chicken Fried Rice</li>
-                  <li>Ghee Rice with Chicken Roast</li>
-                  <li>Traditional Kerala Meals</li>
-                  <li>Kerala Sadya</li>
-                  <li>Vegetarian Kerala Dishes</li>
-                  <li>Vegan Kerala Dishes</li>
-                </ul>
+                <h3>Main Course · Rice Specialties</h3>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Biriyani</div>
+                  <ul class="kz-menu-list">
+                    <li>Chicken Biriyani</li>
+                    <li>Prawn Biriyani</li>
+                    <li>Beef Biriyani</li>
+                    <li>Vegetable Biriyani <span class="kz-veg">🌱 Veg</span></li>
+                  </ul>
+                </div>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Fried Rice</div>
+                  <ul class="kz-menu-list">
+                    <li>Fried Rice with Chilli Chicken</li>
+                    <li>Fried Rice with Chilli Gobi <span class="kz-veg">🌱 Veg</span></li>
+                  </ul>
+                </div>
+                <p class="kz-include">Include: Fresh Salad · Kerala Pickle · Papadam</p>
               </div>
-              <div class="dish-img"><img src="../images/dish-biriyani.webp" alt="Kerala biryani" /></div>
+              <div class="dish-img"><img src="../images/dish-biriyani.webp" alt="Kerala chicken biriyani" /></div>
             </div>
           </div>
 
-          <div id="kcurries" class="tabcontent">
+          <div id="kspecials" class="tabcontent">
             <div class="tabcontent-detail">
               <div>
-                <h3>Curries &amp; Add-ons</h3>
+                <h3>Traditional Kerala Specialties</h3>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Kappa (Tapioca)</div>
+                  <ul class="kz-menu-list">
+                    <li>Kappa with Coconut Chammanthi <span class="kz-veg">🌱 Veg</span></li>
+                    <li>Kappa with Spicy Fish Curry</li>
+                  </ul>
+                </div>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Appam</div>
+                  <ul class="kz-menu-list">
+                    <li>Appam with Beef Stew</li>
+                    <li>Appam with Chicken Curry / Duck Kuruma</li>
+                  </ul>
+                </div>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Kerala Porotta</div>
+                  <ul class="kz-menu-list">
+                    <li>Porotta with Chicken Curry / Duck Kuruma</li>
+                    <li>Kothu Porotta</li>
+                    <li>Porotta Wrap — porotta filling with curry, fresh salad and sauce</li>
+                  </ul>
+                </div>
+                <p class="kz-include">Vegetarian and vegan dishes are available and can be arranged according to the number of vegetarian guests.</p>
+              </div>
+              <div class="dish-img"><img src="../images/appam_stew.png" alt="Appam with stew" /></div>
+            </div>
+          </div>
+
+          <div id="kaddons" class="tabcontent">
+            <div class="tabcontent-detail">
+              <div>
+                <h3>Side Dishes / Add-on+</h3>
                 <ul class="kz-menu-list">
                   <li>Butter Chicken</li>
-                  <li>Paneer Butter Masala</li>
-                  <li>Dal Palak</li>
+                  <li>Paneer Butter Masala <span class="kz-veg">🌱 Veg</span></li>
+                  <li>Dal Palak <span class="kz-veg">🌱 Veg</span></li>
                   <li>Chicken 65</li>
-                  <li>Spicy Pani Fry</li>
-                  <li>Gobi Fry</li>
-                  <li>Seasonal Kerala Specialities</li>
+                  <li>Spicy Pork Fry</li>
                 </ul>
+                <p class="kz-include">Served with the main course. Available in kg — best for extra portions and a premium food experience.</p>
               </div>
-              <div class="dish-img"><img src="../images/chicken_dishes.png" alt="Kerala curries" /></div>
+              <div class="dish-img"><img src="../images/chicken_dishes.png" alt="Kerala side dishes and add-ons" /></div>
             </div>
           </div>
 
@@ -407,15 +457,41 @@
             <div class="tabcontent-detail">
               <div>
                 <h3>Desserts</h3>
-                <ul class="kz-menu-list">
-                  <li>Semiya Payasam</li>
-                  <li>Palada Payasam</li>
-                  <li>Ice Cream with Fruit Salad</li>
-                </ul>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Classic</div>
+                  <ul class="kz-menu-list">
+                    <li>Ice Cream with Fresh Fruit Salad</li>
+                  </ul>
+                </div>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Kerala Payasam</div>
+                  <ul class="kz-menu-list">
+                    <li>Semiya Payasam</li>
+                    <li>Palada Payasam</li>
+                  </ul>
+                </div>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Mango Specials</div>
+                  <ul class="kz-menu-list">
+                    <li>Mango Cream</li>
+                    <li>Mango Lassi</li>
+                  </ul>
+                </div>
+                <div class="kz-menu-group">
+                  <div class="kz-menu-kicker">Premium Dessert Platter</div>
+                  <ul class="kz-menu-list">
+                    <li>Ice Cream</li>
+                    <li>Carrot Halwa</li>
+                    <li>Gulab Jamun</li>
+                    <li>Fresh Fruits</li>
+                  </ul>
+                </div>
               </div>
-              <div class="dish-img"><img src="../images/dessert_trio.png" alt="Kerala desserts" /></div>
+              <div class="dish-img"><img src="../images/dessert_trio.png" alt="Kerala desserts and payasam" /></div>
             </div>
           </div>
+          <p class="kz-menu-banner">Authentic Kerala Flavours · Freshly Prepared · Perfect for Every Occasion</p>
+          <p class="kz-menu-foot">Vegetarian, Vegan &amp; Non-Vegetarian options available. Menu can be customized according to your event, guest preferences and budget.</p>
         </div>
         <div class="col-12 pb-90 pb-md-60 pb-sm-40">
           <div class="link-btn white-btn main-btn d-flex justify-content-center"><a title="Create My Menu"
@@ -452,7 +528,7 @@
       <div class="kz-price-inner">
         <div class="kz-price-copy">
           <div class="sub-title animate-title">Want Something Special?</div>
-          <p>Every event is different. Choose from our menu or let us create a customised Kerala catering menu based on your guests, event style, dietary preferences and budget.</p>
+          <p>Every event is different. Vegetarian, vegan and non-vegetarian options are available. Choose from our menu or let us customise it to your guests, preferences and budget.</p>
           <div class="link-btn white-btn main-btn">
             <a title="Create My Menu" class="btn btn-2 hover-slide-down" href="#enquire"><span>Create My Menu</span></a>
           </div>
