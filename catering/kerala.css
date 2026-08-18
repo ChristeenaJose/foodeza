@@ -41,14 +41,33 @@ body.kz-page {
 
 .kz-page .intro-section h1.title {
   width: 100%;
+  font-size: 58px;
+  letter-spacing: 4px;
+  line-height: 1.05;
 }
 
 .kz-lead {
   color: #fff;
   font-size: 18px;
   line-height: 1.7;
-  max-width: 36rem;
+  max-width: 38rem;
   margin: 12px 0 0;
+}
+
+.kz-promise-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px 36px;
+  margin: 70px 0 20px !important;
+}
+.kz-promise-row .badge-circle {
+  width: 148px;
+  height: 148px;
+  font-size: 15px;
+  line-height: 1.25;
+  padding: 14px;
 }
 
 .kz-menu-list {
@@ -168,6 +187,81 @@ body.kz-page {
   font-size: 28px;
   display: block;
   margin-bottom: 4px;
+}
+
+.kz-serve-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 24px;
+  padding-top: 28px;
+}
+.kz-serve-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border: 5px solid #fff;
+  transition: transform 0.5s ease;
+}
+.kz-serve-card:hover img {
+  transform: scale(1.03);
+}
+.kz-serve-card h3 {
+  font-family: Brume, serif;
+  color: #fff;
+  font-size: 28px;
+  letter-spacing: 1px;
+  margin: 16px 0 8px;
+}
+.kz-serve-card p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0;
+}
+.kz-serve-wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  align-items: center;
+  gap: 0 32px;
+  background: var(--yellow);
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.kz-serve-wide::before {
+  width: 160px;
+  height: 160px;
+  border: 7px dotted var(--red);
+  border-radius: 50%;
+  right: -40px;
+  top: -50px;
+  opacity: 0.28;
+  pointer-events: none;
+}
+.kz-serve-wide img {
+  height: 100%;
+  min-height: 220px;
+  border: 0;
+  border-right: 5px solid #fff;
+}
+.kz-serve-wide:hover img {
+  transform: none;
+}
+.kz-serve-wide h3 {
+  color: var(--red);
+  font-size: 36px;
+  margin: 0 0 10px;
+}
+.kz-serve-wide > div {
+  padding: 28px 32px 28px 0;
+  position: relative;
+  z-index: 1;
+}
+.kz-serve-wide p {
+  color: #1a1a1a;
+  max-width: 40rem;
 }
 
 .kz-occasion-grid {
@@ -451,6 +545,29 @@ body.kz-page {
     flex-wrap: wrap;
     row-gap: 30px;
   }
+  .kz-serve-grid {
+    grid-template-columns: 1fr;
+  }
+  .kz-serve-wide {
+    grid-template-columns: 1fr;
+  }
+  .kz-serve-wide img {
+    min-height: 200px;
+    height: 220px;
+    border-right: 0;
+    border-bottom: 5px solid #fff;
+  }
+  .kz-serve-wide h3,
+  .kz-serve-wide p {
+    padding: 0;
+  }
+  .kz-serve-wide > div {
+    padding: 22px 20px 24px;
+  }
+  .kz-page .intro-section h1.title {
+    font-size: 42px;
+    letter-spacing: 3px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -497,5 +614,20 @@ body.kz-page {
   }
   .kz-how-card {
     max-width: 140px;
+  }
+  .kz-promise-row .badge-circle {
+    width: 132px;
+    height: 132px;
+    font-size: 13px;
+  }
+  .kz-page .intro-section h1.title {
+    font-size: 32px;
+    letter-spacing: 2px;
+  }
+  .kz-serve-card h3 {
+    font-size: 24px;
+  }
+  .kz-serve-wide h3 {
+    font-size: 28px;
   }
 }
