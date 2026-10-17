@@ -23,7 +23,7 @@
     var state = { lines: [] };
     /** Wenn false: nur Artikel mit active !== false im Raster */
     var posMenuShowInactive = false;
-    /** Aktives Menü: Corporate Lunch | Markt & Events */
+    /** Aktives Menü: Lunch | German Market | Kerala Event | German Event */
     var posActiveMenuGroup = (window.POS_PAGE && window.POS_PAGE.menuGroup) || POS_MENU_GROUP_ORDER[0];
 
     function nextId() { return 'L' + Date.now() + Math.random().toString(36).slice(2, 7); }
@@ -40,8 +40,14 @@
       biriyani_group: 'biriyani',
     };
 
-    function menuImageSrc(productId) {
-      var file = POS_IMAGE_FILES[productId] || productId;
+    function menuImageSrc(productOrId) {
+      var id = productOrId;
+      var custom = '';
+      if (productOrId && typeof productOrId === 'object') {
+        id = productOrId.id;
+        custom = productOrId.image || '';
+      }
+      var file = custom || POS_IMAGE_FILES[id] || id;
       return 'images/' + file + '.png';
     }
 
@@ -57,7 +63,7 @@
         b.type = 'button';
         b.className = 'pos-product-btn w-100 h-100' + (p.active === false ? ' pos-product-inactive' : '');
         b.dataset.id = p.id;
-        var imgSrc = menuImageSrc(p.id);
+        var imgSrc = menuImageSrc(p);
         b.innerHTML =
           '<span class="pos-product-thumb-wrap">' +
           '<img class="pos-product-thumb" src="' + escapeHtml(imgSrc) + '" alt="' + escapeHtml(p.name) + '" loading="lazy" decoding="async">' +
@@ -115,6 +121,9 @@
           appendCategorySection(wrap, cat, cats[cat], tmpl);
         });
         if (wrap.children.length) root.appendChild(wrap);
+      }
+      if (!root.children.length) {
+        root.innerHTML = '<p class="text-muted py-4 mb-0">No menu items on this register yet. Use <strong>Custom</strong> for a one-off amount.</p>';
       }
     }
 
@@ -410,7 +419,7 @@
       var footer = document.getElementById('pos-session-footer');
       if (!footer) return;
       try {
-        var log = JSON.parse(sessionStorage.getItem('foodeza_pos_log') || 'null');
+        var log = JSON.parse(sessionStorage.getItem(SESSION_LOG_KEY) || 'null');
         var todayStr = '';
         if (log && log.day === day) {
           todayStr = 'Today: ' + euros(log.totalCents) + ' · ' + log.count + ' sale(s). ';
@@ -428,17 +437,18 @@
       var tot = totalCents();
       var day = new Date().toISOString().slice(0, 10);
       try {
-        var log = JSON.parse(sessionStorage.getItem('foodeza_pos_log') || 'null');
+        var log = JSON.parse(sessionStorage.getItem(SESSION_LOG_KEY) || 'null');
         if (!log || log.day !== day) log = { day: day, totalCents: 0, count: 0 };
         log.totalCents += tot;
         log.count += 1;
-        sessionStorage.setItem('foodeza_pos_log', JSON.stringify(log));
+        sessionStorage.setItem(SESSION_LOG_KEY, JSON.stringify(log));
       } catch (e) { }
       refreshSessionFooter();
     }
 
     /** One logical file: newline-delimited JSON (JSON Lines), single localStorage key */
-    var ORDERS_JSONL_KEY = 'foodeza_pos_orders_jsonl';
+    var ORDERS_JSONL_KEY = (window.POS_PAGE && window.POS_PAGE.ordersKey) || 'foodeza_pos_orders_jsonl';
+    var SESSION_LOG_KEY = (window.POS_PAGE && window.POS_PAGE.sessionKey) || 'foodeza_pos_log';
     var LEGACY_JOURNAL_KEY = 'foodeza_pos_journal_v1';
 
     function migrateLegacyJournalToJsonl() {
