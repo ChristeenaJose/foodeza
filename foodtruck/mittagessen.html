@@ -88,7 +88,7 @@
         <p>Frisches, authentisches Kerala-Essen, schnell serviert für eine belebende Mittagspause in Baden-Württemberg
           und Umgebung.</p>
         <div class="btn-group">
-          <a href="index.html#next-event" class="btn-ft btn-ft-primary">Aktueller Wochenplan</a>
+          <a href="index.html#next-event" class="btn-ft btn-ft-primary">Events</a>
           <a href="https://forms.gle/8ueUUB2KLP9kPpDHA" target="_blank" class="btn-ft btn-ft-secondary">Catering
             anfragen</a>
         </div>
@@ -133,8 +133,7 @@
   <section id="weekly-menu" class="py-5" style="background: white;">
     <div class="container">
       <div class="section-title text-center mb-5 reveal">
-        <h2>Diese Woche auf der Wochenkarte</h2>
-        <p class="text-muted" style="font-size: 1.1rem;">Vorbestellen: Dienstag, 7. Juli — Mittagessen Korntal-Münchingen (Lingwiesenstr. 11/2) · 11:30 – 13:30 Uhr.</p>
+        <h2>This week's weekly menu</h2>
       </div>
 
       <!-- Horizontal Scroll Gallery with ordering -->
@@ -402,7 +401,7 @@
         <h2 style="color: white;">Folgen Sie dem Truck. Genießen Sie die Woche.</h2>
       </div>
       <div class="btn-group justify-content-center mb-5">
-        <a href="index.html#next-event" class="btn-ft btn-ft-primary">Wochenplan ansehen</a>
+        <a href="index.html#next-event" class="btn-ft btn-ft-primary">Events</a>
         <a href="#weekly-menu" class="btn-ft btn-ft-secondary" style="background: transparent; color: white;">Jetzt
           vorbestellen</a>
       </div>
@@ -443,15 +442,6 @@
             <div class="mb-3">
               <label class="form-label small">Name</label>
               <input id="custName" type="text" class="form-control" placeholder="Dein Name">
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label small">Standort</label>
-              <select id="custLocation" class="form-select">
-                <option value="" selected>Bitte w&auml;hlen&hellip;</option>
-                <option value="Lingwiesenstr. 11/2, 70825 Korntal-Münchingen">Korntal-M&uuml;nchingen</option>
-                <option value="Presselstr. 17, 70191, Stuttgart-North">Stuttgart-Nord</option>
-              </select>
             </div>
 
             <div class="mb-3">
@@ -590,16 +580,14 @@
       if (cart.totalItems <= 0) return;
 
       const name = (document.getElementById('custName').value || '').trim();
-      const location = (document.getElementById('custLocation').value || '').trim();
       const pickup = (document.getElementById('pickupTime').value || '').trim();
 
       if (!name) { alert('Bitte Name eingeben.'); return; }
-      if (!location) { alert('Bitte Standort wählen.'); return; }
       if (!pickup) { alert('Bitte Abholzeit wählen.'); return; }
 
       const params = [
         `${LUNCH_FORM_ENTRIES.name}=${encodeURIComponent(name)}`,
-        `${LUNCH_FORM_ENTRIES.location}=${encodeURIComponent(location)}`,
+        `${LUNCH_FORM_ENTRIES.location}=${encodeURIComponent('No location this week')}`,
         `${LUNCH_FORM_ENTRIES.pickup}=${encodeURIComponent(pickup)}`
       ];
 
