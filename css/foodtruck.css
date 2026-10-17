@@ -1319,3 +1319,70 @@ section {
     font-size: 0.9rem;
     min-width: 20px;
 }
+
+/* Foodtruck hub: lunch / market / events + catering */
+.avail-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+.avail-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.avail-card-body {
+    padding: 1.4rem 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.avail-card-body h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+}
+.avail-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    color: #6b7280;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.65rem;
+}
+.avail-meta i {
+    color: #dc3545;
+    margin-top: 0.2rem;
+    width: 1rem;
+    text-align: center;
+}
+.avail-menu {
+    color: #444;
+    font-size: 0.95rem;
+    margin: 0.4rem 0 1.1rem;
+    line-height: 1.45;
+}
+.avail-card-body .btn-ft {
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+}
+.avail-event-line {
+    font-size: 0.92rem;
+    color: #333;
+    margin-bottom: 0.35rem;
+}
+.avail-event-line strong {
+    font-weight: 700;
+}
+#availability,
+#catering-hub {
+    scroll-margin-top: 110px;
+}
