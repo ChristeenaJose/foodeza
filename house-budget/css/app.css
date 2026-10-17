@@ -1,0 +1,120 @@
+:root {
+  --ink: #1f2937;
+  --muted: #64748b;
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --line: rgba(15, 23, 42, 0.08);
+  --income: #15803d;
+  --expense: #b91c1c;
+  --pending: #b45309;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Poppins, system-ui, sans-serif;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #111827;
+  color: #fff;
+  padding: 0.8rem 0;
+}
+
+.topbar h1 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 3rem;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
+}
+
+.stat-card .label {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.stat-card .value {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+
+.stat-income .value { color: var(--income); }
+.stat-expense .value { color: var(--expense); }
+.stat-pending .value { color: var(--pending); }
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.1rem;
+}
+
+.entry-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.entry-row:last-child { border-bottom: 0; }
+
+.badge-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+}
+
+.badge-income { background: #dcfce7; color: #166534; }
+.badge-expense { background: #fee2e2; color: #991b1b; }
+.badge-pending { background: #ffedd5; color: #9a3412; }
+
+.login-box {
+  max-width: 380px;
+  margin: 12vh auto;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr 0.8fr 0.9fr auto;
+  gap: 0.55rem;
+}
+
+@media (max-width: 900px) {
+  .form-grid,
+  .entry-row {
+    grid-template-columns: 1fr;
+  }
+}
